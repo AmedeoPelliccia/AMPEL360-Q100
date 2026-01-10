@@ -131,12 +131,24 @@ When adding content to the OPT-IN Framework:
 
 ## Validation
 
-Use the structure validator to ensure compliance:
+Manual validation can be performed using standard tools:
 
 ```bash
-python tools/ci/optin_structure_validator.py --check
-python tools/ci/optin_structure_validator.py --check --chapter 00
+# Verify directory structure
+tree OPT-IN_FRAMEWORK -L 4
+
+# Count directories and files
+find OPT-IN_FRAMEWORK -type d | wc -l
+find OPT-IN_FRAMEWORK -name "README.md" | wc -l
+
+# Verify SSOT structure for a specific chapter
+ls OPT-IN_FRAMEWORK/O-ORGANIZATIONS/ATA_00-GENERAL/ATA-00-general/00-00-general/SSOT/
+
+# Verify PUB/CSDB structure
+ls OPT-IN_FRAMEWORK/O-ORGANIZATIONS/ATA_00-GENERAL/ATA-00-general/00-00-general/PUB/AMM/CSDB/
 ```
+
+> **Note**: Automated validation tools may be added in future releases.
 
 ---
 
