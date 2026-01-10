@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- S1000D Condition Cross-reference Table (CCT) -->
+<dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <identAndStatusSection>
+    <dmAddress>
+      <dmIdent>
+        <dmCode modelIdentCode="AMPEL360AT" systemDiffCode="A" systemCode="20" 
+                subSystemCode="0" subSubSystemCode="0" assyCode="00" 
+                disassyCode="00" disassyCodeVariant="Q" infoCode="A" 
+                infoCodeVariant="001" itemLocationCode="A"/>
+        <language languageIsoCode="en" countryIsoCode="US"/>
+        <issueInfo issueNumber="001" inWork="00"/>
+      </dmIdent>
+      <dmAddressItems>
+        <issueDate year="2026" month="01" day="10"/>
+        <dmTitle>
+          <techName>Standard Practices Airframe</techName>
+          <infoName>Condition Cross-reference Table</infoName>
+        </dmTitle>
+      </dmAddressItems>
+    </dmAddress>
+  </identAndStatusSection>
+  <content>
+    <condCrossRefTable>
+      <condType id="cond01">
+        <name>Standard Condition</name>
+      </condType>
+    </condCrossRefTable>
+  </content>
+</dmodule>
