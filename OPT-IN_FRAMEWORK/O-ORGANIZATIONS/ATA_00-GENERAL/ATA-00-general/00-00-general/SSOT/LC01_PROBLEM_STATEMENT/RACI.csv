@@ -1,0 +1,21 @@
+KNOT_ID,Activity,R,A,C,I
+KNOT-00-00-001,Define program terminology,STK_CM,STK_CM,STK_SE;STK_AI,STK_CERT;STK_PUB
+KNOT-00-00-001,Review terminology for technical accuracy,STK_SE,STK_CM,STK_CERT,STK_PUB
+KNOT-00-00-001,Publish glossary DM,STK_PUB,STK_CM,STK_DATA,STK_SE
+KNOT-00-00-001,Establish change control process,STK_CM,STK_CM,STK_SE,STK_PUB
+KNOT-00-00-002,Define document ID syntax,STK_CM,STK_CM,STK_DATA;STK_SE,STK_PUB
+KNOT-00-00-002,Specify version control conventions,STK_CM,STK_CM,STK_DATA,STK_SE
+KNOT-00-00-002,Create training materials,STK_PUB,STK_CM,STK_DATA,STK_SE
+KNOT-00-00-002,Validate folder structure rules,STK_DATA,STK_CM,STK_SE,STK_PUB
+KNOT-00-00-003,Define safety labeling requirements,STK_SAF,STK_SAF,STK_CERT;STK_SE,STK_OPS;STK_PUB
+KNOT-00-00-003,Create H₂ hazard symbol library,STK_SAF,STK_SAF,STK_SE,STK_PUB
+KNOT-00-00-003,Review vs ISO 7010 and aerospace standards,STK_SAF,STK_SAF,STK_CERT,STK_SE
+KNOT-00-00-003,Publish safety labeling standard,STK_PUB,STK_SAF,STK_CM,STK_OPS
+KNOT-00-00-004,Define cross-reference requirements,STK_DATA,STK_DATA,STK_SE;STK_CM,STK_CERT
+KNOT-00-00-004,Design URI/reference syntax,STK_DATA,STK_DATA,STK_CM,STK_SE
+KNOT-00-00-004,Create trace matrix template,STK_SE,STK_DATA,STK_CERT,STK_CM
+KNOT-00-00-004,Implement CI validation checks,STK_DATA,STK_DATA,STK_CM,STK_SE
+KNOT-00-00-005,Define unit system conventions,STK_SE,STK_SE,STK_CERT;STK_OPS,STK_PUB
+KNOT-00-00-005,Create conversion tables,STK_SE,STK_SE,STK_CERT,STK_PUB
+KNOT-00-00-005,Document H₂-specific units,STK_SE,STK_SE,STK_SAF,STK_PUB
+KNOT-00-00-005,Publish unit reference DM,STK_PUB,STK_SE,STK_CM,STK_OPS
