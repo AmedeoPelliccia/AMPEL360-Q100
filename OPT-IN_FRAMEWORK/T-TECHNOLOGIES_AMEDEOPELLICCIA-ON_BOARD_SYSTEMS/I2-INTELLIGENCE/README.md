@@ -38,28 +38,28 @@ I2-INTELLIGENCE/
 ├── ATA_95-AI_ML_MODELS/
 │   └── ATA-95-ai-ml-models/
 │       ├── 95-00-general/
-│       ├── 95-10-model-requirements-and-safety-intent/
-│       ├── 95-20-training-and-tuning/
-│       ├── 95-30-verification-and-validation/
-│       ├── 95-40-deployment-runtime-and-inference/
-│       ├── 95-50-monitoring-drift-and-health/
-│       ├── 95-60-data-interfaces-and-buses/
-│       ├── 95-70-toolchain-ci-and-reproducibility/
-│       ├── 95-80-reserved-as-required/
-│       └── 95-90-tables-schemas-index/
+│       ├── 95-10-model-registry-and-metadata/
+│       ├── 95-20-data-and-feature-contracts/
+│       ├── 95-30-training-pipelines-and-reproducibility/
+│       ├── 95-40-evaluation-validation-and-benchmarks/
+│       ├── 95-50-deployment-inference-and-integration/
+│       ├── 95-60-monitoring-drift-and-continued-airworthiness/
+│       ├── 95-70-safety-assurance-and-compliance/
+│       ├── 95-80-exports-packaging-and-delivery/
+│       └── 95-90-schemas-icd-and-catalogs/
 │
 └── ATA_97-SYNTHETIC_DATA_VALIDATION/
     └── ATA-97-synthetic-data-validation/
         ├── 97-00-general/
         ├── 97-10-synthetic-data-generation/
-        ├── 97-20-scenario-coverage-and-edge-cases/
-        ├── 97-30-labeling-truth-and-oracles/
-        ├── 97-40-quality-metrics-and-bias-checks/
-        ├── 97-50-validation-protocols-and-evidence/
-        ├── 97-60-data-packaging-and-release/
-        ├── 97-70-tooling-automation-ci/
-        ├── 97-80-reserved-as-required/
-        └── 97-90-tables-schemas-index/
+        ├── 97-20-scenario-edge-case-and-coverage-model/
+        ├── 97-30-labeling-truth-models-and-annotation/
+        ├── 97-40-validation-statistics-and-quality-gates/
+        ├── 97-50-domain-shift-bias-and-representativeness/
+        ├── 97-60-toolchain-reproducibility-and-provenance/
+        ├── 97-70-safety-use-constraints-and-approval/
+        ├── 97-80-datasets-packaging-and-delivery/
+        └── 97-90-schemas-catalogs-and-checklists/
 ```
 
 ---
