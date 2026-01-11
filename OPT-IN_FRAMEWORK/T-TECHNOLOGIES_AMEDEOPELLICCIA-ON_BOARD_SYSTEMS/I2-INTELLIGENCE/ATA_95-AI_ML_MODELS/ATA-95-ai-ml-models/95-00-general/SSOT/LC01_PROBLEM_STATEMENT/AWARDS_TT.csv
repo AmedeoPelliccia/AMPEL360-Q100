@@ -1,7 +1,5 @@
 timestamp,knot_id,knu_id,contributor_id,contributor_aor,effort_predicted,effort_actual,delta_residual_primary,delta_residual_adjacent_sum,weight,tokens_tt,tokens_deg,complexity_mult,bonus_mult,tx_id,validated_by,authority_alignment
-# ═══════════════════════════════════════════════════════════════════════════════
 # AWARDS_TT.csv — ATA 95-00 AI/ML Models General
-# ═══════════════════════════════════════════════════════════════════════════════
 # This ledger is populated upon KNOT closure with actual TT distributions.
 # Each row represents a reward for a specific KNU contribution.
 #
