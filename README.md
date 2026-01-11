@@ -292,27 +292,13 @@ The OPT-IN Framework organizes all 79 ATA chapters across five axes:
 
 ```
 OPT-IN_FRAMEWORK/
-├── O-ORGANIZATIONS/                    # ATA 00–05
-├── P-PROGRAMS/                         # ATA 06–12
-├── T-TECHNOLOGIES_. ../                 # ATA 20–80 (on-board systems)
-│   ├── A-AIRFRAME_CABINS/
-│   ├── M-MECHANICS/
-│   ├── E1-ENVIRONMENT/
-│   ├── D-DATA/
-│   ├── E2-ENERGY/
-│   ├── E3-ELECTRICS/
-│   ├── L2-LINKS/
-│   ├── C1-COMMS/
-│   ├── C2-CIRCULAR_CRYOGENIC_CELLS/
-│   ├── A2-AVIONICS/
-│   ├── O-OPERATING_SYSTEMS/
-│   └── P-PROPULSION/
-├── I-INFRASTRUCTURES/                  # Ground support / facilities
-└── N-NEURAL_NETWORKS/                  # ATA 95–98 (AI/ML, traceability)
-```
-```
-OPT-IN_FRAMEWORK/
-├── O-ORGANIZATIONS/                                       # ATA 00–05
+├── README.md
+├── 00_INDEX.md
+│
+├── O-ORGANIZATIONS/                                      # ATA 00–05
+│   ├── README.md
+│   ├── 00_INDEX.md
+│   │
 │   ├── ATA_00-GENERAL/
 │   │   └── ATA-00-general/
 │   │       ├── 00-00-general/
@@ -325,6 +311,7 @@ OPT-IN_FRAMEWORK/
 │   │       ├── 00-70-reserved-as-required/
 │   │       ├── 00-80-reserved-as-required/
 │   │       └── 00-90-tables-schemas-index/
+│   │
 │   ├── ATA_01-MAINTENANCE_POLICY/
 │   │   └── ATA-01-maintenance-policy/
 │   │       ├── 01-00-general/
@@ -337,6 +324,7 @@ OPT-IN_FRAMEWORK/
 │   │       ├── 01-70-reserved-as-required/
 │   │       ├── 01-80-reserved-as-required/
 │   │       └── 01-90-tables-schemas-index/
+│   │
 │   ├── ATA_02-OPERATIONS_ORG/
 │   │   └── ATA-02-operations-organization/
 │   │       ├── 02-00-general/
@@ -349,6 +337,7 @@ OPT-IN_FRAMEWORK/
 │   │       ├── 02-70-reserved-as-required/
 │   │       ├── 02-80-reserved-as-required/
 │   │       └── 02-90-tables-schemas-index/
+│   │
 │   ├── ATA_03-SUPPORT_INFORMATION/
 │   │   └── ATA-03-support-information/
 │   │       ├── 03-00-general/
@@ -361,6 +350,7 @@ OPT-IN_FRAMEWORK/
 │   │       ├── 03-70-reserved-as-required/
 │   │       ├── 03-80-reserved-as-required/
 │   │       └── 03-90-tables-schemas-index/
+│   │
 │   ├── ATA_04-AIRWORTHINESS_LIMITATIONS/
 │   │   └── ATA-04-airworthiness-limitations/
 │   │       ├── 04-00-general/
@@ -373,6 +363,7 @@ OPT-IN_FRAMEWORK/
 │   │       ├── 04-70-reserved-as-required/
 │   │       ├── 04-80-reserved-as-required/
 │   │       └── 04-90-tables-schemas-index/
+│   │
 │   └── ATA_05-TIME_LIMITS_MAINT_CHECKS/
 │       └── ATA-05-time-limits-maintenance-checks/
 │           ├── 05-00-general/
@@ -386,7 +377,10 @@ OPT-IN_FRAMEWORK/
 │           ├── 05-80-reserved-as-required/
 │           └── 05-90-tables-schemas-index/
 │
-├── P-PROGRAMS/                                            # ATA 06–12
+├── P-PROGRAMS/                                           # ATA 06–12
+│   ├── README.md
+│   ├── 00_INDEX.md
+│   │
 │   ├── ATA_06-DIMENSIONS_AND_AREAS/
 │   │   └── ATA-06-dimensions-areas/
 │   │       ├── 06-00-general/
@@ -399,6 +393,7 @@ OPT-IN_FRAMEWORK/
 │   │       ├── 06-70-reserved-as-required/
 │   │       ├── 06-80-reserved-as-required/
 │   │       └── 06-90-tables-schemas-index/
+│   │
 │   ├── ATA_07-LIFTING_AND_SHORING/
 │   │   └── ATA-07-lifting-shoring/
 │   │       ├── 07-00-general/
@@ -411,18 +406,13 @@ OPT-IN_FRAMEWORK/
 │   │       ├── 07-70-reserved-as-required/
 │   │       ├── 07-80-reserved-as-required/
 │   │       └── 07-90-tables-schemas-index/
-│   ├── ATA_08-LEVELING_AND_WEIGHING/
+│   │
+│   ├── ATA_08-LEVELING_AND_WEIGHING/                      # PROGRAM scope (no overlay with INFRA)
 │   │   └── ATA-08-leveling-weighing/
 │   │       ├── 08-00-general/
 │   │       ├── 08-10-weighing-balancing/
-│   │       ├── 08-20-leveling/
-│   │       ├── 08-30-reserved-as-required/
-│   │       ├── 08-40-reserved-as-required/
-│   │       ├── 08-50-reserved-as-required/
-│   │       ├── 08-60-reserved-as-required/
-│   │       ├── 08-70-reserved-as-required/
-│   │       ├── 08-80-reserved-as-required/
-│   │       └── 08-90-tables-schemas-index/
+│   │       └── 08-20-leveling/
+│   │
 │   ├── ATA_09-TOWING_AND_TAXIING/
 │   │   └── ATA-09-towing-taxiing/
 │   │       ├── 09-00-general/
@@ -435,6 +425,7 @@ OPT-IN_FRAMEWORK/
 │   │       ├── 09-70-reserved-as-required/
 │   │       ├── 09-80-reserved-as-required/
 │   │       └── 09-90-tables-schemas-index/
+│   │
 │   ├── ATA_10-PARKING_MOORING_STORAGE_RETURN_TO_SERVICE/
 │   │   └── ATA-10-parking-mooring-storage-rts/
 │   │       ├── 10-00-general/
@@ -447,6 +438,7 @@ OPT-IN_FRAMEWORK/
 │   │       ├── 10-70-reserved-as-required/
 │   │       ├── 10-80-reserved-as-required/
 │   │       └── 10-90-tables-schemas-index/
+│   │
 │   ├── ATA_11-PLACARDS_AND_MARKINGS/
 │   │   └── ATA-11-placards-markings/
 │   │       ├── 11-00-general/
@@ -459,6 +451,7 @@ OPT-IN_FRAMEWORK/
 │   │       ├── 11-70-reserved-as-required/
 │   │       ├── 11-80-reserved-as-required/
 │   │       └── 11-90-tables-schemas-index/
+│   │
 │   └── ATA_12-SERVICING/
 │       └── ATA-12-servicing/
 │           ├── 12-00-general/
@@ -473,6 +466,9 @@ OPT-IN_FRAMEWORK/
 │           └── 12-90-tables-schemas-index/
 │
 ├── T-TECHNOLOGIES_AMEDEOPELLICCIA-ON_BOARD_SYSTEMS/
+│   ├── README.md
+│   ├── 00_INDEX.md
+│   │
 │   ├── A-AIRFRAME_CABINS/
 │   │   ├── ATA_20-STANDARD_PRACTICES_AIRFRAME/
 │   │   │   └── ATA-20-standard-practices-airframe/
@@ -485,7 +481,8 @@ OPT-IN_FRAMEWORK/
 │   │   │       ├── 20-60-reserved-as-required/
 │   │   │       ├── 20-70-reserved-as-required/
 │   │   │       ├── 20-80-reserved-as-required/
-│   │   │       └── 20-90-reserved-airline-use/               # (occupies 90-slot)
+│   │   │       └── 20-90-reserved-airline-use/
+│   │   │
 │   │   ├── ATA_25-EQUIPMENT_FURNISHINGS/
 │   │   │   └── ATA-25-equipment-furnishings/
 │   │   │       ├── 25-00-general/
@@ -498,6 +495,7 @@ OPT-IN_FRAMEWORK/
 │   │   │       ├── 25-70-available/
 │   │   │       ├── 25-80-insulation/
 │   │   │       └── 25-90-tables-schemas-index/
+│   │   │
 │   │   ├── ATA_44-CABIN_SYSTEMS/
 │   │   │   └── ATA-44-cabin-systems/
 │   │   │       ├── 44-00-general/
@@ -510,6 +508,7 @@ OPT-IN_FRAMEWORK/
 │   │   │       ├── 44-70-reserved-as-required/
 │   │   │       ├── 44-80-reserved-as-required/
 │   │   │       └── 44-90-tables-schemas-index/
+│   │   │
 │   │   ├── ATA_50-CARGO_AND_ACCESSORY_COMPARTMENTS/
 │   │   │   └── ATA-50-cargo-accessory-compartments/
 │   │   │       ├── 50-00-general/
@@ -522,6 +521,7 @@ OPT-IN_FRAMEWORK/
 │   │   │       ├── 50-70-reserved-as-required/
 │   │   │       ├── 50-80-reserved-as-required/
 │   │   │       └── 50-90-tables-schemas-index/
+│   │   │
 │   │   ├── ATA_51-STANDARD_PRACTICES_GENERAL/
 │   │   │   └── ATA-51-standard-practices-general/
 │   │   │       ├── 51-00-general/
@@ -534,6 +534,7 @@ OPT-IN_FRAMEWORK/
 │   │   │       ├── 51-70-repairs/
 │   │   │       ├── 51-80-electrical-bonding/
 │   │   │       └── 51-90-tables-schemas-index/
+│   │   │
 │   │   ├── ATA_52-DOORS/
 │   │   │   └── ATA-52-doors/
 │   │   │       ├── 52-00-general/
@@ -546,30 +547,33 @@ OPT-IN_FRAMEWORK/
 │   │   │       ├── 52-70-door-warning-monitoring-operation/
 │   │   │       ├── 52-80-landing-gear/
 │   │   │       └── 52-90-tables-schemas-index/
+│   │   │
 │   │   ├── ATA_53-FUSELAGE/
 │   │   │   └── ATA-53-fuselage/
 │   │   │       ├── 53-00-general/
-│   │   │       ├── 53-10-fuselage-section-as-required/
-│   │   │       ├── 53-20-fuselage-section-as-required/
-│   │   │       ├── 53-30-fuselage-section-as-required/
-│   │   │       ├── 53-40-fuselage-section-as-required/
-│   │   │       ├── 53-50-fuselage-section-as-required/
-│   │   │       ├── 53-60-fuselage-section-as-required/
-│   │   │       ├── 53-70-fuselage-section-as-required/
-│   │   │       ├── 53-80-fuselage-section-as-required/
-│   │   │       └── 53-90-fuselage-section-as-required/        # (occupies 90-slot)
+│   │   │       ├── 53-10-fuselage-sections-as-required/
+│   │   │       ├── 53-20-fuselage-sections-as-required/
+│   │   │       ├── 53-30-fuselage-sections-as-required/
+│   │   │       ├── 53-40-fuselage-sections-as-required/
+│   │   │       ├── 53-50-fuselage-sections-as-required/
+│   │   │       ├── 53-60-fuselage-sections-as-required/
+│   │   │       ├── 53-70-fuselage-sections-as-required/
+│   │   │       ├── 53-80-fuselage-sections-as-required/
+│   │   │       └── 53-90-tables-schemas-index/
+│   │   │
 │   │   ├── ATA_54-NACELLES_PYLONS/
 │   │   │   └── ATA-54-nacelles-pylons/
 │   │   │       ├── 54-00-general/
-│   │   │       ├── 54-10-nacelle-section-as-required/
-│   │   │       ├── 54-20-nacelle-section-as-required/
-│   │   │       ├── 54-30-nacelle-section-as-required/
-│   │   │       ├── 54-40-nacelle-section-as-required/
-│   │   │       ├── 54-50-pylon-section-as-required/
-│   │   │       ├── 54-60-pylon-section-as-required/
-│   │   │       ├── 54-70-pylon-section-as-required/
-│   │   │       ├── 54-80-pylon-section-as-required/
+│   │   │       ├── 54-10-nacelle-sections-as-required/
+│   │   │       ├── 54-20-nacelle-sections-as-required/
+│   │   │       ├── 54-30-nacelle-sections-as-required/
+│   │   │       ├── 54-40-nacelle-sections-as-required/
+│   │   │       ├── 54-50-pylon-sections-as-required/
+│   │   │       ├── 54-60-pylon-sections-as-required/
+│   │   │       ├── 54-70-pylon-sections-as-required/
+│   │   │       ├── 54-80-pylon-sections-as-required/
 │   │   │       └── 54-90-tables-schemas-index/
+│   │   │
 │   │   ├── ATA_55-STABILIZERS/
 │   │   │   └── ATA-55-stabilizers/
 │   │   │       ├── 55-00-general/
@@ -582,6 +586,7 @@ OPT-IN_FRAMEWORK/
 │   │   │       ├── 55-70-reserved-as-required/
 │   │   │       ├── 55-80-reserved-as-required/
 │   │   │       └── 55-90-tables-schemas-index/
+│   │   │
 │   │   ├── ATA_56-WINDOWS/
 │   │   │   └── ATA-56-windows/
 │   │   │       ├── 56-00-general/
@@ -594,6 +599,7 @@ OPT-IN_FRAMEWORK/
 │   │   │       ├── 56-70-reserved-as-required/
 │   │   │       ├── 56-80-reserved-as-required/
 │   │   │       └── 56-90-tables-schemas-index/
+│   │   │
 │   │   └── ATA_57-WINGS/
 │   │       └── ATA-57-wings/
 │   │           ├── 57-00-general/
@@ -604,8 +610,9 @@ OPT-IN_FRAMEWORK/
 │   │           ├── 57-50-trailing-edge-and-devices/
 │   │           ├── 57-60-ailerons-and-elevons/
 │   │           ├── 57-70-spoilers/
-│   │           ├── 57-80-as-required/
-│   │           └── 57-90-wing-folding-system/                 # (occupies 90-slot)
+│   │           ├── 57-80-reserved-as-required/
+│   │           ├── 57-90-wing-folding-system/
+│   │           └── 57-95-reserved-as-required/
 │   │
 │   ├── M-MECHANICS/
 │   │   ├── ATA_27-FLIGHT_CONTROLS/
@@ -620,6 +627,7 @@ OPT-IN_FRAMEWORK/
 │   │   │       ├── 27-70-gust-lock-dampener/
 │   │   │       ├── 27-80-lift-augmenting/
 │   │   │       └── 27-90-tables-schemas-index/
+│   │   │
 │   │   ├── ATA_29-HYDRAULIC_POWER/
 │   │   │   └── ATA-29-hydraulic-power/
 │   │   │       ├── 29-00-general/
@@ -632,6 +640,7 @@ OPT-IN_FRAMEWORK/
 │   │   │       ├── 29-70-reserved-as-required/
 │   │   │       ├── 29-80-reserved-as-required/
 │   │   │       └── 29-90-tables-schemas-index/
+│   │   │
 │   │   └── ATA_32-LANDING_GEAR/
 │   │       └── ATA-32-landing-gear/
 │   │           ├── 32-00-general/
@@ -658,6 +667,7 @@ OPT-IN_FRAMEWORK/
 │   │   │       ├── 21-70-moisture-air-contaminant-control/
 │   │   │       ├── 21-80-reserved-as-required/
 │   │   │       └── 21-90-tables-schemas-index/
+│   │   │
 │   │   ├── ATA_26-FIRE_PROTECTION/
 │   │   │   └── ATA-26-fire-protection/
 │   │   │       ├── 26-00-general/
@@ -670,6 +680,7 @@ OPT-IN_FRAMEWORK/
 │   │   │       ├── 26-70-reserved-as-required/
 │   │   │       ├── 26-80-reserved-as-required/
 │   │   │       └── 26-90-tables-schemas-index/
+│   │   │
 │   │   ├── ATA_30-ICE_RAIN_PROTECTION/
 │   │   │   └── ATA-30-ice-rain-protection/
 │   │   │       ├── 30-00-general/
@@ -682,6 +693,7 @@ OPT-IN_FRAMEWORK/
 │   │   │       ├── 30-70-water-lines/
 │   │   │       ├── 30-80-detection/
 │   │   │       └── 30-90-tables-schemas-index/
+│   │   │
 │   │   ├── ATA_35-OXYGEN/
 │   │   │   └── ATA-35-oxygen/
 │   │   │       ├── 35-00-general/
@@ -694,6 +706,7 @@ OPT-IN_FRAMEWORK/
 │   │   │       ├── 35-70-reserved-as-required/
 │   │   │       ├── 35-80-reserved-as-required/
 │   │   │       └── 35-90-tables-schemas-index/
+│   │   │
 │   │   ├── ATA_36-PNEUMATIC/
 │   │   │   └── ATA-36-pneumatic/
 │   │   │       ├── 36-00-general/
@@ -706,6 +719,7 @@ OPT-IN_FRAMEWORK/
 │   │   │       ├── 36-70-reserved-as-required/
 │   │   │       ├── 36-80-reserved-as-required/
 │   │   │       └── 36-90-tables-schemas-index/
+│   │   │
 │   │   ├── ATA_37-VACUUM/
 │   │   │   └── ATA-37-vacuum/
 │   │   │       ├── 37-00-general/
@@ -718,6 +732,7 @@ OPT-IN_FRAMEWORK/
 │   │   │       ├── 37-70-reserved-as-required/
 │   │   │       ├── 37-80-reserved-as-required/
 │   │   │       └── 37-90-tables-schemas-index/
+│   │   │
 │   │   ├── ATA_38-WATER_WASTE/
 │   │   │   └── ATA-38-water-waste/
 │   │   │       ├── 38-00-general/
@@ -730,6 +745,7 @@ OPT-IN_FRAMEWORK/
 │   │   │       ├── 38-70-reserved-as-required/
 │   │   │       ├── 38-80-reserved-as-required/
 │   │   │       └── 38-90-tables-schemas-index/
+│   │   │
 │   │   └── ATA_47-NITROGEN_GENERATION_SYSTEM/
 │   │       └── ATA-47-nitrogen-generation/
 │   │           ├── 47-00-general/
@@ -756,20 +772,26 @@ OPT-IN_FRAMEWORK/
 │   │   │       ├── 31-70-automatic-data-reporting-systems/
 │   │   │       ├── 31-80-reserved-as-required/
 │   │   │       └── 31-90-tables-schemas-index/
-│   │   ├── ATA_45-CENTRAL_MAINTENANCE_SYSTEM_CMS/
-│   │   │   └── ATA-45-central-maintenance-system/
-│   │   │       ├── 45-00-general/
-│   │   │       ├── 45-05-cms-aircraft-general/
-│   │   │       ├── 45-10-reserved-as-required/
-│   │   │       ├── 45-20-cms-airframe-systems/
-│   │   │       ├── 45-30-reserved-as-required/
-│   │   │       ├── 45-40-reserved-as-required/
-│   │   │       ├── 45-45-central-maintenance-system/
-│   │   │       ├── 45-50-cms-structures/
-│   │   │       ├── 45-60-cms-propellers/
-│   │   │       ├── 45-70-cms-power-plant/
-│   │   │       ├── 45-80-reserved-as-required/
-│   │   │       └── 45-90-tables-schemas-index/
+│   │   │
+│   │   └── ATA_45-CENTRAL_MAINTENANCE_SYSTEM_CMS/
+│   │       └── ATA-45-central-maintenance-system/
+│   │           ├── 45-00-general/
+│   │           ├── 45-05-cms-aircraft-general/
+│   │           ├── 45-10-reserved-as-required/
+│   │           ├── 45-20-cms-airframe-systems/
+│   │           ├── 45-30-reserved-as-required/
+│   │           ├── 45-40-reserved-as-required/
+│   │           ├── 45-45-central-maintenance-system/
+│   │           ├── 45-50-cms-structures/
+│   │           ├── 45-60-cms-propellers/
+│   │           ├── 45-70-cms-power-plant/
+│   │           ├── 45-80-reserved-as-required/
+│   │           └── 45-90-tables-schemas-index/
+│   │
+│   ├── I-INFORMATION/                                     # ATA 46 moved here
+│   │   ├── README.md
+│   │   ├── 00_INDEX.md
+│   │   ├── 00-00-general/
 │   │   └── ATA_46-INFORMATION_SYSTEMS/
 │   │       └── ATA-46-information-systems/
 │   │           ├── 46-00-general/
@@ -796,6 +818,7 @@ OPT-IN_FRAMEWORK/
 │   │   │       ├── 24-70-reserved-as-required/
 │   │   │       ├── 24-80-reserved-as-required/
 │   │   │       └── 24-90-tables-schemas-index/
+│   │   │
 │   │   └── ATA_49-AIRBORNE_AUXILIARY_POWER_APU/
 │   │       └── ATA-49-airborne-auxiliary-power/
 │   │           ├── 49-00-general/
@@ -807,7 +830,7 @@ OPT-IN_FRAMEWORK/
 │   │           ├── 49-60-engine-controls/
 │   │           ├── 49-70-indicating/
 │   │           ├── 49-80-exhaust/
-│   │           └── 49-90-oil/                               # (occupies 90-slot)
+│   │           └── 49-90-oil/
 │   │
 │   ├── E3-ELECTRICS/
 │   │   ├── ATA_33-LIGHTS/
@@ -822,6 +845,7 @@ OPT-IN_FRAMEWORK/
 │   │   │       ├── 33-70-reserved-as-required/
 │   │   │       ├── 33-80-reserved-as-required/
 │   │   │       └── 33-90-tables-schemas-index/
+│   │   │
 │   │   └── ATA_39-ELECTRICAL_ELECTRONIC_PANELS_MULTIPURPOSE_COMPONENTS/
 │   │       └── ATA-39-electrical-electronic-panels-components/
 │   │           ├── 39-00-general/
@@ -834,6 +858,13 @@ OPT-IN_FRAMEWORK/
 │   │           ├── 39-70-reserved-as-required/
 │   │           ├── 39-80-reserved-as-required/
 │   │           └── 39-90-tables-schemas-index/
+│   │
+│   ├── L1-LOGICS/                                         # RESERVED ONLY
+│   │   ├── README.md
+│   │   ├── 00_INDEX.md
+│   │   └── 00_RESERVED_AS_REQUIRED/
+│   │       ├── 00-00-general/
+│   │       └── 00-90-tables-schemas-index/
 │   │
 │   ├── L2-LINKS/
 │   │   └── ATA_34-NAVIGATION/
@@ -878,6 +909,36 @@ OPT-IN_FRAMEWORK/
 │   │           ├── 28-80-reserved-as-required/
 │   │           └── 28-90-tables-schemas-index/
 │   │
+│   ├── I2-INTELLIGENCE/                                   # ATA 95 + 97 moved here
+│   │   ├── README.md
+│   │   ├── 00_INDEX.md
+│   │   ├── 00-00-general/
+│   │   ├── ATA_95-AI_ML_MODELS/
+│   │   │   └── ATA-95-ai-ml-models/
+│   │   │       ├── 95-00-general/
+│   │   │       ├── 95-10-model-requirements-and-safety-intent/
+│   │   │       ├── 95-20-training-and-tuning/
+│   │   │       ├── 95-30-verification-and-validation/
+│   │   │       ├── 95-40-deployment-runtime-and-inference/
+│   │   │       ├── 95-50-monitoring-drift-and-health/
+│   │   │       ├── 95-60-data-interfaces-and-buses/
+│   │   │       ├── 95-70-toolchain-ci-and-reproducibility/
+│   │   │       ├── 95-80-reserved-as-required/
+│   │   │       └── 95-90-tables-schemas-index/
+│   │   │
+│   │   └── ATA_97-SYNTHETIC_DATA_VALIDATION/
+│   │       └── ATA-97-synthetic-data-validation/
+│   │           ├── 97-00-general/
+│   │           ├── 97-10-synthetic-data-generation/
+│   │           ├── 97-20-scenario-coverage-and-edge-cases/
+│   │           ├── 97-30-labeling-truth-and-oracles/
+│   │           ├── 97-40-quality-metrics-and-bias-checks/
+│   │           ├── 97-50-validation-protocols-and-evidence/
+│   │           ├── 97-60-data-packaging-and-release/
+│   │           ├── 97-70-tooling-automation-ci/
+│   │           ├── 97-80-reserved-as-required/
+│   │           └── 97-90-tables-schemas-index/
+│   │
 │   ├── A2-AVIONICS/
 │   │   ├── ATA_22-AUTO_FLIGHT/
 │   │   │   └── ATA-22-auto-flight/
@@ -891,6 +952,7 @@ OPT-IN_FRAMEWORK/
 │   │   │       ├── 22-70-reserved-as-required/
 │   │   │       ├── 22-80-reserved-as-required/
 │   │   │       └── 22-90-tables-schemas-index/
+│   │   │
 │   │   └── ATA_42-INTEGRATED_MODULAR_AVIONICS/
 │   │       └── ATA-42-integrated-modular-avionics/
 │   │           ├── 42-00-general/
@@ -931,6 +993,7 @@ OPT-IN_FRAMEWORK/
 │       │       ├── 60-70-reserved-as-required/
 │       │       ├── 60-80-reserved-as-required/
 │       │       └── 60-90-tables-schemas-index/
+│       │
 │       ├── ATA_61-PROPELLERS_PROPULSORS/
 │       │   └── ATA-61-propellers-propulsors/
 │       │       ├── 61-00-general/
@@ -943,6 +1006,7 @@ OPT-IN_FRAMEWORK/
 │       │       ├── 61-70-reserved-as-required/
 │       │       ├── 61-80-reserved-as-required/
 │       │       └── 61-90-tables-schemas-index/
+│       │
 │       ├── ATA_71-POWER_PLANT/
 │       │   └── ATA-71-power-plant/
 │       │       ├── 71-00-general/
@@ -955,6 +1019,7 @@ OPT-IN_FRAMEWORK/
 │       │       ├── 71-70-engine-drains/
 │       │       ├── 71-80-reserved-as-required/
 │       │       └── 71-90-tables-schemas-index/
+│       │
 │       ├── ATA_72-ENGINE_TURBINE_TURBOPROP_DUCTED_UNDUCTED_FAN/
 │       │   └── ATA-72-engine/
 │       │       ├── 72-00-general/
@@ -967,6 +1032,7 @@ OPT-IN_FRAMEWORK/
 │       │       ├── 72-70-by-pass-section/
 │       │       ├── 72-80-propulsor-section-rear-mounted/
 │       │       └── 72-90-tables-schemas-index/
+│       │
 │       ├── ATA_73-ENGINE_FUEL_AND_CONTROL/
 │       │   └── ATA-73-engine-fuel-control/
 │       │       ├── 73-00-general/
@@ -979,6 +1045,7 @@ OPT-IN_FRAMEWORK/
 │       │       ├── 73-70-reserved-as-required/
 │       │       ├── 73-80-reserved-as-required/
 │       │       └── 73-90-tables-schemas-index/
+│       │
 │       ├── ATA_74-IGNITION/
 │       │   └── ATA-74-ignition/
 │       │       ├── 74-00-general/
@@ -991,6 +1058,7 @@ OPT-IN_FRAMEWORK/
 │       │       ├── 74-70-reserved-as-required/
 │       │       ├── 74-80-reserved-as-required/
 │       │       └── 74-90-tables-schemas-index/
+│       │
 │       ├── ATA_75-AIR/
 │       │   └── ATA-75-air/
 │       │       ├── 75-00-general/
@@ -1003,6 +1071,7 @@ OPT-IN_FRAMEWORK/
 │       │       ├── 75-70-reserved-as-required/
 │       │       ├── 75-80-reserved-as-required/
 │       │       └── 75-90-tables-schemas-index/
+│       │
 │       ├── ATA_76-ENGINE_CONTROLS/
 │       │   └── ATA-76-engine-controls/
 │       │       ├── 76-00-general/
@@ -1015,6 +1084,7 @@ OPT-IN_FRAMEWORK/
 │       │       ├── 76-70-reserved-as-required/
 │       │       ├── 76-80-reserved-as-required/
 │       │       └── 76-90-tables-schemas-index/
+│       │
 │       ├── ATA_77-ENGINE_INDICATING/
 │       │   └── ATA-77-engine-indicating/
 │       │       ├── 77-00-general/
@@ -1027,6 +1097,7 @@ OPT-IN_FRAMEWORK/
 │       │       ├── 77-70-reserved-as-required/
 │       │       ├── 77-80-reserved-as-required/
 │       │       └── 77-90-tables-schemas-index/
+│       │
 │       ├── ATA_78-EXHAUST/
 │       │   └── ATA-78-exhaust/
 │       │       ├── 78-00-general/
@@ -1039,6 +1110,7 @@ OPT-IN_FRAMEWORK/
 │       │       ├── 78-70-reserved-as-required/
 │       │       ├── 78-80-reserved-as-required/
 │       │       └── 78-90-tables-schemas-index/
+│       │
 │       ├── ATA_79-OIL/
 │       │   └── ATA-79-oil/
 │       │       ├── 79-00-general/
@@ -1051,6 +1123,7 @@ OPT-IN_FRAMEWORK/
 │       │       ├── 79-70-reserved-as-required/
 │       │       ├── 79-80-reserved-as-required/
 │       │       └── 79-90-tables-schemas-index/
+│       │
 │       └── ATA_80-STARTING/
 │           └── ATA-80-starting/
 │               ├── 80-00-general/
@@ -1064,9 +1137,10 @@ OPT-IN_FRAMEWORK/
 │               ├── 80-80-reserved-as-required/
 │               └── 80-90-tables-schemas-index/
 │
-├── I-INFRASTRUCTURES/                                     # Ground support / facilities / logistics enablement
+├── I-INFRASTRUCTURES/                                     # Ground support / H₂ logistics / facilities
 │   ├── README.md
 │   ├── 00_INDEX.md
+│   │
 │   ├── ATA_03-SUPPORT_INFRA/
 │   │   └── ATA-03-support-infra/
 │   │       ├── 03-00-general/
@@ -1079,7 +1153,8 @@ OPT-IN_FRAMEWORK/
 │   │       ├── 03-70-reserved-as-required/
 │   │       ├── 03-80-reserved-as-required/
 │   │       └── 03-90-tables-schemas-index/
-│   ├── ATA_08-LEVELING_AND_WEIGHING_INFRA/                # complementary-only
+│   │
+│   ├── ATA_08-LEVELING_AND_WEIGHING_INFRA/                 # complementary only (not in P-PROGRAMS)
 │   │   └── ATA-08-leveling-weighing-infra/
 │   │       ├── 08-30-gse-equipment-and-tooling/
 │   │       ├── 08-40-metrology-calibration-and-certificates/
@@ -1088,6 +1163,7 @@ OPT-IN_FRAMEWORK/
 │   │       ├── 08-70-training-competency-and-authorization/
 │   │       ├── 08-80-digital-logs-traceability-and-data-exports/
 │   │       └── 08-90-tables-schemas-index/
+│   │
 │   ├── ATA_10-PARKING_MOORING_STORAGE_RTS_INFRA/
 │   │   └── ATA-10-parking-mooring-storage-rts-infra/
 │   │       ├── 10-00-general/
@@ -1100,6 +1176,7 @@ OPT-IN_FRAMEWORK/
 │   │       ├── 10-70-reserved-as-required/
 │   │       ├── 10-80-reserved-as-required/
 │   │       └── 10-90-tables-schemas-index/
+│   │
 │   ├── ATA_12-SERVICING_INFRA/
 │   │   └── ATA-12-servicing-infra/
 │   │       ├── 12-00-general/
@@ -1112,7 +1189,8 @@ OPT-IN_FRAMEWORK/
 │   │       ├── 12-70-reserved-as-required/
 │   │       ├── 12-80-reserved-as-required/
 │   │       └── 12-90-tables-schemas-index/
-│   ├── ATA_85-FUEL_CELL_SYSTEMS_INFRA/
+│   │
+│   ├── ATA_85-FUEL_CELL_SYSTEMS_INFRA/                     # enablement only (rigs/facilities/training/data)
 │   │   └── ATA-85-fuel-cell-systems-infra/
 │   │       ├── 85-00-general/
 │   │       ├── 85-10-test-rigs-and-bench-infrastructure/
@@ -1124,56 +1202,37 @@ OPT-IN_FRAMEWORK/
 │   │       ├── 85-70-training-qualification-and-cert-support/
 │   │       ├── 85-80-digital-traceability-dpp-and-data-exports/
 │   │       └── 85-90-tables-schemas-index/
-│   └── IN_H2_GSE_AND_SUPPLY_CHAIN/                        # non-ATA infra namespace (IN-XX-YY pattern)
-│       └── IN-h2-gse-supply-chain/
-│           ├── IN-00-00-general/
-│           ├── IN-10-00-h2-production-and-sourcing/
-│           ├── IN-20-00-liquefaction-compression-and-storage/
-│           ├── IN-30-00-transport-logistics-and-delivery/
-│           ├── IN-40-00-airport-facilities-civil-works-and-permits/
-│           ├── IN-50-00-h2-gse-couplings-hoses-interfaces/
-│           ├── IN-60-00-safety-zoning-emergency-response/
-│           ├── IN-70-00-quality-assurance-sampling-and-metering/
-│           ├── IN-80-00-digital-traceability-dpp-and-audit/
-│           └── IN-90-00-tables-schemas-index/
+│   │
+│   └── ATA_IN_H2_GSE_AND_SUPPLY_CHAIN/                     # non-ATA infra namespace using IN-XX pattern
+│       └── ATA-IN-h2-gse-supply-chain/
+│           ├── IN-00-general/
+│           ├── IN-10-h2-production-and-sourcing/
+│           ├── IN-20-liquefaction-compression-and-storage/
+│           ├── IN-30-transport-logistics-and-delivery/
+│           ├── IN-40-airport-facilities-civil-works-and-permits/
+│           ├── IN-50-h2-gse-couplings-hoses-interfaces/
+│           ├── IN-60-safety-zoning-emergency-response/
+│           ├── IN-70-quality-assurance-sampling-and-metering/
+│           ├── IN-80-digital-traceability-dpp-and-audit/
+│           └── IN-90-tables-schemas-index/
 │
-└── N-NEURAL_NETWORKS/                                     # ATA-like 95–98 (same XX-YY section pattern)
-    ├── ATA_95-AI_ML_MODELS/
-    │   └── ATA-95-ai-ml-models/
-    │       ├── 95-00-general/
-    │       ├── 95-10-datasets-and-labeling/
-    │       ├── 95-20-training-and-experiment-tracking/
-    │       ├── 95-30-inference-and-deployment/
-    │       ├── 95-40-mlops-ci-cd-and-reproducibility/
-    │       ├── 95-50-monitoring-drift-and-performance/
-    │       ├── 95-60-model-governance-and-approvals/
-    │       ├── 95-70-safety-assurance-and-do178-alignment/
-    │       ├── 95-80-tools-and-accelerators/
-    │       └── 95-90-tables-schemas-index/
+└── N-NEURAL_NETWORKS/                                     # governance + ledger (transversal)
+    ├── README.md
+    ├── 00_INDEX.md
+    │
     ├── ATA_96-TRACEABILITY_DPP_LEDGER/
     │   └── ATA-96-traceability-dpp-ledger/
     │       ├── 96-00-general/
-    │       ├── 96-10-identifier-grammar-and-namespaces/
-    │       ├── 96-20-ledger-model-and-hash-chains/
-    │       ├── 96-30-dpp-structures-and-effectivity/
-    │       ├── 96-40-sbom-slsom-and-attestations/
-    │       ├── 96-50-change-control-and-baselines/
-    │       ├── 96-60-audit-evidence-and-signoffs/
-    │       ├── 96-70-export-packaging-and-interchange/
-    │       ├── 96-80-integrations-plm-mro-csdb/
+    │       ├── 96-10-identifier-grammar-namespaces/
+    │       ├── 96-20-schema-registry-and-canonical-models/
+    │       ├── 96-30-ledger-anchoring-hash-chain/
+    │       ├── 96-40-dpp-sbom-and-config-effectivity/
+    │       ├── 96-50-audit-evidence-packs-and-signoffs/
+    │       ├── 96-60-export-publishing-contracts/
+    │       ├── 96-70-governance-policies-and-rules/
+    │       ├── 96-80-security-privacy-and-access-control/
     │       └── 96-90-tables-schemas-index/
-    ├── ATA_97-SYNTHETIC_DATA_VALIDATION/
-    │   └── ATA-97-synthetic-data-validation/
-    │       ├── 97-00-general/
-    │       ├── 97-10-synthetic-data-generation/
-    │       ├── 97-20-edge-cases-and-coverage-metrics/
-    │       ├── 97-30-validation-protocols-and-ground-truth/
-    │       ├── 97-40-bias-leakage-and-quality-gates/
-    │       ├── 97-50-simulation-parquet-and-pipelines/
-    │       ├── 97-60-certifiable-evidence-packs/
-    │       ├── 97-70-tool-qualification-and-controls/
-    │       ├── 97-80-consumer-guides-and-onboarding/
-    │       └── 97-90-tables-schemas-index/
+    │
     └── ATA_98-RESERVED_PROGRAM_SLOT/
         └── ATA-98-program-slot/
             ├── 98-00-general/
