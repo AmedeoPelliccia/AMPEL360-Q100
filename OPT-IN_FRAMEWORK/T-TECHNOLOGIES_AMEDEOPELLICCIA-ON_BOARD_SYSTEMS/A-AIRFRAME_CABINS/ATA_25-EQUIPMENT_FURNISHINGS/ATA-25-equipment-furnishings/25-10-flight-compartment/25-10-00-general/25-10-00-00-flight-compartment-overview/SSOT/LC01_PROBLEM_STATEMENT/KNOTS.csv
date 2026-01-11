@@ -1,0 +1,4 @@
+knot_id,title,description,uncertainty_type,priority,status,created_date,target_closure_date
+KNOT-ATA25-10-00-001,Flight Compartment Layout,Define flight crew compartment layout for BWB configuration,Requirement,High,OPEN,2026-01-11,2026-03-01
+KNOT-ATA25-10-00-002,Pilot Seat Integration,Integrate pilot seats with hydrogen-electric power systems,Technical,High,OPEN,2026-01-11,2026-04-01
+KNOT-ATA25-10-00-003,Flight Deck Ergonomics,Define ergonomic requirements for distributed propulsion displays,Human Factors,High,OPEN,2026-01-11,2026-03-15

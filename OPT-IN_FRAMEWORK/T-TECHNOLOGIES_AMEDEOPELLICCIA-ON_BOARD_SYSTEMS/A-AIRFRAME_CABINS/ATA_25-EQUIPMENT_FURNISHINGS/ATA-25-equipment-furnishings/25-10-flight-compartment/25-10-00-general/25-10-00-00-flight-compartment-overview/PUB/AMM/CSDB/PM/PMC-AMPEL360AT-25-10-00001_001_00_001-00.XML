@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- S1000D Publication Module -->
+<pm xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <identAndStatusSection>
+    <pmAddress>
+      <pmIdent>
+        <pmCode modelIdentCode="AMPEL360AT" pmIssuer="00001" pmNumber="00001" pmVolume="00"/>
+        <language languageIsoCode="en" countryIsoCode="US"/>
+        <issueInfo issueNumber="001" inWork="00"/>
+      </pmIdent>
+      <pmAddressItems>
+        <issueDate year="2026" month="01" day="11"/>
+        <pmTitle>Flight Compartment - Publication Module</pmTitle>
+      </pmAddressItems>
+    </pmAddress>
+  </identAndStatusSection>
+  <content>
+    <pmEntry>
+      <pmEntryTitle>ATA 25-10 - Flight Compartment</pmEntryTitle>
+    </pmEntry>
+  </content>
+</pm>

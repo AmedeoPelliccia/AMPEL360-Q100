@@ -1,0 +1,5 @@
+task_id,task_description,responsible,accountable,consulted,informed
+TASK-001,Define flight compartment layout,Cabin Layout Engineer,Chief Engineer,Chief Pilot,Program Management
+TASK-002,Pilot seat power integration,Electrical Systems Engineer,Power Systems Lead,Seat Supplier,Certification Team
+TASK-003,Ergonomic assessment,Human Factors Engineer,Certification Lead,Chief Pilot,Regulatory Affairs
+TASK-004,Create S1000D data modules,Technical Author,Documentation Lead,Flight Crew,Configuration Management

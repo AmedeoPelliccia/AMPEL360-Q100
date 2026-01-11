@@ -1,0 +1,31 @@
+# AMPEL360 Q100 - Tokenomics for Technology Transition (TT)
+# ATA 25-00-00-00 Equipment and Furnishings Overview
+
+node_id: ATA25-00-00-00
+node_name: Equipment and Furnishings Overview
+total_tt_allocation: 12000
+
+phase_allocation:
+  problem_statement: 5%
+  requirements: 15%
+  safety_analysis: 15%
+  design_definition: 20%
+  verification: 15%
+  publication: 15%
+  closure_bonus: 15%
+
+role_weights:
+  responsible: 0.40
+  accountable: 0.25
+  consulted: 0.20
+  informed: 0.15
+
+quality_factors:
+  on_time_delivery: 1.2
+  first_pass_acceptance: 1.3
+  innovation_contribution: 1.5
+
+governance:
+  approval_authority: Program Manager
+  review_cadence: Weekly
+  escalation_path: Chief Engineer

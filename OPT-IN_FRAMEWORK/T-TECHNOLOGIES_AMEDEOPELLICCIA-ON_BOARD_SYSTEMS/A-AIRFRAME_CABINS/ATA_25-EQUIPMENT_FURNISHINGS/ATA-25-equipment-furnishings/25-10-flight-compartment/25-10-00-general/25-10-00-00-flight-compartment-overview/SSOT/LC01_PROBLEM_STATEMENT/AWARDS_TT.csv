@@ -1,0 +1,6 @@
+award_id,knu_ref,recipient_role,recipient_id,tt_amount,quality_multiplier,final_amount,award_date,status
+AWARD-001,KNU-ATA25-10-00-REQ-001,Responsible,CLE-001,750,1.0,750,,PENDING
+AWARD-002,KNU-ATA25-10-00-REQ-001,Accountable,CHE-001,450,1.0,450,,PENDING
+AWARD-003,KNU-ATA25-10-00-ICD-001,Responsible,ESE-001,900,1.0,900,,PENDING
+AWARD-004,KNU-ATA25-10-00-HF-001,Responsible,HFE-001,750,1.0,750,,PENDING
+AWARD-005,KNU-ATA25-10-00-PUB-DM-001,Responsible,TA-001,600,1.0,600,,PENDING

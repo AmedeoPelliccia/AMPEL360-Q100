@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- S1000D Data Module: Standard Practices Overview -->
+<dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <identAndStatusSection>
+    <dmAddress>
+      <dmIdent>
+        <dmCode modelIdentCode="AMPEL360AT" systemDiffCode="A" systemCode="20" 
+                subSystemCode="0" subSubSystemCode="0" assyCode="00" 
+                disassyCode="04" disassyCodeVariant="0A" infoCode="A" 
+                infoCodeVariant="0001" itemLocationCode="A"/>
+        <language languageIsoCode="en" countryIsoCode="US"/>
+        <issueInfo issueNumber="001" inWork="00"/>
+      </dmIdent>
+      <dmAddressItems>
+        <issueDate year="2026" month="01" day="10"/>
+        <dmTitle>
+          <techName>Standard Practices Airframe</techName>
+          <infoName>Overview</infoName>
+        </dmTitle>
+      </dmAddressItems>
+    </dmAddress>
+  </identAndStatusSection>
+  <content>
+    <description>
+      <para>This data module provides an overview of standard practices for the AMPEL360 Q100 airframe.</para>
+    </description>
+  </content>
+</dmodule>

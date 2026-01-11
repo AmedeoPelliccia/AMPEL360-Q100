@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- S1000D Data Module List -->
+<dml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <identAndStatusSection>
+    <dmlAddress>
+      <dmlIdent>
+        <dmlCode modelIdentCode="AMPEL360AT" senderIdent="00001" dmlType="S" yearOfDataIssue="2026" seqNumber="00001"/>
+        <language languageIsoCode="en" countryIsoCode="US"/>
+        <issueInfo issueNumber="001" inWork="00"/>
+      </dmlIdent>
+      <dmlAddressItems>
+        <issueDate year="2026" month="01" day="11"/>
+      </dmlAddressItems>
+    </dmlAddress>
+  </identAndStatusSection>
+  <dmlContent>
+    <dmlEntry>
+      <dmRef>
+        <dmRefIdent>
+          <dmCode modelIdentCode="AMPEL360AT" systemDiffCode="A" systemCode="25" 
+                  subSystemCode="1" subSubSystemCode="0" assyCode="00" 
+                  disassyCode="04" disassyCodeVariant="0A" infoCode="A" 
+                  infoCodeVariant="0001" itemLocationCode="A"/>
+        </dmRefIdent>
+      </dmRef>
+    </dmlEntry>
+  </dmlContent>
+</dml>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- S1000D Business Rules Exchange -->
+<brex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <identAndStatusSection>
+    <brexAddress>
+      <brexIdent>
+        <brexCode modelIdentCode="AMPEL360AT" brexLevelCode="AIR-T"/>
+        <language languageIsoCode="en" countryIsoCode="US"/>
+        <issueInfo issueNumber="001" inWork="00"/>
+      </brexIdent>
+      <brexAddressItems>
+        <issueDate year="2026" month="01" day="11"/>
+        <brexTitle>AMPEL360 Q100 Business Rules</brexTitle>
+      </brexAddressItems>
+    </brexAddress>
+  </identAndStatusSection>
+  <brexContent>
+    <structureObjectRules>
+      <structureObjectRule>
+        <objectPath>/dmodule</objectPath>
+        <objectUse>Data module root element</objectUse>
+      </structureObjectRule>
+    </structureObjectRules>
+  </brexContent>
+</brex>

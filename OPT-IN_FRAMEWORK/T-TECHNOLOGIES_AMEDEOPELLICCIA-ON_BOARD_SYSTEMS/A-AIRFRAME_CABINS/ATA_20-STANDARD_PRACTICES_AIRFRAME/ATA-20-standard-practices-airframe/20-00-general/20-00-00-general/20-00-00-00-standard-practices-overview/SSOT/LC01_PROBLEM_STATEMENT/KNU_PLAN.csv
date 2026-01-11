@@ -1,0 +1,4 @@
+knu_id,knot_ref,knu_type,target_location,description,expected_date,status,acceptance_criteria
+KNU-ATA20-00-00-REQ-001,KNOT-ATA20-00-00-001,Requirement,LC02_SYSTEM_REQUIREMENTS,System requirements document for standard practices,2026-02-15,PLANNED,Peer reviewed and approved by Chief Engineer
+KNU-ATA20-00-00-ICD-001,KNOT-ATA20-00-00-002,ICD,LC04_DESIGN_DEFINITION,Interface control document for material compatibility,2026-03-15,PLANNED,Validated against material specs
+KNU-ATA20-00-00-PUB-DM-001,KNOT-ATA20-00-00-001,Publication,PUB/AMM/CSDB/DM,Data module for standard practices overview,2026-02-28,PLANNED,S1000D compliant and BREX validated
