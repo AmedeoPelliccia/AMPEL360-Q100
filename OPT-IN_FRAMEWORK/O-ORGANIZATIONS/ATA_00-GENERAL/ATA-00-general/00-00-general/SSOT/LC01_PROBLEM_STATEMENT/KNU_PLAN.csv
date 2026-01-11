@@ -21,5 +21,6 @@ KNU-00-00-004-CM-001,KNOT-00-00-004,CM,SSOT,../LC08_CONFIGURATION/,Reference Int
 KNU-00-00-004-PUB-001,KNOT-00-00-004,PUB-TRN,CSDB,../../PUB/TRN/CSDB/DM/,Cross-Reference Guide DM,User guide for navigation and traceability,BREX+CI,STK_PUB,2026-05-15,PLANNED,5
 KNU-00-00-005-REQ-001,KNOT-00-00-005,REQ,SSOT,../LC02_SYSTEM_REQUIREMENTS/,Unit System Requirements,Primary/secondary convention defined per domain,Review,STK_SE,2026-02-28,PLANNED,5
 KNU-00-00-005-ICD-001,KNOT-00-00-005,ICD,SSOT,../LC04_DESIGN_DEFINITION/,Unit Conversion Table Specification,Precision and rounding rules per unit type,Review,STK_SE,2026-03-10,PLANNED,3
-KNU-00-00-005-ANA-001,KNOT-00-00-005,ANA,SSOT,../LC05_ANALYSIS_MODELS/,H₂-Specific Unit Analysis,Energy density, flow rate, temperature conventions,Review,STK_SE,2026-02-20,PLANNED,3
+KNU-00-00-005-ANA-001,KNOT-00-00-005,ANA,SSOT,../LC05_ANALYSIS_MODELS/,H₂-Specific Unit Analysis,Energy density; flow rate; temperature conventions,Review,STK_SE,2026-02-20,PLANNED,3
 KNU-00-00-005-PUB-001,KNOT-00-00-005,PUB-AMM,CSDB,../../PUB/AMM/CSDB/DM/,Unit Conversion Reference DM,Quick-reference tables for common conversions,BREX+CI,STK_PUB,2026-03-15,PLANNED,3
+
