@@ -1,4 +1,0 @@
-knot_id,title,description,uncertainty_type,priority,status,created_date,target_closure_date
-KNOT-ATA25-00-00-001,Equipment Furnishings Overview Scope,Define scope of equipment and furnishings for AMPEL360 Q100,Requirement,High,OPEN,2026-01-11,2026-03-01
-KNOT-ATA25-00-00-002,Passenger Comfort Standards,Define comfort and ergonomic requirements for BWB cabin layout,Technical,High,OPEN,2026-01-11,2026-04-01
-KNOT-ATA25-00-00-003,Emergency Equipment Integration,Integrate emergency equipment with hydrogen-electric systems,Safety,Critical,OPEN,2026-01-11,2026-03-15
