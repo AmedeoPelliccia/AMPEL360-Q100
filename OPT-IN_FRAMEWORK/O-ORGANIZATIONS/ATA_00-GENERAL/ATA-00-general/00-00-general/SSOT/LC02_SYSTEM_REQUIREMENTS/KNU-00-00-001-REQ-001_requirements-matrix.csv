@@ -1,0 +1,25 @@
+REQ_ID,Title,Category,Priority,Rationale,Verification,Parent_KNOT,Downstream_KNU,Status
+REQ-GLO-001,Glossary Existence,General,MUST,Prevents terminology fragmentation across teams,Inspection,KNOT-00-00-001,,OPEN
+REQ-GLO-002,Glossary Authority,General,MUST,Establishes single source of truth,Review,KNOT-00-00-001,,OPEN
+REQ-GLO-003,Glossary Accessibility,General,MUST,Human-readable first principle,Demonstration,KNOT-00-00-004,,OPEN
+REQ-GLO-004,Glossary Language,General,MUST,International aerospace standard,Inspection,,,OPEN
+REQ-GLO-010,BWB Configuration Terms,Content,MUST,BWB is novel configuration with non-standard terminology,Review,KNOT-00-00-001,,OPEN
+REQ-GLO-011,Hydrogen Propulsion Terms,Content,MUST,H₂ propulsion introduces novel hazards and concepts,Review,KNOT-00-00-001,,OPEN
+REQ-GLO-012,Neural Systems Terms,Content,MUST,AI/ML certification requires precise terminology,Review,KNOT-00-00-001,,OPEN
+REQ-GLO-013,Circularity and DPP Terms,Content,MUST,EU DPP regulation requires standardized terminology,Review,KNOT-00-00-001,,OPEN
+REQ-GLO-014,OPT-IN Framework Terms,Content,MUST,Framework terminology required for program navigation,Review,KNOT-00-00-001,,OPEN
+REQ-GLO-015,Distributed Electric Propulsion Terms,Content,MUST,Electric propulsion differs from conventional terminology,Review,KNOT-00-00-001,,OPEN
+REQ-GLO-020,Term Entry Structure,Structure,MUST,Consistent structure enables search and validation,Inspection,KNOT-00-00-001,,OPEN
+REQ-GLO-021,Definition Quality,Structure,MUST,ISO 704 terminology principles,Review,KNOT-00-00-001,,OPEN
+REQ-GLO-022,Abbreviation Uniqueness,Structure,MUST,Prevents ambiguity,Inspection,KNOT-00-00-001,,OPEN
+REQ-GLO-023,Alphabetical Organization,Structure,SHOULD,Standard glossary convention,Inspection,,,OPEN
+REQ-GLO-030,Source Citation,Source,MUST,Establishes terminology provenance,Review,KNOT-00-00-001,,OPEN
+REQ-GLO-031,Program-Defined Terms,Source,MUST,Ensures novel terms are traceable,Review,KNOT-00-00-001,,OPEN
+REQ-GLO-032,Source Conflict Resolution,Source,MUST,Prevents ambiguity from source conflicts,Review,KNOT-00-00-001,,OPEN
+REQ-GLO-040,CSDB Publication,Integration,MUST,Integration with publication system,BREX+CI,KNOT-00-00-001,KNU-00-00-001-PUB-001,OPEN
+REQ-GLO-041,Machine-Readable Format,Integration,SHOULD,Enables automated validation and AI/agent consumption,Inspection,KNOT-00-00-001,,OPEN
+REQ-GLO-042,Cross-Reference Links,Integration,SHOULD,Improves navigability,Inspection,KNOT-00-00-004,,OPEN
+REQ-GLO-050,Change Control,Governance,MUST,Configuration management,Review,KNOT-00-00-001,KNU-00-00-001-CM-001,OPEN
+REQ-GLO-051,Version Identification,Governance,MUST,Configuration traceability,Inspection,KNOT-00-00-002,,OPEN
+REQ-GLO-052,Deprecation Policy,Governance,SHOULD,Maintains historical traceability,Review,KNOT-00-00-001,,OPEN
+REQ-GLO-053,Review Cycle,Governance,SHOULD,Ensures terminology remains current,Review,KNOT-00-00-001,,OPEN
