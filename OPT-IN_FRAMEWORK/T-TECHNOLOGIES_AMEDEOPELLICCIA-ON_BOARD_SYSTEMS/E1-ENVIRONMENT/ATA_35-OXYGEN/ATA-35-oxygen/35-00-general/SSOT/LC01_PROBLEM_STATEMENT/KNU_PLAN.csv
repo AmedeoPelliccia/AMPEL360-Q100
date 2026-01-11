@@ -1,0 +1,4 @@
+KNU_ID,KNOT_ID,KNU_Type,Artifact_Class,Expected_Location,Title,Acceptance_Criteria,Verification_Method,Owner_AoR,Due_Date,Status,Effort_Predicted,Priority,REC
+KNU-35-00-001-REQ-001,KNOT-35-00-001,REQ,SSOT,../LC02_SYSTEM_REQUIREMENTS/,System Requirements Document,Requirements complete and reviewed,Review,STK_SE,2026-04-15,PLANNED,8,HIGH,LC02
+KNU-35-00-001-SAF-001,KNOT-35-00-001,SAF,SSOT,../LC03_SAFETY_RELIABILITY/,Safety Assessment,Safety analysis complete,Review,STK_SAF,2026-05-15,PLANNED,5,HIGH,LC03
+KNU-35-00-001-PUB-001,KNOT-35-00-001,PUB,CSDB,../../PUB/CSDB/DM/,Data Module,DM passes BREX validation,BREX+CI,STK_CM,2026-06-15,PLANNED,3,MEDIUM,LC11

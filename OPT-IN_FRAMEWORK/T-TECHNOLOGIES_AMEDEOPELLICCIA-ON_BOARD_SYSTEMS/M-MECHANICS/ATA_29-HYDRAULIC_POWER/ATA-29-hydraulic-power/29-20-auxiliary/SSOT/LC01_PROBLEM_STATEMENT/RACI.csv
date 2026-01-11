@@ -1,0 +1,5 @@
+KNOT_ID,Activity,STK_SE,STK_SAF,STK_CERT,STK_CM,STK_OPS,STK_TEST,STK_MRO
+KNOT-29-20-001,Define system requirements,R,C,C,I,C,I,I
+KNOT-29-20-001,Conduct safety assessment,C,R,C,I,C,I,I
+KNOT-29-20-001,Develop maintenance procedures,C,C,I,R,C,C,R
+KNOT-29-20-001,Approve baseline,A,C,C,C,I,I,I
