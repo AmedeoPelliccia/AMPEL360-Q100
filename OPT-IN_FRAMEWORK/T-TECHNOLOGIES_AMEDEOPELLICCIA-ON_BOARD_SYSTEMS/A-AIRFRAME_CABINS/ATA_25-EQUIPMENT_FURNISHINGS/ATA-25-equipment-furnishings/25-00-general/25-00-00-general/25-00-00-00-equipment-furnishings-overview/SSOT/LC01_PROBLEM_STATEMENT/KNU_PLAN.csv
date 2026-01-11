@@ -1,0 +1,4 @@
+knu_id,knot_ref,knu_type,target_location,description,expected_date,status,acceptance_criteria
+KNU-ATA25-00-00-REQ-001,KNOT-ATA25-00-00-001,Requirement,LC02_SYSTEM_REQUIREMENTS,System requirements for equipment and furnishings,2026-02-15,PLANNED,Peer reviewed and approved
+KNU-ATA25-00-00-SAF-001,KNOT-ATA25-00-00-003,Safety,LC03_SAFETY_RELIABILITY,Safety analysis for emergency equipment,2026-03-01,PLANNED,FMEA and hazard log complete
+KNU-ATA25-00-00-PUB-DM-001,KNOT-ATA25-00-00-001,Publication,PUB/AMM/CSDB/DM,Data module for equipment furnishings overview,2026-02-28,PLANNED,S1000D compliant

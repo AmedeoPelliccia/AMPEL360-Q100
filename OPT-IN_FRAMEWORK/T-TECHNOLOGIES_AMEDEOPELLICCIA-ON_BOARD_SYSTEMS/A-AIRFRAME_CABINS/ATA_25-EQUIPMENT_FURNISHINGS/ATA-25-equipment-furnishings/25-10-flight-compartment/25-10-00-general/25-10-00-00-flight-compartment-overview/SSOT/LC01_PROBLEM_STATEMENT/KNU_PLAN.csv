@@ -1,0 +1,5 @@
+knu_id,knot_ref,knu_type,target_location,description,expected_date,status,acceptance_criteria
+KNU-ATA25-10-00-REQ-001,KNOT-ATA25-10-00-001,Requirement,LC02_SYSTEM_REQUIREMENTS,Flight compartment layout requirements,2026-02-15,PLANNED,Approved by Chief Pilot
+KNU-ATA25-10-00-ICD-001,KNOT-ATA25-10-00-002,ICD,LC04_DESIGN_DEFINITION,Pilot seat power interface specification,2026-03-15,PLANNED,Validated against electrical ICD
+KNU-ATA25-10-00-HF-001,KNOT-ATA25-10-00-003,HumanFactors,LC03_SAFETY_RELIABILITY,Ergonomic assessment report,2026-03-01,PLANNED,Human factors certification approved
+KNU-ATA25-10-00-PUB-DM-001,KNOT-ATA25-10-00-001,Publication,PUB/AMM/CSDB/DM,Data module for flight compartment,2026-02-28,PLANNED,S1000D compliant

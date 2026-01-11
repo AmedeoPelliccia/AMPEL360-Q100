@@ -1,0 +1,8 @@
+milestone_id,milestone_name,target_date,dependencies,status,completion_date
+MS-001,Uncertainty Register Complete,2026-01-31,None,COMPLETE,2026-01-11
+MS-002,KNU Plan Approved,2026-02-15,MS-001,PLANNED,
+MS-003,Requirements Baseline,2026-03-01,MS-002,PLANNED,
+MS-004,Human Factors Assessment Complete,2026-03-15,MS-003,PLANNED,
+MS-005,Design Definition Complete,2026-04-01,MS-004,PLANNED,
+MS-006,Publication Ready,2026-04-15,MS-005,PLANNED,
+MS-007,Node Closure,2026-05-01,MS-006,PLANNED,

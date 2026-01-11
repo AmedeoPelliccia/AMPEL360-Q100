@@ -1,0 +1,5 @@
+task_id,task_description,responsible,accountable,consulted,informed
+TASK-001,Define equipment scope,Cabin Engineer,Chief Engineer,Interior Design Team,Program Management
+TASK-002,Review passenger comfort standards,Human Factors Engineer,Chief Engineer,Certification Team,Marketing
+TASK-003,Emergency equipment integration,Safety Engineer,Airworthiness Lead,Systems Team,Regulatory Affairs
+TASK-004,Create S1000D data modules,Technical Author,Documentation Lead,Subject Matter Experts,Configuration Management

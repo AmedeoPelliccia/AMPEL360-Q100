@@ -1,0 +1,35 @@
+# AMPEL360 Q100 - Tokenomics for Technology Transition (TT)
+# ATA 20-00-00-00 Standard Practices Overview
+
+node_id: ATA20-00-00-00
+node_name: Standard Practices Overview
+total_tt_allocation: 10000
+
+# Reward distribution by lifecycle phase
+phase_allocation:
+  problem_statement: 5%      # LC01 - Uncertainty identification
+  requirements: 15%          # LC02 - Requirements definition
+  safety_analysis: 10%       # LC03 - Safety assessment
+  design_definition: 20%     # LC04 - Design and ICDs
+  verification: 15%          # LC06 - V&V activities
+  publication: 20%           # PUB - S1000D content
+  closure_bonus: 15%         # Completion incentive
+
+# Role-based distribution
+role_weights:
+  responsible: 0.40          # Primary contributor
+  accountable: 0.25          # Decision authority
+  consulted: 0.20            # Subject matter expertise
+  informed: 0.15             # Stakeholder awareness
+
+# Quality multipliers
+quality_factors:
+  on_time_delivery: 1.2      # 20% bonus for on-time
+  first_pass_acceptance: 1.3 # 30% bonus for no rework
+  innovation_contribution: 1.5 # 50% bonus for novel solutions
+
+# Governance
+governance:
+  approval_authority: Program Manager
+  review_cadence: Weekly
+  escalation_path: Chief Engineer

@@ -1,0 +1,5 @@
+task_id,task_description,responsible,accountable,consulted,informed
+TASK-001,Define standard practices scope,Systems Engineer,Chief Engineer,Airworthiness Team,Program Management
+TASK-002,Review material compatibility,Materials Engineer,Chief Engineer,Suppliers,Quality Assurance
+TASK-003,Develop tooling specifications,Manufacturing Engineer,Production Manager,Design Team,Procurement
+TASK-004,Create S1000D data modules,Technical Author,Documentation Lead,Subject Matter Experts,Configuration Management

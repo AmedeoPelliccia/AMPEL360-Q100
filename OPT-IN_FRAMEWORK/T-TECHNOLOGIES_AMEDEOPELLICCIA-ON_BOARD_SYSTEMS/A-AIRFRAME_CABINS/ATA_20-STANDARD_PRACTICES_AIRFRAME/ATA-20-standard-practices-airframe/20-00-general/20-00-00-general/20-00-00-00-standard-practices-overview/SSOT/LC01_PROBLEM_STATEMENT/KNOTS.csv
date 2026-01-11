@@ -1,0 +1,4 @@
+knot_id,title,description,uncertainty_type,priority,status,created_date,target_closure_date
+KNOT-ATA20-00-00-001,Standard Practices Overview Scope,Define scope and applicability of standard practices for AMPEL360 Q100 airframe,Requirement,High,OPEN,2026-01-11,2026-03-01
+KNOT-ATA20-00-00-002,Material Compatibility Requirements,Identify compatible materials for BWB airframe construction,Technical,High,OPEN,2026-01-11,2026-04-01
+KNOT-ATA20-00-00-003,Tooling Standards Definition,Define specialized tooling requirements for hydrogen-electric systems,Operational,Medium,OPEN,2026-01-11,2026-05-01
