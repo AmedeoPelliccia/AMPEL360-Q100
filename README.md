@@ -6,15 +6,17 @@
   <img src="https://img.shields.io/badge/ATA%20Chapters-79-orange" alt="ATA Chapters">
   <img src="https://img.shields.io/badge/Framework-OPT--IN-purple" alt="Framework">
   <img src="https://img.shields.io/badge/Publications-S1000D-teal" alt="S1000D">
+  <img src="https://img.shields.io/badge/Tokenomics-TT%20v3. 14-gold" alt="Teknia Tokens">
 </p>
 
 <p align="center">
-  <strong>Digital engineering baseline and publication-grade CSDB for a next-generation hydrogen-electric BWB aircraft. </strong>
+  <strong>Digital engineering baseline and publication-grade CSDB for a next-generation hydrogen-electric BWB aircraft.</strong>
 </p>
 
 <p align="center">
   <a href="#overview">Overview</a> •
   <a href="#how-this-repo-is-organized">Repo Organization</a> •
+  <a href="#lc01-uncertainty-orchestration">LC01 Orchestration</a> •
   <a href="#quick-start">Quick Start</a> •
   <a href="#publishing-model-csdb--ietp">Publishing Model</a> •
   <a href="#standards--compliance">Standards</a> •
@@ -35,7 +37,7 @@
 | **Peak-Power Buffering** | Buffer strategy for transients (energy management and load leveling) |
 | **Circularity + DPP** | Digital Product Passport foundations for lifecycle traceability |
 
-This repository contains a **certification-grade digital baseline** organized under the **OPT-IN Framework** and structured for **SSOT + PUB** workflows. 
+This repository contains a **certification-grade digital baseline** organized under the **OPT-IN Framework** and structured for **SSOT + PUB** workflows.
 
 **Live Spec (demo):** [v0-ampel-360-aircraft-specification.vercel.app](https://v0-ampel-360-aircraft-specification.vercel.app)
 
@@ -48,14 +50,14 @@ At a high level, the repo separates **engineering truth** from **publishable del
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │                         AMPEL360-AIR-T                          │
-├─────────────────────────────┬───────────────────────────────────┤
-│          SSOT (Back)        │           PUB (Front)             │
-│   Lifecycle Engineering     │    Controlled Deliverables        │
-│   • Requirements            │    • CSDB (S1000D)                │
-│   • Safety Evidence         │    • EXPORT (PDF/HTML)            │
-│   • Design/ICDs             │    • IETP (Runtime)               │
-│   • V&V Artifacts           │                                   │
-└─────────────────────────────┴───────────────────────────────────┘
+├─────────────────────────┬───────────────────────────────────────┤
+│          SSOT (Back)    │           PUB (Front)                 │
+│   Lifecycle Engineering │    Controlled Deliverables            │
+│   • Requirements        │    • CSDB (S1000D)                    │
+│   • Safety Evidence     │    • EXPORT (PDF/HTML)                │
+│   • Design/ICDs         │    • IETP (Runtime)                   │
+│   • V&V Artifacts       │                                       │
+└─────────────────────────┴───────────────────────────────────────┘
 ```
 
 ### SSOT (Single Source of Truth)
@@ -64,7 +66,7 @@ At a high level, the repo separates **engineering truth** from **publishable del
 
 | Folder | Content |
 |--------|---------|
-| `LC01_PROBLEM_STATEMENT` | Problem definition, scope, constraints |
+| `LC01_PROBLEM_STATEMENT` | **Uncertainty orchestration**:  KNOTs, expected KNUs, timelines, RACI, tokenomics |
 | `LC02_SYSTEM_REQUIREMENTS` | Requirements and traceability |
 | `LC03_SAFETY_RELIABILITY` | Safety analysis, hazard logs, FMEA |
 | `LC04_DESIGN_DEFINITION` | Design specs, ICDs, architecture |
@@ -98,10 +100,216 @@ At a high level, the repo separates **engineering truth** from **publishable del
 
 ---
 
+## LC01 — Uncertainty Orchestration & Tokenomics
+
+**LC01_PROBLEM_STATEMENT** is the controlled orchestration layer for each ATA node.  It declares:
+
+- **What is unknown** (KNOTs — uncertainty register)
+- **What evidence must be created** (expected KNUs)
+- **Who is accountable** (stakeholders/RACI)
+- **When it must converge** (timeline/milestones)
+- **How incentives are allocated** (TT rewards via tokenomics)
+
+### LC01 Folder Structure
+
+```
+.../SSOT/LC01_PROBLEM_STATEMENT/
+├── README.md              # Overview and closure criteria
+├── KNOTS.csv              # Uncertainty register
+├── KNU_PLAN.csv           # Expected KNUs per KNOT
+├── TIMELINE.csv           # Milestones and dates
+├── RACI.csv               # Stakeholder responsibility matrix
+├── TOKENOMICS_TT.yaml     # Reward pool and allocation parameters
+└── AWARDS_TT.csv          # Actual TT distributions (populated at closure)
+```
+
+### KNOTS.csv — Uncertainty Register
+
+Each KNOT represents a *known unknown* that must be resolved:
+
+| Field | Description |
+|-------|-------------|
+| `KNOT_ID` | Unique identifier (e.g., `KNOT-ATA25-10-00-001`) |
+| `Title` | Short description of the uncertainty |
+| `Problem_Statement` | What is unknown and why it matters |
+| `Scope` | In-scope / out-of-scope boundaries |
+| `Status` | `OPEN` / `IN_PROGRESS` / `BLOCKED` / `CLOSED` |
+| `Owner_AoR` | Primary Area of Responsibility (e.g., `STK_SE`) |
+| `Stakeholders` | Semicolon-separated list of involved AoRs |
+| `Residual_Before` | Initial uncertainty level (0–100) |
+| `Residual_Target` | Acceptable residual at closure |
+| `Dependencies` | Other KNOTs this depends on |
+| `Target_Close_Date` | Expected closure date |
+
+**Example:**
+```csv
+KNOT_ID,Title,Problem_Statement,Scope,Status,Owner_AoR,Stakeholders,Residual_Before,Residual_Target,Target_Close_Date
+KNOT-ATA25-10-00-001,Flight Compartment Layout,Crew seat positioning undefined for Q10,In:  seats; restraints.  Out:  galley,OPEN,STK_SE,"STK_SAF;STK_CERT;STK_CM",100,10,2026-02-28
+```
+
+### KNU_PLAN.csv — Expected Knowledge Units
+
+Each KNU is a concrete artifact that addresses a KNOT:
+
+| Field | Description |
+|-------|-------------|
+| `KNU_ID` | Unique identifier (e.g., `KNU-ATA25-10-00-REQ-001`) |
+| `KNOT_ID` | Parent KNOT being addressed |
+| `KNU_Type` | `REQ` / `ICD` / `ANA` / `TEST` / `SAF` / `CM` / `PUB` |
+| `Artifact_Class` | `SSOT` or `CSDB` |
+| `Expected_Location` | Relative path to target folder |
+| `Acceptance_Criteria` | What makes this KNU complete |
+| `Verification_Method` | `Review` / `Inspection` / `Test` / `BREX+CI` |
+| `Owner_AoR` | Responsible stakeholder |
+| `Due_Date` | Target completion date |
+| `Status` | `PLANNED` / `IN_PROGRESS` / `COMPLETE` / `ACCEPTED` |
+| `Effort_Predicted` | Estimated effort (story points / normalized hours) |
+
+**Example:**
+```csv
+KNU_ID,KNOT_ID,KNU_Type,Artifact_Class,Expected_Location,Acceptance_Criteria,Owner_AoR,Due_Date,Status,Effort_Predicted
+KNU-ATA25-10-00-REQ-001,KNOT-ATA25-10-00-001,REQ,SSOT,../LC02_SYSTEM_REQUIREMENTS/,Requirement traced + reviewed,STK_SE,2026-01-25,PLANNED,5
+KNU-ATA25-10-00-PUB-DM-001,KNOT-ATA25-10-00-001,PUB,CSDB,../../PUB/AMM/CSDB/DM/,DM passes BREX,STK_CM,2026-02-15,PLANNED,3
+```
+
+### TOKENOMICS_TT.yaml — Reward Allocation
+
+Defines the **Teknia Token (TT)** reward pool and distribution algorithm for each KNOT: 
+
+```yaml
+tokenomics:
+  token_symbol: "TT"
+  unit:  "deg"                    # 1 TT = 360 deg
+  deg_per_tt: 360
+
+knot_reward: 
+  knot_id: "KNOT-ATA25-10-00-001"
+  pool_tt: 100                   # Total TT available for this KNOT
+  pool_deg: 36000
+
+eligibility:
+  require_status: ["COMPLETE", "ACCEPTED"]
+  require_links_resolved: true
+  require_brex_pass_for_pub: true
+
+allocation:
+  method: "effort_plus_impact"
+  formula: "w_i = α·Ê_i + (1-α)·Î_i; T_i = P_k · w_i"
+  params:
+    alpha_effort: 0.30           # 30% weight on effort
+    alpha_impact: 0.70           # 70% weight on impact
+    lambda_spillover: 0.50       # Spillover multiplier for adjacent KNOTs
+    rounding:  "floor_deg"
+
+measurement:
+  residual_scale: "0.. 100"
+  required_fields_per_knu: 
+    - effort_predicted           # E_i
+    - delta_residual_primary     # ΔR_k,i (direct impact)
+    - delta_residual_adjacent_sum # S_i (spillover impact)
+    - verification_status
+    - linked_artifacts
+
+closure_record:
+  residual_before: 100
+  residual_after: null           # Populated at closure
+  residual_target: 10
+```
+
+### Token Distribution Formula
+
+Rewards are distributed using a weighted combination of **effort** and **impact**:
+
+```
+w_i = α · Ê_i + (1 - α) · Î_i
+T_i = P_k · w_i
+```
+
+Where:
+- `P_k` = Pool amount (TT) for the KNOT
+- `α` = Effort weight (default: 0.30)
+- `Ê_i` = Normalized effort:  `E_i / Σ E_i`
+- `Î_i` = Normalized impact: `I_i / Σ I_i`
+- `I_i` = Effective impact:  `ΔR_k,i + λ · S_i`
+- `S_i` = Spillover:  `Σ(a_k→j · ΔR_j,i)` for adjacent KNOTs
+- `λ` = Spillover multiplier (default: 0.50)
+
+**This ensures:**
+- Contributors who do necessary work are rewarded (effort)
+- Contributors who reduce uncertainty most are rewarded more (impact)
+- Cross-KNOT contributions are recognized (spillover)
+
+### RACI.csv — Stakeholder Responsibilities
+
+| Field | Description |
+|-------|-------------|
+| `KNOT_ID` | KNOT identifier |
+| `Activity` | Specific activity or deliverable |
+| `R` | Responsible (does the work) |
+| `A` | Accountable (final approver) |
+| `C` | Consulted (provides input) |
+| `I` | Informed (kept aware) |
+
+**Allowed AoR Values:**
+`STK_SE`, `STK_SAF`, `STK_CERT`, `STK_CM`, `STK_OPS`, `STK_TEST`, `STK_PMO`, `STK_AI`, `STK_CY`, `STK_MRO`, `STK_DATA`
+
+### TIMELINE.csv — Milestones
+
+| Field | Description |
+|-------|-------------|
+| `Milestone_ID` | Unique milestone identifier |
+| `KNOT_ID` | Associated KNOT |
+| `Name` | Milestone name |
+| `Date` | Target date |
+| `Entry_Criteria` | What must be true to enter |
+| `Exit_Criteria` | What must be true to exit |
+| `Status` | `PLANNED` / `ACTIVE` / `COMPLETE` |
+
+### AWARDS_TT. csv — Distribution Ledger
+
+Populated at KNOT closure with actual TT distributions: 
+
+```csv
+timestamp,knot_id,knu_id,owner,effort_predicted,delta_residual_primary,delta_residual_adjacent_sum,weight,tokens_tt,tokens_deg,tx_id,validated_by
+2026-02-20T14:30:00Z,KNOT-ATA25-10-00-001,KNU-ATA25-10-00-REQ-001,alice,5,30,10,0. 412,41. 2,14832,TX-2026-0142,knot_owner
+```
+
+### Closure Criteria
+
+A KNOT is **CLOSED** when: 
+1. ✅ All planned KNUs reach `COMPLETE` or `ACCEPTED` status
+2. ✅ Residual drops to or below target (e.g., 100 → ≤10)
+3. ✅ All PUB artifacts pass BREX validation
+4. ✅ All trace links resolve (no dangling references)
+5. ✅ Signoffs captured in evidence pack
+6. ✅ TT rewards distributed and logged
+
+---
+
 ## OPT-IN Framework (5-Axis Topology)
 
 The OPT-IN Framework organizes all 79 ATA chapters across five axes:
 
+```
+OPT-IN_FRAMEWORK/
+├── O-ORGANIZATIONS/                    # ATA 00–05
+├── P-PROGRAMS/                         # ATA 06–12
+├── T-TECHNOLOGIES_. ../                 # ATA 20–80 (on-board systems)
+│   ├── A-AIRFRAME_CABINS/
+│   ├── M-MECHANICS/
+│   ├── E1-ENVIRONMENT/
+│   ├── D-DATA/
+│   ├── E2-ENERGY/
+│   ├── E3-ELECTRICS/
+│   ├── L2-LINKS/
+│   ├── C1-COMMS/
+│   ├── C2-CIRCULAR_CRYOGENIC_CELLS/
+│   ├── A2-AVIONICS/
+│   ├── O-OPERATING_SYSTEMS/
+│   └── P-PROPULSION/
+├── I-INFRASTRUCTURES/                  # Ground support / facilities
+└── N-NEURAL_NETWORKS/                  # ATA 95–98 (AI/ML, traceability)
+```
 ```
 OPT-IN_FRAMEWORK/
 ├── O-ORGANIZATIONS/                                       # ATA 00–05
@@ -979,38 +1187,111 @@ OPT-IN_FRAMEWORK/
             ├── 98-80-reserved-as-required/
             └── 98-90-tables-schemas-index/
 ```
-
 ---
 
 ## Canonical ATA Content Pattern (Sub-Subject Level)
 
-**CSDB lives at section level.** Each section carries both SSOT and PUB: 
+**CSDB lives at section level. ** Each section carries both SSOT and PUB: 
 
 ```
 ATA_XX-<SYSTEM>/
 └── xx-yy-<section>/
-    ├── SSOT/
-    │   ├── LC01_PROBLEM_STATEMENT/
-    │   ├── LC02_SYSTEM_REQUIREMENTS/
-    │   ├── LC03_SAFETY_RELIABILITY/
-    │   ├── ... 
-    │   └── LC14_RETIREMENT_CIRCULARITY/
-    │
-    └── PUB/
-        └── <SUB_ID>/                    # AMM / IPC / WDM / TSM / etc.
-            ├── CSDB/
-            │   ├── DM/                  # Data Modules
-            │   ├── PM/                  # Publication Modules
-            │   ├── DML/                 # Data Module Lists
-            │   ├── BREX/                # Business Rules Exchange
-            │   ├── ICN/                 # Illustrations (SVG preferred)
-            │   ├── COMMON/              # Reusable primitives
-            │   └── APPLICABILITY/       # ACT/PCT/CCT filtering
-            ├── EXPORT/                  # Rendered outputs
-            └── IETP/
-                ├── RUNTIME/             # Viewer application
-                ├── PKG/                 # Package manifests
-                └── DEPLOY/              # Deployment artifacts
+    ├── xx-yy-00-<subject>/
+    │   ├── xx-yy-00-00-<sub-subject>/
+    │   │   ├── README.md
+    │   │   ├── SSOT/
+    │   │   │   ├── LC01_PROBLEM_STATEMENT/
+    │   │   │   │   ├── KNOTS.csv
+    │   │   │   │   ├── KNU_PLAN.csv
+    │   │   │   │   ├── TIMELINE. csv
+    │   │   │   │   ├── RACI.csv
+    │   │   │   │   ├── TOKENOMICS_TT. yaml
+    │   │   │   │   └── AWARDS_TT.csv
+    │   │   │   ├── LC02_SYSTEM_REQUIREMENTS/
+    │   │   │   ├── LC03_SAFETY_RELIABILITY/
+    │   │   │   ├── ... 
+    │   │   │   └── LC14_RETIREMENT_CIRCULARITY/
+    │   │   └── PUB/
+    │   │       └── AMM/
+    │   │           ├── CSDB/
+    │   │           │   ├── DM/
+    │   │           │   ├── PM/
+    │   │           │   ├── DML/
+    │   │           │   ├── BREX/
+    │   │           │   ├── ICN/
+    │   │           │   ├── COMMON/
+    │   │           │   └── APPLICABILITY/
+    │   │           ├── EXPORT/
+    │   │           └── IETP/
+    │   └── xx-yy-00-90-glossary-abbreviations-and-tables/
+    └── README.md
+```
+
+---
+
+## KNOT → KNU (Controlled Uncertainty Handling)
+
+Work in this repository is managed through **KNOTs** and **KNUs**:
+
+| Concept | Definition |
+|---------|------------|
+| **KNOT** | A *known unknown* — an identified uncertainty or problem node requiring resolution |
+| **KNU** | A *Knowledge Unit* — a concrete artifact that addresses a KNOT |
+
+### How It Works
+
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│                         KNOT Lifecycle                                   │
+├─────────────────────────────────────────────────────────────────────────┤
+│  1. IDENTIFICATION                                                       │
+│     └─ Uncertainty logged in KNOTS. csv (Residual = 100)                 │
+│                                                                          │
+│  2. PLANNING                                                             │
+│     └─ Expected KNUs defined in KNU_PLAN.csv                            │
+│     └─ Timeline milestones set                                          │
+│     └─ TT reward pool allocated in TOKENOMICS_TT.yaml                   │
+│                                                                          │
+│  3. EXECUTION                                                            │
+│     └─ KNU artifacts produced in LC02–LC14 and PUB/CSDB                 │
+│     └─ Effort and impact recorded per KNU                               │
+│                                                                          │
+│  4. CLOSURE                                                              │
+│     └─ All KNUs complete, links resolved, BREX passed                   │
+│     └─ Residual reduced to target (e.g., 100 → 8)                       │
+│     └─ TT rewards distributed:  w_i = α·Ê_i + (1-α)·Î_i                  │
+│     └─ Awards logged to AWARDS_TT.csv + finance/ledger. json             │
+└─────────────────────────────────────────────────────────────────────────┘
+```
+
+This provides **traceability from uncertainty to evidence to incentive** across the engineering and publication lifecycle.
+
+---
+
+## Teknia Tokens (TT) Integration
+
+The repository integrates with the **Teknia Token (TT) v3.14** system for incentive alignment:
+
+| Aspect | Specification |
+|--------|---------------|
+| **Token** | TT (1 TT = 360 deg) |
+| **Genesis Supply** | 2,000,000,000 TT |
+| **Fee Structure** | π-tier for transfers (0.314%/0.99%/3.14%); 0.5% for rewards |
+| **KNOT Pools** | Defined per KNOT in `TOKENOMICS_TT.yaml` |
+| **Distribution** | Effort + Impact weighted formula |
+| **Ledger** | `finance/ledger.json` (SHA-256 hash chain) |
+
+### CLI Integration
+
+```bash
+# Quote a reward distribution
+python tools/tek_tokens. py quote --op reward --tt 100
+
+# Execute reward (after KNOT closure)
+python tools/knu_distribution.py distribute --knot KNOT-ATA25-10-00-001
+
+# Verify ledger integrity
+python tools/tek_tokens.py verify
 ```
 
 ---
@@ -1054,6 +1335,7 @@ ls
 | **Program Managers** | [`IMPLEMENTATION_SUMMARY.md`](./IMPLEMENTATION_SUMMARY.md) |
 | **CAOS / Airworthiness** | [`CAOS/CAOS_INDEX.md`](./CAOS/CAOS_INDEX. md) |
 | **Certification** | `XX-00-10_Certification/` folders |
+| **Tokenomics** | `LC01_PROBLEM_STATEMENT/TOKENOMICS_TT.yaml` at any ATA node |
 
 ---
 
@@ -1082,7 +1364,7 @@ See:  [`CAOS/CAOS_INDEX. md`](./CAOS/CAOS_INDEX.md) • [`CAOS/CAOS_ARCHITECTURE
 
 ### CSDB (S1000D Common Source Database)
 
-The CSDB is the **single source for modular publications**: 
+The CSDB is the **single source for modular publications**:
 
 | Component | Purpose |
 |-----------|---------|
@@ -1101,25 +1383,6 @@ HTML/PDF are outputs; the **IETP runtime** is the deliverable software "image" t
 - Applies applicability rules (ACT/PCT/CCT)
 - Provides interactive navigation, search, and filtering
 - Is packaged and versioned in `PUB/<SUB_ID>/IETP/`
-
----
-
-## KNOT → KNU (Controlled Uncertainty Handling)
-
-Work in this repository is managed through **KNOTs** and **KNUs**:
-
-| Concept | Definition |
-|---------|------------|
-| **KNOT** | A *known unknown* — an identified uncertainty or problem node requiring resolution |
-| **KNU** | A *Knowledge Unit* — a concrete artifact that addresses a KNOT |
-
-### How It Works
-
-1. **KNOT Identification**: An uncertainty is logged (e.g., "H₂ tank thermal cycling limits undefined")
-2. **KNU Production**: Work produces artifacts in SSOT and/or PUB (requirements, ICDs, analyses, DMs, ICNs, etc.)
-3. **KNOT Closure**: The KNOT is "done" when required KNUs exist, are linked, and reduce residual uncertainty to acceptable levels
-
-This provides **traceability from uncertainty to evidence** across the engineering and publication lifecycle.
 
 ---
 
@@ -1169,6 +1432,8 @@ This provides **traceability from uncertainty to evidence** across the engineeri
 | **S1000D content** | Keep XML/BREX compliant under `PUB/**/CSDB/**` |
 | **References** | Ensure DM ↔ ICN ↔ PM ↔ DML ↔ APPLICABILITY resolve correctly |
 | **Safety-critical** | Include DO-178C compliance tags where applicable |
+| **KNOT/KNU** | Define uncertainties in LC01 before producing artifacts |
+| **Tokenomics** | Declare reward pools in `TOKENOMICS_TT.yaml` per KNOT |
 
 ---
 
@@ -1180,9 +1445,10 @@ Apache 2.0 — see [LICENSE](./LICENSE).
 
 ## Acknowledgments
 
-- **Concept & Direction**:  Amedeo Pelliccia
+- **Concept & Direction**: Amedeo Pelliccia
 - **AI Assistance**: GitHub Copilot (documentation generation)
 - **Framework Design**: OPT-IN Framework
+- **Tokenomics**: Teknia Token (TT) v3.14
 
 ---
 
@@ -1195,5 +1461,5 @@ Apache 2.0 — see [LICENSE](./LICENSE).
 </p>
 
 <p align="center">
-  <i>Last updated: 2026-01-10</i>
+  <i>Last updated: 2026-01-11</i>
 </p>
