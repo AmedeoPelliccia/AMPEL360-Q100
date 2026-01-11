@@ -1,0 +1,11 @@
+Milestone_ID,KNOT_ID,Name,Date,Entry_Criteria,Exit_Criteria,Status
+MS-00-00-001,KNOT-00-00-005,Unit Standards Baseline,2026-03-15,Unit requirements defined,Conversion tables published,PLANNED
+MS-00-00-002,KNOT-00-00-001,Terminology Draft Complete,2026-03-15,Gap analysis complete,Draft glossary reviewed,PLANNED
+MS-00-00-003,KNOT-00-00-001,Program Glossary Published,2026-03-31,Draft approved,Glossary DM in CSDB,PLANNED
+MS-00-00-004,KNOT-00-00-002,Document ID Scheme Approved,2026-03-31,Syntax specification reviewed,ID grammar in production,PLANNED
+MS-00-00-005,KNOT-00-00-002,Document Architecture Guide Issued,2026-04-15,Training DM complete,Guide distributed to teams,PLANNED
+MS-00-00-006,KNOT-00-00-003,H₂ Safety Symbols Approved,2026-04-15,Symbol library reviewed by STK_SAF,Symbols in design system,PLANNED
+MS-00-00-007,KNOT-00-00-003,Safety Labeling Standard Published,2026-04-30,Standard reviewed by CERT,Standard DM in CSDB,PLANNED
+MS-00-00-008,KNOT-00-00-004,Reference Syntax Finalized,2026-04-30,Syntax tested with sample data,URI scheme documented,PLANNED
+MS-00-00-009,KNOT-00-00-004,Cross-Reference System Operational,2026-05-15,CI checks passing,Trace matrix populated,PLANNED
+MS-00-00-010,ALL,ATA 00-00 LC01 Node Closure,2026-05-31,All 5 KNOTs closed,TT distributed; baseline locked,PLANNED
