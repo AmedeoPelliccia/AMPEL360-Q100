@@ -1,93 +1,66 @@
-# O-ORGANIZATIONS — Index
+# O-ORGANIZATIONS — Quick Reference Index
 
-This document provides a comprehensive index of all organizational components within the O-ORGANIZATIONS axis.
+**Last Updated:** 2026-01-11
 
-## ATA 00 — General
+---
 
-| Section | Description |
-|---------|-------------|
-| 00-00-general | General organizational overview |
-| 00-10-reserved-as-required | Reserved for future use |
-| 00-20-reserved-as-required | Reserved for future use |
-| 00-30-reserved-as-required | Reserved for future use |
-| 00-40-reserved-as-required | Reserved for future use |
-| 00-50-reserved-as-required | Reserved for future use |
-| 00-60-reserved-as-required | Reserved for future use |
-| 00-70-reserved-as-required | Reserved for future use |
-| 00-80-reserved-as-required | Reserved for future use |
-| 00-90-tables-schemas-index | Tables, schemas, and index |
+## Chapter Summary
 
-## ATA 01 — Maintenance Policy
+| ATA | Title | Sections | Primary Focus |
+|-----|-------|----------|---------------|
+| [00](./ATA_00-GENERAL/) | General | 00-00 to 00-90 | Terminology, conventions, cross-references |
+| [01](./ATA_01-MAINTENANCE_POLICY/) | Maintenance Policy | 01-00 to 01-90 | MSG-3, reliability program |
+| [02](./ATA_02-OPERATIONS_ORG/) | Operations Organization | 02-00 to 02-90 | Operator interfaces |
+| [03](./ATA_03-SUPPORT_INFORMATION/) | Support Information | 03-00 to 03-90 | Customer support |
+| [04](./ATA_04-AIRWORTHINESS_LIMITATIONS/) | Airworthiness Limitations | 04-00 to 04-90 | AWLs, CMRs, CDCCLs |
+| [05](./ATA_05-TIME_LIMITS_MAINT_CHECKS/) | Time Limits / Maintenance Checks | 05-00 to 05-90 | Scheduled intervals |
 
-| Section | Description |
-|---------|-------------|
-| 01-00-general | General maintenance policy overview |
-| 01-10-reserved-as-required | Reserved for future use |
-| 01-20-reserved-as-required | Reserved for future use |
-| 01-30-reserved-as-required | Reserved for future use |
-| 01-40-reserved-as-required | Reserved for future use |
-| 01-50-reserved-as-required | Reserved for future use |
-| 01-60-reserved-as-required | Reserved for future use |
-| 01-70-reserved-as-required | Reserved for future use |
-| 01-80-reserved-as-required | Reserved for future use |
-| 01-90-tables-schemas-index | Tables, schemas, and index |
+---
 
-## ATA 02 — Operations Organization
+## Key Deliverables
 
-| Section | Description |
-|---------|-------------|
-| 02-00-general | General operations organization overview |
-| 02-10-reserved-as-required | Reserved for future use |
-| 02-20-reserved-as-required | Reserved for future use |
-| 02-30-reserved-as-required | Reserved for future use |
-| 02-40-reserved-as-required | Reserved for future use |
-| 02-50-reserved-as-required | Reserved for future use |
-| 02-60-reserved-as-required | Reserved for future use |
-| 02-70-reserved-as-required | Reserved for future use |
-| 02-80-reserved-as-required | Reserved for future use |
-| 02-90-tables-schemas-index | Tables, schemas, and index |
+| ATA | Deliverable | Target Date |
+|-----|-------------|-------------|
+| 00 | Program Glossary | 2026-03-31 |
+| 00 | Document Architecture Guide | 2026-04-15 |
+| 00 | Safety Labeling Standard | 2026-04-30 |
+| 00 | Cross-Reference System | 2026-05-15 |
+| 01 | Maintenance Program Development Plan | TBD |
+| 04 | Airworthiness Limitations Section (ALS) | TBD |
+| 05 | Maintenance Planning Document (MPD) | TBD |
 
-## ATA 03 — Support Information
+---
 
-| Section | Description |
-|---------|-------------|
-| 03-00-general | General support information overview |
-| 03-10-reserved-as-required | Reserved for future use |
-| 03-20-reserved-as-required | Reserved for future use |
-| 03-30-reserved-as-required | Reserved for future use |
-| 03-40-reserved-as-required | Reserved for future use |
-| 03-50-reserved-as-required | Reserved for future use |
-| 03-60-reserved-as-required | Reserved for future use |
-| 03-70-reserved-as-required | Reserved for future use |
-| 03-80-reserved-as-required | Reserved for future use |
-| 03-90-tables-schemas-index | Tables, schemas, and index |
+## Active LC01 Nodes
 
-## ATA 04 — Airworthiness Limitations
+| ATA-Section | KNOTs | Status | Link |
+|-------------|-------|--------|------|
+| 00-00 | 5 | ACTIVE | [LC01](./ATA_00-GENERAL/ATA-00-general/00-00-general/SSOT/LC01_PROBLEM_STATEMENT/) |
 
-| Section | Description |
-|---------|-------------|
-| 04-00-general | General airworthiness limitations overview |
-| 04-10-reserved-as-required | Reserved for future use |
-| 04-20-reserved-as-required | Reserved for future use |
-| 04-30-reserved-as-required | Reserved for future use |
-| 04-40-reserved-as-required | Reserved for future use |
-| 04-50-reserved-as-required | Reserved for future use |
-| 04-60-reserved-as-required | Reserved for future use |
-| 04-70-reserved-as-required | Reserved for future use |
-| 04-80-reserved-as-required | Reserved for future use |
-| 04-90-tables-schemas-index | Tables, schemas, and index |
+---
 
-## ATA 05 — Time Limits / Maintenance Checks
+## Stakeholder Map
 
-| Section | Description |
-|---------|-------------|
-| 05-00-general | General time limits and maintenance checks overview |
-| 05-10-reserved-as-required | Reserved for future use |
-| 05-20-reserved-as-required | Reserved for future use |
-| 05-30-reserved-as-required | Reserved for future use |
-| 05-40-reserved-as-required | Reserved for future use |
-| 05-50-reserved-as-required | Reserved for future use |
-| 05-60-reserved-as-required | Reserved for future use |
-| 05-70-reserved-as-required | Reserved for future use |
-| 05-80-reserved-as-required | Reserved for future use |
-| 05-90-tables-schemas-index | Tables, schemas, and index |
+| STK Code | Role | Primary Chapters |
+|----------|------|------------------|
+| STK_CM | Configuration Management | 00 |
+| STK_MRO | Maintenance/Repair/Overhaul | 01, 03, 05 |
+| STK_OPS | Operations | 02, 03, 05 |
+| STK_CERT | Certification | 04 |
+| STK_SAF | Safety | 01, 04 |
+| STK_SE | Systems Engineering | 00 |
+
+---
+
+## Navigation
+
+- [O-ORGANIZATIONS README](./README.md)
+- [OPT-IN Framework Index](../README.md)
+- [P-PROGRAMS](../P-PROGRAMS/)
+- [T-TECHNOLOGIES](../T-TECHNOLOGIES_AMEDEOPELLICCIA-ON_BOARD_SYSTEMS/)
+- [I-INFRASTRUCTURES](../I-INFRASTRUCTURES/)
+- [N-NEURAL_NETWORKS](../N-NEURAL_NETWORKS/)
+
+---
+
+*Quick reference for AMPEL360 Q100 O-axis organizational chapters.*
