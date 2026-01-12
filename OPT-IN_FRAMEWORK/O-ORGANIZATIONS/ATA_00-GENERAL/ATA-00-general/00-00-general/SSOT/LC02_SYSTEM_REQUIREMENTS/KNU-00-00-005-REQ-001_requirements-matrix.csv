@@ -1,0 +1,21 @@
+REQ_ID,Title,Category,Priority,Rationale,Verification,Parent_KNOT,Downstream_KNU,Status
+REQ-UNIT-001,SI as Canonical,General,MUST,Prevents conversion ambiguity and calculation errors,Review,KNOT-00-00-005,,OPEN
+REQ-UNIT-002,Canonical Storage Rule,General,MUST,Eliminates multi-source numeric truth,Review,KNOT-00-00-005,,OPEN
+REQ-UNIT-003,No Mixed Units in a Single Value,General,MUST,Mixed units are error-prone and hard to verify,Inspection,KNOT-00-00-005,,OPEN
+REQ-UNIT-004,Dual-Unit Presentation Rules,General,MUST,Consistent readability and reduces misinterpretation,Inspection,KNOT-00-00-005,"KNU-00-00-005-PUB-001",OPEN
+REQ-UNIT-010,Unit Symbol Conventions,Formatting,MUST,Standardized readability and reviewability,Inspection,KNOT-00-00-005,"KNU-00-00-005-PUB-001",OPEN
+REQ-UNIT-011,Decimal and Thousands Format,Formatting,MUST,Prevents locale-induced parsing errors,Inspection,KNOT-00-00-005,"KNU-00-00-005-ICD-001;KNU-00-00-005-PUB-001",OPEN
+REQ-UNIT-020,Approved Conversion Factors,Conversion,MUST,Ensures consistent conversion across all artifacts,Review,KNOT-00-00-005,"KNU-00-00-005-ICD-001",OPEN
+REQ-UNIT-021,Conversion at Interfaces Only,Conversion,MUST,Prevents rounding accumulation and hidden unit drift,Review,KNOT-00-00-005,"KNU-00-00-005-ICD-001",OPEN
+REQ-UNIT-022,Rounding Policy,Conversion,MUST,Avoids false precision and certification challenges,Review,KNOT-00-00-005,"KNU-00-00-005-ICD-001;KNU-00-00-005-PUB-001",OPEN
+REQ-UNIT-023,Traceable Conversion Evidence,Conversion,MUST,Enables audit and reproduction of numeric evidence,Review,KNOT-00-00-005,"KNU-00-00-004-REQ-001",OPEN
+REQ-UNIT-030,Aviation Operational Displays,Domain,MUST,Aligns with operational conventions while protecting SSOT integrity,Review,KNOT-00-00-005,"KNU-00-00-005-PUB-001",OPEN
+REQ-UNIT-031,Cryogenic Temperature Convention,Domain,MUST,Cryogenic models are Kelvin-based; Celsius used for human ambient interpretation,Review,KNOT-00-00-005,,OPEN
+REQ-UNIT-032,Pressure Convention,Domain,MUST,SI coherence with analysis; bar/psi commonly used by maintainers,Review,KNOT-00-00-005,,OPEN
+REQ-UNIT-033,Electrical Energy Convention,Domain,MUST,SI for physics-based modeling; kWh for operational planning,Review,KNOT-00-00-005,,OPEN
+REQ-UNIT-040,Unit Tagging in Machine Data,Interchange,MUST,Prevents silent unit mismatches in automation,Review,KNOT-00-00-005,"KNU-00-00-005-ICD-001",OPEN
+REQ-UNIT-041,Canonical Unit Declaration,Interchange,MUST,Interface-level clarity for certification evidence chains,Review,KNOT-00-00-005,"KNU-00-00-005-ICD-001",OPEN
+REQ-UNIT-042,Consistent Unit Vocabulary,Interchange,SHOULD,Enables automated validation and reduces ambiguity,Review,KNOT-00-00-005,"KNU-00-00-005-ICD-001",OPEN
+REQ-UNIT-050,Unit Exceptions Control,Governance,MUST,Prevents uncontrolled divergence from canonical policy,Review,KNOT-00-00-005,"KNU-00-00-005-CM-001",OPEN
+REQ-UNIT-051,Publication Consistency,Governance,MUST,Maintains user trust and reduces safety risk,Inspection,KNOT-00-00-005,"KNU-00-00-005-PUB-001",OPEN
+REQ-UNIT-052,Traceability to Canonical SSOT,Governance,MUST,Preserves SSOT integrity and auditability,Review,KNOT-00-00-005,"KNU-00-00-004-REQ-001",OPEN
