@@ -372,4 +372,4 @@ For questions about this report or KNOT/KNU status:
 
 **Repository:** `AmedeoPelliccia/AMPEL360-Q100`
 **Branch:** `copilot/generate-s1000d-data-modules`
-**Last Update:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S UTC')}
+**Last Update:** 2026-01-12 12:44:35 UTC
