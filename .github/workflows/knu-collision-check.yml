@@ -1,0 +1,153 @@
+name: KNU ID Collision Check
+
+on:
+  push:
+    paths:
+      - 'OPT-IN_FRAMEWORK/**/SSOT/LC01_PROBLEM_STATEMENT/**'
+      - 'OPT-IN_FRAMEWORK/**/KNU_PLAN.csv'
+      - 'OPT-IN_FRAMEWORK/**/KNOTS.csv'
+  pull_request:
+    paths:
+      - 'OPT-IN_FRAMEWORK/**/SSOT/LC01_PROBLEM_STATEMENT/**'
+      - 'OPT-IN_FRAMEWORK/**/KNU_PLAN.csv'
+      - 'OPT-IN_FRAMEWORK/**/KNOTS.csv'
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  knu-collision-check:
+    name: Validate KNU and KNOT ID Uniqueness
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Check for KNU ID collisions
+        run: |
+          echo "🔍 Checking for KNU ID collisions across all KNU_PLAN.csv files..."
+
+          # Collect all KNU IDs
+          all_knu_ids=$(mktemp)
+          knu_files_found=0
+
+          # Using process substitution to avoid subshell variable scope issues
+          while IFS= read -r csv_file; do
+            if [ -f "$csv_file" ]; then
+              knu_files_found=$((knu_files_found + 1))
+              echo "📄 Processing: $csv_file"
+              # Extract KNU_ID column (assuming it's the first column)
+              while IFS= read -r knu_id; do
+                if [ -n "$knu_id" ]; then
+                  echo "$knu_id|$csv_file" >> "$all_knu_ids"
+                fi
+              done < <(tail -n +2 "$csv_file" 2>/dev/null | cut -d',' -f1)
+            fi
+          done < <(find OPT-IN_FRAMEWORK -name "KNU_PLAN.csv" -type f 2>/dev/null)
+
+          if [ ! -s "$all_knu_ids" ]; then
+            echo "ℹ️  No KNU_PLAN.csv files found or no KNU IDs defined yet."
+            echo "   This is expected for a new repository."
+            rm -f "$all_knu_ids"
+            exit 0
+          fi
+
+          # Check for duplicates
+          echo ""
+          echo "🔄 Checking for duplicate KNU IDs..."
+
+          duplicates=$(cut -d'|' -f1 "$all_knu_ids" | sort | uniq -d)
+
+          if [ -n "$duplicates" ]; then
+            echo "❌ Duplicate KNU IDs found:"
+            while IFS= read -r dup_id; do
+              echo "   - $dup_id found in:"
+              grep "^$dup_id|" "$all_knu_ids" | cut -d'|' -f2 | while IFS= read -r loc; do
+                echo "     • $loc"
+              done
+            done <<< "$duplicates"
+            rm -f "$all_knu_ids"
+            exit 1
+          else
+            total_ids=$(wc -l < "$all_knu_ids")
+            echo "✅ No duplicate KNU IDs found. Total unique IDs: $total_ids"
+          fi
+
+          rm -f "$all_knu_ids"
+
+      - name: Check for KNOT ID collisions
+        run: |
+          echo "🔍 Checking for KNOT ID collisions across all KNOTS.csv files..."
+
+          # Collect all KNOT IDs
+          all_knot_ids=$(mktemp)
+
+          # Using process substitution to avoid subshell variable scope issues
+          while IFS= read -r csv_file; do
+            if [ -f "$csv_file" ]; then
+              echo "📄 Processing: $csv_file"
+              # Extract KNOT_ID column (assuming it's the first column)
+              while IFS= read -r knot_id; do
+                if [ -n "$knot_id" ]; then
+                  echo "$knot_id|$csv_file" >> "$all_knot_ids"
+                fi
+              done < <(tail -n +2 "$csv_file" 2>/dev/null | cut -d',' -f1)
+            fi
+          done < <(find OPT-IN_FRAMEWORK -name "KNOTS.csv" -type f 2>/dev/null)
+
+          if [ ! -s "$all_knot_ids" ]; then
+            echo "ℹ️  No KNOTS.csv files found or no KNOT IDs defined yet."
+            echo "   This is expected for a new repository."
+            rm -f "$all_knot_ids"
+            exit 0
+          fi
+
+          # Check for duplicates
+          echo ""
+          echo "🔄 Checking for duplicate KNOT IDs..."
+
+          duplicates=$(cut -d'|' -f1 "$all_knot_ids" | sort | uniq -d)
+
+          if [ -n "$duplicates" ]; then
+            echo "❌ Duplicate KNOT IDs found:"
+            while IFS= read -r dup_id; do
+              echo "   - $dup_id found in:"
+              grep "^$dup_id|" "$all_knot_ids" | cut -d'|' -f2 | while IFS= read -r loc; do
+                echo "     • $loc"
+              done
+            done <<< "$duplicates"
+            rm -f "$all_knot_ids"
+            exit 1
+          else
+            total_ids=$(wc -l < "$all_knot_ids")
+            echo "✅ No duplicate KNOT IDs found. Total unique IDs: $total_ids"
+          fi
+
+          rm -f "$all_knot_ids"
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "## KNU/KNOT ID Collision Check Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "ID uniqueness validation completed for KNU and KNOT identifiers." >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Files Checked" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**KNU_PLAN.csv files:**" >> $GITHUB_STEP_SUMMARY
+          find OPT-IN_FRAMEWORK -name "KNU_PLAN.csv" -type f 2>/dev/null | head -10 | while read f; do
+            echo "- \`$f\`" >> $GITHUB_STEP_SUMMARY
+          done || echo "No KNU_PLAN.csv files found" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**KNOTS.csv files:**" >> $GITHUB_STEP_SUMMARY
+          find OPT-IN_FRAMEWORK -name "KNOTS.csv" -type f 2>/dev/null | head -10 | while read f; do
+            echo "- \`$f\`" >> $GITHUB_STEP_SUMMARY
+          done || echo "No KNOTS.csv files found" >> $GITHUB_STEP_SUMMARY

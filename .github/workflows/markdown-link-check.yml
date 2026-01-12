@@ -1,0 +1,116 @@
+name: Markdown Link Check
+
+on:
+  push:
+    paths:
+      - '**/*.md'
+      - '**/*.MD'
+  pull_request:
+    paths:
+      - '**/*.md'
+      - '**/*.MD'
+  workflow_dispatch:  # Allow manual trigger
+  schedule:
+    # Run weekly on Sundays at 00:00 UTC to catch broken external links
+    - cron: '0 0 * * 0'
+
+jobs:
+  markdown-link-check:
+    name: Validate Markdown Links
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install markdown-link-check
+        run: npm install -g markdown-link-check
+
+      - name: Create link check config
+        run: |
+          # Create configuration file if it doesn't exist
+          if [ ! -f ".github/markdown-link-check-config.json" ]; then
+            cat > /tmp/markdown-link-check-config.json << 'EOF'
+          {
+            "ignorePatterns": [
+              {
+                "pattern": "^mailto:"
+              },
+              {
+                "pattern": "^tel:"
+              }
+            ],
+            "replacementPatterns": [],
+            "httpHeaders": [],
+            "timeout": "20s",
+            "retryOn429": true,
+            "retryCount": 3,
+            "fallbackRetryDelay": "30s",
+            "aliveStatusCodes": [200, 206, 301, 302, 307, 308]
+          }
+          EOF
+            echo "Created temporary link check config"
+            CONFIG_FILE="/tmp/markdown-link-check-config.json"
+          else
+            CONFIG_FILE=".github/markdown-link-check-config.json"
+            echo "Using existing config: $CONFIG_FILE"
+          fi
+          echo "CONFIG_FILE=$CONFIG_FILE" >> $GITHUB_ENV
+
+      - name: Check markdown links
+        run: |
+          failed_files=0
+          checked_files=0
+
+          echo "🔍 Checking markdown links..."
+          echo ""
+
+          # Find all markdown files using process substitution to preserve variable scope
+          while IFS= read -r md_file; do
+            if [ -f "$md_file" ]; then
+              checked_files=$((checked_files + 1))
+              echo "📄 Checking: $md_file"
+
+              # Run markdown-link-check and capture output
+              if markdown-link-check --config "$CONFIG_FILE" "$md_file" 2>&1; then
+                echo "   ✅ All links valid"
+              else
+                echo "   ⚠️  Issues found in: $md_file"
+                failed_files=$((failed_files + 1))
+              fi
+              echo ""
+            fi
+          done < <(find . \( -name "*.md" -o -name "*.MD" \) -type f 2>/dev/null | grep -v node_modules | grep -v .git | sort)
+
+          echo "📊 Link Check Summary:"
+          echo "   Files checked: $checked_files"
+          echo "   Files with issues: $failed_files"
+
+          # Note: We don't fail the workflow for broken links as this is optional
+          # External links may be temporarily unavailable
+          echo ""
+          echo "ℹ️  Link check completed. Review any warnings above."
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "## Markdown Link Check Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Link validation completed for all markdown files." >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Markdown Files" >> $GITHUB_STEP_SUMMARY
+          total_files=$(find . \( -name "*.md" -o -name "*.MD" \) 2>/dev/null | grep -v node_modules | grep -v .git | wc -l)
+          echo "Total markdown files: **$total_files**" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Key Directories" >> $GITHUB_STEP_SUMMARY
+          echo "- \`OPT-IN_FRAMEWORK/\`" >> $GITHUB_STEP_SUMMARY
+          echo "- Root documentation (\`README.md\`, etc.)" >> $GITHUB_STEP_SUMMARY

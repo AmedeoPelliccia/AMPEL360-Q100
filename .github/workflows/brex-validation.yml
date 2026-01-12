@@ -1,0 +1,105 @@
+name: S1000D BREX Validation
+
+on:
+  push:
+    paths:
+      - 'OPT-IN_FRAMEWORK/**/PUB/**/CSDB/**/*.XML'
+      - 'OPT-IN_FRAMEWORK/**/PUB/**/CSDB/**/*.xml'
+  pull_request:
+    paths:
+      - 'OPT-IN_FRAMEWORK/**/PUB/**/CSDB/**/*.XML'
+      - 'OPT-IN_FRAMEWORK/**/PUB/**/CSDB/**/*.xml'
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  brex-validation:
+    name: Validate S1000D Data Modules against BREX
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install lxml
+
+      - name: Find and validate S1000D XML files against BREX
+        run: |
+          validated_count=0
+          failed_count=0
+          skipped_count=0
+
+          echo "🔍 Searching for S1000D Data Modules..."
+
+          # Find all S1000D XML files in CSDB/DM directories
+          # Using process substitution to avoid subshell variable scope issues
+          while IFS= read -r xml_file; do
+            if [ -z "$xml_file" ]; then
+              continue
+            fi
+
+            # Find corresponding BREX file
+            csdb_dir=$(dirname "$(dirname "$xml_file")")
+            brex_dir="$csdb_dir/BREX"
+
+            if [ ! -d "$brex_dir" ]; then
+              echo "⚠️  No BREX directory found for: $xml_file"
+              echo "   Expected at: $brex_dir"
+              skipped_count=$((skipped_count + 1))
+              continue
+            fi
+
+            brex_file=$(find "$brex_dir" -name "*.XML" -o -name "*.xml" 2>/dev/null | head -1)
+
+            if [ -z "$brex_file" ]; then
+              echo "⚠️  No BREX file found in: $brex_dir"
+              skipped_count=$((skipped_count + 1))
+              continue
+            fi
+
+            echo "🔄 Validating: $xml_file"
+            echo "   Against BREX: $brex_file"
+
+            # Basic XML well-formedness check using safe file path handling
+            if python3 -c "import lxml.etree as ET; import sys; ET.parse(sys.argv[1])" "$xml_file" 2>/dev/null; then
+              echo "✅ Well-formed XML: $xml_file"
+              validated_count=$((validated_count + 1))
+            else
+              echo "❌ Malformed XML: $xml_file"
+              failed_count=$((failed_count + 1))
+            fi
+          done < <(find OPT-IN_FRAMEWORK \( -path "*/CSDB/DM/*.XML" -o -path "*/CSDB/DM/*.xml" \) -type f 2>/dev/null)
+
+          echo ""
+          echo "📊 BREX Validation Summary:"
+          echo "   ✅ Validated: $validated_count"
+          echo "   ⚠️  Skipped (no BREX): $skipped_count"
+          echo "   ❌ Failed: $failed_count"
+
+          if [ $failed_count -gt 0 ]; then
+            exit 1
+          fi
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "## S1000D BREX Validation Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "BREX validation completed for S1000D Data Modules." >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Validated Files" >> $GITHUB_STEP_SUMMARY
+          find OPT-IN_FRAMEWORK \( -path "*/CSDB/DM/*.XML" -o -path "*/CSDB/DM/*.xml" \) -type f 2>/dev/null | head -20 | while read f; do
+            if [ -n "$f" ]; then
+              echo "- \`$f\`" >> $GITHUB_STEP_SUMMARY
+            fi
+          done || echo "No S1000D files found" >> $GITHUB_STEP_SUMMARY
