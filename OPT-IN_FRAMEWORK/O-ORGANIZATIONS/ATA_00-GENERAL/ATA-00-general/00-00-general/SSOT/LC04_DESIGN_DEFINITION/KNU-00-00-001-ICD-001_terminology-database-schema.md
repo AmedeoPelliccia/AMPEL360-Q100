@@ -42,11 +42,11 @@ effort_predicted: 5
 # Modification Tracking
 spawned_by_tbd: null
 triggers_tbds: 
-  - "TBD-00-001"
-  - "TBD-00-002"
-  - "TBD-00-003"
-  - "TBD-00-005"
-  - "TBD-00-006"
+  - "TBD-00-00-001-ICD-001-001"
+  - "TBD-00-00-001-ICD-001-002"
+  - "TBD-00-00-001-ICD-001-003"
+  - "TBD-00-00-001-ICD-001-005"
+  - "TBD-00-00-001-ICD-001-006"
 modification_type: "NEW"
 
 # Traceability
@@ -638,7 +638,7 @@ CREATE INDEX idx_migrations_version ON schema_migrations(version);
 | **SSOT Artifacts** | Markdown link:  `[term_name](term://term_id)` | `[LH₂](term://3fa85f64-5717-4562-b3fc-2c963f66afa6)` |
 | **CSDB CIR** | S1000D applicCrossRefTableRef | `<applicCrossRefTableRef>` |
 | **DPP Namespace** | URI: `ampel360:term:{term_id}` | `ampel360:term:3fa85f64-5717-4562-b3fc-2c963f66afa6` |
-| **KNU Artifacts** | TBD reference:  `TBD-{ATA}-{seq}` | `TBD-00-003` |
+| **KNU Artifacts** | TBD reference:  `TBD-{ATA}-{seq}` | `TBD-00-00-001-ICD-001-003` |
 
 ---
 
@@ -686,7 +686,7 @@ CREATE INDEX idx_migrations_version ON schema_migrations(version);
 ```markdown
 The [LH₂](term://3fa85f64-5717-4562-b3fc-2c963f66afa6) tank stores hydrogen at cryogenic temperatures. 
 
-**Note:** [TBD-28-003] Final LH₂ boil-off rate pending thermal analysis.  
+**Note:** [TBD-28-10-005-ICD-001-001] Final LH₂ boil-off rate pending thermal analysis.  
 ```
 
 ### 9.2 CSDB CIR Integration
@@ -759,7 +759,7 @@ The [LH₂](term://3fa85f64-5717-4562-b3fc-2c963f66afa6) tank stores hydrogen at
 ### 12.2 Schema Migration Example
 
 ```bash
-# Apply migration v1.1. 0 (triggered by TBD-00-003)
+# Apply migration v1.1. 0 (triggered by TBD-00-00-001-ICD-001-003)
 psql -U ampel360_admin -d terminology_db -f migrations/v1.1.0_term_type_taxonomy.sql
 
 # Rollback
@@ -832,25 +832,25 @@ psql -U ampel360_admin -d terminology_db -f rollbacks/v1.1.0_rollback. sql
 
 | TBD ID | Description | Discovered In | Impact Class | Spawned KNU (Primary) | Triggered KNUs (Secondary) | Blocking | Status |
 |--------|-------------|---------------|--------------|----------------------|---------------------------|----------|--------|
-| TBD-00-001 | Finalize PostgreSQL version (15 vs 16) | KNU-00-00-001-ICD-001 | **CLASS II** | **KNU-00-00-001-ANA-002** | — | NO | OPEN |
-| TBD-00-002 | Select GraphQL framework (Apollo vs Hasura) | KNU-00-00-001-ICD-001 | **CLASS II** | **KNU-00-00-001-ANA-003** | KNU-00-00-001-ICD-001 (minor update) | NO | OPEN |
-| TBD-00-003 | Define full `term_type` enumeration | KNU-00-00-001-ICD-001 | **CLASS I** | **KNU-00-00-001-REQ-002** | KNU-00-00-001-ICD-001 (mod)<br>KNU-00-00-001-TEST-001 (mod)<br>**KNU-00-00-001-PUB-002** (new)<br>KNU-96-10-001-ICD-003 (cross-KNOT) | YES | OPEN |
-| TBD-00-004 | Establish translation workflow with vendor | KNU-00-00-001-ICD-001 | **CLASS II** | **KNU-00-00-002-PLAN-001** | — | NO | OPEN |
-| TBD-00-005 | Define CSDB CIR export frequency | KNU-00-00-001-ICD-001 | **CLASS I** | **KNU-00-00-001-ICD-002** | KNU-00-00-001-TEST-002 (new)<br>KNU-00-00-001-PLAN-002 (new) | YES | OPEN |
-| TBD-00-006 | Coordinate DPP namespace integration | KNU-00-00-001-ICD-001 | **CLASS I** | KNU-96-10-001-ICD-002 | KNU-96-10-001-TEST-001 (new)<br>KNU-00-00-001-ICD-001 (mod) | YES | OPEN |
+| TBD-00-00-001-ICD-001-001 | Finalize PostgreSQL version (15 vs 16) | KNU-00-00-001-ICD-001 | **CLASS II** | **KNU-00-00-001-ANA-002** | — | NO | OPEN |
+| TBD-00-00-001-ICD-001-002 | Select GraphQL framework (Apollo vs Hasura) | KNU-00-00-001-ICD-001 | **CLASS II** | **KNU-00-00-001-ANA-003** | KNU-00-00-001-ICD-001 (minor update) | NO | OPEN |
+| TBD-00-00-001-ICD-001-003 | Define full `term_type` enumeration | KNU-00-00-001-ICD-001 | **CLASS I** | **KNU-00-00-001-REQ-002** | KNU-00-00-001-ICD-001 (mod)<br>KNU-00-00-001-TEST-001 (mod)<br>**KNU-00-00-001-PUB-002** (new)<br>KNU-96-10-001-ICD-003 (cross-KNOT) | YES | OPEN |
+| TBD-00-00-001-ICD-001-004 | Establish translation workflow with vendor | KNU-00-00-001-ICD-001 | **CLASS II** | **KNU-00-00-002-PLAN-001** | — | NO | OPEN |
+| TBD-00-00-001-ICD-001-005 | Define CSDB CIR export frequency | KNU-00-00-001-ICD-001 | **CLASS I** | **KNU-00-00-001-ICD-002** | KNU-00-00-001-TEST-002 (new)<br>KNU-00-00-001-PLAN-002 (new) | YES | OPEN |
+| TBD-00-00-001-ICD-001-006 | Coordinate DPP namespace integration | KNU-00-00-001-ICD-001 | **CLASS I** | KNU-96-10-001-ICD-002 | KNU-96-10-001-TEST-001 (new)<br>KNU-00-00-001-ICD-001 (mod) | YES | OPEN |
 
 **✅ Verification:** All spawned KNU IDs verified against existing repository structure.  No conflicts detected.
 
 ---
 
-### 15.2 Modification Package:  TBD-00-003 (Term Type Taxonomy)
+### 15.2 Modification Package:  TBD-00-00-001-ICD-001-003 (Term Type Taxonomy)
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                  MOD-00-001:  TERM TYPE TAXONOMY PACKAGE                     │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                              │
-│  TBD-00-003: Define term_type enumeration                                   │
+│  TBD-00-00-001-ICD-001-003: Define term_type enumeration                                   │
 │  Impact Class: CLASS I (Major Modification)                                 │
 │  Blocking: YES                                                              │
 │  Related KNOT:  KNOT-00-00-001                                               │
@@ -942,7 +942,7 @@ psql -U ampel360_admin -d terminology_db -f rollbacks/v1.1.0_rollback. sql
 #### KNU-00-00-001-ANA-002:  Database Platform Selection Analysis
 
 **Purpose:** Evaluate PostgreSQL 15 vs 16 for terminology database  
-**Spawned By:** TBD-00-001  
+**Spawned By:** TBD-00-00-001-ICD-001-001  
 **Artifact Class:** SSOT (Analysis)  
 **REC:** LC05  
 **Acceptance Criteria:** Trade study complete; recommendation approved by STK_DATA  
@@ -958,7 +958,7 @@ psql -U ampel360_admin -d terminology_db -f rollbacks/v1.1.0_rollback. sql
 #### KNU-00-00-001-ANA-003: GraphQL Framework Trade Study
 
 **Purpose:** Evaluate Apollo vs Hasura for API implementation  
-**Spawned By:** TBD-00-002  
+**Spawned By:** TBD-00-00-001-ICD-001-002  
 **Artifact Class:** SSOT (Analysis)  
 **REC:** LC05  
 **Acceptance Criteria:** Prototype evaluation; performance benchmarks; recommendation  
@@ -975,7 +975,7 @@ psql -U ampel360_admin -d terminology_db -f rollbacks/v1.1.0_rollback. sql
 #### KNU-00-00-001-REQ-002: Term Type Taxonomy Requirements
 
 **Purpose:** Define complete enumeration of `term_type` values  
-**Spawned By:** TBD-00-003  
+**Spawned By:** TBD-00-00-001-ICD-001-003  
 **Artifact Class:** SSOT (Requirements)  
 **REC:** LC02  
 **Acceptance Criteria:** Taxonomy approved by STK_CM + STK_SE; integrated with schema  
@@ -996,7 +996,7 @@ psql -U ampel360_admin -d terminology_db -f rollbacks/v1.1.0_rollback. sql
 #### KNU-00-00-001-TEST-001: Schema Validation Tests
 
 **Purpose:** Comprehensive test suite for term_type validation  
-**Spawned By:** TBD-00-003 (triggered by REQ-002)  
+**Spawned By:** TBD-00-00-001-ICD-001-003 (triggered by REQ-002)  
 **Artifact Class:** SSOT (Test)  
 **REC:** LC06  
 **Acceptance Criteria:** Test cases cover all term types; 100% pass rate  
@@ -1012,7 +1012,7 @@ psql -U ampel360_admin -d terminology_db -f rollbacks/v1.1.0_rollback. sql
 #### KNU-00-00-001-PUB-002: Term Type Usage Guide
 
 **Purpose:** Documentation for CSDB authors on term type selection  
-**Spawned By:** TBD-00-003 (triggered by REQ-002)  
+**Spawned By:** TBD-00-00-001-ICD-001-003 (triggered by REQ-002)  
 **Artifact Class:** CSDB (Publication)  
 **REC:** LC11  
 **Acceptance Criteria:** DM passes BREX; integrated with AMM  
@@ -1028,7 +1028,7 @@ psql -U ampel360_admin -d terminology_db -f rollbacks/v1.1.0_rollback. sql
 #### KNU-00-00-002-PLAN-001: Translation Workflow Plan
 
 **Purpose:** Define translation process, vendor selection, quality gates  
-**Spawned By:** TBD-00-004  
+**Spawned By:** TBD-00-00-001-ICD-001-004  
 **Artifact Class:** SSOT (Plan)  
 **REC:** LC08  
 **Acceptance Criteria:** Workflow documented; vendor onboarded; SLA defined  
@@ -1045,7 +1045,7 @@ psql -U ampel360_admin -d terminology_db -f rollbacks/v1.1.0_rollback. sql
 #### KNU-00-00-001-ICD-002:  CSDB CIR Export Interface Specification
 
 **Purpose:** Define CIR export frequency, format, validation, integration  
-**Spawned By:** TBD-00-005  
+**Spawned By:** TBD-00-00-001-ICD-001-005  
 **Artifact Class:** SSOT (ICD)  
 **REC:** LC04  
 **Acceptance Criteria:** Export specification approved; integration tested  
@@ -1064,7 +1064,7 @@ psql -U ampel360_admin -d terminology_db -f rollbacks/v1.1.0_rollback. sql
 #### KNU-00-00-001-TEST-002: CIR Export Validation Tests
 
 **Purpose:** Test suite for CSDB CIR export functionality  
-**Spawned By:** TBD-00-005 (triggered by ICD-002)  
+**Spawned By:** TBD-00-00-001-ICD-001-005 (triggered by ICD-002)  
 **Artifact Class:** SSOT (Test)  
 **REC:** LC06  
 **Acceptance Criteria:** Export validation passes; S1000D schema compliance verified  
@@ -1080,7 +1080,7 @@ psql -U ampel360_admin -d terminology_db -f rollbacks/v1.1.0_rollback. sql
 #### KNU-96-10-001-ICD-002: DPP-Terminology Namespace Integration
 
 **Purpose:** Define URI patterns, identifier grammar, resolution mechanism  
-**Spawned By:** TBD-00-006  
+**Spawned By:** TBD-00-00-001-ICD-001-006  
 **Artifact Class:** SSOT (ICD)  
 **REC:** LC04  
 **Acceptance Criteria:** Namespace collision resolved; integration spec approved  
@@ -1115,12 +1115,12 @@ psql -U ampel360_admin -d terminology_db -f rollbacks/v1.1.0_rollback. sql
 
 | TBD ID | Spawned KNU | Est.  Residual Reduction | Notes |
 |--------|-------------|-------------------------|-------|
-| TBD-00-001 | KNU-00-00-001-ANA-002 | -2 | Minor technical decision |
-| TBD-00-002 | KNU-00-00-001-ANA-003 | -3 | API framework choice |
-| TBD-00-003 | KNU-00-00-001-REQ-002 + 4 triggered | -25.5 | **Critical** - Schema foundation + cascade |
-| TBD-00-004 | KNU-00-00-002-PLAN-001 | -5 | Spawns new KNOT |
-| TBD-00-005 | KNU-00-00-001-ICD-002 + 2 triggered | -14 | **Critical** - CSDB integration |
-| TBD-00-006 | KNU-96-10-001-ICD-002 + 2 triggered | -12 (incl. spillover) | **Critical** - Cross-ATA |
+| TBD-00-00-001-ICD-001-001 | KNU-00-00-001-ANA-002 | -2 | Minor technical decision |
+| TBD-00-00-001-ICD-001-002 | KNU-00-00-001-ANA-003 | -3 | API framework choice |
+| TBD-00-00-001-ICD-001-003 | KNU-00-00-001-REQ-002 + 4 triggered | -25.5 | **Critical** - Schema foundation + cascade |
+| TBD-00-00-001-ICD-001-004 | KNU-00-00-002-PLAN-001 | -5 | Spawns new KNOT |
+| TBD-00-00-001-ICD-001-005 | KNU-00-00-001-ICD-002 + 2 triggered | -14 | **Critical** - CSDB integration |
+| TBD-00-00-001-ICD-001-006 | KNU-96-10-001-ICD-002 + 2 triggered | -12 (incl. spillover) | **Critical** - Cross-ATA |
 | **Total** | — | **-61. 5** | Expected residual reduction from TBD resolution |
 
 **KNOT-00-00-001 Impact:**
@@ -1136,11 +1136,11 @@ psql -U ampel360_admin -d terminology_db -f rollbacks/v1.1.0_rollback. sql
 
 | TBD ID | Resolution Date | Baseline Impact | Effective From | Artifacts Modified |
 |--------|----------------|-----------------|----------------|-------------------|
-| TBD-00-001 | 2026-02-01 | Schema v1.0.1 | 2026-02-01 | ICD-001 (config update) |
-| TBD-00-002 | 2026-02-01 | Schema v1.0.2 | 2026-02-01 | ICD-001 (API update) |
-| TBD-00-003 | 2026-02-15 | Schema v1.1.0 | 2026-02-15 | ICD-001, REQ-002, TEST-001, PUB-002, ICD-003 |
-| TBD-00-005 | 2026-02-15 | Schema v1.2.0 | 2026-02-15 | ICD-001, ICD-002, TEST-002, PLAN-002 |
-| TBD-00-006 | 2026-03-01 | Schema v1.2.0 | 2026-03-01 | ICD-001, ICD-002 (cross-ATA), TEST-001 |
+| TBD-00-00-001-ICD-001-001 | 2026-02-01 | Schema v1.0.1 | 2026-02-01 | ICD-001 (config update) |
+| TBD-00-00-001-ICD-001-002 | 2026-02-01 | Schema v1.0.2 | 2026-02-01 | ICD-001 (API update) |
+| TBD-00-00-001-ICD-001-003 | 2026-02-15 | Schema v1.1.0 | 2026-02-15 | ICD-001, REQ-002, TEST-001, PUB-002, ICD-003 |
+| TBD-00-00-001-ICD-001-005 | 2026-02-15 | Schema v1.2.0 | 2026-02-15 | ICD-001, ICD-002, TEST-002, PLAN-002 |
+| TBD-00-00-001-ICD-001-006 | 2026-03-01 | Schema v1.2.0 | 2026-03-01 | ICD-001, ICD-002 (cross-ATA), TEST-001 |
 
 ---
 

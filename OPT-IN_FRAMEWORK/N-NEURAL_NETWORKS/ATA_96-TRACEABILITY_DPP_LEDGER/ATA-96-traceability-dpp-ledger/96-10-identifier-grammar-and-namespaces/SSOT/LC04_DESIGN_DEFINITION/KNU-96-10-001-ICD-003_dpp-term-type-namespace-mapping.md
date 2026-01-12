@@ -15,9 +15,9 @@ program: AMPEL360 Q100 BWB Hydrogen-Hybrid Aircraft
 version: I001-R00
 date_created: 2026-01-12
 triggered_by: KNU-00-00-001-REQ-002
-spawned_by: TBD-00-003
+spawned_by: TBD-00-00-001-ICD-001-003
 related_tbds:
-  - TBD-00-003
+  - TBD-00-00-001-ICD-001-003
 cross_knot: KNOT-00-00-001
 term_types:
   - NOUN
@@ -399,7 +399,7 @@ generate_dpp_namespace('kg', 'UNIT')
 
 ## Resolves TBD
 
-**TBD-00-003: Term Type Enumeration (Cross-KNOT Spillover)**
+**TBD-00-00-001-ICD-001-003: Term Type Enumeration (Cross-KNOT Spillover)**
 
 **Resolution:**
 - **Term Type Taxonomy:** Defined in KNU-00-00-001-REQ-002
@@ -419,7 +419,7 @@ generate_dpp_namespace('kg', 'UNIT')
 
 **None (cascade already complete)**
 
-All downstream KNUs from TBD-00-003 have been spawned:
+All downstream KNUs from TBD-00-00-001-ICD-001-003 have been spawned:
 - ✅ KNU-00-00-001-REQ-002 (GENERATED)
 - ✅ KNU-00-00-001-TEST-001 (PLANNED)
 - ✅ KNU-00-00-001-PUB-002 (GENERATED)

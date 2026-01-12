@@ -16,7 +16,7 @@ version: I001-R00
 date_created: 2026-01-12
 spawned_by: BASELINE
 related_tbds:
-  - TBD-00-010
+  - TBD-00-00-005-ICD-001-001
 triggered_knus:
   - KNU-00-00-005-TEST-001
 si_base_units:
@@ -501,7 +501,7 @@ def round_half_down_precise(x, decimals=0):
 
 The following uncertainties have been identified and require resolution:
 
-### [TBD-00-010] Conversion Factor Database Format
+### [TBD-00-00-005-ICD-001-001] Conversion Factor Database Format
 
 **Description:** Determine database format for conversion factors (JSON vs YAML vs SQL)
 
@@ -534,7 +534,7 @@ The following KNUs are spawned by this ICD to address embedded TBDs:
 - Round-trip conversions: Identity within tolerance
 - Performance: <1μs per conversion
 
-**Spawned By:** TBD-00-010
+**Spawned By:** TBD-00-00-005-ICD-001-001
 
 **Due Date:** 2026-03-20
 

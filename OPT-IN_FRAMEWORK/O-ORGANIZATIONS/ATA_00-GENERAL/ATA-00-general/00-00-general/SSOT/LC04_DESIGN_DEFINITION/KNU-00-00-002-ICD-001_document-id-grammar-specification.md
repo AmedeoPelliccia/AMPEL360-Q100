@@ -16,8 +16,8 @@ version: I001-R00
 date_created: 2026-01-12
 spawned_by: BASELINE
 related_tbds:
-  - TBD-00-007
-  - TBD-00-008
+  - TBD-00-00-002-ICD-001-001
+  - TBD-00-00-002-ICD-001-002
 triggered_knus:
   - KNU-00-00-002-TEST-001
   - KNU-00-00-002-CM-002
@@ -174,10 +174,10 @@ DMC-AMPEL360-00-00-0-0-00-00A-001A-A_001-00_en-US
 
 **Valid Examples:**
 ```
-✅ TBD-00-001
-✅ TBD-28-003
-✅ TBD-00-007
-✅ TBD-03-001
+✅ TBD-00-00-001-ICD-001-001
+✅ TBD-28-10-005-ICD-001-001
+✅ TBD-00-00-002-ICD-001-001
+✅ TBD-00-00-003-ICD-001-001
 ```
 
 **Invalid Examples:**
@@ -304,7 +304,7 @@ function validateId(id, type) {
 // Usage
 console.log(validateId('KNU-00-00-001-REQ-001', 'knu')); // true
 console.log(validateId('KNOT-00-00-001', 'knot')); // true
-console.log(validateId('TBD-00-007', 'tbd')); // true
+console.log(validateId('TBD-00-00-002-ICD-001-001', 'tbd')); // true
 ```
 
 **Python Implementation:**
@@ -328,7 +328,7 @@ def validate_id(id_str: str, id_type: str) -> bool:
 # Usage
 assert validate_id('KNU-00-00-001-REQ-001', 'knu') == True
 assert validate_id('KNOT-00-00-001', 'knot') == True
-assert validate_id('TBD-00-007', 'tbd') == True
+assert validate_id('TBD-00-00-002-ICD-001-001', 'tbd') == True
 ```
 
 ---
@@ -337,7 +337,7 @@ assert validate_id('TBD-00-007', 'tbd') == True
 
 The following uncertainties have been identified and require resolution:
 
-### [TBD-00-007] Version Numbering Convention for SSOT Artifacts
+### [TBD-00-00-002-ICD-001-001] Version Numbering Convention for SSOT Artifacts
 
 **Description:** Determine version numbering convention for SSOT artifacts (Issue/Revision format I##-R## vs semantic versioning vMAJOR.MINOR.PATCH)
 
@@ -351,7 +351,7 @@ The following uncertainties have been identified and require resolution:
 
 ---
 
-### [TBD-00-008] Cross-Repository Reference Syntax
+### [TBD-00-00-002-ICD-001-002] Cross-Repository Reference Syntax
 
 **Description:** Define syntax for cross-repository references in multi-repo projects
 
@@ -379,7 +379,7 @@ The following KNUs are spawned by this ICD to address embedded TBDs:
 - All invalid ID formats fail validation
 - Performance: <10ms per validation
 
-**Spawned By:** TBD-00-007
+**Spawned By:** TBD-00-00-002-ICD-001-001
 
 **Due Date:** 2026-03-20
 
@@ -395,7 +395,7 @@ The following KNUs are spawned by this ICD to address embedded TBDs:
 - Collision detection prevents commit
 - Rollback mechanism for failed validations
 
-**Spawned By:** TBD-00-007
+**Spawned By:** TBD-00-00-002-ICD-001-001
 
 **Due Date:** 2026-03-25
 
