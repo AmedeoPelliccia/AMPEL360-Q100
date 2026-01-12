@@ -34,7 +34,7 @@
 
 ✅ **Baseline PUB KNUs 100% complete** - All 7 baseline publication KNUs in GENERATED status
 
-✅ **33% overall progress** - 12 of 36 KNUs now in GENERATED or better status
+✅ **37.1% overall progress** - 13 of 35 KNUs now in GENERATED or better status
 
 ---
 
