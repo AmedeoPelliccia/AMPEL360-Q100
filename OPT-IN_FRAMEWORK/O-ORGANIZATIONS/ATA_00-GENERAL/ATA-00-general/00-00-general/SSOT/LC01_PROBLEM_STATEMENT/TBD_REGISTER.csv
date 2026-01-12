@@ -6,7 +6,7 @@ TBD-00-004,II,🔴OPEN,Translation workflow vendor selection,KNU-00-00-001-ICD-0
 TBD-00-005,II,🟢RESOLVED,CIR export frequency determination,KNU-00-00-001-ICD-001,STK_CM,2026-02-15,KNU-00-00-001-ICD-002;KNU-00-00-001-TEST-002;KNU-00-00-001-PLAN-002,,KNU-00-00-001-ICD-002,SSOT/LC04_DESIGN_DEFINITION/KNU-00-00-001-ICD-002#export-frequency,2026-01-12,MODERATE,"Export frequency documented in ICD-002"
 TBD-00-006,II,🟢RESOLVED,DPP namespace collision resolution,KNU-00-00-001-ICD-001,STK_DATA,2026-03-01,KNU-96-10-001-ICD-002;KNU-96-10-001-TEST-001,,KNU-96-10-001-ICD-002,SSOT/LC04_DESIGN_DEFINITION/KNU-96-10-001-ICD-002#namespace-mapping,2026-01-12,MODERATE,"Cross-KNOT namespace resolved"
 TBD-00-007,II,🔴OPEN,Version numbering convention for SSOT artifacts,KNU-00-00-002-ICD-001,STK_CM,2026-02-15,KNU-00-00-002-TEST-001;KNU-00-00-002-CM-002,KNU-00-00-002-TEST-001;KNU-00-00-002-CM-002,,,2026-01-12,MINOR,"Blocks test suite and CM workflow"
-TBD-00-008,III,🟡RESERVED,Reserved for future use,,,,,,,,,,2026-01-12,MINOR,"Schema continuity placeholder"
+TBD-00-008,III,🟡RESERVED,Reserved for future use,,,,,,,2026-01-12,MINOR,"Schema continuity placeholder"
 TBD-00-009,III,🔴OPEN,External standards reference resolution,KNU-00-00-004-ICD-001,STK_DATA,2026-05-01,KNU-00-00-004-TEST-001,KNU-00-00-004-TEST-001,,,2026-01-12,MINOR,
 TBD-00-010,II,🔴OPEN,Conversion factor database format,KNU-00-00-005-ICD-001,STK_SE,2026-03-15,KNU-00-00-005-TEST-001,KNU-00-00-005-TEST-001,,,2026-01-12,MODERATE,
 TBD-00-011,II,🔴OPEN,H₂ terminology authority (SAE vs ISO),KNU-00-00-001-ANA-001,STK_SE,2026-02-28,KNU-00-00-001-ANA-004,KNU-00-00-001-ANA-004,,,2026-01-12,MAJOR,"35 H₂ terms blocking fuel system design"
