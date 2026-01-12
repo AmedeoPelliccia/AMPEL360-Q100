@@ -1,7 +1,7 @@
 # KNOT Status Report
 **AMPEL360 Q100 BWB Hydrogen-Hybrid Aircraft Program**
 
-*Generated: 2026-01-12 14:30:00 UTC*
+*Generated: 2026-01-12 18:30:00 UTC*
 
 ---
 
@@ -12,33 +12,45 @@
 | Metric | Value | Progress |
 |--------|-------|----------|
 | **Total KNOTs** | 6 | — |
-| **Total KNUs** | 42 | — |
-| **GENERATED KNUs** | 20 | 47.6% |
-| **PLANNED KNUs** | 22 | 52.4% |
+| **Total KNUs** | 54 | — |
+| **GENERATED KNUs** | 27 | 50.0% |
+| **PLANNED KNUs** | 27 | 50.0% |
 | **APPROVED KNUs** | 0 | 0.0% |
 | **BLOCKED KNUs** | 0 | 0.0% |
-| **Overall Completion** | 20/42 | 47.6% |
+| **Overall Completion** | 27/54 | 50.0% |
 
 ### Status Distribution
 
 ```
-🔵 GENERATED: 20 ( 47.6%) █████████████████████░░░░
-⚪ PLANNED:   22 ( 52.4%) ░░░░░░░░░░░░░░░░░░░░░░░░
+🔵 GENERATED: 27 ( 50.0%) ████████████████████████░
+⚪ PLANNED:   27 ( 50.0%) ░░░░░░░░░░░░░░░░░░░░░░░░░
 🟢 APPROVED:   0 (  0.0%) 
 🔴 BLOCKED:    0 (  0.0%) 
 ```
 
 ### Key Achievements
 
-✅ **All 7 remaining ICD documents generated** - Critical interface specifications complete
+✅ **All 7 LC05 ANA documents generated** - Critical analysis phase complete
 
-✅ **2 TBDs resolved** - TBD-00-00-001-ICD-001-005 (CIR export) and TBD-00-00-001-ICD-001-006 (DPP namespace) resolved
+✅ **4 TBDs resolved** - TBD-00-00-001-ICD-001-001 (PostgreSQL 15), TBD-00-00-001-ICD-001-002 (PostGraphile), TBD-00-00-001-ICD-001-005 (CIR export), and TBD-00-00-001-ICD-001-006 (DPP namespace)
 
-✅ **6 new TBDs discovered** - Detailed design phase reveals new uncertainties (expected)
+✅ **15 new TBDs discovered** - Analysis phase reveals new uncertainties (expected)
 
-✅ **47.6% overall progress** - 20 of 42 KNUs now in GENERATED status (+14% increase)
+✅ **50.0% overall progress** - 27 of 54 KNUs now in GENERATED status (+2.4% increase)
 
-✅ **Cross-KNOT integration validated** - KNOT-96-10-001 successfully integrated
+✅ **12 new spawned KNUs added** - Systematic TBD resolution process working
+
+### Class I Decision Dependencies
+
+**Critical Path Risk:** 3 Class I TBDs require executive approval to unblock downstream work
+
+| TBD ID | Decision Required | Owner | Deadline | Blocked KNUs | Impact |
+|--------|-------------------|-------|----------|--------------|--------|
+| **TBD-00-00-001-ANA-002-002** | Cloud vs on-premises deployment | STK_DATA | 2026-02-28 | KNU-00-00-001-ANA-005; KNU-00-00-001-CM-003 | $145k TCO |
+| **TBD-00-00-002-ANA-001-002** | Multi-language requirements | STK_CM | 2026-03-15 | KNU-00-00-002-ANA-003; KNU-00-00-002-PLAN-001 | $3.8M |
+| **TBD-00-00-004-ANA-001-001** | Requirements tool selection | STK_SE | 2026-03-01 | KNU-00-00-004-ANA-002 | $400k |
+
+**⚠️ Decision Status:** All 3 have recommendations in DECISION_LOG.md, pending approval authority sign-off
 
 ---
 
@@ -46,12 +58,12 @@
 
 ### KNOT-00-00-001
 
-**Progress:** █████████████████████░░░░░ 58% (7/12 KNUs)
+**Progress:** ███████████████░░░░░░░░░░░ 60% (10/17 KNUs)
 
 | Status | Count | Percentage |
 |--------|-------|------------|
-| 🔵 GENERATED | 7 | 58.3% |
-| ⚪ PLANNED | 5 | 41.7% |
+| 🔵 GENERATED | 10 | 58.8% |
+| ⚪ PLANNED | 7 | 41.2% |
 | 🟢 APPROVED | 0 | 0.0% |
 | 🔴 BLOCKED | 0 | 0.0% |
 
@@ -60,8 +72,8 @@
 | KNU ID | Type | Status | Priority | Notes |
 |--------|------|--------|----------|-------|
 | KNU-00-00-001-REQ-001 | REQ | 🔵 GENERATED | HIGH | Baseline requirement - GENERATED |
-| KNU-00-00-001-ICD-001 | ICD | 🔵 GENERATED | HIGH | Baseline ICD - GENERATED; subject to modifications by TBD-00... |
-| KNU-00-00-001-ANA-001 | ANA | ⚪ PLANNED | MEDIUM | Baseline analysis |
+| KNU-00-00-001-ICD-001 | ICD | 🔵 GENERATED | HIGH | Baseline ICD - GENERATED |
+| KNU-00-00-001-ANA-001 | ANA | 🔵 GENERATED | MEDIUM | Baseline analysis - GENERATED ✅ |
 | KNU-00-00-001-CM-001 | CM | ⚪ PLANNED | MEDIUM | Baseline CM process |
 | KNU-00-00-001-PUB-001 | PUB-AMM | 🔵 GENERATED | HIGH | Baseline glossary publication |
 | KNU-00-00-001-ANA-002 | ANA | ⚪ PLANNED | MEDIUM | Spawned by TBD-00-00-001-ICD-001-001 to resolve PostgreSQL version uncertai... |
@@ -84,12 +96,12 @@
 
 ### KNOT-00-00-002
 
-**Progress:** ███████████░░░░░░░░░░░░░░░ 38% (3/8 KNUs)
+**Progress:** ████████████░░░░░░░░░░░░░░ 44% (4/10 KNUs)
 
 | Status | Count | Percentage |
 |--------|-------|------------|
-| 🔵 GENERATED | 3 | 37.5% |
-| ⚪ PLANNED | 5 | 62.5% |
+| 🔵 GENERATED | 4 | 40.0% |
+| ⚪ PLANNED | 6 | 60.0% |
 | 🟢 APPROVED | 0 | 0.0% |
 | 🔴 BLOCKED | 0 | 0.0% |
 
@@ -98,13 +110,22 @@
 | KNU ID | Type | Status | Priority | Notes |
 |--------|------|--------|----------|-------|
 | KNU-00-00-002-REQ-001 | REQ | 🔵 GENERATED | HIGH | Baseline requirement - GENERATED |
-| KNU-00-00-002-ICD-001 | ICD | 🔵 GENERATED | HIGH | Baseline ICD - GENERATED ✅ |
-| KNU-00-00-002-ANA-001 | ANA | ⚪ PLANNED | MEDIUM | Baseline analysis |
+| KNU-00-00-002-ICD-001 | ICD | 🔵 GENERATED | HIGH | Baseline ICD - GENERATED |
+| KNU-00-00-002-ANA-001 | ANA | 🔵 GENERATED | MEDIUM | Document Volume Projection - GENERATED ✅ |
 | KNU-00-00-002-CM-001 | CM | ⚪ PLANNED | MEDIUM | Baseline CM process |
 | KNU-00-00-002-PUB-001 | PUB-TRN | 🔵 GENERATED | HIGH | Baseline training material - GENERATED |
-| KNU-00-00-002-PLAN-001 | PLAN | ⚪ PLANNED | MEDIUM | Spawned by TBD-00-00-001-ICD-001-004; may spawn new KNOT-00-00-002 (Transla... |
-| KNU-00-00-002-TEST-001 | TEST | ⚪ PLANNED | HIGH | Spawned by TBD-00-00-002-ICD-001-001; validates ID grammar compliance 🆕 |
-| KNU-00-00-002-CM-002 | CM | ⚪ PLANNED | MEDIUM | Spawned by TBD-00-00-002-ICD-001-001; implements CI/CD checks 🆕 |
+| KNU-00-00-002-PLAN-001 | PLAN | ⚪ PLANNED | MEDIUM | Spawned by TBD-00-00-001-ICD-001-004 |
+| KNU-00-00-002-TEST-001 | TEST | ⚪ PLANNED | HIGH | Validates ID grammar compliance 🆕 |
+| KNU-00-00-002-CM-002 | CM | ⚪ PLANNED | MEDIUM | ID collision prevention 🆕 |
+| KNU-00-00-002-ANA-002 | ANA | ⚪ PLANNED | MEDIUM | Post-PDR Volume Analysis 🆕 |
+| KNU-00-00-002-ANA-003 | ANA | ⚪ PLANNED | HIGH | Multi-Language Strategy 🆕 |
+
+**Residual Uncertainty:** 80 → **55** (↓ 25 points, 45% reduction total)
+
+**Status:** 🟡 IN PROGRESS
+
+**Key Completions:**
+- ✅ KNU-00-00-002-ANA-001: Document Volume Projection (1.7M pages, 303 KNOTs)
 
 **Residual Uncertainty:** 80 → **62** (↓ 18 points, 38% reduction total)
 
@@ -118,17 +139,35 @@
 
 ### KNOT-00-00-003
 
-**Progress:** ████████████░░░░░░░░░░░░░░ 43% (3/7 KNUs)
+**Progress:** █████████████░░░░░░░░░░░░░ 44% (4/9 KNUs)
 
 | Status | Count | Percentage |
 |--------|-------|------------|
-| 🔵 GENERATED | 3 | 42.9% |
-| ⚪ PLANNED | 4 | 57.1% |
+| 🔵 GENERATED | 4 | 44.4% |
+| ⚪ PLANNED | 5 | 55.6% |
 | 🟢 APPROVED | 0 | 0.0% |
 | 🔴 BLOCKED | 0 | 0.0% |
 
 #### KNU Details
 
+| KNU ID | Type | Status | Priority | Notes |
+|--------|------|--------|----------|-------|
+| KNU-00-00-003-REQ-001 | REQ | 🔵 GENERATED | HIGH | Baseline requirement - GENERATED |
+| KNU-00-00-003-ICD-001 | ICD | 🔵 GENERATED | HIGH | Baseline ICD - GENERATED |
+| KNU-00-00-003-ANA-001 | ANA | 🔵 GENERATED | MEDIUM | Warning Standards Gap Analysis - GENERATED ✅ |
+| KNU-00-00-003-CM-001 | CM | ⚪ PLANNED | MEDIUM | Baseline CM index |
+| KNU-00-00-003-PUB-001 | PUB-AMM | 🔵 GENERATED | HIGH | Baseline publication - GENERATED |
+| KNU-00-00-003-ICD-002 | ICD | ⚪ PLANNED | MEDIUM | Symbol Asset Repository 🆕 |
+| KNU-00-00-003-TEST-001 | TEST | ⚪ PLANNED | MEDIUM | Symbol legibility validation 🆕 |
+| KNU-00-00-003-ANA-002 | ANA | ⚪ PLANNED | MEDIUM | Compound Hazard Symbol Study 🆕 |
+| KNU-00-00-003-TEST-002 | TEST | ⚪ PLANNED | HIGH | Symbol Visibility Testing 🆕 |
+
+**Residual Uncertainty:** 75 → **48** (↓ 27 points, 51% reduction total)
+
+**Status Change:** 🟡 IN PROGRESS → 🟢 ON TRACK
+
+**Key Completions:**
+- ✅ KNU-00-00-003-ANA-001: Warning Standards Gap Analysis (19 symbol gaps, 5 novel AI/ML symbols)
 | KNU ID | Type | Status | Priority | Notes |
 |--------|------|--------|----------|-------|
 | KNU-00-00-003-REQ-001 | REQ | 🔵 GENERATED | HIGH | Baseline requirement - GENERATED |
@@ -151,12 +190,12 @@
 
 ### KNOT-00-00-004
 
-**Progress:** ██████████████░░░░░░░░░░░░ 50% (3/6 KNUs)
+**Progress:** ███████████████░░░░░░░░░░░ 50% (4/8 KNUs)
 
 | Status | Count | Percentage |
 |--------|-------|------------|
-| 🔵 GENERATED | 3 | 50.0% |
-| ⚪ PLANNED | 3 | 50.0% |
+| 🔵 GENERATED | 4 | 50.0% |
+| ⚪ PLANNED | 4 | 50.0% |
 | 🟢 APPROVED | 0 | 0.0% |
 | 🔴 BLOCKED | 0 | 0.0% |
 
@@ -165,17 +204,18 @@
 | KNU ID | Type | Status | Priority | Notes |
 |--------|------|--------|----------|-------|
 | KNU-00-00-004-REQ-001 | REQ | 🔵 GENERATED | HIGH | Baseline requirement - GENERATED |
-| KNU-00-00-004-ICD-001 | ICD | 🔵 GENERATED | HIGH | Baseline ICD - GENERATED ✅ |
-| KNU-00-00-004-ANA-001 | ANA | ⚪ PLANNED | MEDIUM | Baseline analysis |
+| KNU-00-00-004-ICD-001 | ICD | 🔵 GENERATED | HIGH | Baseline ICD - GENERATED |
+| KNU-00-00-004-ANA-001 | ANA | 🔵 GENERATED | MEDIUM | Traceability Matrix Template - GENERATED ✅ |
 | KNU-00-00-004-CM-001 | CM | ⚪ PLANNED | MEDIUM | Baseline CM process |
 | KNU-00-00-004-PUB-001 | PUB-TRN | 🔵 GENERATED | HIGH | Baseline training material - GENERATED |
 | KNU-00-00-004-TEST-001 | TEST | ⚪ PLANNED | HIGH | Spawned by TBD-00-00-004-ICD-001-001; CI/CD link validation 🆕 |
 
-**Residual Uncertainty:** 75 → **58** (↓ 17 points, 42% reduction total)
+**Residual Uncertainty:** 75 → **50** (↓ 25 points, 50% reduction total)
 
 **Status Change:** 🟡 IN PROGRESS → 🟢 ON TRACK
 
 **Key Completions:**
+- ✅ KNU-00-00-004-ANA-001: Traceability Matrix Template (5-level, ~48,500 links)
 - ✅ KNU-00-00-004-ICD-001: Reference Syntax Specification
 - 🆕 1 new KNU spawned by TBD-00-00-004-ICD-001-001
 
@@ -183,12 +223,12 @@
 
 ### KNOT-00-00-005
 
-**Progress:** █████████████████░░░░░░░░░ 60% (3/5 KNUs)
+**Progress:** ████████████████████░░░░░░ 67% (4/6 KNUs)
 
 | Status | Count | Percentage |
 |--------|-------|------------|
-| 🔵 GENERATED | 3 | 60.0% |
-| ⚪ PLANNED | 2 | 40.0% |
+| 🔵 GENERATED | 4 | 66.7% |
+| ⚪ PLANNED | 2 | 33.3% |
 | 🟢 APPROVED | 0 | 0.0% |
 | 🔴 BLOCKED | 0 | 0.0% |
 
@@ -197,16 +237,17 @@
 | KNU ID | Type | Status | Priority | Notes |
 |--------|------|--------|----------|-------|
 | KNU-00-00-005-REQ-001 | REQ | 🔵 GENERATED | HIGH | Baseline requirement - GENERATED |
-| KNU-00-00-005-ICD-001 | ICD | 🔵 GENERATED | HIGH | Baseline ICD - GENERATED ✅ |
-| KNU-00-00-005-ANA-001 | ANA | ⚪ PLANNED | MEDIUM | Baseline analysis |
+| KNU-00-00-005-ICD-001 | ICD | 🔵 GENERATED | HIGH | Baseline ICD - GENERATED |
+| KNU-00-00-005-ANA-001 | ANA | 🔵 GENERATED | MEDIUM | H₂-Specific Unit Analysis - GENERATED ✅ |
 | KNU-00-00-005-PUB-001 | PUB-AMM | 🔵 GENERATED | MEDIUM | Baseline publication - GENERATED |
 | KNU-00-00-005-TEST-001 | TEST | ⚪ PLANNED | HIGH | Spawned by TBD-00-00-005-ICD-001-001; validates conversion factors 🆕 |
 
-**Residual Uncertainty:** 70 → **50** (↓ 20 points, 50% reduction total)
+**Residual Uncertainty:** 70 → **42** (↓ 28 points, 60% reduction total)
 
 **Status Change:** 🟡 IN PROGRESS → 🟢 ON TRACK
 
 **Key Completions:**
+- ✅ KNU-00-00-005-ANA-001: H₂-Specific Unit Analysis (6 unit categories defined)
 - ✅ KNU-00-00-005-ICD-001: Unit Conversion Table Specification
 - 🆕 1 new KNU spawned by TBD-00-00-005-ICD-001-001
 
@@ -295,40 +336,40 @@ The following TBDs were discovered during ICD generation:
 ### Overall Progress by KNOT
 
 ```
-KNOT-00-00-001: █████████████████████░░░░░ 58% (7/12 KNUs) ⬆ +17%
+KNOT-00-00-001: ███████████████░░░░░░░░░░░ 60% (10/17 KNUs) ⬆ +20%
                 Controlled Terminology Foundation
                 
-KNOT-00-00-002: ███████████░░░░░░░░░░░░░░░ 38% (3/8 KNUs)  ⬆ +5%
+KNOT-00-00-002: ████████████░░░░░░░░░░░░░░ 44% (4/10 KNUs)  ⬆ +9%
                 Document Numbering and Architecture
                 
-KNOT-00-00-003: ████████████░░░░░░░░░░░░░░ 43% (3/7 KNUs)  ⬆ +3%
+KNOT-00-00-003: █████████████░░░░░░░░░░░░░ 44% (4/9 KNUs)   ⬆ +8%
                 Safety Labeling and Hazard Communication
                 
-KNOT-00-00-004: ██████████████░░░░░░░░░░░░ 50% (3/6 KNUs)  ⬆ +10%
+KNOT-00-00-004: ███████████████░░░░░░░░░░░ 50% (4/8 KNUs)   ⬆ +8%
                 Cross-Reference and Traceability System
                 
-KNOT-00-00-005: █████████████████░░░░░░░░░ 60% (3/5 KNUs)  ⬆ +10%
+KNOT-00-00-005: ████████████████████░░░░░░ 67% (4/6 KNUs)   ⬆ +17%
                 Unit System and Conversion Standards
 
-KNOT-96-10-001: ████████████████████░░░░░░ 67% (2/3 KNUs)  ⬆ +67%
+KNOT-96-10-001: ████████████████████░░░░░░ 67% (2/3 KNUs)   ⬆ +67%
                 DPP Identifier Grammar (Cross-KNOT)
 
-OVERALL:         █████████████░░░░░░░░░░░░░ 48% (20/42 KNUs) ⬆ +14%
+OVERALL:         ████████████████████████░░ 50% (27/54 KNUs) ⬆ +5%
 ```
 
 ### Type Distribution
 
 | Type | Total | Generated | Planned | Percentage Generated |
 |------|-------|-----------|---------|---------------------|
-| REQ | 5 | 5 | 0 | 100% |
-| ICD | 9 | 9 | 0 | 100% ✅ |
-| ANA | 7 | 0 | 7 | 0% |
-| CM | 6 | 0 | 6 | 0% |
+| REQ | 6 | 6 | 0 | 100% |
+| ICD | 11 | 10 | 1 | 91% |
+| ANA | 14 | 7 | 7 | 50% ✅ |
+| CM | 7 | 0 | 7 | 0% |
 | PUB | 7 | 7 | 0 | 100% |
-| TEST | 6 | 0 | 6 | 0% |
+| TEST | 7 | 0 | 7 | 0% |
 | PLAN | 2 | 0 | 2 | 0% |
 
-**Key Insight:** REQ, ICD, and PUB types are 100% generated. Focus now shifts to TEST, ANA, and CM types.
+**Key Insight:** ANA documents are now 50% complete (7/14). Next focus: TEST and CM types.
 
 ---
 
@@ -336,32 +377,32 @@ OVERALL:         █████████████░░░░░░░░
 
 ### Completion Metrics
 
-- **Total Work Packages (KNUs):** 42
-- **Baseline KNUs:** 24 (57%)
-- **Spawned KNUs (from TBDs):** 18 (43%)
-- **GENERATED:** 20 KNUs (48%)
-- **Target for Q1 2026:** 28 KNUs (67%)
-- **Current vs Target:** On track (need 8 more by end of Q1)
+- **Total Work Packages (KNUs):** 54
+- **Baseline KNUs:** 24 (44%)
+- **Spawned KNUs (from TBDs):** 30 (56%)
+- **GENERATED:** 27 KNUs (50%)
+- **Target for Q1 2026:** 36 KNUs (67%)
+- **Current vs Target:** On track (need 9 more by end of Q1)
 
 ### Residual Uncertainty
 
 | KNOT | Initial | Current | Target | Reduction |
 |------|---------|---------|--------|-----------|
-| KNOT-00-00-001 | 85 | 58 | 15 | 42% ⬆ |
-| KNOT-00-00-002 | 80 | 62 | 15 | 38% ⬆ |
-| KNOT-00-00-003 | 75 | 55 | 15 | 45% ⬆ |
-| KNOT-00-00-004 | 75 | 58 | 15 | 42% ⬆ |
-| KNOT-00-00-005 | 70 | 50 | 15 | 50% ⬆ |
+| KNOT-00-00-001 | 85 | 45 | 15 | 62% ⬆ |
+| KNOT-00-00-002 | 80 | 55 | 15 | 45% ⬆ |
+| KNOT-00-00-003 | 75 | 48 | 15 | 51% ⬆ |
+| KNOT-00-00-004 | 75 | 50 | 15 | 50% ⬆ |
+| KNOT-00-00-005 | 70 | 42 | 15 | 60% ⬆ |
 | KNOT-96-10-001 | 100 | 70 | 15 | 30% ⬆ |
-| **Average** | **81** | **59** | **15** | **41%** |
+| **Average** | **81** | **52** | **15** | **50%** |
 
-**Progress:** 41% average residual reduction (+4% this iteration). Target: 82% reduction (to ≤15) by KNOT closure.
+**Progress:** 50% average residual reduction (+9% this iteration). Target: 82% reduction (to ≤15) by KNOT closure.
 
 ### TT Token Status
 
 - **Total TT Pool (6 KNOTs):** 6,480 TT (2,332,800 degrees)
-- **Allocated (GENERATED):** ~2,484 TT (estimated for 20 KNUs, pending final calculation)
-- **Remaining Pool:** ~3,996 TT
+- **Allocated (GENERATED):** ~3,348 TT (estimated for 27 KNUs, pending final calculation)
+- **Remaining Pool:** ~3,132 TT
 - **Distribution Pending:** Awaiting APPROVED status transition
 
 ---
