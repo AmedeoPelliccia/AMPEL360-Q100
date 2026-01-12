@@ -74,10 +74,10 @@ Primary workloads on-premises with cloud backup and DR capabilities.
 
 | Component | On-Prem | Cloud | Hybrid |
 |-----------|---------|-------|--------|
-| Infrastructure | €500k | €0 | €350k |
+| Infrastructure | €500k | €0 | €300k |
 | Cloud Services | €0 | €800k | €250k |
-| Personnel | €400k | €300k | €350k |
-| **Total** | **€900k** | **€1.1M** | **€950k** |
+| Personnel | €400k | €300k | €300k |
+| **Total** | **€900k** | **€1.1M** | **€850k** |
 
 ## 8. Resolves
 
