@@ -1,7 +1,7 @@
 # KNOT Status Report
 **AMPEL360 Q100 BWB Hydrogen-Hybrid Aircraft Program**
 
-*Generated: 2026-01-12 18:30:00 UTC*
+*Generated: 2026-01-12 21:50:00 UTC*
 
 ---
 
@@ -12,33 +12,33 @@
 | Metric | Value | Progress |
 |--------|-------|----------|
 | **Total KNOTs** | 6 | — |
-| **Total KNUs** | 54 | — |
-| **GENERATED KNUs** | 27 | 50.0% |
-| **PLANNED KNUs** | 27 | 50.0% |
+| **Total KNUs** | 58 | — |
+| **GENERATED KNUs** | 32 | 55.2% |
+| **PLANNED KNUs** | 26 | 44.8% |
 | **APPROVED KNUs** | 0 | 0.0% |
 | **BLOCKED KNUs** | 0 | 0.0% |
-| **Overall Completion** | 27/54 | 50.0% |
+| **Overall Completion** | 32/58 | 55.2% |
 
 ### Status Distribution
 
 ```
-🔵 GENERATED: 27 ( 50.0%) ████████████████████████░
-⚪ PLANNED:   27 ( 50.0%) ░░░░░░░░░░░░░░░░░░░░░░░░░
+🔵 GENERATED: 32 ( 55.2%) ██████████████████████████████░
+⚪ PLANNED:   26 ( 44.8%) ░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 🟢 APPROVED:   0 (  0.0%) 
 🔴 BLOCKED:    0 (  0.0%) 
 ```
 
 ### Key Achievements
 
-✅ **All 7 LC05 ANA documents generated** - Critical analysis phase complete
+✅ **All 5 CM documents generated** - Configuration Management phase complete
 
-✅ **4 TBDs resolved** - TBD-00-00-001-ICD-001-001 (PostgreSQL 15), TBD-00-00-001-ICD-001-002 (PostGraphile), TBD-00-00-001-ICD-001-005 (CIR export), and TBD-00-00-001-ICD-001-006 (DPP namespace)
+✅ **3 TBDs resolved** - TBD-00-00-001-ANA-001-003 (review cadence), TBD-00-00-001-ANA-002-001 (backup strategy), and TBD-00-00-002-ICD-001-001 (version numbering)
 
-✅ **15 new TBDs discovered** - Analysis phase reveals new uncertainties (expected)
+✅ **4 new TBDs discovered** - CM phase reveals governance and infrastructure uncertainties (expected)
 
-✅ **50.0% overall progress** - 27 of 54 KNUs now in GENERATED status (+2.4% increase)
+✅ **55.2% overall progress** - 32 of 58 KNUs now in GENERATED status (+7.2% increase)
 
-✅ **12 new spawned KNUs added** - Systematic TBD resolution process working
+✅ **3 new spawned KNUs added** - CCB Charter, Cloud Provider Selection, DR Test Procedure
 
 ### Class I Decision Dependencies
 
@@ -46,11 +46,13 @@
 
 | TBD ID | Decision Required | Owner | Deadline | Blocked KNUs | Impact |
 |--------|-------------------|-------|----------|--------------|--------|
-| **TBD-00-00-001-ANA-002-002** | Cloud vs on-premises deployment | STK_DATA | 2026-02-28 | KNU-00-00-001-ANA-005; KNU-00-00-001-CM-003 | $145k TCO |
+| **TBD-00-00-001-ANA-002-002** | Cloud vs on-premises deployment | STK_DATA | 2026-02-28 | KNU-00-00-001-ANA-005; KNU-00-00-001-ANA-006; KNU-00-00-001-TEST-003 | $145k TCO |
 | **TBD-00-00-002-ANA-001-002** | Multi-language requirements | STK_CM | 2026-03-15 | KNU-00-00-002-ANA-003; KNU-00-00-002-PLAN-001 | $3.8M |
 | **TBD-00-00-004-ANA-001-001** | Requirements tool selection | STK_SE | 2026-03-01 | KNU-00-00-004-ANA-002 | $400k |
 
 **⚠️ Decision Status:** All 3 have recommendations in DECISION_LOG.md, pending approval authority sign-off
+
+**📝 Note:** KNUs listed as "Blocked KNUs" above remain in ⚪PLANNED status (not 🔴BLOCKED) because they can begin preparatory work while awaiting TBD resolution. The BLOCKED status is reserved for KNUs that cannot proceed at all.
 
 ---
 
@@ -58,12 +60,12 @@
 
 ### KNOT-00-00-001
 
-**Progress:** ███████████████░░░░░░░░░░░ 60% (10/17 KNUs)
+**Progress:** █████████████████░░░░░░░░░░░ 57% (12/21 KNUs)
 
 | Status | Count | Percentage |
 |--------|-------|------------|
-| 🔵 GENERATED | 10 | 58.8% |
-| ⚪ PLANNED | 7 | 41.2% |
+| 🔵 GENERATED | 12 | 57.1% |
+| ⚪ PLANNED | 9 | 42.9% |
 | 🟢 APPROVED | 0 | 0.0% |
 | 🔴 BLOCKED | 0 | 0.0% |
 
@@ -96,12 +98,12 @@
 
 ### KNOT-00-00-002
 
-**Progress:** ████████████░░░░░░░░░░░░░░ 44% (4/10 KNUs)
+**Progress:** ██████████████░░░░░░░░░░░░ 50% (6/12 KNUs)
 
 | Status | Count | Percentage |
 |--------|-------|------------|
-| 🔵 GENERATED | 4 | 40.0% |
-| ⚪ PLANNED | 6 | 60.0% |
+| 🔵 GENERATED | 6 | 50.0% |
+| ⚪ PLANNED | 6 | 50.0% |
 | 🟢 APPROVED | 0 | 0.0% |
 | 🔴 BLOCKED | 0 | 0.0% |
 
@@ -336,25 +338,25 @@ The following TBDs were discovered during ICD generation:
 ### Overall Progress by KNOT
 
 ```
-KNOT-00-00-001: ███████████████░░░░░░░░░░░ 60% (10/17 KNUs) ⬆ +20%
+KNOT-00-00-001: █████████████████░░░░░░░░░░░░░ 57% (12/21 KNUs) ⬆ +4%
                 Controlled Terminology Foundation
                 
-KNOT-00-00-002: ████████████░░░░░░░░░░░░░░ 44% (4/10 KNUs)  ⬆ +9%
+KNOT-00-00-002: ███████████████░░░░░░░░░░░░░░░ 50% (6/12 KNUs)  ⬆ +6%
                 Document Numbering and Architecture
                 
-KNOT-00-00-003: █████████████░░░░░░░░░░░░░ 44% (4/9 KNUs)   ⬆ +8%
+KNOT-00-00-003: █████████████░░░░░░░░░░░░░░░░░ 44% (4/9 KNUs)   = 
                 Safety Labeling and Hazard Communication
                 
-KNOT-00-00-004: ███████████████░░░░░░░░░░░ 50% (4/8 KNUs)   ⬆ +8%
+KNOT-00-00-004: ███████████████░░░░░░░░░░░░░░░ 50% (4/8 KNUs)   =
                 Cross-Reference and Traceability System
                 
-KNOT-00-00-005: ████████████████████░░░░░░ 67% (4/6 KNUs)   ⬆ +17%
+KNOT-00-00-005: ████████████████████░░░░░░░░░░ 67% (4/6 KNUs)   =
                 Unit System and Conversion Standards
 
-KNOT-96-10-001: ████████████████████░░░░░░ 67% (2/3 KNUs)   ⬆ +67%
+KNOT-96-10-001: ████████████████████░░░░░░░░░░ 67% (2/3 KNUs)   =
                 DPP Identifier Grammar (Cross-KNOT)
 
-OVERALL:         ████████████████████████░░ 50% (27/54 KNUs) ⬆ +5%
+OVERALL:         ████████████████░░░░░░░░░░░░░░ 55% (32/58 KNUs) ⬆ +7%
 ```
 
 ### Type Distribution
@@ -363,13 +365,13 @@ OVERALL:         █████████████████████
 |------|-------|-----------|---------|---------------------|
 | REQ | 6 | 6 | 0 | 100% |
 | ICD | 11 | 10 | 1 | 91% |
-| ANA | 14 | 7 | 7 | 50% ✅ |
-| CM | 7 | 0 | 7 | 0% |
+| ANA | 15 | 7 | 8 | 47% |
+| CM | 7 | 5 | 2 | 71% ✅ |
 | PUB | 7 | 7 | 0 | 100% |
-| TEST | 7 | 0 | 7 | 0% |
-| PLAN | 2 | 0 | 2 | 0% |
+| TEST | 8 | 0 | 8 | 0% |
+| PLAN | 3 | 0 | 3 | 0% |
 
-**Key Insight:** ANA documents are now 50% complete (7/14). Next focus: TEST and CM types.
+**Key Insight:** CM documents now 71% complete (5/7). Next focus: TEST and PLAN types.
 
 ---
 
@@ -377,12 +379,12 @@ OVERALL:         █████████████████████
 
 ### Completion Metrics
 
-- **Total Work Packages (KNUs):** 54
-- **Baseline KNUs:** 24 (44%)
-- **Spawned KNUs (from TBDs):** 30 (56%)
-- **GENERATED:** 27 KNUs (50%)
-- **Target for Q1 2026:** 36 KNUs (67%)
-- **Current vs Target:** On track (need 9 more by end of Q1)
+- **Total Work Packages (KNUs):** 58
+- **Baseline KNUs:** 24 (41%)
+- **Spawned KNUs (from TBDs):** 34 (59%)
+- **GENERATED:** 32 KNUs (55%)
+- **Target for Q1 2026:** 39 KNUs (67%)
+- **Current vs Target:** On track (need 7 more by end of Q1)
 
 ### Residual Uncertainty
 
