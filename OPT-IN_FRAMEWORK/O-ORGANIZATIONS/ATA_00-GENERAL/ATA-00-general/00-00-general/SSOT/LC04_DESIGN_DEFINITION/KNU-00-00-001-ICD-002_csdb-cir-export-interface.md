@@ -55,6 +55,18 @@ This Interface Control Document specifies the export interface between the termi
 
 ## Export Frequency
 
+### Decision Summary (RESOLVED)
+
+**Decision:** Daily automated export at 02:00 UTC
+
+| Export Type | Frequency | Trigger |
+|-------------|-----------|---------|
+| Full CIR | Daily (02:00 UTC) | Scheduled |
+| Delta CIR | On-demand | API call |
+| Emergency | Immediate | Manual trigger |
+
+**RESOLVES:** TBD-00-00-001-ICD-001-005 (CIR export frequency)
+
 ### Automated Triggers
 
 **Database Update Events:**
