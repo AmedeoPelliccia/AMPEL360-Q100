@@ -1,3 +1,28 @@
+---
+knu_id: KNU-00-00-002-ICD-001
+knot_id: KNOT-00-00-002
+title: Document ID Grammar Specification
+type: ICD
+artifact_class: SSOT
+status: GENERATED
+owner: STK_DATA
+due_date: 2026-03-31
+priority: HIGH
+lifecycle_stage: LC04_DESIGN_DEFINITION
+ata_chapter: "00"
+ata_section: "00"
+program: AMPEL360 Q100 BWB Hydrogen-Hybrid Aircraft
+version: I001-R00
+date_created: 2026-01-12
+spawned_by: BASELINE
+related_tbds:
+  - TBD-00-007
+  - TBD-00-008
+triggered_knus:
+  - KNU-00-00-002-TEST-001
+  - KNU-00-00-002-CM-002
+---
+
 # KNU-00-00-002-ICD-001: Document ID Grammar Specification
 
 **AMPEL360 Q100 BWB Hydrogen-Hybrid Aircraft Program**

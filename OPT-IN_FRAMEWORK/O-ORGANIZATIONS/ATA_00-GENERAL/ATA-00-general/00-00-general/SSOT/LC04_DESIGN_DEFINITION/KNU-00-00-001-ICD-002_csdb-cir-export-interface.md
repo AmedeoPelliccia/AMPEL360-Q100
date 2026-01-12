@@ -1,3 +1,30 @@
+---
+knu_id: KNU-00-00-001-ICD-002
+knot_id: KNOT-00-00-001
+title: CSDB CIR Export Interface Specification
+type: ICD
+artifact_class: SSOT
+status: GENERATED
+owner: STK_CM
+due_date: 2026-02-15
+priority: HIGH
+lifecycle_stage: LC04_DESIGN_DEFINITION
+ata_chapter: "00"
+ata_section: "00"
+program: AMPEL360 Q100 BWB Hydrogen-Hybrid Aircraft
+version: I001-R00
+date_created: 2026-01-12
+spawned_by: TBD-00-005
+related_tbds:
+  - TBD-00-005
+tbd_status: RESOLVED
+triggered_knus:
+  - KNU-00-00-001-TEST-002
+  - KNU-00-00-001-PLAN-002
+export_frequency: daily_02:00_UTC
+export_format: S1000D_5.0_CIR
+---
+
 # KNU-00-00-001-ICD-002: CSDB CIR Export Interface Specification
 
 **AMPEL360 Q100 BWB Hydrogen-Hybrid Aircraft Program**

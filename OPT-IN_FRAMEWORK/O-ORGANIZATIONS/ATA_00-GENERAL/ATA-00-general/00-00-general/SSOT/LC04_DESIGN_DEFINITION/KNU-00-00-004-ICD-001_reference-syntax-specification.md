@@ -1,3 +1,32 @@
+---
+knu_id: KNU-00-00-004-ICD-001
+knot_id: KNOT-00-00-004
+title: Reference Syntax Specification
+type: ICD
+artifact_class: SSOT
+status: GENERATED
+owner: STK_DATA
+due_date: 2026-04-30
+priority: HIGH
+lifecycle_stage: LC04_DESIGN_DEFINITION
+ata_chapter: "00"
+ata_section: "00"
+program: AMPEL360 Q100 BWB Hydrogen-Hybrid Aircraft
+version: I001-R00
+date_created: 2026-01-12
+spawned_by: BASELINE
+related_tbds:
+  - TBD-00-009
+triggered_knus:
+  - KNU-00-00-004-TEST-001
+uri_schemes:
+  - term://
+  - knu://
+  - knot://
+  - tbd://
+  - ampel360:
+---
+
 # KNU-00-00-004-ICD-001: Reference Syntax Specification
 
 **AMPEL360 Q100 BWB Hydrogen-Hybrid Aircraft Program**

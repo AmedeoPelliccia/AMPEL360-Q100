@@ -1,3 +1,34 @@
+---
+knu_id: KNU-00-00-003-ICD-001
+knot_id: KNOT-00-00-003
+title: H₂ Hazard Symbol Library
+type: ICD
+artifact_class: SSOT
+status: GENERATED
+owner: STK_SAF
+due_date: 2026-04-15
+priority: HIGH
+lifecycle_stage: LC04_DESIGN_DEFINITION
+ata_chapter: "00"
+ata_section: "00"
+program: AMPEL360 Q100 BWB Hydrogen-Hybrid Aircraft
+version: I001-R00
+date_created: 2026-01-12
+spawned_by: BASELINE
+related_tbds:
+  - TBD-03-001
+  - TBD-03-002
+triggered_knus:
+  - KNU-00-00-003-ICD-002
+  - KNU-00-00-003-TEST-001
+hazard_symbols:
+  - H2-CRYO-001
+  - H2-FLAM-001
+  - H2-PRES-001
+  - H2-ASPH-001
+  - H2-HVDC-001
+---
+
 # KNU-00-00-003-ICD-001: H₂ Hazard Symbol Library
 
 **AMPEL360 Q100 BWB Hydrogen-Hybrid Aircraft Program**

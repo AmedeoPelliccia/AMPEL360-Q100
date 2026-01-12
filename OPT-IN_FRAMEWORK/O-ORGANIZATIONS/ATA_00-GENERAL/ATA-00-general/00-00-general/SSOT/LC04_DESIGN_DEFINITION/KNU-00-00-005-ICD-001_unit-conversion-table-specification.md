@@ -1,3 +1,39 @@
+---
+knu_id: KNU-00-00-005-ICD-001
+knot_id: KNOT-00-00-005
+title: Unit Conversion Table Specification
+type: ICD
+artifact_class: SSOT
+status: GENERATED
+owner: STK_SE
+due_date: 2026-03-10
+priority: HIGH
+lifecycle_stage: LC04_DESIGN_DEFINITION
+ata_chapter: "00"
+ata_section: "00"
+program: AMPEL360 Q100 BWB Hydrogen-Hybrid Aircraft
+version: I001-R00
+date_created: 2026-01-12
+spawned_by: BASELINE
+related_tbds:
+  - TBD-00-010
+triggered_knus:
+  - KNU-00-00-005-TEST-001
+si_base_units:
+  - meter
+  - kilogram
+  - second
+  - ampere
+  - kelvin
+  - mole
+  - candela
+h2_specific_units:
+  - MJ/kg
+  - MJ/L
+  - percent_per_day
+  - kg_per_s
+---
+
 # KNU-00-00-005-ICD-001: Unit Conversion Table Specification
 
 **AMPEL360 Q100 BWB Hydrogen-Hybrid Aircraft Program**

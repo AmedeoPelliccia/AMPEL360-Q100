@@ -1,3 +1,39 @@
+---
+knu_id: KNU-96-10-001-ICD-003
+knot_id: KNOT-96-10-001
+title: DPP Term Type Namespace Mapping
+type: ICD
+artifact_class: SSOT
+status: GENERATED
+owner: STK_DATA
+due_date: 2026-02-28
+priority: HIGH
+lifecycle_stage: LC04_DESIGN_DEFINITION
+ata_chapter: "96"
+ata_section: "10"
+program: AMPEL360 Q100 BWB Hydrogen-Hybrid Aircraft
+version: I001-R00
+date_created: 2026-01-12
+triggered_by: KNU-00-00-001-REQ-002
+spawned_by: TBD-00-003
+related_tbds:
+  - TBD-00-003
+cross_knot: KNOT-00-00-001
+term_types:
+  - NOUN
+  - VERB
+  - PHRASE
+  - ACRONYM
+  - ABBREVIATION
+  - SYMBOL
+  - UNIT
+  - QUANTITY
+  - CONCEPT
+ontologies:
+  - SKOS
+  - QUDT
+---
+
 # KNU-96-10-001-ICD-003: DPP Term Type Namespace Mapping
 
 **AMPEL360 Q100 BWB Hydrogen-Hybrid Aircraft Program**
