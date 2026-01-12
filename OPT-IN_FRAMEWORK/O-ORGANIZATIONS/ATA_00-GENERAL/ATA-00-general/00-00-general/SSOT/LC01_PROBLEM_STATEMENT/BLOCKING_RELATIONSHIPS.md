@@ -3,93 +3,157 @@
 ## Purpose
 Document all blocking relationships between TBDs, KNUs, and KNOTs to enable critical path analysis and prioritization.
 
-## Blocking Chains
+## ✅ Resolved Blocking Chains
 
-### Chain 1: Cloud Infrastructure Decision
+### Chain 1: Cloud Infrastructure Decision ✅ RESOLVED
 
 ```
-TBD-00-00-001-ANA-002-002 (Cloud vs on-prem)
+TBD-00-00-001-ANA-002-002 (Cloud vs on-prem) ✅ RESOLVED 2026-01-12
+    │   Decision: Hybrid Cloud with AWS
     │
-    ├── BLOCKS ──► TBD-00-00-001-CM-003-001 (Cloud provider for backup)
+    ├── UNBLOCKS ──► TBD-00-00-001-CM-003-001 (Cloud provider for backup) ✅ RESOLVED
+    │                   │   Decision: AWS eu-central-1
     │                   │
-    │                   └── BLOCKS ──► KNU-00-00-001-ANA-006 (Cloud Provider Selection)
+    │                   └── UNBLOCKS ──► KNU-00-00-001-ANA-006 (Cloud Provider Selection) ✅ GENERATED
     │
-    └── BLOCKS ──► KNU-00-00-001-CM-003 (Backup Strategy - partial)
+    └── UNBLOCKS ──► KNU-00-00-001-CM-003 (Backup Strategy - complete) ✅ GENERATED
                         │
-                        └── BLOCKS ──► KNU-00-00-001-TEST-003 (DR Test Procedure)
+                        └── UNBLOCKS ──► KNU-00-00-001-TEST-003 (DR Test Procedure) ⚪ PLANNED (READY)
 ```
 
-**Impact:** 4 artifacts blocked
-**Priority:** CLASS I — Requires immediate escalation
-**Owner:** STK_DATA
-**Target Resolution:** 2026-03-31
+**Impact:** 4 artifacts unblocked ✅
+**Status:** FULLY RESOLVED
+**Resolution Date:** 2026-01-12
 
 ---
 
-### Chain 2: Requirements Tool Decision
+### Chain 2: Requirements Tool Decision ✅ RESOLVED
 
 ```
-TBD-00-00-004-ANA-001-001 (Requirements tool selection)
+TBD-00-00-004-ANA-001-001 (Requirements tool selection) ✅ RESOLVED 2026-01-12
+    │   Decision: Doorstop + Git
     │
-    ├── BLOCKS ──► KNU-00-00-004-ANA-002 (Tool Selection Analysis)
+    ├── UNBLOCKS ──► KNU-00-00-004-ANA-002 (Tool Selection Analysis) ✅ GENERATED
     │
-    └── BLOCKS ──► Full traceability matrix implementation
+    └── UNBLOCKS ──► Full traceability matrix implementation ⚪ READY
 ```
 
-**Impact:** 2 artifacts blocked + downstream impact
-**Priority:** CLASS I
-**Owner:** STK_SE
-**Target Resolution:** 2026-02-15
+**Impact:** 2 artifacts unblocked ✅
+**Status:** FULLY RESOLVED
+**Resolution Date:** 2026-01-12
 
 ---
 
-### Chain 3: Multi-Language Decision
+### Chain 3: Multi-Language Decision ✅ RESOLVED
 
 ```
-TBD-00-00-002-ANA-001-002 (Multi-language requirements)
+TBD-00-00-002-ANA-001-002 (Multi-language requirements) ✅ RESOLVED 2026-01-12
+    │   Decision: 3 languages Phase 1 (EN, ES, FR)
     │
-    └── BLOCKS ──► KNU-00-00-002-ANA-003 (Multi-language Strategy)
+    └── UNBLOCKS ──► KNU-00-00-002-ANA-003 (Multi-language Strategy) ✅ GENERATED
                         │
-                        └── BLOCKS ──► All PUB multiplicity calculations
+                        └── UNBLOCKS ──► All PUB multiplicity calculations ⚪ READY (3× multiplier)
 ```
 
-**Impact:** Affects total file count projections
-**Priority:** CLASS I
-**Owner:** STK_PUB
-**Target Resolution:** 2026-02-01
+**Impact:** Affects total file count projections (3× multiplier) ✅
+**Status:** FULLY RESOLVED
+**Resolution Date:** 2026-01-12
 
 ---
 
-## Blocking Matrix
+## 🟢 Additional CLASS I Resolutions
 
-| Blocked Item | Blocked By | Chain Length | Estimated Delay |
-|--------------|------------|--------------|-----------------|
-| KNU-00-00-001-ANA-006 | TBD-00-00-001-ANA-002-002 | 2 | 8 weeks |
-| KNU-00-00-001-TEST-003 | TBD-00-00-001-ANA-002-002 | 3 | 10 weeks |
-| KNU-00-00-004-ANA-002 | TBD-00-00-004-ANA-001-001 | 1 | 2 weeks |
-| KNU-00-00-002-ANA-003 | TBD-00-00-002-ANA-001-002 | 1 | 2 weeks |
+### Term Type Taxonomy ✅ RESOLVED
 
-## Critical Path
+```
+TBD-00-00-001-ICD-001-003 (Term type taxonomy) ✅ RESOLVED 2026-01-12
+    │   Decision: 3-level taxonomy (L1: ACRO/TERM/UNIT/SYMB/PROC/ROLE)
+    │
+    ├── UNBLOCKS ──► KNU-00-00-001-ICD-001 (Schema update) ⚪ READY
+    ├── UNBLOCKS ──► KNU-00-00-001-TEST-001 (Schema validation tests) ⚪ PLANNED
+    └── UNBLOCKS ──► KNU-00-00-001-PUB-002 (Term type usage guide) 🔵 GENERATED
+```
 
-The longest blocking chain is **Cloud Infrastructure Decision** with 3 levels of dependency.
+**Resolution Date:** 2026-01-12
 
-**Critical Path Length:** 4 weeks
-**Critical Path Items:**
-1. TBD-00-00-001-ANA-002-002 (decision)
-2. TBD-00-00-001-CM-003-001 (dependent TBD)
-3. KNU-00-00-001-CM-003 (artifact update)
-4. KNU-00-00-001-TEST-003 (dependent artifact)
+---
 
-## Resolution Priority Order
+### AI/ML Symbols ✅ RESOLVED
 
-1. 🔴 TBD-00-00-001-ANA-002-002 — Unblocks most items
-2. 🔴 TBD-00-00-004-ANA-001-001 — Required for traceability
-3. 🔴 TBD-00-00-002-ANA-001-002 — Affects projections
-4. 🟡 TBD-00-00-001-CM-003-001 — Depends on #1
-5. 🟡 Remaining CLASS II TBDs
+```
+TBD-00-00-003-ICD-001-001 (AI/ML decision indication symbol) ✅ RESOLVED 2026-01-12
+    │   Decision: 9 symbol set (5 status + 2 OOD + 2 learning)
+    │
+    ├── UNBLOCKS ──► KNU-00-00-003-ICD-002 (Symbol Asset Repository) 🔵 GENERATED
+    └── UNBLOCKS ──► KNU-00-00-003-PUB-001 (Safety labeling guide) 🔵 GENERATED
+```
+
+**Resolution Date:** 2026-01-12
+
+---
+
+### CIR Export Frequency ✅ RESOLVED
+
+```
+TBD-00-00-001-ICD-001-005 (CIR export frequency) ✅ RESOLVED 2026-01-12
+    │   Decision: Daily at 02:00 UTC
+    │
+    ├── UNBLOCKS ──► KNU-00-00-001-ICD-002 (CIR Export Interface) 🔵 GENERATED (updated)
+    ├── UNBLOCKS ──► KNU-00-00-001-TEST-002 (CIR validation tests) ⚪ PLANNED
+    └── UNBLOCKS ──► KNU-00-00-001-PLAN-002 (CIR sync plan) ⚪ PLANNED
+```
+
+**Resolution Date:** 2026-01-12
+
+---
+
+## 📊 Summary Statistics
+
+| Metric | Before | After | Change |
+|--------|--------|-------|--------|
+| **Total TBDs** | 28 | 28 | — |
+| **CLASS I TBDs Resolved** | 3 | 9 | +6 ✅ |
+| **CLASS II TBDs Resolved** | 6 | 19 | +13 ✅ |
+| **Open TBDs** | 19 | 8 | -11 ✅ |
+| **Deferred TBDs** | 0 | 1 | +1 |
+| **Active Blocking Chains** | 3 | 0 | -3 ✅ |
+| **KNUs Unblocked** | — | 8 | +8 ✅ |
+
+---
+
+## ⏸️ Deferred Items
+
+### TBD-00-00-002-ANA-001-001: Post-PDR Volume Refinement
+**Status:** DEFERRED to 2026-Q2
+**Rationale:** Requires PDR completion for accurate refinement
+**Impact:** No current blocking; informational update only
+**Action:** Calendar reminder set for post-PDR review
+
+---
+
+## 🔓 Critical Path Status
+
+**All critical path blocking chains have been resolved!**
+
+- ✅ Cloud infrastructure decision made
+- ✅ Requirements tool selected  
+- ✅ Multi-language strategy defined
+- ✅ Term taxonomy established
+- ✅ AI/ML symbols specified
+- ✅ CIR export frequency set
+
+**Next Critical Actions:**
+1. Begin implementation of unblocked KNUs
+2. Execute TEST KNUs (currently 0% complete, now unblocked)
+3. Update PLAN KNUs with new decisions
+4. Complete KNOT-00-00-001 (now at 76% after these resolutions)
+
+---
 
 ## Document Control
 
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|
 | 1.0 | 2026-01-12 | STK_CM | Initial release |
+| 2.0 | 2026-01-12 | STK_CM | All blocking chains resolved; 19 TBDs closed |
+
