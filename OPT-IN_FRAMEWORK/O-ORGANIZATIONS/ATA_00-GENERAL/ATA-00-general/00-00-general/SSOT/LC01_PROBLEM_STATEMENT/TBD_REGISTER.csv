@@ -1,0 +1,24 @@
+TBD_ID,Class,Status,Description,Discovered_In,Owner_AoR,Resolution_Target,Spawned_KNUs,Blocked_KNUs,Notes
+TBD-00-001,II,RESOLVED,PostgreSQL version selection (15 vs 16),KNU-00-00-001-ICD-001,STK_DATA,2026-02-01,KNU-00-00-001-ANA-002,,RESOLVED: PostgreSQL 15 selected
+TBD-00-002,II,RESOLVED,GraphQL framework selection (Apollo vs Hasura vs PostGraphile),KNU-00-00-001-ICD-001,STK_DATA,2026-02-01,KNU-00-00-001-ANA-003,,RESOLVED: PostGraphile selected
+TBD-00-003,II,OPEN,Term type taxonomy finalization,KNU-00-00-001-ICD-001,STK_CM,2026-02-15,KNU-00-00-001-REQ-002;KNU-00-00-001-TEST-001;KNU-00-00-001-PUB-002;KNU-96-10-001-ICD-003,,"REQ-002 GENERATED, but taxonomy still pending approval"
+TBD-00-004,II,OPEN,Translation workflow vendor selection,KNU-00-00-001-ICD-001,STK_DATA,2026-03-01,KNU-00-00-002-PLAN-001,,May spawn new KNOT-00-00-002 (Translation Governance)
+TBD-00-005,II,RESOLVED,CIR export frequency determination,KNU-00-00-001-ICD-001,STK_CM,2026-02-15,KNU-00-00-001-ICD-002;KNU-00-00-001-TEST-002;KNU-00-00-001-PLAN-002,,RESOLVED: ICD-002 GENERATED
+TBD-00-006,II,RESOLVED,DPP namespace collision resolution,KNU-00-00-001-ICD-001,STK_DATA,2026-03-01,KNU-96-10-001-ICD-002;KNU-96-10-001-TEST-001,,RESOLVED: ICD-002 GENERATED (cross-KNOT)
+TBD-00-007,II,OPEN,Version numbering convention for SSOT artifacts,KNU-00-00-002-ICD-001,STK_CM,2026-02-15,KNU-00-00-002-TEST-001;KNU-00-00-002-CM-002,,
+TBD-00-009,III,OPEN,External standards reference resolution,KNU-00-00-004-ICD-001,STK_DATA,2026-05-01,KNU-00-00-004-TEST-001,,
+TBD-00-010,II,OPEN,Conversion factor database format,KNU-00-00-005-ICD-001,STK_SE,2026-03-15,KNU-00-00-005-TEST-001,,
+TBD-00-011,II,OPEN,H₂ terminology authority (SAE E-39 vs internal glossary vs ISO/TR 15916),KNU-00-00-001-ANA-001,STK_SE,2026-02-28,KNU-00-00-001-ANA-004,,"CRITICAL: 35 H₂ terms blocking fuel system design"
+TBD-00-013,II,OPEN,Terminology review cadence (quarterly vs milestone-based vs continuous),KNU-00-00-001-ANA-001,STK_CM,2026-03-01,KNU-00-00-001-CM-002,,
+TBD-00-014,II,OPEN,Database backup strategy (daily incremental vs continuous WAL archiving),KNU-00-00-001-ANA-002,STK_DATA,2026-02-15,KNU-00-00-001-CM-003,,
+TBD-00-015,I,OPEN,Cloud vs on-premises deployment (AWS RDS vs Azure vs on-prem vs hybrid),KNU-00-00-001-ANA-002,STK_DATA,2026-02-28,KNU-00-00-001-ANA-005,,"CLASS I: TCO impact, operational complexity, security compliance"
+TBD-00-017,II,OPEN,API authentication strategy (JWT vs OAuth 2.0 vs mTLS vs PostgreSQL RLS-only),KNU-00-00-001-ANA-003,STK_DATA,2026-02-15,KNU-00-00-001-ICD-003,,Security architecture decision
+TBD-00-018,II,OPEN,Post-PDR volume refinement based on actual KNOT/KNU generation rates,KNU-00-00-002-ANA-001,STK_CM,2026-06-15,KNU-00-00-002-ANA-002,,Resource planning and staffing adjustment
+TBD-00-019,I,OPEN,Multi-language requirements (English-only vs 4-language support: EN/FR/DE/ES),KNU-00-00-002-ANA-001,STK_CM,2026-03-15,KNU-00-00-002-ANA-003,,"CLASS I: Page count multiplier (1.0x vs 2.5x), translation workflow, CSDB language modules"
+TBD-00-020,I,OPEN,Requirements tool selection (IBM DOORS Next vs Jama Connect vs ReqView vs custom Python),KNU-00-00-004-ANA-001,STK_SE,2026-03-01,KNU-00-00-004-ANA-002,,"CLASS I: Tooling cost, integration effort, certification audit trail"
+TBD-00-021,II,OPEN,Coverage thresholds (100% vs 95% for non-critical requirements),KNU-00-00-004-ANA-001,STK_SE,2026-04-01,KNU-00-00-004-REQ-002,,Traceability completeness and certification audit effort
+TBD-00-023,II,OPEN,H₂ industry standards coordination (ISO/TR 15916 and SAE J2601 alignment),KNU-00-00-005-ANA-001,STK_SE,2026-03-15,KNU-00-00-005-ANA-002,,Unit definitions regulatory compliance
+TBD-03-001,II,OPEN,AI/ML decision indication symbol design,KNU-00-00-003-ICD-001,STK_SAF,2026-03-01,KNU-00-00-003-ICD-002,,NOVEL symbols - no existing aerospace standards
+TBD-03-002,II,OPEN,Boil-off warning symbol design,KNU-00-00-003-ICD-001,STK_SAF,2026-04-01,KNU-00-00-003-TEST-001,,
+TBD-03-003,II,OPEN,Compound hazard symbol strategy (multiple symbols vs integrated compound symbol vs hierarchical),KNU-00-00-003-ANA-001,STK_SAF,2026-03-31,KNU-00-00-003-ANA-002,,"Symbol design complexity, label real estate, operator comprehension"
+TBD-03-004,II,OPEN,Symbol visibility testing requirements (legibility at 5m, color contrast, lighting conditions),KNU-00-00-003-ANA-001,STK_SAF,2026-04-15,KNU-00-00-003-TEST-002,,"Symbol size, color palette, font selection, manufacturing specs"
