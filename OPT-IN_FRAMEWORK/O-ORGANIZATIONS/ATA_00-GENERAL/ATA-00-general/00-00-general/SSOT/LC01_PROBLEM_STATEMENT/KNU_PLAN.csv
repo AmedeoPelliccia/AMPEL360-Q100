@@ -57,5 +57,3 @@ KNU-00-00-005-ANA-002,KNOT-00-00-005,ANA,SSOT,../LC05_ANALYSIS_MODELS/,"H2 Stand
 KNU-00-00-001-PLAN-003,KNOT-00-00-001,PLAN,SSOT,../LC08_CONFIGURATION/,"CCB Charter and Operating Procedures","CCB membership; meeting frequency; quorum requirements; decision authority",Review,STK_CM,2026-03-15,⚪PLANNED,3,MEDIUM,LC08,"TBD-00-00-001-CM-001-001",NEW,"TBD-00-00-001-CM-001-001",KNU-00-00-001-CM-001,"Spawned by CCB frequency TBD (from CM-001); defines governance structure"
 KNU-00-00-001-ANA-006,KNOT-00-00-001,ANA,SSOT,../LC05_ANALYSIS_MODELS/,"Cloud Provider Selection for Backup","AWS vs Azure vs GCP analysis for offsite backup",Analysis,STK_DATA,2026-03-31,⚪PLANNED,3,MEDIUM,LC05,"TBD-00-00-001-CM-003-001",NEW,"TBD-00-00-001-CM-003-001",KNU-00-00-001-CM-003,"Spawned by cloud provider TBD (from CM-003); blocked by deployment decision"
 KNU-00-00-001-TEST-003,KNOT-00-00-001,TEST,SSOT,../LC06_VERIFICATION/,"DR Test Procedure and Drill Protocol","Quarterly DR drill procedures; validation criteria",Test,STK_DATA,2026-04-15,⚪PLANNED,4,HIGH,LC06,,NEW,,KNU-00-00-001-CM-003,"Triggered by CM-003 approval; validates disaster recovery procedures"
-
-
