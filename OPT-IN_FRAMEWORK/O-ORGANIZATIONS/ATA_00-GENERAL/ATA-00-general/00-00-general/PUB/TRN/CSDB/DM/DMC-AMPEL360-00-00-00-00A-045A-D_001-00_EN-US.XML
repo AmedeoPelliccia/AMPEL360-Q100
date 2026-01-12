@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dmodule 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://www.s1000d.org/S1000D_5-0/xml_schema_flat/descript.xsd">
+    
+    <identAndStatusSection>
+        <dmAddress>
+            <dmIdent>
+                <dmCode modelIdentCode="AMPEL360" 
+                        systemDiffCode="00" 
+                        systemCode="00" 
+                        subSystemCode="0" 
+                        subSubSystemCode="0" 
+                        assyCode="00" 
+                        disassyCode="00" 
+                        disassyCodeVariant="A" 
+                        infoCode="045" 
+                        infoCodeVariant="A" 
+                        itemLocationCode="D" 
+                        learnCode="001" 
+                        learnEventCode="00"/>
+                <language languageIsoCode="en" countryIsoCode="US"/>
+                <issueInfo issueNumber="001" inWork="00"/>
+            </dmIdent>
+            <dmAddressItems>
+                <issueDate year="2026" month="01" day="12"/>
+                <dmTitle>
+                    <techName>AMPEL360 Q100 Cross-Reference Guide</techName>
+                    <infoName>Reference Management and Traceability Best Practices</infoName>
+                </dmTitle>
+            </dmAddressItems>
+        </dmAddress>
+        
+        <dmStatus issueType="new">
+            <security securityClassification="01"/>
+            <responsiblePartnerCompany enterpriseCode="AMPEL360">
+                <enterpriseName>AMPEL360 AMEDEO PELLICCIA</enterpriseName>
+            </responsiblePartnerCompany>
+            <originator enterpriseCode="AMPEL360">
+                <enterpriseName>AMPEL360 Technical Publications</enterpriseName>
+            </originator>
+            <applic>
+                <displayText>
+                    <simplePara>All AMPEL360 Q100 BWB Hydrogen-Hybrid Aircraft</simplePara>
+                </displayText>
+            </applic>
+            <brexDmRef>
+                <dmRef>
+                    <dmRefIdent>
+                        <dmCode modelIdentCode="AMPEL360" 
+                                systemDiffCode="00" 
+                                systemCode="00" 
+                                subSystemCode="0" 
+                                subSubSystemCode="0" 
+                                assyCode="00" 
+                                disassyCode="00" 
+                                disassyCodeVariant="A" 
+                                infoCode="022" 
+                                infoCodeVariant="A" 
+                                itemLocationCode="A"/>
+                    </dmRefIdent>
+                    <dmRefAddressItems>
+                        <dmTitle>
+                            <techName>AMPEL360 Business Rules Exchange (BREX)</techName>
+                        </dmTitle>
+                    </dmRefAddressItems>
+                </dmRef>
+            </brexDmRef>
+            <qualityAssurance>
+                <unverified/>
+            </qualityAssurance>
+            <reasonForUpdate>
+                <simplePara>Initial issue - Baseline training material</simplePara>
+            </reasonForUpdate>
+        </dmStatus>
+    </identAndStatusSection>
+    
+    <content>
+        <description>
+            <levelledPara>
+                <title>Cross-Reference Guide Overview</title>
+                <para>
+                    This training module provides comprehensive guidance on creating and managing 
+                    cross-references within the AMPEL360 Q100 documentation ecosystem. Proper 
+                    cross-referencing ensures traceability, maintains document integrity, and 
+                    facilitates navigation across the complex network of technical documentation.
+                </para>
+                <para>
+                    <emphasis emphasisType="em01">Purpose:</emphasis> To standardize reference 
+                    management practices across SSOT artifacts, S1000D data modules, and DPP integration.
+                </para>
+                <para>
+                    <emphasis emphasisType="em01">Scope:</emphasis> Internal references, cross-DM 
+                    references, SSOT artifact references, DPP integration, traceability matrices, 
+                    and CI/CD validation.
+                </para>
+            </levelledPara>
+            
+            <levelledPara>
+                <title>Internal References (internalRef)</title>
+                <para>
+                    Internal references link to content within the same S1000D Data Module using 
+                    the internalRef element.
+                </para>
+                <para>
+                    <emphasis emphasisType="em01">Syntax:</emphasis>
+                </para>
+                <para>
+                    <verbatimText verbatimStyle="vs11">
+&lt;internalRef internalRefId="target-id" 
+             internalRefTargetType="irtt01"&gt;
+  Link Text
+&lt;/internalRef&gt;
+
+Where:
+  target-id = Unique ID of target element (@id attribute)
+  irtt01 = Inline reference type (S1000D standard)
+                    </verbatimText>
+                </para>
+                <para>
+                    <emphasis emphasisType="em01">Example:</emphasis>
+                </para>
+                <para>
+                    <verbatimText verbatimStyle="vs11">
+&lt;!-- Define target --&gt;
+&lt;para id="term-bwb"&gt;
+  BWB (Blended Wing Body) is an aircraft configuration...
+&lt;/para&gt;
+
+&lt;!-- Reference from elsewhere --&gt;
+&lt;para&gt;
+  For more information, see 
+  &lt;internalRef internalRefId="term-bwb" 
+               internalRefTargetType="irtt01"&gt;BWB definition&lt;/internalRef&gt;.
+&lt;/para&gt;
+                    </verbatimText>
+                </para>
+                <para>
+                    <emphasis emphasisType="em01">Best Practices:</emphasis>
+                </para>
+                <para>
+                    <randomList>
+                        <listItem><para>Use descriptive ID values (term-bwb, fig-fuel-cell-diagram)</para></listItem>
+                        <listItem><para>Ensure all target IDs are unique within the DM</para></listItem>
+                        <listItem><para>Use consistent naming conventions for IDs</para></listItem>
+                        <listItem><para>Validate all internal references before publication</para></listItem>
+                    </randomList>
+                </para>
+            </levelledPara>
+            
+            <levelledPara>
+                <title>Cross-DM References (dmRef)</title>
+                <para>
+                    Cross-DM references link to other S1000D Data Modules using the dmRef element 
+                    with complete DMC resolution.
+                </para>
+                <para>
+                    <emphasis emphasisType="em01">Syntax:</emphasis>
+                </para>
+                <para>
+                    <verbatimText verbatimStyle="vs11">
+&lt;dmRef&gt;
+  &lt;dmRefIdent&gt;
+    &lt;dmCode modelIdentCode="AMPEL360" 
+            systemDiffCode="00" 
+            systemCode="00" 
+            subSystemCode="0" 
+            subSubSystemCode="0" 
+            assyCode="00" 
+            disassyCode="00" 
+            disassyCodeVariant="A" 
+            infoCode="001" 
+            infoCodeVariant="A" 
+            itemLocationCode="A"/&gt;
+  &lt;/dmRefIdent&gt;
+  &lt;dmRefAddressItems&gt;
+    &lt;dmTitle&gt;
+      &lt;techName&gt;Program Glossary&lt;/techName&gt;
+    &lt;/dmTitle&gt;
+  &lt;/dmRefAddressItems&gt;
+&lt;/dmRef&gt;
+                    </verbatimText>
+                </para>
+                <para>
+                    <emphasis emphasisType="em01">Common Q100 Cross-References:</emphasis>
+                </para>
+                <table>
+                    <tgroup cols="3">
+                        <thead>
+                            <row>
+                                <entry>DMC</entry>
+                                <entry>Title</entry>
+                                <entry>Usage</entry>
+                            </row>
+                        </thead>
+                        <tbody>
+                            <row>
+                                <entry>DMC-AMPEL360-00-00-00-00A-001A-A</entry>
+                                <entry>Program Glossary</entry>
+                                <entry>Term definitions</entry>
+                            </row>
+                            <row>
+                                <entry>DMC-AMPEL360-00-00-00-00A-042A-A</entry>
+                                <entry>Term Type Usage Guide</entry>
+                                <entry>Terminology guidance</entry>
+                            </row>
+                            <row>
+                                <entry>DMC-AMPEL360-00-00-00-00A-044A-A</entry>
+                                <entry>Safety Labeling Standard</entry>
+                                <entry>Warning/caution formats</entry>
+                            </row>
+                        </tbody>
+                    </tgroup>
+                </table>
+            </levelledPara>
+            
+            <levelledPara>
+                <title>SSOT Artifact References</title>
+                <para>
+                    SSOT artifacts (requirements, analyses, tests) use URI-based references for 
+                    cross-linking.
+                </para>
+                
+                <levelledPara>
+                    <title>KNU URI Scheme</title>
+                    <para>
+                        <verbatimText verbatimStyle="vs11">
+knu://{KNU-ID}[#{section}]
+
+Examples:
+  knu://KNU-00-00-001-REQ-001
+  knu://KNU-28-00-001-REQ-001#section-3.2
+  knu://KNU-71-00-001-ICD-001#interface-definition
+                        </verbatimText>
+                    </para>
+                </levelledPara>
+                
+                <levelledPara>
+                    <title>Term URI Scheme</title>
+                    <para>
+                        <verbatimText verbatimStyle="vs11">
+term://{term-id}
+
+Examples:
+  term://bwb
+  term://lh2
+  term://fuel-cell
+  term://learning-assurance
+                        </verbatimText>
+                    </para>
+                </levelledPara>
+            </levelledPara>
+            
+            <levelledPara>
+                <title>DPP Integration References</title>
+                <para>
+                    Digital Product Passport (DPP) integration uses ampel360: URI scheme for 
+                    component and data references.
+                </para>
+                <para>
+                    <emphasis emphasisType="em01">URI Patterns:</emphasis>
+                </para>
+                <para>
+                    <verbatimText verbatimStyle="vs11">
+ampel360:term:{term-id}
+ampel360:unit:{unit-id}
+ampel360:component:{serial-number}
+ampel360:batch:{batch-id}
+
+Examples:
+  ampel360:term:bwb
+  ampel360:unit:kilogram
+  ampel360:component:FC-001-2026-001
+  ampel360:batch:LH2-TANK-BATCH-2026-Q1
+                    </verbatimText>
+                </para>
+                <para>
+                    <emphasis emphasisType="em01">Usage in S1000D:</emphasis>
+                </para>
+                <para>
+                    <verbatimText verbatimStyle="vs11">
+&lt;externalPubRef&gt;
+  &lt;externalPubRefIdent&gt;
+    &lt;externalPubCode&gt;ampel360:term:bwb&lt;/externalPubCode&gt;
+  &lt;/externalPubRefIdent&gt;
+&lt;/externalPubRef&gt;
+                    </verbatimText>
+                </para>
+            </levelledPara>
+            
+            <levelledPara>
+                <title>Traceability Matrix Usage</title>
+                <para>
+                    Traceability matrices establish formal relationships between requirements, 
+                    designs, tests, and verification evidence.
+                </para>
+                <para>
+                    <emphasis emphasisType="em01">Matrix Structure:</emphasis>
+                </para>
+                <table>
+                    <tgroup cols="5">
+                        <thead>
+                            <row>
+                                <entry>Requirement ID</entry>
+                                <entry>Design KNU</entry>
+                                <entry>Test KNU</entry>
+                                <entry>Verification Evidence</entry>
+                                <entry>Status</entry>
+                            </row>
+                        </thead>
+                        <tbody>
+                            <row>
+                                <entry>KNU-28-00-001-REQ-001</entry>
+                                <entry>KNU-28-00-001-ICD-001</entry>
+                                <entry>KNU-28-00-001-TEST-001</entry>
+                                <entry>TR-28-001-v1.2.pdf</entry>
+                                <entry>VERIFIED</entry>
+                            </row>
+                            <row>
+                                <entry>KNU-71-00-001-REQ-002</entry>
+                                <entry>KNU-71-00-001-ICD-002</entry>
+                                <entry>KNU-71-00-001-TEST-002</entry>
+                                <entry>TR-71-002-v1.0.pdf</entry>
+                                <entry>IN-PROGRESS</entry>
+                            </row>
+                        </tbody>
+                    </tgroup>
+                </table>
+                <para>
+                    <emphasis emphasisType="em01">Mandatory Traces:</emphasis>
+                </para>
+                <para>
+                    <randomList>
+                        <listItem><para>REQ → ICD (requirement to design)</para></listItem>
+                        <listItem><para>REQ → TEST (requirement to verification)</para></listItem>
+                        <listItem><para>ICD → PUB (design to publication)</para></listItem>
+                        <listItem><para>TEST → Evidence (test to results)</para></listItem>
+                    </randomList>
+                </para>
+            </levelledPara>
+            
+            <levelledPara>
+                <title>Link Validation in CI/CD Pipeline</title>
+                <para>
+                    The Q100 CI/CD pipeline automatically validates all cross-references using 
+                    GitHub Actions workflows.
+                </para>
+                <para>
+                    <emphasis emphasisType="em01">Validation Checks:</emphasis>
+                </para>
+                <para>
+                    <randomList>
+                        <listItem><para>Internal reference targets exist</para></listItem>
+                        <listItem><para>Cross-DM references resolve to valid DMCs</para></listItem>
+                        <listItem><para>KNU references point to existing artifacts</para></listItem>
+                        <listItem><para>Term references exist in terminology database</para></listItem>
+                        <listItem><para>Traceability matrix completeness</para></listItem>
+                    </randomList>
+                </para>
+                <para>
+                    <emphasis emphasisType="em01">Workflow Files:</emphasis>
+                </para>
+                <para>
+                    <verbatimText verbatimStyle="vs11">
+.github/workflows/markdown-link-check.yml
+.github/workflows/knu-collision-check.yml
+.github/workflows/brex-validation.yml
+                    </verbatimText>
+                </para>
+                <para>
+                    Validation runs automatically on pull requests. Failed validation blocks merge.
+                </para>
+            </levelledPara>
+            
+            <levelledPara>
+                <title>Best Practices for Reference Integrity</title>
+                <para>
+                    Follow these practices to maintain reference integrity:
+                </para>
+                <para>
+                    <sequentialList>
+                        <listItem>
+                            <para><emphasis emphasisType="em01">Use Stable IDs:</emphasis> Never 
+                            change IDs after publication. If renaming is necessary, create new ID 
+                            and maintain redirect.</para>
+                        </listItem>
+                        <listItem>
+                            <para><emphasis emphasisType="em01">Validate Before Commit:</emphasis> 
+                            Run local validation before committing. Use provided validation scripts 
+                            in tools/ directory.</para>
+                        </listItem>
+                        <listItem>
+                            <para><emphasis emphasisType="em01">Document Dependencies:</emphasis> 
+                            In KNU YAML frontmatter, list all parent and child KNUs, related KNOTs, 
+                            and ATA traces.</para>
+                        </listItem>
+                        <listItem>
+                            <para><emphasis emphasisType="em01">Update Traceability Matrices:</emphasis> 
+                            When creating or modifying REQ/ICD/TEST KNUs, update corresponding 
+                            traceability matrix.</para>
+                        </listItem>
+                        <listItem>
+                            <para><emphasis emphasisType="em01">Use Relative Paths in SSOT:</emphasis> 
+                            For SSOT-to-SSOT references, use relative filesystem paths when 
+                            possible to support repository reorganization.</para>
+                        </listItem>
+                    </sequentialList>
+                </para>
+            </levelledPara>
+            
+            <levelledPara>
+                <title>Common Mistakes and Corrections</title>
+                <table>
+                    <tgroup cols="3">
+                        <thead>
+                            <row>
+                                <entry>Mistake</entry>
+                                <entry>Problem</entry>
+                                <entry>Correction</entry>
+                            </row>
+                        </thead>
+                        <tbody>
+                            <row>
+                                <entry>Hardcoded absolute paths</entry>
+                                <entry>Breaks on repository reorganization</entry>
+                                <entry>Use relative paths or URI schemes</entry>
+                            </row>
+                            <row>
+                                <entry>Missing target IDs</entry>
+                                <entry>References break silently</entry>
+                                <entry>Always define @id on referenceable elements</entry>
+                            </row>
+                            <row>
+                                <entry>Duplicate IDs</entry>
+                                <entry>Ambiguous references</entry>
+                                <entry>Ensure all IDs unique within DM scope</entry>
+                            </row>
+                            <row>
+                                <entry>Broken cross-DM refs after DMC update</entry>
+                                <entry>References point to old version</entry>
+                                <entry>Update all referencing DMs when DMC changes</entry>
+                            </row>
+                        </tbody>
+                    </tgroup>
+                </table>
+            </levelledPara>
+            
+            <levelledPara>
+                <title>Tools and Resources</title>
+                <para>
+                    <randomList>
+                        <listItem><para>Link validation script: tools/validate-links.sh</para></listItem>
+                        <listItem><para>Traceability matrix template: templates/traceability-matrix.csv</para></listItem>
+                        <listItem><para>KNU reference checker: tools/check-knu-refs.py</para></listItem>
+                        <listItem><para>DMC resolver: tools/resolve-dmc.py</para></listItem>
+                    </randomList>
+                </para>
+                <para>
+                    For questions: references@ampel360.aero
+                </para>
+            </levelledPara>
+        </description>
+    </content>
+</dmodule>

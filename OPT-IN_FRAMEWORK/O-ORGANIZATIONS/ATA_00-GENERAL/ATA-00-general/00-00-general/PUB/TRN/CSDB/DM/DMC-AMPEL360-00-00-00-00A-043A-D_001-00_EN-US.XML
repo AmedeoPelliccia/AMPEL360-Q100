@@ -1,0 +1,640 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+═══════════════════════════════════════════════════════════════════════════════
+KNU ARTIFACT:  KNU-00-00-002-PUB-001
+TITLE: Document Architecture Training DM
+TYPE: PUB-TRN (S1000D Data Module - Training)
+STATUS: GENERATED
+OWNER: STK_PUB
+═══════════════════════════════════════════════════════════════════════════════
+-->
+<dmodule 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://www.s1000d.org/S1000D_5-0/xml_schema_flat/descript.xsd">
+    
+    <identAndStatusSection>
+        <dmAddress>
+            <dmIdent>
+                <dmCode modelIdentCode="AMPEL360" 
+                        systemDiffCode="00" 
+                        systemCode="00" 
+                        subSystemCode="0" 
+                        subSubSystemCode="0" 
+                        assyCode="00" 
+                        disassyCode="00" 
+                        disassyCodeVariant="A" 
+                        infoCode="043" 
+                        infoCodeVariant="A" 
+                        itemLocationCode="D" 
+                        learnCode="001" 
+                        learnEventCode="00"/>
+                <language languageIsoCode="en" countryIsoCode="US"/>
+                <issueInfo issueNumber="001" inWork="00"/>
+            </dmIdent>
+            <dmAddressItems>
+                <issueDate year="2026" month="01" day="12"/>
+                <dmTitle>
+                    <techName>AMPEL360 Q100 Document Architecture Training</techName>
+                    <infoName>OPT-IN Framework and KNOT/KNU Methodology for New Authors</infoName>
+                </dmTitle>
+            </dmAddressItems>
+        </dmAddress>
+        
+        <dmStatus issueType="new">
+            <security securityClassification="01"/>
+            <responsiblePartnerCompany enterpriseCode="AMPEL360">
+                <enterpriseName>AMPEL360 AMEDEO PELLICCIA</enterpriseName>
+            </responsiblePartnerCompany>
+            <originator enterpriseCode="AMPEL360">
+                <enterpriseName>AMPEL360 Technical Publications</enterpriseName>
+            </originator>
+            <applic>
+                <displayText>
+                    <simplePara>All AMPEL360 Q100 BWB Hydrogen-Hybrid Aircraft</simplePara>
+                </displayText>
+            </applic>
+            <brexDmRef>
+                <dmRef>
+                    <dmRefIdent>
+                        <dmCode modelIdentCode="AMPEL360" 
+                                systemDiffCode="00" 
+                                systemCode="00" 
+                                subSystemCode="0" 
+                                subSubSystemCode="0" 
+                                assyCode="00" 
+                                disassyCode="00" 
+                                disassyCodeVariant="A" 
+                                infoCode="022" 
+                                infoCodeVariant="A" 
+                                itemLocationCode="A"/>
+                    </dmRefIdent>
+                    <dmRefAddressItems>
+                        <dmTitle>
+                            <techName>AMPEL360 Business Rules Exchange (BREX)</techName>
+                        </dmTitle>
+                    </dmRefAddressItems>
+                </dmRef>
+            </brexDmRef>
+            <qualityAssurance>
+                <unverified/>
+            </qualityAssurance>
+            <reasonForUpdate>
+                <simplePara>Initial issue - Baseline training material</simplePara>
+            </reasonForUpdate>
+        </dmStatus>
+    </identAndStatusSection>
+    
+    <content>
+        <description>
+            <levelledPara>
+                <title>Training Module Overview</title>
+                <para>
+                    This training module provides comprehensive guidance on the AMPEL360 Q100 
+                    document architecture, including the OPT-IN framework, ATA chapter structure, 
+                    lifecycle categories, KNOT/KNU methodology, document numbering conventions, 
+                    and repository navigation.
+                </para>
+                <para>
+                    <emphasis emphasisType="em01">Target Audience:</emphasis> New technical 
+                    authors, engineers, and documentation contributors joining the Q100 program.
+                </para>
+                <para>
+                    <emphasis emphasisType="em01">Prerequisites:</emphasis> Basic understanding 
+                    of aerospace documentation and S1000D concepts.
+                </para>
+                <para>
+                    <emphasis emphasisType="em01">Learning Objectives:</emphasis>
+                </para>
+                <para>
+                    <randomList>
+                        <listItem><para>Understand the five-axis OPT-IN framework</para></listItem>
+                        <listItem><para>Navigate ATA chapter structure (00-99)</para></listItem>
+                        <listItem><para>Apply lifecycle categories (LC01-LC13)</para></listItem>
+                        <listItem><para>Use KNOT/KNU methodology for work tracking</para></listItem>
+                        <listItem><para>Follow document numbering conventions</para></listItem>
+                        <listItem><para>Distinguish between SSOT and PUB artifacts</para></listItem>
+                    </randomList>
+                </para>
+            </levelledPara>
+            
+            <levelledPara>
+                <title>OPT-IN Framework Overview</title>
+                <para>
+                    The OPT-IN framework organizes all Q100 documentation along five orthogonal axes:
+                </para>
+                <table>
+                    <tgroup cols="3">
+                        <thead>
+                            <row>
+                                <entry>Axis</entry>
+                                <entry>Stands For</entry>
+                                <entry>Purpose</entry>
+                            </row>
+                        </thead>
+                        <tbody>
+                            <row>
+                                <entry>O</entry>
+                                <entry>Organizations</entry>
+                                <entry>Organizational structure and stakeholder areas</entry>
+                            </row>
+                            <row>
+                                <entry>I</entry>
+                                <entry>Interfaces</entry>
+                                <entry>System interfaces and integration points</entry>
+                            </row>
+                            <row>
+                                <entry>N</entry>
+                                <entry>Nodes</entry>
+                                <entry>Physical locations and installation points</entry>
+                            </row>
+                            <row>
+                                <entry>T</entry>
+                                <entry>Technologies</entry>
+                                <entry>Technical systems grouped by ATA chapters</entry>
+                            </row>
+                            <row>
+                                <entry>P</entry>
+                                <entry>Processes</entry>
+                                <entry>Business processes and workflows</entry>
+                            </row>
+                        </tbody>
+                    </tgroup>
+                </table>
+                <para>
+                    <emphasis emphasisType="em01">Example Path:</emphasis>
+                </para>
+                <para>
+                    <verbatimText verbatimStyle="vs11">
+OPT-IN_FRAMEWORK/
+  T-TECHNOLOGIES_AMEDEOPELLICCIA-ON_BOARD_SYSTEMS/
+    E1-PROPULSION/
+      ATA_71-POWER_PLANT/
+        ATA-71-power-plant/
+          71-00-general/
+            SSOT/
+              LC02_SYSTEM_REQUIREMENTS/
+                KNU-71-00-001-REQ-001_fuel-cell-requirements.md
+            PUB/
+              AMM/
+                CSDB/
+                  DM/
+                    DMC-AMPEL360-71-00-00-00A-001A-A_001-00_EN-US.XML
+                    </verbatimText>
+                </para>
+                <para>
+                    This path demonstrates:
+                </para>
+                <para>
+                    <randomList>
+                        <listItem><para>T-axis: Technologies (specifically E1-Propulsion)</para></listItem>
+                        <listItem><para>ATA 71: Power Plant chapter</para></listItem>
+                        <listItem><para>SSOT: Single Source of Truth (engineering artifacts)</para></listItem>
+                        <listItem><para>PUB: Publications (derived documentation)</para></listItem>
+                        <listItem><para>LC02: Lifecycle category (System Requirements)</para></listItem>
+                    </randomList>
+                </para>
+            </levelledPara>
+            
+            <levelledPara>
+                <title>ATA Chapter Structure</title>
+                <para>
+                    The Q100 program uses ATA iSpec 2200 chapter numbering (00-99) to organize 
+                    technical systems:
+                </para>
+                <table>
+                    <tgroup cols="3">
+                        <thead>
+                            <row>
+                                <entry>ATA Chapter</entry>
+                                <entry>System</entry>
+                                <entry>Q100 Relevance</entry>
+                            </row>
+                        </thead>
+                        <tbody>
+                            <row>
+                                <entry>00</entry>
+                                <entry>General</entry>
+                                <entry>Program-wide standards, terminology, training</entry>
+                            </row>
+                            <row>
+                                <entry>05</entry>
+                                <entry>Periodic Inspections</entry>
+                                <entry>Maintenance planning</entry>
+                            </row>
+                            <row>
+                                <entry>06</entry>
+                                <entry>Dimensions and Areas</entry>
+                                <entry>BWB configuration management</entry>
+                            </row>
+                            <row>
+                                <entry>21</entry>
+                                <entry>Air Conditioning</entry>
+                                <entry>HVAC including cryogenic heat loads</entry>
+                            </row>
+                            <row>
+                                <entry>24</entry>
+                                <entry>Electrical Power</entry>
+                                <entry>±270 VDC+ fuel cell power distribution</entry>
+                            </row>
+                            <row>
+                                <entry>28</entry>
+                                <entry>Fuel</entry>
+                                <entry>LH₂/GH₂ storage, distribution, boil-off management</entry>
+                            </row>
+                            <row>
+                                <entry>33</entry>
+                                <entry>Lights</entry>
+                                <entry>Exterior/interior lighting systems</entry>
+                            </row>
+                            <row>
+                                <entry>71</entry>
+                                <entry>Power Plant</entry>
+                                <entry>Fuel cell stacks, electric motors</entry>
+                            </row>
+                            <row>
+                                <entry>95</entry>
+                                <entry>AI/ML Models</entry>
+                                <entry>Q100-specific: Learning assurance, runtime monitoring</entry>
+                            </row>
+                            <row>
+                                <entry>96</entry>
+                                <entry>Digital Product Passport</entry>
+                                <entry>Q100-specific: DPP integration, traceability</entry>
+                            </row>
+                        </tbody>
+                    </tgroup>
+                </table>
+                <para>
+                    NOTE: ATA 95 and 96 are Q100 program extensions beyond standard ATA iSpec 2200.
+                </para>
+            </levelledPara>
+            
+            <levelledPara>
+                <title>Lifecycle Categories (LC01-LC13)</title>
+                <para>
+                    Within SSOT directories, artifacts are organized by lifecycle category:
+                </para>
+                <table>
+                    <tgroup cols="3">
+                        <thead>
+                            <row>
+                                <entry>Code</entry>
+                                <entry>Category</entry>
+                                <entry>Typical Contents</entry>
+                            </row>
+                        </thead>
+                        <tbody>
+                            <row>
+                                <entry>LC01</entry>
+                                <entry>Problem Statement</entry>
+                                <entry>KNU_PLAN.csv, KNOTS.csv, RACI.csv, TIMELINE.csv</entry>
+                            </row>
+                            <row>
+                                <entry>LC02</entry>
+                                <entry>System Requirements</entry>
+                                <entry>Functional, performance, interface requirements</entry>
+                            </row>
+                            <row>
+                                <entry>LC03</entry>
+                                <entry>Safety and Reliability</entry>
+                                <entry>Hazard analysis, FMEA, FTA, safety assessments</entry>
+                            </row>
+                            <row>
+                                <entry>LC04</entry>
+                                <entry>Design Definition</entry>
+                                <entry>Architecture, schematics, ICDs, 3D models</entry>
+                            </row>
+                            <row>
+                                <entry>LC05</entry>
+                                <entry>Analysis and Models</entry>
+                                <entry>Trade studies, simulations, calculations</entry>
+                            </row>
+                            <row>
+                                <entry>LC06</entry>
+                                <entry>Verification</entry>
+                                <entry>Test plans, procedures, results (bench/integration)</entry>
+                            </row>
+                            <row>
+                                <entry>LC07</entry>
+                                <entry>Validation</entry>
+                                <entry>Qualification tests, flight tests, acceptance</entry>
+                            </row>
+                            <row>
+                                <entry>LC08</entry>
+                                <entry>Configuration Management</entry>
+                                <entry>Baselines, change control, CM plans</entry>
+                            </row>
+                            <row>
+                                <entry>LC09</entry>
+                                <entry>Production and Manufacturing</entry>
+                                <entry>Build instructions, tooling, QC procedures</entry>
+                            </row>
+                            <row>
+                                <entry>LC10</entry>
+                                <entry>Deployment and Operations</entry>
+                                <entry>Operational procedures, pilot guides</entry>
+                            </row>
+                            <row>
+                                <entry>LC11</entry>
+                                <entry>Maintenance and Support</entry>
+                                <entry>AMM, CMM, IPC, troubleshooting</entry>
+                            </row>
+                            <row>
+                                <entry>LC12</entry>
+                                <entry>Disposal and Decommissioning</entry>
+                                <entry>End-of-life procedures, recycling</entry>
+                            </row>
+                            <row>
+                                <entry>LC13</entry>
+                                <entry>Training and Competency</entry>
+                                <entry>Training modules, certification programs</entry>
+                            </row>
+                        </tbody>
+                    </tgroup>
+                </table>
+            </levelledPara>
+            
+            <levelledPara>
+                <title>KNOT/KNU Methodology</title>
+                <para>
+                    The Q100 program uses KNOT (Knowledge Nexus of Tangible-uncertainties) and 
+                    KNU (Knowledge Nugget Units) to manage knowledge creation and uncertainty reduction.
+                </para>
+                
+                <levelledPara>
+                    <title>What is a KNOT?</title>
+                    <para>
+                        A KNOT is a cluster of related uncertainties requiring coordinated resolution. 
+                        Each KNOT has:
+                    </para>
+                    <para>
+                        <randomList>
+                            <listItem><para>Unique ID (e.g., KNOT-00-00-001)</para></listItem>
+                            <listItem><para>Residual uncertainty score (0-100, target ≤15)</para></listItem>
+                            <listItem><para>Set of KNUs for resolution</para></listItem>
+                            <listItem><para>TT token pool for incentivization</para></listItem>
+                            <listItem><para>Stakeholder ownership (STK_* roles)</para></listItem>
+                        </randomList>
+                    </para>
+                    <para>
+                        <emphasis emphasisType="em01">Example KNOT:</emphasis> KNOT-00-00-001 
+                        (Controlled Terminology Foundation) includes 12 KNUs covering glossary 
+                        requirements, database schema, term type taxonomy, validation tests, and 
+                        usage guides.
+                    </para>
+                </levelledPara>
+                
+                <levelledPara>
+                    <title>What is a KNU?</title>
+                    <para>
+                        A KNU is an atomic unit of knowledge creation work that produces a specific, 
+                        verifiable artifact. Each KNU has:
+                    </para>
+                    <para>
+                        <randomList>
+                            <listItem><para>Unique ID following pattern: KNU-{ATA}-{SUBSYS}-{SEQ}-{TYPE}-{NUM}</para></listItem>
+                            <listItem><para>Type: REQ, SAF, ICD, ANA, TEST, PUB, CM, PLAN</para></listItem>
+                            <listItem><para>Status: ⚪PLANNED → 🔵GENERATED → 🟢APPROVED or 🔴BLOCKED</para></listItem>
+                            <listItem><para>Owner (Area of Responsibility)</para></listItem>
+                            <listItem><para>Effort estimate (story points)</para></listItem>
+                            <listItem><para>TT token allocation upon completion</para></listItem>
+                        </randomList>
+                    </para>
+                    <para>
+                        <emphasis emphasisType="em01">Example KNU:</emphasis> KNU-00-00-001-REQ-001 
+                        (Program Glossary Requirements) defines requirements for Q100 terminology 
+                        management. Type=REQ, Status=GENERATED, Owner=STK_CM, Effort=8.
+                    </para>
+                </levelledPara>
+                
+                <levelledPara>
+                    <title>KNU Lifecycle</title>
+                    <para>
+                        <sequentialList>
+                            <listItem>
+                                <para><emphasis emphasisType="em01">PLANNED:</emphasis> KNU identified 
+                                in KNU_PLAN.csv, not yet started.</para>
+                            </listItem>
+                            <listItem>
+                                <para><emphasis emphasisType="em01">GENERATED:</emphasis> Artifact 
+                                created and committed to repository, awaiting review.</para>
+                            </listItem>
+                            <listItem>
+                                <para><emphasis emphasisType="em01">APPROVED:</emphasis> Artifact 
+                                reviewed, approved, and baselined. TT tokens allocated.</para>
+                            </listItem>
+                            <listItem>
+                                <para><emphasis emphasisType="em01">BLOCKED:</emphasis> KNU cannot 
+                                proceed due to unresolved TBD or missing dependency.</para>
+                            </listItem>
+                        </sequentialList>
+                    </para>
+                </levelledPara>
+            </levelledPara>
+            
+            <levelledPara>
+                <title>Document Numbering Conventions</title>
+                <para>
+                    All Q100 documents follow strict naming conventions:
+                </para>
+                
+                <levelledPara>
+                    <title>KNU Identifier Format</title>
+                    <para>
+                        <verbatimText verbatimStyle="vs11">
+KNU-{ATA}-{SUBSYS}-{SEQ}-{TYPE}-{NUM}
+
+Where:
+  ATA     = 2-digit ATA chapter (00-99)
+  SUBSYS  = 2-digit subsystem (00-99)
+  SEQ     = 3-digit sequence (001-999)
+  TYPE    = Artifact type (REQ, ICD, ANA, etc.)
+  NUM     = 3-digit artifact number (001-999)
+
+Examples:
+  KNU-00-00-001-REQ-001  = General, subsys 00, seq 001, Requirements #001
+  KNU-71-00-003-ICD-002  = Power Plant, general, seq 003, ICD #002
+  KNU-28-10-001-TEST-001 = Fuel, LH₂ storage, seq 001, Test #001
+                        </verbatimText>
+                    </para>
+                </levelledPara>
+                
+                <levelledPara>
+                    <title>S1000D DMC Format</title>
+                    <para>
+                        S1000D Data Module Codes (DMCs) follow S1000D standard:
+                    </para>
+                    <para>
+                        <verbatimText verbatimStyle="vs11">
+DMC-{MODEL}-{SYSDIFF}-{SYS}-{SUBSYS}-{SUBSUBSYS}{ASSY}-{DISASSY}{VAR}-{INFO}{VAR}-{LOC}_{LEARN}-{EVENT}_{LANG}.{EXT}
+
+Example:
+DMC-AMPEL360-00-00-00-00A-042A-A_001-00_EN-US.XML
+
+Where:
+  AMPEL360 = Model identifier
+  00-00-00-00A = System breakdown
+  042A-A = Info code + variant (042 = Usage Guide)
+  001-00 = Learn code + event
+  EN-US = Language (English-US)
+  XML = File format
+                        </verbatimText>
+                    </para>
+                </levelledPara>
+            </levelledPara>
+            
+            <levelledPara>
+                <title>SSOT vs PUB Distinction</title>
+                <para>
+                    Understanding the difference between SSOT and PUB is critical:
+                </para>
+                <table>
+                    <tgroup cols="3">
+                        <thead>
+                            <row>
+                                <entry>Aspect</entry>
+                                <entry>SSOT (Single Source of Truth)</entry>
+                                <entry>PUB (Publications)</entry>
+                            </row>
+                        </thead>
+                        <tbody>
+                            <row>
+                                <entry>Purpose</entry>
+                                <entry>Engineering artifacts, authoritative source</entry>
+                                <entry>Derived documentation for end users</entry>
+                            </row>
+                            <row>
+                                <entry>Format</entry>
+                                <entry>Markdown, YAML, CSV, JSON</entry>
+                                <entry>S1000D XML, PDF, HTML (IETM)</entry>
+                            </row>
+                            <row>
+                                <entry>Lifecycle</entry>
+                                <entry>LC01-LC13 categories</entry>
+                                <entry>AMM, CMM, IPC, TRN, etc.</entry>
+                            </row>
+                            <row>
+                                <entry>Edit Control</entry>
+                                <entry>Direct editing by engineers</entry>
+                                <entry>Generated from SSOT, manual edits discouraged</entry>
+                            </row>
+                            <row>
+                                <entry>Example</entry>
+                                <entry>KNU-28-00-001-REQ-001_fuel-system-requirements.md</entry>
+                                <entry>DMC-AMPEL360-28-00-00-00A-001A-A_001-00_EN-US.XML</entry>
+                            </row>
+                        </tbody>
+                    </tgroup>
+                </table>
+                <para>
+                    <emphasis emphasisType="em01">Key Rule:</emphasis> SSOT is the authoritative 
+                    source. PUB documents are derived via transformation tools or CIR export. 
+                    Never manually edit both SSOT and PUB for the same content.
+                </para>
+            </levelledPara>
+            
+            <levelledPara>
+                <title>Repository Navigation Guide</title>
+                <para>
+                    To find a specific document in the repository:
+                </para>
+                <para>
+                    <sequentialList>
+                        <listItem>
+                            <para>Identify the OPT-IN axis (O, I, N, T, or P)</para>
+                        </listItem>
+                        <listItem>
+                            <para>Navigate to ATA chapter directory</para>
+                        </listItem>
+                        <listItem>
+                            <para>Choose SSOT or PUB path</para>
+                        </listItem>
+                        <listItem>
+                            <para>For SSOT: Select lifecycle category (LC01-LC13)</para>
+                        </listItem>
+                        <listItem>
+                            <para>For PUB: Select publication type (AMM, CMM, TRN, etc.)</para>
+                        </listItem>
+                        <listItem>
+                            <para>Locate file by KNU ID or DMC</para>
+                        </listItem>
+                    </sequentialList>
+                </para>
+                <para>
+                    <emphasis emphasisType="em01">Example Search:</emphasis> Find the fuel cell 
+                    requirements document.
+                </para>
+                <para>
+                    <verbatimText verbatimStyle="vs11">
+1. Axis: T (Technologies)
+2. ATA: 71 (Power Plant)
+3. Path: SSOT
+4. Lifecycle: LC02 (Requirements)
+5. File: KNU-71-00-001-REQ-001_fuel-cell-requirements.md
+
+Full Path:
+OPT-IN_FRAMEWORK/T-TECHNOLOGIES.../ATA_71.../SSOT/LC02.../KNU-71-00-001-REQ-001_fuel-cell-requirements.md
+                    </verbatimText>
+                </para>
+            </levelledPara>
+            
+            <levelledPara>
+                <title>Practical Exercise</title>
+                <para>
+                    To reinforce learning, complete the following exercise:
+                </para>
+                <para>
+                    <sequentialList>
+                        <listItem>
+                            <para>Navigate to OPT-IN_FRAMEWORK/O-ORGANIZATIONS/ATA_00-GENERAL/</para>
+                        </listItem>
+                        <listItem>
+                            <para>Open SSOT/LC01_PROBLEM_STATEMENT/KNU_PLAN.csv</para>
+                        </listItem>
+                        <listItem>
+                            <para>Identify all KNUs with Status = 🔵GENERATED</para>
+                        </listItem>
+                        <listItem>
+                            <para>For each GENERATED KNU, locate the actual artifact file</para>
+                        </listItem>
+                        <listItem>
+                            <para>Verify artifact matches Expected_Location in KNU_PLAN.csv</para>
+                        </listItem>
+                    </sequentialList>
+                </para>
+            </levelledPara>
+            
+            <levelledPara>
+                <title>Additional Resources</title>
+                <para>
+                    For further learning:
+                </para>
+                <para>
+                    <randomList>
+                        <listItem><para>KNU-00-00-001-PUB-001 — Program Glossary DM</para></listItem>
+                        <listItem><para>KNU-00-00-001-PUB-002 — Term Type Usage Guide</para></listItem>
+                        <listItem><para>KNU-00-00-004-PUB-001 — Cross-Reference Guide DM</para></listItem>
+                        <listItem><para>OPT-IN_FRAMEWORK/README.md — Framework overview</para></listItem>
+                        <listItem><para>S1000D Issue 5.0 Specification — www.s1000d.org</para></listItem>
+                        <listItem><para>ATA iSpec 2200 — Aviation Industry Standards</para></listItem>
+                    </randomList>
+                </para>
+            </levelledPara>
+            
+            <levelledPara>
+                <title>Contact and Support</title>
+                <para>
+                    For questions or assistance:
+                </para>
+                <para>
+                    <randomList>
+                        <listItem><para>General questions: training@ampel360.aero</para></listItem>
+                        <listItem><para>Documentation standards: STK_CM</para></listItem>
+                        <listItem><para>Technical content: STK_SE</para></listItem>
+                        <listItem><para>KNOT/KNU methodology: STK_DATA</para></listItem>
+                    </randomList>
+                </para>
+            </levelledPara>
+        </description>
+    </content>
+</dmodule>
