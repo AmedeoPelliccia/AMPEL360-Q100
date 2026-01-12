@@ -175,10 +175,6 @@
 
 **Key Completions:**
 - ✅ KNU-00-00-003-ANA-001: Warning Standards Gap Analysis (19 symbol gaps, 5 novel AI/ML symbols)
-| 🔴 BLOCKED | 0 | 0.0% |
-
-#### KNU Details
-
 | KNU ID | Type | Status | Priority | Notes |
 |--------|------|--------|----------|-------|
 | KNU-00-00-003-REQ-001 | REQ | 🔵 GENERATED | HIGH | Baseline requirement - GENERATED |
