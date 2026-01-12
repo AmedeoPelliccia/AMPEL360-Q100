@@ -32,7 +32,7 @@
 
 ✅ **All 7 remaining ICD documents generated** - Critical interface specifications complete
 
-✅ **2 TBDs resolved** - TBD-00-005 (CIR export) and TBD-00-006 (DPP namespace) resolved
+✅ **2 TBDs resolved** - TBD-00-00-001-ICD-001-005 (CIR export) and TBD-00-00-001-ICD-001-006 (DPP namespace) resolved
 
 ✅ **6 new TBDs discovered** - Detailed design phase reveals new uncertainties (expected)
 
@@ -64,12 +64,12 @@
 | KNU-00-00-001-ANA-001 | ANA | ⚪ PLANNED | MEDIUM | Baseline analysis |
 | KNU-00-00-001-CM-001 | CM | ⚪ PLANNED | MEDIUM | Baseline CM process |
 | KNU-00-00-001-PUB-001 | PUB-AMM | 🔵 GENERATED | HIGH | Baseline glossary publication |
-| KNU-00-00-001-ANA-002 | ANA | ⚪ PLANNED | MEDIUM | Spawned by TBD-00-001 to resolve PostgreSQL version uncertai... |
-| KNU-00-00-001-ANA-003 | ANA | ⚪ PLANNED | MEDIUM | Spawned by TBD-00-002; triggers minor API update to ICD-001 |
-| KNU-00-00-001-REQ-002 | REQ | 🔵 GENERATED | HIGH | Spawned by TBD-00-003 (BLOCKING); triggers cascade - GENERA... |
+| KNU-00-00-001-ANA-002 | ANA | ⚪ PLANNED | MEDIUM | Spawned by TBD-00-00-001-ICD-001-001 to resolve PostgreSQL version uncertai... |
+| KNU-00-00-001-ANA-003 | ANA | ⚪ PLANNED | MEDIUM | Spawned by TBD-00-00-001-ICD-001-002; triggers minor API update to ICD-001 |
+| KNU-00-00-001-REQ-002 | REQ | 🔵 GENERATED | HIGH | Spawned by TBD-00-00-001-ICD-001-003 (BLOCKING); triggers cascade - GENERA... |
 | KNU-00-00-001-TEST-001 | TEST | ⚪ PLANNED | HIGH | Triggered by REQ-002 completion; validates term_type impleme... |
 | KNU-00-00-001-PUB-002 | PUB-AMM | 🔵 GENERATED | MEDIUM | Triggered by REQ-002; provides CSDB author guidance - GENERA... |
-| KNU-00-00-001-ICD-002 | ICD | 🔵 GENERATED | HIGH | Spawned by TBD-00-005 (RESOLVED) - GENERATED ✅ |
+| KNU-00-00-001-ICD-002 | ICD | 🔵 GENERATED | HIGH | Spawned by TBD-00-00-001-ICD-001-005 (RESOLVED) - GENERATED ✅ |
 | KNU-00-00-001-TEST-002 | TEST | ⚪ PLANNED | HIGH | Triggered by ICD-002; validates CSDB CIR export functionalit... |
 | KNU-00-00-001-PLAN-002 | PLAN | ⚪ PLANNED | MEDIUM | Triggered by ICD-002; defines operational CIR sync procedure... |
 
@@ -78,7 +78,7 @@
 **Status Change:** 🟡 IN PROGRESS → 🟢 ON TRACK
 
 **Key Completions:**
-- ✅ KNU-00-00-001-ICD-002: CSDB CIR Export Interface (resolves TBD-00-005)
+- ✅ KNU-00-00-001-ICD-002: CSDB CIR Export Interface (resolves TBD-00-00-001-ICD-001-005)
 
 ---
 
@@ -102,9 +102,9 @@
 | KNU-00-00-002-ANA-001 | ANA | ⚪ PLANNED | MEDIUM | Baseline analysis |
 | KNU-00-00-002-CM-001 | CM | ⚪ PLANNED | MEDIUM | Baseline CM process |
 | KNU-00-00-002-PUB-001 | PUB-TRN | 🔵 GENERATED | HIGH | Baseline training material - GENERATED |
-| KNU-00-00-002-PLAN-001 | PLAN | ⚪ PLANNED | MEDIUM | Spawned by TBD-00-004; may spawn new KNOT-00-00-002 (Transla... |
-| KNU-00-00-002-TEST-001 | TEST | ⚪ PLANNED | HIGH | Spawned by TBD-00-007; validates ID grammar compliance 🆕 |
-| KNU-00-00-002-CM-002 | CM | ⚪ PLANNED | MEDIUM | Spawned by TBD-00-007; implements CI/CD checks 🆕 |
+| KNU-00-00-002-PLAN-001 | PLAN | ⚪ PLANNED | MEDIUM | Spawned by TBD-00-00-001-ICD-001-004; may spawn new KNOT-00-00-002 (Transla... |
+| KNU-00-00-002-TEST-001 | TEST | ⚪ PLANNED | HIGH | Spawned by TBD-00-00-002-ICD-001-001; validates ID grammar compliance 🆕 |
+| KNU-00-00-002-CM-002 | CM | ⚪ PLANNED | MEDIUM | Spawned by TBD-00-00-002-ICD-001-001; implements CI/CD checks 🆕 |
 
 **Residual Uncertainty:** 80 → **62** (↓ 18 points, 38% reduction total)
 
@@ -112,7 +112,7 @@
 
 **Key Completions:**
 - ✅ KNU-00-00-002-ICD-001: Document ID Grammar
-- 🆕 2 new KNUs spawned by TBD-00-007
+- 🆕 2 new KNUs spawned by TBD-00-00-002-ICD-001-001
 
 ---
 
@@ -136,8 +136,8 @@
 | KNU-00-00-003-ANA-001 | ANA | ⚪ PLANNED | MEDIUM | Baseline analysis |
 | KNU-00-00-003-CM-001 | CM | ⚪ PLANNED | MEDIUM | Baseline CM index |
 | KNU-00-00-003-PUB-001 | PUB-AMM | 🔵 GENERATED | HIGH | Baseline publication - GENERATED |
-| KNU-00-00-003-ICD-002 | ICD | ⚪ PLANNED | MEDIUM | Spawned by TBD-03-001; defines asset management 🆕 |
-| KNU-00-00-003-TEST-001 | TEST | ⚪ PLANNED | MEDIUM | Spawned by TBD-03-002; validates symbol legibility 🆕 |
+| KNU-00-00-003-ICD-002 | ICD | ⚪ PLANNED | MEDIUM | Spawned by TBD-00-00-003-ICD-001-001; defines asset management 🆕 |
+| KNU-00-00-003-TEST-001 | TEST | ⚪ PLANNED | MEDIUM | Spawned by TBD-00-00-003-ICD-001-002; validates symbol legibility 🆕 |
 
 **Residual Uncertainty:** 75 → **55** (↓ 20 points, 45% reduction total)
 
@@ -145,7 +145,7 @@
 
 **Key Completions:**
 - ✅ KNU-00-00-003-ICD-001: H₂ Hazard Symbol Library
-- 🆕 2 new KNUs spawned by TBD-03-001, TBD-03-002
+- 🆕 2 new KNUs spawned by TBD-00-00-003-ICD-001-001, TBD-00-00-003-ICD-001-002
 
 ---
 
@@ -169,7 +169,7 @@
 | KNU-00-00-004-ANA-001 | ANA | ⚪ PLANNED | MEDIUM | Baseline analysis |
 | KNU-00-00-004-CM-001 | CM | ⚪ PLANNED | MEDIUM | Baseline CM process |
 | KNU-00-00-004-PUB-001 | PUB-TRN | 🔵 GENERATED | HIGH | Baseline training material - GENERATED |
-| KNU-00-00-004-TEST-001 | TEST | ⚪ PLANNED | HIGH | Spawned by TBD-00-009; CI/CD link validation 🆕 |
+| KNU-00-00-004-TEST-001 | TEST | ⚪ PLANNED | HIGH | Spawned by TBD-00-00-004-ICD-001-001; CI/CD link validation 🆕 |
 
 **Residual Uncertainty:** 75 → **58** (↓ 17 points, 42% reduction total)
 
@@ -177,7 +177,7 @@
 
 **Key Completions:**
 - ✅ KNU-00-00-004-ICD-001: Reference Syntax Specification
-- 🆕 1 new KNU spawned by TBD-00-009
+- 🆕 1 new KNU spawned by TBD-00-00-004-ICD-001-001
 
 ---
 
@@ -200,7 +200,7 @@
 | KNU-00-00-005-ICD-001 | ICD | 🔵 GENERATED | HIGH | Baseline ICD - GENERATED ✅ |
 | KNU-00-00-005-ANA-001 | ANA | ⚪ PLANNED | MEDIUM | Baseline analysis |
 | KNU-00-00-005-PUB-001 | PUB-AMM | 🔵 GENERATED | MEDIUM | Baseline publication - GENERATED |
-| KNU-00-00-005-TEST-001 | TEST | ⚪ PLANNED | HIGH | Spawned by TBD-00-010; validates conversion factors 🆕 |
+| KNU-00-00-005-TEST-001 | TEST | ⚪ PLANNED | HIGH | Spawned by TBD-00-00-005-ICD-001-001; validates conversion factors 🆕 |
 
 **Residual Uncertainty:** 70 → **50** (↓ 20 points, 50% reduction total)
 
@@ -208,7 +208,7 @@
 
 **Key Completions:**
 - ✅ KNU-00-00-005-ICD-001: Unit Conversion Table Specification
-- 🆕 1 new KNU spawned by TBD-00-010
+- 🆕 1 new KNU spawned by TBD-00-00-005-ICD-001-001
 
 ---
 
@@ -227,7 +227,7 @@
 
 | KNU ID | Type | Status | Priority | Notes |
 |--------|------|--------|----------|-------|
-| KNU-96-10-001-ICD-002 | ICD | 🔵 GENERATED | HIGH | Spawned by TBD-00-006 (RESOLVED); cross-KNOT - GENERATED ✅ |
+| KNU-96-10-001-ICD-002 | ICD | 🔵 GENERATED | HIGH | Spawned by TBD-00-00-001-ICD-001-006 (RESOLVED); cross-KNOT - GENERATED ✅ |
 | KNU-96-10-001-ICD-003 | ICD | 🔵 GENERATED | HIGH | Triggered by REQ-002 (cross-KNOT) - GENERATED ✅ |
 | KNU-96-10-001-TEST-001 | TEST | ⚪ PLANNED | HIGH | Triggered by ICD-002; validates DPP-terminology integration |
 
@@ -236,7 +236,7 @@
 **Status Change:** 🔴 BLOCKED → 🟢 ON TRACK
 
 **Key Completions:**
-- ✅ KNU-96-10-001-ICD-002: DPP-Terminology Namespace Integration (resolves TBD-00-006)
+- ✅ KNU-96-10-001-ICD-002: DPP-Terminology Namespace Integration (resolves TBD-00-00-001-ICD-001-006)
 - ✅ KNU-96-10-001-ICD-003: DPP Term Type Namespace Mapping
 
 ---
@@ -249,10 +249,10 @@ The following TBDs are currently blocking progress:
 
 | TBD ID | Description | Blocks | Status |
 |--------|-------------|--------|--------|
-| TBD-00-003 | Term type taxonomy finalization | KNU-00-00-001-TEST-001, KNU-00-00-001-ICD-001 | ⚠️ RESOLVED - REQ-002 GENERATED |
-| TBD-00-005 | CIR export frequency determination | KNU-00-00-001-ICD-002, KNU-00-00-001-TEST-002, KNU-00-00-001-PLAN-002 | ✅ RESOLVED - ICD-002 GENERATED |
-| TBD-00-006 | DPP namespace collision resolution | KNU-96-10-001-ICD-002, KNU-96-10-001-TEST-001 | ✅ RESOLVED - ICD-002 GENERATED |
-| TBD-03-001 | AI/ML decision indication symbol | KNU-00-00-003-ICD-002 | 🔴 ACTIVE - Safety-critical |
+| TBD-00-00-001-ICD-001-003 | Term type taxonomy finalization | KNU-00-00-001-TEST-001, KNU-00-00-001-ICD-001 | ⚠️ RESOLVED - REQ-002 GENERATED |
+| TBD-00-00-001-ICD-001-005 | CIR export frequency determination | KNU-00-00-001-ICD-002, KNU-00-00-001-TEST-002, KNU-00-00-001-PLAN-002 | ✅ RESOLVED - ICD-002 GENERATED |
+| TBD-00-00-001-ICD-001-006 | DPP namespace collision resolution | KNU-96-10-001-ICD-002, KNU-96-10-001-TEST-001 | ✅ RESOLVED - ICD-002 GENERATED |
+| TBD-00-00-003-ICD-001-001 | AI/ML decision indication symbol | KNU-00-00-003-ICD-002 | 🔴 ACTIVE - Safety-critical |
 
 ### New TBDs Discovered
 
@@ -260,26 +260,26 @@ The following TBDs were discovered during ICD generation:
 
 | TBD ID | Description | Classification | Spawned By | Resolution Target |
 |--------|-------------|----------------|------------|-------------------|
-| TBD-00-007 | Version numbering convention for SSOT artifacts | CLASS II | KNU-00-00-002-ICD-001 | 2026-02-15 |
-| TBD-00-008 | Cross-repository reference syntax | CLASS III | KNU-00-00-002-ICD-001 | 2026-06-01 |
-| TBD-00-009 | External standards reference resolution | CLASS III | KNU-00-00-004-ICD-001 | 2026-05-01 |
-| TBD-00-010 | Conversion factor database format | CLASS II | KNU-00-00-005-ICD-001 | 2026-03-15 |
-| TBD-03-001 | AI/ML decision indication symbol (NEW) | CLASS I | KNU-00-00-003-ICD-001 | 2026-03-01 |
-| TBD-03-002 | Boil-off warning symbol | CLASS II | KNU-00-00-003-ICD-001 | 2026-04-01 |
+| TBD-00-00-002-ICD-001-001 | Version numbering convention for SSOT artifacts | CLASS II | KNU-00-00-002-ICD-001 | 2026-02-15 |
+| TBD-00-00-002-ICD-001-002 | Cross-repository reference syntax | CLASS III | KNU-00-00-002-ICD-001 | 2026-06-01 |
+| TBD-00-00-004-ICD-001-001 | External standards reference resolution | CLASS III | KNU-00-00-004-ICD-001 | 2026-05-01 |
+| TBD-00-00-005-ICD-001-001 | Conversion factor database format | CLASS II | KNU-00-00-005-ICD-001 | 2026-03-15 |
+| TBD-00-00-003-ICD-001-001 | AI/ML decision indication symbol (NEW) | CLASS I | KNU-00-00-003-ICD-001 | 2026-03-01 |
+| TBD-00-00-003-ICD-001-002 | Boil-off warning symbol | CLASS II | KNU-00-00-003-ICD-001 | 2026-04-01 |
 
 ### Next Recommended Actions
 
 **Short Term (Next 2 Weeks):**
 1. ✅ Complete remaining baseline ICDs - **COMPLETED**
 2. Review and approve GENERATED ICDs (move to APPROVED status)
-3. **Resolve TBD-03-001** (AI/ML symbol) - Safety-critical, blocks symbol library finalization
-4. Resolve TBD-00-007 (version numbering) - Affects CM processes
+3. **Resolve TBD-00-00-003-ICD-001-001** (AI/ML symbol) - Safety-critical, blocks symbol library finalization
+4. Resolve TBD-00-00-002-ICD-001-001 (version numbering) - Affects CM processes
 5. Begin work on TEST KNUs (currently 0% complete)
 
 **Medium Term (2-4 Weeks):**
 1. Complete all KNOT-00-00-001 TEST KNUs
 2. Generate remaining ANA KNUs across all KNOTs
-3. Resolve TBD-00-010 (conversion database format)
+3. Resolve TBD-00-00-005-ICD-001-001 (conversion database format)
 4. Begin CM and PLAN KNUs
 
 **Long Term (1-3 Months):**
@@ -425,13 +425,13 @@ OVERALL:         █████████████░░░░░░░░
 ### Areas for Improvement
 
 1. **TEST KNU generation** - 0% complete, needs immediate focus
-2. **TBD resolution** - TBD-03-001 (AI/ML symbol) is safety-critical
+2. **TBD resolution** - TBD-00-00-003-ICD-001-001 (AI/ML symbol) is safety-critical
 3. **ANA KNU generation** - 0% complete, needed for gap analysis
 
 ### Risk Mitigation
 
-- **Risk:** TBD-03-001 (AI/ML symbol) blocking safety labeling finalization
-  - **Mitigation:** Prioritize TBD-03-001 resolution, assign STK_SAF owner, target 2026-03-01
+- **Risk:** TBD-00-00-003-ICD-001-001 (AI/ML symbol) blocking safety labeling finalization
+  - **Mitigation:** Prioritize TBD-00-00-003-ICD-001-001 resolution, assign STK_SAF owner, target 2026-03-01
 
 - **Risk:** TEST KNUs not started
   - **Mitigation:** Allocate STK_TEST resources, begin test planning immediately

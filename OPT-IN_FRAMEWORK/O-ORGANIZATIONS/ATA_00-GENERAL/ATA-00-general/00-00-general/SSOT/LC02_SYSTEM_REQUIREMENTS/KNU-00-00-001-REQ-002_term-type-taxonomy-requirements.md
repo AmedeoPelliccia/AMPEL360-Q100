@@ -39,8 +39,8 @@ verification_method: "Review"
 effort_predicted: 5
 
 # Modification Tracking
-spawned_by_tbd: "TBD-00-003"
-origin:  "TBD-00-003"
+spawned_by_tbd: "TBD-00-00-001-ICD-001-003"
+origin:  "TBD-00-00-001-ICD-001-003"
 discovered_in: "KNU-00-00-001-ICD-001"
 modification_type: "NEW"
 triggers_knus: 
@@ -98,7 +98,7 @@ canonical_hash: null
 
 ### 1.1 Purpose
 
-This document defines the complete taxonomy of term types for the AMPEL360 Q100 terminology database.  This taxonomy resolves **TBD-00-003** discovered during creation of the Terminology Database Schema (KNU-00-00-001-ICD-001).
+This document defines the complete taxonomy of term types for the AMPEL360 Q100 terminology database.  This taxonomy resolves **TBD-00-00-001-ICD-001-003** discovered during creation of the Terminology Database Schema (KNU-00-00-001-ICD-001).
 
 The term type classification enables:
 - **Automated validation** of term usage in technical documentation
@@ -148,7 +148,7 @@ The term type classification enables:
 |----------|-------|--------------|
 | KNU-00-00-001-REQ-001 | Program Glossary Requirements | Parent requirements |
 | KNU-00-00-001-ICD-001 | Terminology Database Schema | Database implementation |
-| TBD-00-003 | Term Type Enumeration Undefined | Problem statement (resolved by this KNU) |
+| TBD-00-00-001-ICD-001-003 | Term Type Enumeration Undefined | Problem statement (resolved by this KNU) |
 
 ---
 
@@ -204,7 +204,7 @@ Term Types (12 categories)
 | **Rationale** | Comprehensive coverage of aviation technical terminology |
 | **Verification** | Review |
 | **Priority** | MUST |
-| **Trace To** | TBD-00-003 |
+| **Trace To** | TBD-00-00-001-ICD-001-003 |
 | **Allocated To** | STK_CM |
 
 ---
@@ -776,7 +776,7 @@ DEFAULT → NOUN
 
 | Source | Reference |
 |--------|-----------|
-| TBD-00-003 | Problem statement (resolved by this document) |
+| TBD-00-00-001-ICD-001-003 | Problem statement (resolved by this document) |
 | KNU-00-00-001-ICD-001 | Terminology Database Schema (parent artifact) |
 | KNU-00-00-001-REQ-001 | Program Glossary Requirements |
 | S1000D Issue 5. 0 | Terminology standards |
@@ -800,7 +800,7 @@ DEFAULT → NOUN
 ### 11.1 MOD-00-001: Term Type Taxonomy Package
 
 ```
-TBD-00-003: Define term_type enumeration (RESOLVED by this document)
+TBD-00-00-001-ICD-001-003: Define term_type enumeration (RESOLVED by this document)
     │
     ├─ PRIMARY KNU:  KNU-00-00-001-REQ-002 (this document)
     │    Effort: 5 SP
@@ -839,7 +839,7 @@ TOTAL PACKAGE:
 
 | TBD ID | Description | Status |
 |--------|-------------|--------|
-| TBD-00-003 | Define full `term_type` enumeration | ✅ **RESOLVED** by this document |
+| TBD-00-00-001-ICD-001-003 | Define full `term_type` enumeration | ✅ **RESOLVED** by this document |
 
 **No new TBDs introduced.**
 
@@ -876,7 +876,7 @@ TOTAL PACKAGE:
 
 | Version | Date | Author | Description |
 |---------|------|--------|-------------|
-| I01-R01 | 2026-01-11 | STK_CM | Initial document resolving TBD-00-003; spawned from KNU-00-00-001-ICD-001 |
+| I01-R01 | 2026-01-11 | STK_CM | Initial document resolving TBD-00-00-001-ICD-001-003; spawned from KNU-00-00-001-ICD-001 |
 
 ---
 
@@ -893,9 +893,9 @@ TOTAL PACKAGE:
 
 *This document is part of the AMPEL360 Q100 SSOT baseline under LC02_SYSTEM_REQUIREMENTS.*
 
-*Spawned by TBD-00-003 discovered in KNU-00-00-001-ICD-001.*
+*Spawned by TBD-00-00-001-ICD-001-003 discovered in KNU-00-00-001-ICD-001.*
 
-*✅ Resolves:  TBD-00-003*  
+*✅ Resolves:  TBD-00-00-001-ICD-001-003*  
 *🔗 Triggers: KNU-00-00-001-ICD-001 (mod), KNU-00-00-001-TEST-001, KNU-00-00-001-PUB-002, KNU-96-10-001-ICD-003*
 ```
 

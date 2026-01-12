@@ -1,0 +1,83 @@
+name: TBD ID Validation
+
+on:
+  push:
+    paths:
+      - 'OPT-IN_FRAMEWORK/**/*.md'
+      - 'OPT-IN_FRAMEWORK/**/*.csv'
+  pull_request:
+    paths:
+      - 'OPT-IN_FRAMEWORK/**/*.md'
+      - 'OPT-IN_FRAMEWORK/**/*.csv'
+
+jobs:
+  validate-tbd-ids:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Validate TBD Canonical IDs
+        run: |
+          echo "Validating TBD ID format..."
+          
+          # Pattern for canonical TBD IDs
+          CANONICAL_PATTERN='TBD-[0-9]{2}-[0-9]{2}-[0-9]{3}-(REQ|ICD|ANA|TEST|SAF|CM|PLAN|PUB)-[0-9]{3}-[0-9]{3}'
+          
+          # Pattern for legacy TBD IDs (should not appear in new content)
+          LEGACY_PATTERN='TBD-[0-9]{2}-[0-9]{3}([^0-9-]|$)'
+          
+          # Check for legacy IDs in markdown files (excluding TBD_REGISTER.csv which has legacy column)
+          if grep -rE "$LEGACY_PATTERN" OPT-IN_FRAMEWORK --include="*.md" 2>/dev/null | grep -v "/TBD_REGISTER\.csv:"; then
+            echo "❌ Found legacy TBD IDs in markdown files"
+            echo "Please migrate to canonical format: TBD-AA-SS-KKK-TYPE-OOO-TTT"
+            exit 1
+          fi
+          
+          echo "✅ All TBD IDs use canonical format"
+          
+      - name: Validate TBD Traceability
+        run: |
+          echo "Checking TBD traceability..."
+          
+          # Verify all TBDs in markdown are registered
+          # Extract TBDs from markdown, ensuring we only match standalone TBD IDs
+          if grep -rohP '(?<![A-Za-z0-9-])TBD-[0-9]{2}-[0-9]{2}-[0-9]{3}-(REQ|ICD|ANA|TEST|SAF|CM|PLAN|PUB)-[0-9]{3}-[0-9]{3}(?![A-Za-z0-9-])' \
+            OPT-IN_FRAMEWORK --include="*.md" 2>/dev/null | sort -u > /tmp/md_tbds.txt; then
+            
+            # Extract TBDs from register
+            if [ -f "OPT-IN_FRAMEWORK/O-ORGANIZATIONS/ATA_00-GENERAL/ATA-00-general/00-00-general/SSOT/LC01_PROBLEM_STATEMENT/TBD_REGISTER.csv" ]; then
+              python - << 'PY'
+import csv
+from pathlib import Path
+
+csv_path = Path("OPT-IN_FRAMEWORK/O-ORGANIZATIONS/ATA_00-GENERAL/ATA-00-general/00-00-general/SSOT/LC01_PROBLEM_STATEMENT/TBD_REGISTER.csv")
+tbds = set()
+
+with csv_path.open(newline='') as f:
+    reader = csv.reader(f)
+    for row in reader:
+        if len(row) > 1:
+            value = row[1].strip()
+            if value.startswith("TBD-"):
+                tbds.add(value)
+
+with open("/tmp/reg_tbds.txt", "w") as out:
+    for tbd in sorted(tbds):
+        out.write(f"{tbd}\n")
+PY
+              
+              # Find unregistered TBDs
+              comm -23 /tmp/md_tbds.txt /tmp/reg_tbds.txt > /tmp/unregistered.txt
+              
+              if [ -s /tmp/unregistered.txt ]; then
+                echo "⚠️ Warning: Found TBDs not in register:"
+                cat /tmp/unregistered.txt
+              else
+                echo "✅ All TBDs are registered"
+              fi
+            else
+              echo "⚠️ Warning: TBD_REGISTER.csv not found"
+            fi
+          else
+            echo "✅ No TBD references found in markdown files"
+          fi

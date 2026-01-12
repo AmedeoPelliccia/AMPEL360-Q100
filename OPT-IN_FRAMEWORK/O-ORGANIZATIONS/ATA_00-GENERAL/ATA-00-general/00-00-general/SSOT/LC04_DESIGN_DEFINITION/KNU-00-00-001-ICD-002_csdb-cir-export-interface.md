@@ -14,9 +14,9 @@ ata_section: "00"
 program: AMPEL360 Q100 BWB Hydrogen-Hybrid Aircraft
 version: I001-R00
 date_created: 2026-01-12
-spawned_by: TBD-00-005
+spawned_by: TBD-00-00-001-ICD-001-005
 related_tbds:
-  - TBD-00-005
+  - TBD-00-00-001-ICD-001-005
 tbd_status: RESOLVED
 triggered_knus:
   - KNU-00-00-001-TEST-002
@@ -43,7 +43,7 @@ export_format: S1000D_5.0_CIR
 | **Due Date** | 2026-02-15 |
 | **Priority** | HIGH |
 | **Lifecycle Stage** | LC04_DESIGN_DEFINITION |
-| **Spawned By** | TBD-00-005 (RESOLVED) |
+| **Spawned By** | TBD-00-00-001-ICD-001-005 (RESOLVED) |
 
 ---
 
@@ -507,7 +507,7 @@ fi
 
 ## Resolves TBD
 
-**TBD-00-005: CIR Export Frequency Determination**
+**TBD-00-00-001-ICD-001-005: CIR Export Frequency Determination**
 
 **Resolution:**
 - **Automated Exports:** Triggered on term modifications (5-minute delay)
@@ -592,7 +592,7 @@ The following KNUs are triggered by this ICD:
 
 | Version | Date | Author | Description |
 |---------|------|--------|-------------|
-| I001-R00 | 2026-01-12 | STK_CM | Initial baseline - GENERATED (resolves TBD-00-005) |
+| I001-R00 | 2026-01-12 | STK_CM | Initial baseline - GENERATED (resolves TBD-00-00-001-ICD-001-005) |
 
 ---
 
@@ -600,4 +600,4 @@ The following KNUs are triggered by this ICD:
 
 **Next Action:** Review and approval by STK_CM and STK_DATA
 
-**Notes:** This ICD resolves TBD-00-005 by specifying CIR export frequency, format, and validation procedures. Implementation to begin under KNU-00-00-001-TEST-002.
+**Notes:** This ICD resolves TBD-00-00-001-ICD-001-005 by specifying CIR export frequency, format, and validation procedures. Implementation to begin under KNU-00-00-001-TEST-002.

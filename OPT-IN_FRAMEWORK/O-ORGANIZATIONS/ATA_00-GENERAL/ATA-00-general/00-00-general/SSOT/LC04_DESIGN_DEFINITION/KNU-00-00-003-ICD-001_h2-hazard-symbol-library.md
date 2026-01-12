@@ -16,8 +16,8 @@ version: I001-R00
 date_created: 2026-01-12
 spawned_by: BASELINE
 related_tbds:
-  - TBD-03-001
-  - TBD-03-002
+  - TBD-00-00-003-ICD-001-001
+  - TBD-00-00-003-ICD-001-002
 triggered_knus:
   - KNU-00-00-003-ICD-002
   - KNU-00-00-003-TEST-001
@@ -395,7 +395,7 @@ ARC FLASH HAZARD: Can cause severe burns and ignition.
 
 The following uncertainties have been identified and require resolution:
 
-### [TBD-03-001] AI/ML Decision Indication Symbol
+### [TBD-00-00-003-ICD-001-001] AI/ML Decision Indication Symbol
 
 **Description:** Define symbol for AI/ML-assisted decisions (new category not in ISO 7010)
 
@@ -414,7 +414,7 @@ The following uncertainties have been identified and require resolution:
 
 ---
 
-### [TBD-03-002] Boil-Off Warning Symbol
+### [TBD-00-00-003-ICD-001-002] Boil-Off Warning Symbol
 
 **Description:** Combined cryogenic + flammable hazard symbol for LH₂ boil-off
 
@@ -447,7 +447,7 @@ The following KNUs are spawned by this ICD to address embedded TBDs:
 - Automated rendering pipeline (SVG → PNG)
 - Asset integrity checks (hash verification)
 
-**Spawned By:** TBD-03-001
+**Spawned By:** TBD-00-00-003-ICD-001-001
 
 **Due Date:** 2026-04-20
 
@@ -463,7 +463,7 @@ The following KNUs are spawned by this ICD to address embedded TBDs:
 - Color contrast ratio measurements (≥7:1)
 - Durability tests (UV exposure, chemical resistance, abrasion)
 
-**Spawned By:** TBD-03-002
+**Spawned By:** TBD-00-00-003-ICD-001-002
 
 **Due Date:** 2026-04-25
 

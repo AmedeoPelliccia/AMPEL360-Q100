@@ -14,9 +14,9 @@ ata_section: "10"
 program: AMPEL360 Q100 BWB Hydrogen-Hybrid Aircraft
 version: I001-R00
 date_created: 2026-01-12
-spawned_by: TBD-00-006
+spawned_by: TBD-00-00-001-ICD-001-006
 related_tbds:
-  - TBD-00-006
+  - TBD-00-00-001-ICD-001-006
 tbd_status: RESOLVED
 triggered_knus:
   - KNU-96-10-001-TEST-001
@@ -47,7 +47,7 @@ dpp_namespaces:
 | **Due Date** | 2026-03-01 |
 | **Priority** | HIGH |
 | **Lifecycle Stage** | LC04_DESIGN_DEFINITION |
-| **Spawned By** | TBD-00-006 (RESOLVED) |
+| **Spawned By** | TBD-00-00-001-ICD-001-006 (RESOLVED) |
 | **Cross-KNOT** | KNOT-00-00-001 ↔ KNOT-96-10-001 |
 
 ---
@@ -346,7 +346,7 @@ graph TD
 
 ## Resolves TBD
 
-**TBD-00-006: DPP Namespace Collision Resolution**
+**TBD-00-00-001-ICD-001-006: DPP Namespace Collision Resolution**
 
 **Resolution:**
 - **Reserved Namespaces:** Defined five distinct namespaces (`term`, `unit`, `component`, `doc`, `knu`)
@@ -435,7 +435,7 @@ graph TD
 
 | Version | Date | Author | Description |
 |---------|------|--------|-------------|
-| I001-R00 | 2026-01-12 | STK_DATA | Initial baseline - GENERATED (resolves TBD-00-006) |
+| I001-R00 | 2026-01-12 | STK_DATA | Initial baseline - GENERATED (resolves TBD-00-00-001-ICD-001-006) |
 
 ---
 
@@ -443,4 +443,4 @@ graph TD
 
 **Next Action:** Review and approval by STK_DATA (coordination with KNOT-00-00-001 and KNOT-96-10-001 teams)
 
-**Notes:** This ICD resolves TBD-00-006 by defining DPP namespace patterns and collision prevention mechanisms. Cross-KNOT coordination required for implementation.
+**Notes:** This ICD resolves TBD-00-00-001-ICD-001-006 by defining DPP namespace patterns and collision prevention mechanisms. Cross-KNOT coordination required for implementation.

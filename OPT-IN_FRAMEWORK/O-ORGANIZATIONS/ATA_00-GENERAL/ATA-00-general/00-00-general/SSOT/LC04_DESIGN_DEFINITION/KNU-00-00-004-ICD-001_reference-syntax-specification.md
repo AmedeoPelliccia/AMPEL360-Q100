@@ -16,7 +16,7 @@ version: I001-R00
 date_created: 2026-01-12
 spawned_by: BASELINE
 related_tbds:
-  - TBD-00-009
+  - TBD-00-00-004-ICD-001-001
 triggered_knus:
   - KNU-00-00-004-TEST-001
 uri_schemes:
@@ -164,9 +164,9 @@ tbd://{tbd_id}
 
 **Examples:**
 ```
-tbd://TBD-00-003
-tbd://TBD-28-003
-tbd://TBD-00-007
+tbd://TBD-00-00-001-ICD-001-003
+tbd://TBD-28-10-005-ICD-001-001
+tbd://TBD-00-00-002-ICD-001-001
 ```
 
 **Resolution:**
@@ -176,8 +176,8 @@ tbd://TBD-00-007
 
 **Usage:**
 ```markdown
-The version numbering convention [TBD-00-007](tbd://TBD-00-007) needs resolution.
-Database selection is addressed in [TBD-00-001](tbd://TBD-00-001).
+The version numbering convention [TBD-00-00-002-ICD-001-001](tbd://TBD-00-00-002-ICD-001-001) needs resolution.
+Database selection is addressed in [TBD-00-00-001-ICD-001-001](tbd://TBD-00-00-001-ICD-001-001).
 ```
 
 ---
@@ -355,8 +355,8 @@ KNU-00-00-001-ICD-001:
   verified_by:
     - KNU-00-00-001-TEST-001
   related_tbds:
-    - TBD-00-003
-    - TBD-00-005
+    - TBD-00-00-001-ICD-001-003
+    - TBD-00-00-001-ICD-001-005
   dependencies:
     - KNU-00-00-002-ICD-001  # ID grammar
     - KNU-96-10-001-ICD-002  # DPP integration
@@ -437,7 +437,7 @@ trace_path:
 
 The following uncertainties have been identified and require resolution:
 
-### [TBD-00-009] External Standards Reference Resolution
+### [TBD-00-00-004-ICD-001-001] External Standards Reference Resolution
 
 **Description:** Define resolution mechanism for external standards references (IEEE, ISO, etc.)
 
@@ -470,7 +470,7 @@ The following KNUs are spawned by this ICD to address embedded TBDs:
 - Broken link reports generated automatically
 - Link resolution time <100ms per link
 
-**Spawned By:** TBD-00-009
+**Spawned By:** TBD-00-00-004-ICD-001-001
 
 **Due Date:** 2026-05-05
 
