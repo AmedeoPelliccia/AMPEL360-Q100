@@ -149,12 +149,7 @@ LC03/source    LC03/review  LC03/approved  PUB/CSDB/ICN/
 |---------|------|--------|---------|
 | 1.0 | 2026-01-13 | STK_PUB | Initial ICN repository specification |
 
-## 13. Resolves
-
-**RESOLVES:** TBD-00-00-003-ICD-001-001 (AI/ML decision indication symbol requirements)
-
-## 14. References
-
+## 13. References
 - [ICN_SPECIFICATION.md](../../PUB/CSDB/ICN/ICN_SPECIFICATION.md) - Detailed naming conventions
 - [_index.csv](../../PUB/CSDB/ICN/_index.csv) - Master symbol registry
 - [KNU-00-00-003-ICD-002](./KNU-00-00-003-ICD-002_aiml-indication-symbols.md) - AI/ML symbols
