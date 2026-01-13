@@ -53,7 +53,6 @@ Define comprehensive test procedures to validate that the Water/Waste System mee
 | SAE ARP1401 | SAE International | Drinking water quality standards |
 | NSF/ANSI 61 | NSF International | Potable water system components |
 | DO-160G | RTCA | Environmental testing |
-| DO-160G | RTCA | Environmental testing |
 
 ## 4. Test Cases
 
