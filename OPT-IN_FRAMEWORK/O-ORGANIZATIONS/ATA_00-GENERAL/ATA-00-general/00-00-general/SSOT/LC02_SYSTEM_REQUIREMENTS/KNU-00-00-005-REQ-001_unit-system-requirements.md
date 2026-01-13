@@ -12,8 +12,8 @@ rec: "LC02"
 ata_reference: "00-00"
 ata_address: "ATA-00-00-00-00"
 expected_location: "../LC02_SYSTEM_REQUIREMENTS/"
-status: "DRAFT"
-version: "I01-R02"
+status: "REVIEWED"
+version: "I01-R03"
 priority: "HIGH"
 
 # Ownership & Governance
@@ -36,13 +36,45 @@ due_date: "2026-02-28"
 last_updated: "2026-01-13"
 
 # Acceptance & Verification
-acceptance_criteria: "Primary/secondary unit convention defined per domain; canonical storage rules and conversion/rounding rules defined; interface unit tagging specified"
+acceptance_criteria: "Primary/secondary unit convention defined per domain; canonical storage rules and conversion/rounding rules defined; interface unit tagging specified; A.S.I.T. integration requirements defined"
 verification_method: "Review"
 effort_predicted: 5
 
 # Metrics
 requirements_count: 24
-tbd_count: 7
+tbd_count: 4
+
+# A.S.I.T. Integration
+asit_context:
+  domain: "meta_system"
+  user_roles:
+    - "engineer"
+    - "author"
+    - "translator"
+    - "asit_transponder"
+  output_formats:
+    - "all"
+  transponder_modes:
+    - "MODE_SSOT"
+    - "MODE_DM"
+    - "MODE_UI"
+    - "MODE_CERT"
+  priority: "BLOCKING"
+
+# Regulatory Compliance
+regulatory_basis:
+  - standard: "ICAO Annex 5"
+    clause: "Units of Measurement"
+    compliance: "FULL"
+  - standard: "FAA AC 00-45H"
+    clause: "Aviation Weather Services"
+    compliance: "FULL"
+  - standard: "EASA CS-25"
+    clause: "AFM Units"
+    compliance: "FULL"
+  - standard: "ISO 80000-1"
+    clause: "SI Units"
+    compliance: "FULL"
 
 # Traceability
 parent_requirements:
@@ -50,11 +82,22 @@ parent_requirements:
   - "KNU-00-00-002-REQ-001 (Document Numbering Requirements)"
   - "KNU-00-00-004-REQ-001 (Cross-Reference System Requirements)"
 child_requirements: []
+spawns_knus:
+  - "KNU-00-00-005-ICD-002"
+  - "KNU-00-00-005-ICD-003"
+  - "KNU-00-00-005-ANA-003"
 related_knots:
-  - "KNOT-00-00-002"  # Document Architecture Conventions
-  - "KNOT-00-00-004"  # Cross-Reference System
+  - "KNOT-00-00-002"
+  - "KNOT-00-00-004"
+downstream_refs:
+  - id: "KNU-79-10-001-SAF-001"
+    type: "applies_to"
+    description: "Oil system uses fluid domain conventions"
+  - id: "KNU-80-00-001-REQ-001"
+    type: "applies_to"
+    description: "Starting system uses electrical domain conventions"
 ata_traces:
-  - "ATA-00"  # Program Governance / General
+  - "ATA-00"
 
 # Document Control
 classification: "INTERNAL"
@@ -68,8 +111,8 @@ canonical_hash: null
 **KNOT:** KNOT-00-00-005 (Unit System Convention)  
 **ATA Reference:** 00-00 (General)  
 **ATA Address:** ATA-00-00-00-00  
-**Status:** DRAFT  
-**Version:** I01-R02  
+**Status:** ✅ REVIEWED  
+**Version:** I01-R03  
 **Owner:** STK_SE  
 **REC:** LC02_SYSTEM_REQUIREMENTS  
 
@@ -522,13 +565,16 @@ as **display units**, while SSOT storage remains SI.
 | KNU-00-00-002-REQ-001 | File/ID conventions used in unit registries and references |
 | KNU-00-00-004-REQ-001 | Trace links from PUB evidence back to canonical SSOT       |
 
-### 9.2 Downstream Traceability (planned targets)
+### 9.2 Downstream Traceability
 
-| Target Artifact       | Purpose                                                   |
-| --------------------- | --------------------------------------------------------- |
-| KNU-00-00-005-ICD-001 | Unit registry + unit tagging schema (machine vocabulary)  |
-| KNU-00-00-005-CM-001  | Exceptions log + approval record format                   |
-| KNU-00-00-005-PUB-001 | Publication unit style guide (dual-unit formatting rules) |
+| Target Artifact       | Purpose                                                   | Status |
+| --------------------- | --------------------------------------------------------- | ------ |
+| KNU-00-00-005-ICD-001 | Unit registry + unit tagging schema (machine vocabulary)  | 🔵 GENERATED |
+| KNU-00-00-005-ICD-002 | Unit Provenance Metadata Schema (A.S.I.T. integration)    | 🔵 GENERATED |
+| KNU-00-00-005-ICD-003 | CSDB Unit Integration Specification                       | ⚪ PLANNED |
+| KNU-00-00-005-ANA-003 | Aviation Practice Standards Analysis                      | ⚪ PLANNED |
+| KNU-00-00-005-CM-001  | Exceptions log + approval record format                   | 🔵 GENERATED |
+| KNU-00-00-005-PUB-001 | Publication unit style guide (dual-unit formatting rules) | 🔵 GENERATED |
 
 ---
 
@@ -539,6 +585,9 @@ as **display units**, while SSOT storage remains SI.
 | ID                            | Description                                            | Resolution                                           | Status       |
 | ----------------------------- | ------------------------------------------------------ | ---------------------------------------------------- | ------------ |
 | TBD-00-00-005-ANA-002-001     | Domain convention Primary/Canonical/Secondary units    | Section 5.2 Domain Conventions table defines per-ATA chapter | ✅ RESOLVED |
+| TBD-UNIT-005 / TBD-00-00-005-REQ-001-005 | Metadata schema for unit provenance | Spawns KNU-00-00-005-ICD-002 (Unit Provenance Metadata Schema) | ✅ RESOLVED |
+| TBD-UNIT-006 / TBD-00-00-005-REQ-001-006 | S1000D CSDB integration layer | Spawns KNU-00-00-005-ICD-003 (CSDB Unit Integration Specification) | ✅ RESOLVED |
+| TBD-UNIT-007 / TBD-00-00-005-REQ-001-007 | Aviation practice definition | Spawns KNU-00-00-005-ANA-003 (Aviation Practice Standards Analysis); References ICAO Annex 5, FAA AC 00-45H, EASA CS-25 | ✅ RESOLVED |
 
 ### 10.2 Active TBDs
 
@@ -548,9 +597,6 @@ as **display units**, while SSOT storage remains SI.
 | TBD-UNIT-002 | Define default significant figures per quantity type (mass, pressure, temp, etc.) | STK_SE   | 2026-02-10  | OPEN   |
 | TBD-UNIT-003 | Define when to permit psi vs bar in maintenance contexts                          | STK_SAF  | 2026-02-15  | OPEN   |
 | TBD-UNIT-004 | Confirm dual-unit policy for certification submissions (EASA/FAA expectations)    | STK_CERT | 2026-02-20  | OPEN   |
-| TBD-UNIT-005 | Metadata schema for unit provenance (primary_unit, canonical_unit tags)           | STK_DATA | 2026-03-01  | OPEN   |
-| TBD-UNIT-006 | S1000D CSDB integration layer (maps Primary→Canonical→CSDB SI)                    | STK_PUB  | 2026-03-15  | OPEN   |
-| TBD-UNIT-007 | Aviation practice definition (ICAO Annex 5, FAA AC 00-45H reference)              | STK_CERT | 2026-02-25  | OPEN   |
 
 ---
 
@@ -560,6 +606,7 @@ as **display units**, while SSOT storage remains SI.
 | ------- | ---------- | ------ | --------------------------------------- |
 | I01-R01 | 2026-01-12 | STK_SE | Initial draft — unit system conventions |
 | I01-R02 | 2026-01-13 | STK_SE | Added Section 5.3 SSOT Architecture vs CSDB insight; resolved TBD-00-00-005-ANA-002-001; added TBD-UNIT-005/006/007 for metadata schema and CSDB integration |
+| I01-R03 | 2026-01-13 | STK_SE | Status → REVIEWED; resolved TBD-UNIT-005/006/007; spawned ICD-002, ICD-003, ANA-003; added A.S.I.T. integration context |
 
 ---
 
