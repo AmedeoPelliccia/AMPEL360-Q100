@@ -50,7 +50,6 @@ Define comprehensive test procedures to validate that the Ignition Tables/Schema
 | SAE AS50881 | SAE International | Ignition system installation |
 | DO-160G | RTCA | Environmental testing |
 | ISO 14687 | ISO | Hydrogen fuel quality |
-| DO-160G | RTCA | Environmental testing |
 
 ## 4. Test Cases
 
