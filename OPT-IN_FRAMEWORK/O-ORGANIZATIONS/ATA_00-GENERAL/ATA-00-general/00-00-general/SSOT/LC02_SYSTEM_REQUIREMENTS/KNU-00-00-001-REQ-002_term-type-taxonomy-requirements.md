@@ -195,7 +195,8 @@ Term Types (12 categories)
 
 ### 5.1 General Requirements
 
-#### REQ-TT-001: Complete Enumeration
+#### REQ-AMPEL-00-00-02-SE-001:
+**Old ID:** REQ-TT-001   Complete Enumeration
 
 **Requirement:** The term type taxonomy shall include exactly 12 distinct types as defined in section 4.1.
 
@@ -209,7 +210,8 @@ Term Types (12 categories)
 
 ---
 
-#### REQ-TT-002: Mutual Exclusivity
+#### REQ-AMPEL-00-00-02-SE-002:
+**Old ID:** REQ-TT-002   Mutual Exclusivity
 
 **Requirement:** Each term shall be assigned exactly one primary term type.
 
@@ -225,7 +227,8 @@ Term Types (12 categories)
 
 ---
 
-#### REQ-TT-003: Validation Enforcement
+#### REQ-AMPEL-00-00-02-SE-003:
+**Old ID:** REQ-TT-003   Validation Enforcement
 
 **Requirement:** The terminology database shall enforce validation rules specific to each term type.
 
@@ -243,7 +246,8 @@ Term Types (12 categories)
 
 #### 5.2.1 NOUN
 
-#### REQ-TT-010: Noun Definition
+#### REQ-AMPEL-00-00-02-SE-010:
+**Old ID:** REQ-TT-010   Noun Definition
 
 **Requirement:** A term shall be classified as NOUN if it represents a person, place, thing, or concept.
 
@@ -277,7 +281,8 @@ CHECK (term_type = 'NOUN' AND LENGTH(definition) >= 10)
 
 #### 5.2.2 VERB
 
-#### REQ-TT-011: Verb Definition
+#### REQ-AMPEL-00-00-02-SE-011:
+**Old ID:** REQ-TT-011   Verb Definition
 
 **Requirement:** A term shall be classified as VERB if it represents an action, process, or state.
 
@@ -311,7 +316,8 @@ CHECK (term_type = 'VERB' AND infinitive_form IS NOT NULL)
 
 #### 5.2.3 ADJECTIVE
 
-#### REQ-TT-012: Adjective Definition
+#### REQ-AMPEL-00-00-02-SE-012:
+**Old ID:** REQ-TT-012   Adjective Definition
 
 **Requirement:** A term shall be classified as ADJECTIVE if it modifies or describes a noun.
 
@@ -339,7 +345,8 @@ CHECK (term_type = 'VERB' AND infinitive_form IS NOT NULL)
 
 #### 5.2.4 ADVERB
 
-#### REQ-TT-013: Adverb Definition
+#### REQ-AMPEL-00-00-02-SE-013:
+**Old ID:** REQ-TT-013   Adverb Definition
 
 **Requirement:** A term shall be classified as ADVERB if it modifies a verb, adjective, or another adverb.
 
@@ -363,7 +370,8 @@ CHECK (term_type = 'VERB' AND infinitive_form IS NOT NULL)
 
 #### 5.2.5 PHRASE
 
-#### REQ-TT-014: Phrase Definition
+#### REQ-AMPEL-00-00-02-SE-014:
+**Old ID:** REQ-TT-014   Phrase Definition
 
 **Requirement:** A term shall be classified as PHRASE if it consists of multiple words forming a single terminological unit.
 
@@ -398,7 +406,8 @@ CHECK (term_type = 'PHRASE' AND ARRAY_LENGTH(component_terms, 1) >= 2)
 
 #### 5.3.1 ACRONYM
 
-#### REQ-TT-020: Acronym Definition
+#### REQ-AMPEL-00-00-02-SE-020:
+**Old ID:** REQ-TT-020   Acronym Definition
 
 **Requirement:** A term shall be classified as ACRONYM if it is formed from the initial letters of a multi-word term and pronounced as a word.
 
@@ -432,7 +441,8 @@ CHECK (term_type = 'ACRONYM' AND term_name ~ '^[A-Z]{2,}$')      -- Letters only
 
 #### 5.3.2 ABBREVIATION
 
-#### REQ-TT-021: Abbreviation Definition
+#### REQ-AMPEL-00-00-02-SE-021:
+**Old ID:** REQ-TT-021   Abbreviation Definition
 
 **Requirement:** A term shall be classified as ABBREVIATION if it is a shortened form of a word or phrase, typically pronounced as individual letters.
 
@@ -465,7 +475,8 @@ CHECK (term_type = 'ABBREVIATION' AND LENGTH(term_name) < LENGTH(full_form))
 
 #### 5.3.3 SYMBOL
 
-#### REQ-TT-022: Symbol Definition
+#### REQ-AMPEL-00-00-02-SE-022:
+**Old ID:** REQ-TT-022   Symbol Definition
 
 **Requirement:** A term shall be classified as SYMBOL if it is a graphical or special character representation with technical meaning.
 
@@ -500,7 +511,8 @@ CHECK (term_type = 'SYMBOL' AND LENGTH(term_name) <= 5)
 
 #### 5.3.4 FORMULA
 
-#### REQ-TT-023: Formula Definition
+#### REQ-AMPEL-00-00-02-SE-023:
+**Old ID:** REQ-TT-023   Formula Definition
 
 **Requirement:** A term shall be classified as FORMULA if it represents a mathematical or chemical expression.
 
@@ -535,7 +547,8 @@ CHECK (term_type = 'FORMULA' AND formula_notation IS NOT NULL)
 
 #### 5.4.1 UNIT
 
-#### REQ-TT-030: Unit Definition
+#### REQ-AMPEL-00-00-02-SE-030:
+**Old ID:** REQ-TT-030   Unit Definition
 
 **Requirement:** A term shall be classified as UNIT if it represents a standard of measurement. 
 
@@ -571,7 +584,8 @@ CHECK (term_type = 'UNIT' AND conversion_factor > 0)
 
 #### 5.4.2 QUANTITY
 
-#### REQ-TT-031: Quantity Definition
+#### REQ-AMPEL-00-00-02-SE-031:
+**Old ID:** REQ-TT-031   Quantity Definition
 
 **Requirement:** A term shall be classified as QUANTITY if it represents a measurable property or attribute.
 
@@ -605,7 +619,8 @@ CHECK (term_type = 'QUANTITY' AND ARRAY_LENGTH(typical_units, 1) >= 1)
 
 #### 5.4.3 CONCEPT
 
-#### REQ-TT-032: Concept Definition
+#### REQ-AMPEL-00-00-02-SE-032:
+**Old ID:** REQ-TT-032   Concept Definition
 
 **Requirement:** A term shall be classified as CONCEPT if it represents an abstract idea, principle, or methodology not fitting other categories.
 
@@ -662,7 +677,8 @@ CHECK (term_type = 'CONCEPT' AND conceptual_domain IS NOT NULL)
 
 ### 7.1 S1000D Integration
 
-#### REQ-TT-040: S1000D Mapping
+#### REQ-AMPEL-00-00-02-SE-040:
+**Old ID:** REQ-TT-040   S1000D Mapping
 
 **Requirement:** Each term type shall map to equivalent S1000D information code types where applicable.
 
@@ -686,7 +702,8 @@ CHECK (term_type = 'CONCEPT' AND conceptual_domain IS NOT NULL)
 
 ### 7.2 DPP Integration
 
-#### REQ-TT-041: DPP Namespace Mapping
+#### REQ-AMPEL-00-00-02-SE-041:
+**Old ID:** REQ-TT-041   DPP Namespace Mapping
 
 **Requirement:** Each term type shall have a corresponding DPP namespace identifier pattern.
 
@@ -743,7 +760,8 @@ DEFAULT → NOUN
 
 ### 9.1 Validation Test Cases
 
-#### REQ-TT-050: Test Coverage
+#### REQ-AMPEL-00-00-02-SE-050:
+**Old ID:** REQ-TT-050   Test Coverage
 
 **Requirement:** The term type taxonomy shall be validated with at least 10 representative examples per type.
 
