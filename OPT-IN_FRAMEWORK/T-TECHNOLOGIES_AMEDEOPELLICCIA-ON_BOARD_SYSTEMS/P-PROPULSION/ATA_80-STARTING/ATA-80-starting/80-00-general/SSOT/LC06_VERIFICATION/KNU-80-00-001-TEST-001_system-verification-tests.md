@@ -2,15 +2,20 @@
 
 ## 1. Purpose
 
-Define comprehensive test procedures to validate that the Starting System system meets all functional, performance, safety, and regulatory requirements as specified in KNU-80-00-001-REQ-001.
+Define comprehensive test procedures to validate that the Starting System meets all functional, performance, safety, and regulatory requirements as specified in KNU-80-00-001-REQ-001. The AMPEL360-Q100 hydrogen-hybrid propulsion system utilizes an advanced electric start system with dual-fuel capability considerations.
 
 ## 2. Scope
 
 ### Systems Under Test
-- Starting System components and subsystems
-- Control and monitoring systems
-- Interface systems
-- Safety systems
+- Electric Starter/Generator (Integrated Starter-Generator, ISG)
+- Starter Control Unit (SCU)
+- Power Electronics (Inverter/Converter)
+- Engine Accessory Gearbox Interface
+- Start Valve (Pneumatic Backup, if equipped)
+- Ground Power Receptacle and Start Provisions
+- APU Start Interface
+- Cross-Start (Cross-Bleed) System
+- Start Sequence Logic (FADEC Integration)
 
 ### Verification Domains
 1. Functional Requirements Validation
@@ -18,6 +23,14 @@ Define comprehensive test procedures to validate that the Starting System system
 3. Safety Critical Function Verification
 4. Interface Compatibility Testing
 5. Environmental Condition Testing
+6. Hydrogen-Hybrid Start Mode Testing
+
+### Hydrogen-Hybrid Considerations
+The AMPEL360-Q100 propulsion system presents unique starting challenges:
+- Electric-primary starting reduces APU dependency
+- Hydrogen fuel introduction timing critical for light-off
+- Regenerative capability during windmill conditions
+- Integration with hybrid-electric propulsion architecture
 
 ## 3. Test Environment
 
@@ -29,14 +42,14 @@ Define comprehensive test procedures to validate that the Starting System system
 ├─────────────────────────────────────────────────────────────┤
 │                                                              │
 │  ┌─────────────┐    ┌─────────────┐    ┌─────────────┐     │
-│  │ Test        │    │ System      │    │ Monitoring  │     │
-│  │ Framework   │───►│ Under Test  │◄───│ Equipment   │     │
-│  │             │    │             │    │             │     │
+│  │ Electrical  │    │ Starting    │    │ Engine/     │     │
+│  │ Power       │───►│ System SUT  │───►│ Gearbox     │     │
+│  │ Simulator   │    │ (ISG+SCU)   │    │ Simulator   │     │
 │  └─────────────┘    └─────────────┘    └─────────────┘     │
 │         │                  │                  │             │
 │         ▼                  ▼                  ▼             │
 │  ┌─────────────────────────────────────────────────────┐   │
-│  │         Test Results & Evidence Database             │   │
+│  │    Torque/Speed/Current/Temperature Monitoring       │   │
 │  └─────────────────────────────────────────────────────┘   │
 │                                                              │
 └─────────────────────────────────────────────────────────────┘
@@ -46,39 +59,47 @@ Define comprehensive test procedures to validate that the Starting System system
 
 | Standard | Source | Purpose |
 |----------|--------|---------|
-| ATA Spec 100 | Air Transport Association | System categorization |
-| SAE AS8016 | SAE International | Aerospace testing standards |
+| ATA Spec 100 Ch. 80 | Air Transport Association | Starting Systems |
+| SAE AS755 | SAE International | Aircraft starter specifications |
+| MIL-STD-704F | US DoD | Aircraft electrical power characteristics |
+| DO-160G | RTCA | Environmental testing |
 | DO-160G | RTCA | Environmental testing |
 
 ## 4. Test Cases
 
 ### 4.1 TC-SYS-001: Functional Requirements Verification
 
-**Objective:** Validate all functional requirements are met
+**Objective:** Validate ISG starting capability and FADEC integration
 
 ```yaml
 Test ID: TC-SYS-001
 Category: Functional
 Priority: Critical
 Preconditions: System installed and operational
+Reference: TBD-80-00-001-TEST-001-001
 
 Test Steps:
-  1. Verify primary functions
-     Expected: All functions operate per specification
+  1. ISG motoring torque capability
+     Expected: Minimum torque 500 Nm at starter speed (2000-3000 RPM)
+     Pass Threshold: Torque ≥500 Nm, current draw ≤600 A at 270 VDC
      
-  2. Test control interfaces
-     Expected: Commands execute correctly
+  2. Engine light-off sequence
+     Test: 50 consecutive starts (25 Jet-A, 25 H2 mode)
+     Expected: Light-off at 20-25% N2 for Jet-A, 15-20% N2 for H2
+     Pass Threshold: 100% success rate, light-off time ≤45 seconds
      
-  3. Verify monitoring capabilities
-     Expected: All parameters reported accurately
+  3. FADEC start sequence coordination
+     Expected: Perfect synchronization of fuel, ignition, starter
+     Pass Threshold: Sequence timing ±0.5s, no hung starts
      
-  4. Test operational modes
-     Expected: All modes function correctly
+  4. ISG disengagement after start
+     Expected: Automatic disconnect at 55-60% N2
+     Pass Threshold: Disconnect at 55-60% N2, no over-torque
 
 Pass Criteria:
-  - All functional requirements met
-  - No deviations from specification
-  - Documentation complete
+  - ISG performance meets torque/current specifications
+  - Start reliability 100% in both fuel modes
+  - FADEC integration verified
 ```
 
 ### 4.2 TC-SYS-002: Performance Testing
@@ -249,3 +270,4 @@ All test results stored in:
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|
 | 1.0 | 2026-01-13 | STK_TEST | Initial test specification |
+| 1.1 | 2026-01-13 | STK_TEST | Enhanced with ISG electric start criteria, hydrogen-hybrid start modes |
