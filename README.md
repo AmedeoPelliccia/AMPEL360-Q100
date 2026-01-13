@@ -39,8 +39,6 @@
 
 This repository contains a **certification-grade digital baseline** organized under the **OPT-IN Framework** and structured for **SSOT + PUB** workflows.
 
-**Live Spec (demo):** [v0-ampel-360-aircraft-specification.vercel.app](https://v0-ampel-360-aircraft-specification.vercel.app)
-
 ---
 
 ## How This Repo Is Organized
