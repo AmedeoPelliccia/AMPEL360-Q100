@@ -13,7 +13,7 @@ ata_reference: "00-00"
 ata_address: "ATA-00-00-00-00"
 expected_location: "../LC02_SYSTEM_REQUIREMENTS/"
 status: "DRAFT"
-version: "I01-R01"
+version: "I01-R02"
 priority: "HIGH"
 
 # Ownership & Governance
@@ -33,7 +33,7 @@ approval_date: null
 # Dates
 created_date: "2026-01-12"
 due_date: "2026-02-28"
-last_updated: "2026-01-12"
+last_updated: "2026-01-13"
 
 # Acceptance & Verification
 acceptance_criteria: "Primary/secondary unit convention defined per domain; canonical storage rules and conversion/rounding rules defined; interface unit tagging specified"
@@ -42,7 +42,7 @@ effort_predicted: 5
 
 # Metrics
 requirements_count: 24
-tbd_count: 4
+tbd_count: 7
 
 # Traceability
 parent_requirements:
@@ -69,7 +69,7 @@ canonical_hash: null
 **ATA Reference:** 00-00 (General)  
 **ATA Address:** ATA-00-00-00-00  
 **Status:** DRAFT  
-**Version:** I01-R01  
+**Version:** I01-R02  
 **Owner:** STK_SE  
 **REC:** LC02_SYSTEM_REQUIREMENTS  
 
@@ -151,6 +151,76 @@ The following table defines domain defaults. “Primary” indicates the default
 | Cryogenic LH₂ | K (state), kg, Pa | SI | °C (ambient display), bar (display), kPa (display) |
 | Pressure systems (pneumatic/GH₂) | Pa/kPa/MPa | SI | bar (display), psi (display) |
 | Publications (AMM, etc.) | operator convention | SI (source) | dual-unit presentation as required |
+
+### 5.3 SSOT Architecture vs. Traditional CSDB
+
+The Domain Conventions table in Section 5.2 reveals a **critical architectural insight** that validates the AMPEL360 approach to establishing a **Single Source of Truth (SSOT)** distinct from the traditional **Common Source Database (CSDB)**.
+
+#### 5.3.1 Multi-Domain Unit Complexity
+
+Traditional CSDB systems assume:
+- Single canonical unit system (typically SI)
+- Simple conversion at presentation layer
+- No domain-specific authoring contexts
+
+The AMPEL360 reality is more complex:
+- ATA-08 authors work in kg/m
+- Flight operations authors work in kt/ft/NM
+- Publications need dual-unit presentation
+- Cryogenic systems mix K (state) + °C (ambient)
+
+#### 5.3.2 Primary vs. Canonical Separation
+
+The **key innovation** of the AMPEL360 SSOT architecture is the separation of Primary, Canonical, and Secondary units:
+
+| Concept | Definition | CSDB Approach | AMPEL360 SSOT Approach |
+|---------|------------|---------------|------------------------|
+| **Primary** | Authoring/review unit set | ❌ Ignored | ✅ **Domain-specific** (e.g., aviation practice for flight ops) |
+| **Canonical** | Storage/calculation unit | ✅ SI enforced | ✅ **SI for computation** |
+| **Secondary** | Display-only alternatives | ⚠️ Ad-hoc conversion | ✅ **Controlled presentation layer** |
+
+#### 5.3.3 Aviation Practice Domain
+
+The "Flight operations / procedures" row demonstrates a pattern that breaks CSDB assumptions:
+- Authors work in **kt/ft/NM** (primary)
+- System stores in **SI** (canonical)
+- Operators see **kt/ft/NM** (primary display, not secondary!)
+
+This pattern requires metadata to track unit provenance through the data lifecycle.
+
+#### 5.3.4 SSOT Metadata Schema
+
+The SSOT stores **canonical SI values** with **metadata tags** indicating:
+- `primary_unit`: The authoring/domain unit
+- `display_unit`: Context-specific presentation unit
+- `domain`: ATA chapter or operational context
+
+**Example JSON:**
+```json
+{
+  "parameter": "cruise_speed",
+  "canonical_value": 77.2,
+  "canonical_unit": "m/s",
+  "primary_unit": "kt",
+  "primary_value": 150,
+  "domain": "flight_operations",
+  "ata_chapter": "22"
+}
+```
+
+#### 5.3.5 Rationale for SSOT Architecture Beyond CSDB
+
+Traditional S1000D CSDB assumes:
+- Single authoring unit system (SI)
+- Simple display-time conversion
+- No preservation of domain context
+
+AMPEL360 requires:
+- **Multi-domain authoring** (aviation practice vs. engineering SI)
+- **Bidirectional traceability** (display unit ↔ canonical unit)
+- **Regulatory compliance** (FAA/EASA accept kt/ft, not m/s)
+
+**Conclusion:** CSDB is a component within the SSOT, not a replacement. The SSOT provides the domain-aware metadata layer that CSDB cannot natively support.
 
 ---
 
@@ -464,12 +534,23 @@ as **display units**, while SSOT storage remains SI.
 
 ## 10. Open Items (TBD/TBR)
 
+### 10.1 Resolved TBDs
+
+| ID                            | Description                                            | Resolution                                           | Status       |
+| ----------------------------- | ------------------------------------------------------ | ---------------------------------------------------- | ------------ |
+| TBD-00-00-005-ANA-002-001     | Domain convention Primary/Canonical/Secondary units    | Section 5.2 Domain Conventions table defines per-ATA chapter | ✅ RESOLVED |
+
+### 10.2 Active TBDs
+
 | ID           | Description                                                                       | Owner    | Target Date | Status |
 | ------------ | --------------------------------------------------------------------------------- | -------- | ----------- | ------ |
 | TBD-UNIT-001 | Select machine unit vocabulary (SI symbols vs coded system)                       | STK_DATA | 2026-02-05  | OPEN   |
 | TBD-UNIT-002 | Define default significant figures per quantity type (mass, pressure, temp, etc.) | STK_SE   | 2026-02-10  | OPEN   |
 | TBD-UNIT-003 | Define when to permit psi vs bar in maintenance contexts                          | STK_SAF  | 2026-02-15  | OPEN   |
 | TBD-UNIT-004 | Confirm dual-unit policy for certification submissions (EASA/FAA expectations)    | STK_CERT | 2026-02-20  | OPEN   |
+| TBD-UNIT-005 | Metadata schema for unit provenance (primary_unit, canonical_unit tags)           | STK_DATA | 2026-03-01  | OPEN   |
+| TBD-UNIT-006 | S1000D CSDB integration layer (maps Primary→Canonical→CSDB SI)                    | STK_PUB  | 2026-03-15  | OPEN   |
+| TBD-UNIT-007 | Aviation practice definition (ICAO Annex 5, FAA AC 00-45H reference)              | STK_CERT | 2026-02-25  | OPEN   |
 
 ---
 
@@ -478,6 +559,7 @@ as **display units**, while SSOT storage remains SI.
 | Version | Date       | Author | Description                             |
 | ------- | ---------- | ------ | --------------------------------------- |
 | I01-R01 | 2026-01-12 | STK_SE | Initial draft — unit system conventions |
+| I01-R02 | 2026-01-13 | STK_SE | Added Section 5.3 SSOT Architecture vs CSDB insight; resolved TBD-00-00-005-ANA-002-001; added TBD-UNIT-005/006/007 for metadata schema and CSDB integration |
 
 ---
 
