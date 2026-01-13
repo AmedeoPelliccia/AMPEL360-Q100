@@ -61,7 +61,6 @@ The AMPEL360-Q100 BWB configuration presents unique flap system challenges:
 | AC 25-7D | FAA | Flight Test Guide |
 | SAE AS8013 | SAE International | Aircraft actuator testing |
 | DO-160G | RTCA | Environmental testing |
-| DO-160G | RTCA | Environmental testing |
 
 ## 4. Test Cases
 
