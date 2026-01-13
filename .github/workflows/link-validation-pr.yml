@@ -77,7 +77,7 @@ jobs:
               # Check relative links (file:// and local paths) with unique temp file
               temp_relative=$(mktemp)
               if ! markdown-link-check --config .github/markdown-link-check-config.json "$md_file" 2>&1 | tee "$temp_relative"; then
-                if grep -q "FILE\|\.md\|\.\/\|\.\./" "$temp_relative"; then
+                if grep -q "\bFILE\b\|\.md\|\.\/\|\.\./" "$temp_relative"; then
                   echo "   ❌ Relative link errors found"
                   failed_files=$((failed_files + 1))
                   relative_errors=$((relative_errors + 1))

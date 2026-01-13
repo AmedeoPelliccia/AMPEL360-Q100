@@ -51,17 +51,16 @@ jobs:
                 failed_files=$((failed_files + 1))
                 
                 # Count relative vs external link errors
-                if grep -q "FILE" "$temp_output"; then
+                if grep -q "\bFILE\b" "$temp_output"; then
                   relative_errors=$((relative_errors + 1))
                 fi
                 if grep -q "http" "$temp_output"; then
                   external_errors=$((external_errors + 1))
                 fi
-              fi
-              rm -f "$temp_output"
               else
                 echo "   ✅ All links valid"
               fi
+              rm -f "$temp_output"
               echo ""
             fi
           done < <(find . \( -name "*.md" -o -name "*.MD" \) -type f 2>/dev/null | grep -v node_modules | grep -v .git | sort)
