@@ -29,14 +29,14 @@ Define comprehensive test procedures to validate that the Ignition Tables/Schema
 ├─────────────────────────────────────────────────────────────┤
 │                                                              │
 │  ┌─────────────┐    ┌─────────────┐    ┌─────────────┐     │
-│  │ Test        │    │ System      │    │ Monitoring  │     │
-│  │ Framework   │───►│ Under Test  │◄───│ Equipment   │     │
-│  │             │    │             │    │             │     │
+│  │ FADEC       │    │ Ignition    │    │ Combustor   │     │
+│  │ Simulator   │───►│ System SUT  │───►│ Test Rig    │     │
+│  │             │    │             │    │ (H2/Jet-A)  │     │
 │  └─────────────┘    └─────────────┘    └─────────────┘     │
 │         │                  │                  │             │
 │         ▼                  ▼                  ▼             │
 │  ┌─────────────────────────────────────────────────────┐   │
-│  │         Test Results & Evidence Database             │   │
+│  │    Energy/Timing/Flame Detection Measurement        │   │
 │  └─────────────────────────────────────────────────────┘   │
 │                                                              │
 └─────────────────────────────────────────────────────────────┘
@@ -46,97 +46,126 @@ Define comprehensive test procedures to validate that the Ignition Tables/Schema
 
 | Standard | Source | Purpose |
 |----------|--------|---------|
-| ATA Spec 100 | Air Transport Association | System categorization |
-| SAE AS8016 | SAE International | Aerospace testing standards |
+| ATA Spec 100 Ch. 74 | Air Transport Association | Ignition Systems |
+| SAE AS50881 | SAE International | Ignition system installation |
+| DO-160G | RTCA | Environmental testing |
+| ISO 14687 | ISO | Hydrogen fuel quality |
 | DO-160G | RTCA | Environmental testing |
 
 ## 4. Test Cases
 
 ### 4.1 TC-SYS-001: Functional Requirements Verification
 
-**Objective:** Validate all functional requirements are met
+**Objective:** Validate ignition capability for both Jet-A and hydrogen fuel modes
 
 ```yaml
 Test ID: TC-SYS-001
 Category: Functional
 Priority: Critical
 Preconditions: System installed and operational
+Reference: TBD-74-90-001-TEST-001-001
 
 Test Steps:
-  1. Verify primary functions
-     Expected: All functions operate per specification
+  1. Ignition energy output (Jet-A mode)
+     Expected: 2-12 joules per spark, 1-4 sparks/second
+     Pass Threshold: Energy 2-12J±10%, spark rate within specification
      
-  2. Test control interfaces
-     Expected: Commands execute correctly
+  2. Ignition energy output (H2 mode)
+     Expected: 0.5-2 joules per spark (lower energy for hydrogen)
+     Pass Threshold: Energy 0.5-2J±10%, optimized for H2 ignition
      
-  3. Verify monitoring capabilities
-     Expected: All parameters reported accurately
+  3. Ignition timing accuracy
+     Test: Verify spark timing relative to fuel introduction
+     Expected: Timing accuracy ±1° crank angle
+     Pass Threshold: Timing error ≤1°, consistent across all starts
      
-  4. Test operational modes
-     Expected: All modes function correctly
+  4. Dual-igniter redundancy
+     Test: Single igniter failure during start
+     Expected: Engine lights off with remaining igniter
+     Pass Threshold: 100% light-off success with one igniter operative
 
 Pass Criteria:
-  - All functional requirements met
-  - No deviations from specification
-  - Documentation complete
+  - Ignition energy appropriate for both fuel modes
+  - Timing accuracy maintained
+  - Redundancy verified
 ```
 
 ### 4.2 TC-SYS-002: Performance Testing
 
-**Objective:** Validate system performance under operational conditions
+**Objective:** Validate ignition reliability and auto-relight capability
 
 ```yaml
 Test ID: TC-SYS-002
 Category: Performance
 Priority: High
 Preconditions: System at operating conditions
+Reference: TBD-74-90-001-TEST-001-001
 
 Test Steps:
-  1. Performance parameter testing
-     Expected: Meets minimum/maximum specifications
+  1. Ground start reliability (both fuel modes)
+     Test: 100 consecutive ground starts (50 Jet-A, 50 H2)
+     Expected: 100% successful light-off
+     Pass Threshold: Zero failed starts, light-off time <10 seconds
      
-  2. Response time testing
-     Expected: Within specified response times
+  2. In-flight relight capability
+     Test: Simulate flameout at altitude (up to 41,000 ft)
+     Expected: Successful relight within envelope
+     Pass Threshold: ≥95% relight success, time to relight ≤30s
      
-  3. Accuracy testing
-     Expected: Measurements within tolerance
+  3. Continuous ignition performance
+     Test: Adverse conditions (heavy rain, icing)
+     Expected: Continuous spark operation without interruption
+     Pass Threshold: Zero dropouts over 1-hour test
      
-  4. Efficiency testing
-     Expected: Meets efficiency requirements
+  4. Igniter plug life
+     Test: 1000-start endurance test
+     Expected: Electrode erosion <1mm after 1000 starts
+     Pass Threshold: TBO ≥1000 starts, no performance degradation
 
 Pass Criteria:
-  - Performance meets all requirements
-  - No performance degradation over test duration
-  - Consistent results across multiple runs
+  - Start reliability meets specification
+  - Auto-relight envelope verified
+  - Continuous ignition reliable
+  - Component life adequate
 ```
 
 ### 4.3 TC-SYS-003: Safety Critical Function Verification
 
-**Objective:** Verify all safety-critical functions operate correctly
+**Objective:** Verify ignition system safety with hydrogen fuel
 
 ```yaml
 Test ID: TC-SYS-003
 Category: Safety
 Priority: Critical
 Preconditions: Safety systems operational
+Reference: TBD-74-90-001-TEST-001-001
 
 Test Steps:
-  1. Safety monitoring functions
-     Expected: All safety parameters monitored
+  1. Hydrogen ignition energy margin
+     Test: Minimum ignition energy for H2 mixture
+     Expected: Spark energy >10× minimum ignition energy (MIE)
+     Pass Threshold: Energy ≥0.2J (MIE=0.017mJ), safety factor >10
      
-  2. Emergency procedures
-     Expected: Emergency shutdown operates correctly
+  2. Ignition lead insulation integrity
+     Test: High-voltage dielectric test (20 kV)
+     Expected: No breakdown or arcing at 20 kV
+     Pass Threshold: Insulation withstands 20 kV for 60 seconds
      
-  3. Fault detection and isolation
-     Expected: Faults detected and isolated properly
+  3. Ignition cutout on overspeed
+     Test: Simulate engine overspeed condition
+     Expected: Ignition automatically disabled
+     Pass Threshold: Cutout at 105% N2, no re-enable until <100% N2
      
-  4. Safety interlocks
-     Expected: Interlocks prevent unsafe operation
+  4. Hydrogen leak ignition prevention
+     Test: Simulate H2 leak during ground operations
+     Expected: No ignition source present with engines off
+     Pass Threshold: Zero sparking with ignition OFF, 100% isolation
 
 Pass Criteria:
-  - All safety functions operate correctly
-  - No false alarms or missed detections
-  - Response times within requirements
+  - Hydrogen ignition safety margins adequate
+  - Electrical insulation integrity verified
+  - Protective systems function correctly
+  - No inadvertent ignition sources
 ```
 
 ### 4.4 TC-SYS-004: Interface Testing
@@ -249,3 +278,4 @@ All test results stored in:
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|
 | 1.0 | 2026-01-13 | STK_TEST | Initial test specification |
+| 1.1 | 2026-01-13 | STK_TEST | Enhanced with hydrogen-hybrid ignition criteria, dual-fuel mode testing |

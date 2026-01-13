@@ -1,16 +1,19 @@
-# System Verification Test Specification - ATA 38-90 Water/Waste Tables/Schemas
+# System Verification Test Specification - ATA 38-90 Water/Waste System
 
 ## 1. Purpose
 
-Define comprehensive test procedures to validate that the Water/Waste Tables/Schemas system meets all functional, performance, safety, and regulatory requirements as specified in KNU-38-90-001-REQ-001.
+Define comprehensive test procedures to validate that the Water/Waste System meets all functional, performance, safety, and regulatory requirements as specified in KNU-38-90-001-REQ-001.
 
 ## 2. Scope
 
 ### Systems Under Test
-- Water/Waste Tables/Schemas components and subsystems
-- Control and monitoring systems
-- Interface systems
-- Safety systems
+- Potable Water Storage Tanks
+- Water Distribution Pumps and Plumbing
+- Water Heaters (Lavatory/Galley)
+- Waste Collection Tanks
+- Gray Water Drain System
+- Water Quality Monitoring
+- Ground Service Panels
 
 ### Verification Domains
 1. Functional Requirements Validation
@@ -29,14 +32,14 @@ Define comprehensive test procedures to validate that the Water/Waste Tables/Sch
 ├─────────────────────────────────────────────────────────────┤
 │                                                              │
 │  ┌─────────────┐    ┌─────────────┐    ┌─────────────┐     │
-│  │ Test        │    │ System      │    │ Monitoring  │     │
-│  │ Framework   │───►│ Under Test  │◄───│ Equipment   │     │
-│  │             │    │             │    │             │     │
+│  │ Water       │    │ Water/Waste │    │ Drain       │     │
+│  │ Supply      │───►│ System SUT  │◄───│ Collection  │     │
+│  │ (Potable)   │    │             │    │             │     │
 │  └─────────────┘    └─────────────┘    └─────────────┘     │
 │         │                  │                  │             │
 │         ▼                  ▼                  ▼             │
 │  ┌─────────────────────────────────────────────────────┐   │
-│  │         Test Results & Evidence Database             │   │
+│  │    Flow/Pressure/Quality Data Acquisition            │   │
 │  └─────────────────────────────────────────────────────┘   │
 │                                                              │
 └─────────────────────────────────────────────────────────────┘
@@ -46,97 +49,123 @@ Define comprehensive test procedures to validate that the Water/Waste Tables/Sch
 
 | Standard | Source | Purpose |
 |----------|--------|---------|
-| ATA Spec 100 | Air Transport Association | System categorization |
-| SAE AS8016 | SAE International | Aerospace testing standards |
+| ATA Spec 100 Ch. 38 | Air Transport Association | Water/Waste Systems |
+| SAE ARP1401 | SAE International | Drinking water quality standards |
+| NSF/ANSI 61 | NSF International | Potable water system components |
+| DO-160G | RTCA | Environmental testing |
 | DO-160G | RTCA | Environmental testing |
 
 ## 4. Test Cases
 
 ### 4.1 TC-SYS-001: Functional Requirements Verification
 
-**Objective:** Validate all functional requirements are met
+**Objective:** Validate water distribution and waste collection functions
 
 ```yaml
 Test ID: TC-SYS-001
 Category: Functional
 Priority: Critical
 Preconditions: System installed and operational
+Reference: TBD-38-90-001-TEST-001-001 (Pass/Fail Thresholds)
 
 Test Steps:
-  1. Verify primary functions
-     Expected: All functions operate per specification
+  1. Potable water tank capacity and level indication
+     Expected: Tank capacity per design (typically 150-200 gallons)
+     Pass Threshold: Level indication accuracy ±5%, full range 0-100%
      
-  2. Test control interfaces
-     Expected: Commands execute correctly
+  2. Water distribution pump operation
+     Expected: Pump maintains 30-50 psi system pressure
+     Pass Threshold: Pressure regulation ±3 psi, flow rate ≥3 GPM
      
-  3. Verify monitoring capabilities
-     Expected: All parameters reported accurately
+  3. Water heater performance
+     Test: Heat potable water to 140°F±10°F
+     Expected: Heating time ≤15 minutes from cold start
+     Pass Threshold: Temperature control ±5°F at delivery point
      
-  4. Test operational modes
-     Expected: All modes function correctly
+  4. Waste tank capacity and level monitoring
+     Expected: Tank capacity per design (typically 50-80 gallons)
+     Pass Threshold: Level sensor accuracy ±10%, alert at 80% full
 
 Pass Criteria:
-  - All functional requirements met
-  - No deviations from specification
+  - All functional requirements met per thresholds
+  - Water quality maintained per NSF/ANSI 61
   - Documentation complete
 ```
 
 ### 4.2 TC-SYS-002: Performance Testing
 
-**Objective:** Validate system performance under operational conditions
+**Objective:** Validate water quality and system performance
 
 ```yaml
 Test ID: TC-SYS-002
 Category: Performance
 Priority: High
 Preconditions: System at operating conditions
+Reference: TBD-38-90-001-TEST-001-001 (Pass/Fail Thresholds)
 
 Test Steps:
-  1. Performance parameter testing
-     Expected: Meets minimum/maximum specifications
+  1. Water quality testing
+     Parameters: pH, chlorine residual, bacterial count
+     Expected: pH 6.5-8.5, free chlorine 0.2-2.0 ppm, bacteria <1 CFU/100ml
+     Pass Threshold: All parameters within SAE ARP1401 limits
      
-  2. Response time testing
-     Expected: Within specified response times
+  2. Flow rate and pressure stability
+     Test: Simultaneous use of 4 lavatories + 2 galleys
+     Expected: Minimum 2 GPM per fixture, pressure ≥25 psi
+     Pass Threshold: No pressure drop >10 psi under peak demand
      
-  3. Accuracy testing
-     Expected: Measurements within tolerance
+  3. Drain system performance
+     Test: Gray water drainage under cruise conditions
+     Expected: Complete drainage within 30 seconds
+     Pass Threshold: No standing water, drain rate ≥2 GPM
      
-  4. Efficiency testing
-     Expected: Meets efficiency requirements
+  4. System leak rate
+     Test: Pressurized system hold test (24 hours)
+     Expected: Pressure drop <2 psi over 24 hours
+     Pass Threshold: Leak rate <0.1 GPH
 
 Pass Criteria:
-  - Performance meets all requirements
-  - No performance degradation over test duration
-  - Consistent results across multiple runs
+  - Water quality meets drinking water standards
+  - Performance maintained under all load conditions
+  - Leak rate within acceptable limits
 ```
 
 ### 4.3 TC-SYS-003: Safety Critical Function Verification
 
-**Objective:** Verify all safety-critical functions operate correctly
+**Objective:** Verify water quality monitoring and contamination prevention
 
 ```yaml
 Test ID: TC-SYS-003
 Category: Safety
 Priority: Critical
 Preconditions: Safety systems operational
+Reference: TBD-38-90-001-TEST-001-001 (Pass/Fail Thresholds)
 
 Test Steps:
-  1. Safety monitoring functions
-     Expected: All safety parameters monitored
+  1. Cross-contamination prevention
+     Test: Verify backflow prevention devices
+     Expected: Zero water/waste mixing under all conditions
+     Pass Threshold: 100% isolation verification, no cross-flow
      
-  2. Emergency procedures
-     Expected: Emergency shutdown operates correctly
+  2. Water quality alert system
+     Test: Simulate out-of-range water quality
+     Expected: Crew alert within 30 seconds of detection
+     Pass Threshold: Alert activation 100%, latency ≤30s
      
-  3. Fault detection and isolation
-     Expected: Faults detected and isolated properly
+  3. Overfill protection (waste tank)
+     Test: Fill waste tank to 95% capacity
+     Expected: Flush inhibit activates, crew alert generated
+     Pass Threshold: Inhibit at 90±5%, no overflow events
      
-  4. Safety interlocks
-     Expected: Interlocks prevent unsafe operation
+  4. Water heater overheat protection
+     Test: Simulate thermostat failure
+     Expected: Thermal cutoff at 180°F, system shutdown
+     Pass Threshold: Cutoff at 180±5°F, no personnel hazard
 
 Pass Criteria:
-  - All safety functions operate correctly
-  - No false alarms or missed detections
-  - Response times within requirements
+  - Zero contamination events in testing
+  - All safety systems function correctly
+  - Crew alerts timely and accurate
 ```
 
 ### 4.4 TC-SYS-004: Interface Testing
@@ -249,3 +278,4 @@ All test results stored in:
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|
 | 1.0 | 2026-01-13 | STK_TEST | Initial test specification |
+| 1.1 | 2026-01-13 | STK_TEST | Enhanced with water/waste system domain-specific criteria, water quality standards |
