@@ -1,30 +1,30 @@
-REQ_ID,Title,Category,Priority,Rationale,Verification,Parent_KNOT,Downstream_KNU,Status
-REQ-DOC-001,Unique Identification,General ID,MUST,Enables unambiguous reference and traceability,Inspection,KNOT-00-00-002,"KNU-00-00-002-ICD-001;KNU-00-00-002-CM-001",OPEN
-REQ-DOC-002,ID Immutability,General ID,MUST,Prevents reference confusion in historical records,Review,KNOT-00-00-002,"KNU-00-00-002-CM-001",OPEN
-REQ-DOC-003,Human-Readable Format,General ID,MUST,Aligns with human-readable first principle,Demonstration,KNOT-00-00-004,"KNU-00-00-004-REQ-001;KNU-00-00-002-PUB-001",OPEN
-REQ-DOC-004,Machine-Parseable Format,General ID,MUST,Enables automated validation and cross-referencing,Test,KNOT-00-00-002,"KNU-00-00-002-ICD-001",OPEN
-REQ-DOC-005,Character Set,General ID,MUST,Maximum compatibility across systems,Inspection,KNOT-00-00-002,"KNU-00-00-002-ICD-001",OPEN
-REQ-DOC-010,ATA Address Structure,ATA Address,MUST,Aligns with ATA iSpec 2200,Inspection,KNOT-00-00-002,"KNU-00-00-002-ICD-001",OPEN
-REQ-DOC-011,ATA Chapter Range,ATA Address,MUST,Maps to OPT-IN axis structure,Inspection,KNOT-00-00-002,"KNU-00-00-002-ICD-001;KNU-00-00-002-PUB-001",OPEN
-REQ-DOC-012,Reserved Sections,ATA Address,MUST,Consistent location for reference material,Inspection,KNOT-00-00-002,"KNU-00-00-002-ICD-001",OPEN
-REQ-DOC-020,KNU ID Structure,KNU ID,MUST,Links KNU to parent KNOT and specifies artifact type,Inspection,KNOT-00-00-002,"KNU-00-00-002-ICD-001",OPEN
-REQ-DOC-021,KNU Type Codes,KNU ID,MUST,Standard type codes enable filtering and routing,Inspection,KNOT-00-00-002,"KNU-00-00-002-ICD-001;KNU-00-00-002-PUB-001",OPEN
-REQ-DOC-022,KNU ID Uniqueness Scope,KNU ID,MUST,Enables cross-reference without context,Inspection,KNOT-00-00-002,"KNU-00-00-002-ICD-001;KNU-00-00-002-CM-001",OPEN
-REQ-DOC-030,KNOT ID Structure,KNOT ID,MUST,Locates uncertainty within ATA structure,Inspection,KNOT-00-00-002,"KNU-00-00-002-ICD-001",OPEN
-REQ-DOC-031,KNOT Sequence Assignment,KNOT ID,MUST,Maintains creation order and prevents reuse,Review,KNOT-00-00-002,"KNU-00-00-002-CM-001",OPEN
-REQ-DOC-040,Version-Revision Structure,Version/Revision,MUST,Aligns with aerospace documentation standards,Inspection,KNOT-00-00-002,"KNU-00-00-002-CM-001",OPEN
-REQ-DOC-041,Issue Increment Criteria,Version/Revision,MUST,Distinguishes major from minor changes,Review,KNOT-00-00-002,"KNU-00-00-002-CM-001",OPEN
-REQ-DOC-042,Revision Increment Criteria,Version/Revision,MUST,Tracks incremental changes,Review,KNOT-00-00-002,"KNU-00-00-002-CM-001",OPEN
-REQ-DOC-043,Version Reset on Issue,Version/Revision,MUST,Clean versioning per issue,Inspection,KNOT-00-00-002,"KNU-00-00-002-CM-001",OPEN
-REQ-DOC-044,Draft Marking,Version/Revision,SHOULD,Clearly distinguishes working documents,Inspection,KNOT-00-00-002,"KNU-00-00-002-CM-001",OPEN
-REQ-DOC-050,Folder Naming Convention,Folder Naming,MUST,Consistent navigation across repository,Inspection,KNOT-00-00-002,"KNU-00-00-002-CM-001;KNU-00-00-002-PUB-001",OPEN
-REQ-DOC-051,Lowercase Path Segments,Folder Naming,MUST,Consistency and URL compatibility,Inspection,KNOT-00-00-002,"KNU-00-00-002-CM-001",OPEN
-REQ-DOC-052,No Spaces in Paths,Folder Naming,MUST,Cross-platform compatibility,Inspection,KNOT-00-00-002,"KNU-00-00-002-CM-001",OPEN
-REQ-DOC-060,SSOT File Naming,File Naming,MUST,Self-describing file names,Inspection,KNOT-00-00-002,"KNU-00-00-002-CM-001",OPEN
-REQ-DOC-061,LC01 Standard Files,File Naming,MUST,Standard LC01 artifact set,Inspection,KNOT-00-00-002,"KNU-00-00-002-CM-001;KNU-00-00-002-PUB-001",OPEN
-REQ-DOC-062,Supporting File Naming,File Naming,SHOULD,Associates supporting files with parent artifacts,Inspection,KNOT-00-00-002,"KNU-00-00-002-CM-001",OPEN
-REQ-DOC-070,Internal URI Scheme,Cross-Reference,MUST,Portable references without absolute paths,Inspection,KNOT-00-00-004,"KNU-00-00-004-REQ-001",OPEN
-REQ-DOC-071,Anchor Naming,Cross-Reference,SHOULD,Consistent anchor generation,Inspection,KNOT-00-00-004,"KNU-00-00-004-REQ-001",OPEN
-REQ-DOC-072,External Reference Format,Cross-Reference,MUST,Precise external traceability,Review,KNOT-00-00-004,"KNU-00-00-004-REQ-001",OPEN
-REQ-DOC-080,DMC Alignment,S1000D Integration,SHOULD,Maintains consistency between SSOT and PUB,Review,KNOT-00-00-002,"KNU-00-00-002-PUB-001;KNU-00-00-002-ICD-001",OPEN
-REQ-DOC-081,CSDB Folder Structure,S1000D Integration,MUST,S1000D standard structure,Inspection,KNOT-00-00-002,"KNU-00-00-002-PUB-001",OPEN
+REQ_ID,Old_ID,Title,Category,Priority,Rationale,Verification,Parent_KNOT,Downstream_KNU,Status
+REQ-AMPEL-00-00-02-SE-001,REQ-DOC-001,Unique Identification,General ID,MUST,Enables unambiguous reference and traceability,Inspection,KNOT-00-00-002,KNU-00-00-002-ICD-001;KNU-00-00-002-CM-001,OPEN
+REQ-AMPEL-00-00-02-SE-002,REQ-DOC-002,ID Immutability,General ID,MUST,Prevents reference confusion in historical records,Review,KNOT-00-00-002,KNU-00-00-002-CM-001,OPEN
+REQ-AMPEL-00-00-02-SE-003,REQ-DOC-003,Human-Readable Format,General ID,MUST,Aligns with human-readable first principle,Demonstration,KNOT-00-00-004,KNU-00-00-004-REQ-001;KNU-00-00-002-PUB-001,OPEN
+REQ-AMPEL-00-00-02-SE-004,REQ-DOC-004,Machine-Parseable Format,General ID,MUST,Enables automated validation and cross-referencing,Test,KNOT-00-00-002,KNU-00-00-002-ICD-001,OPEN
+REQ-AMPEL-00-00-02-SE-005,REQ-DOC-005,Character Set,General ID,MUST,Maximum compatibility across systems,Inspection,KNOT-00-00-002,KNU-00-00-002-ICD-001,OPEN
+REQ-AMPEL-00-00-02-SE-010,REQ-DOC-010,ATA Address Structure,ATA Address,MUST,Aligns with ATA iSpec 2200,Inspection,KNOT-00-00-002,KNU-00-00-002-ICD-001,OPEN
+REQ-AMPEL-00-00-02-SE-011,REQ-DOC-011,ATA Chapter Range,ATA Address,MUST,Maps to OPT-IN axis structure,Inspection,KNOT-00-00-002,KNU-00-00-002-ICD-001;KNU-00-00-002-PUB-001,OPEN
+REQ-AMPEL-00-00-02-SE-012,REQ-DOC-012,Reserved Sections,ATA Address,MUST,Consistent location for reference material,Inspection,KNOT-00-00-002,KNU-00-00-002-ICD-001,OPEN
+REQ-AMPEL-00-00-02-SE-020,REQ-DOC-020,KNU ID Structure,KNU ID,MUST,Links KNU to parent KNOT and specifies artifact type,Inspection,KNOT-00-00-002,KNU-00-00-002-ICD-001,OPEN
+REQ-AMPEL-00-00-02-SE-021,REQ-DOC-021,KNU Type Codes,KNU ID,MUST,Standard type codes enable filtering and routing,Inspection,KNOT-00-00-002,KNU-00-00-002-ICD-001;KNU-00-00-002-PUB-001,OPEN
+REQ-AMPEL-00-00-02-SE-022,REQ-DOC-022,KNU ID Uniqueness Scope,KNU ID,MUST,Enables cross-reference without context,Inspection,KNOT-00-00-002,KNU-00-00-002-ICD-001;KNU-00-00-002-CM-001,OPEN
+REQ-AMPEL-00-00-02-SE-030,REQ-DOC-030,KNOT ID Structure,KNOT ID,MUST,Locates uncertainty within ATA structure,Inspection,KNOT-00-00-002,KNU-00-00-002-ICD-001,OPEN
+REQ-AMPEL-00-00-02-SE-031,REQ-DOC-031,KNOT Sequence Assignment,KNOT ID,MUST,Maintains creation order and prevents reuse,Review,KNOT-00-00-002,KNU-00-00-002-CM-001,OPEN
+REQ-AMPEL-00-00-08-CM-040,REQ-DOC-040,Version-Revision Structure,Version/Revision,MUST,Aligns with aerospace documentation standards,Inspection,KNOT-00-00-002,KNU-00-00-002-CM-001,OPEN
+REQ-AMPEL-00-00-08-CM-041,REQ-DOC-041,Issue Increment Criteria,Version/Revision,MUST,Distinguishes major from minor changes,Review,KNOT-00-00-002,KNU-00-00-002-CM-001,OPEN
+REQ-AMPEL-00-00-08-CM-042,REQ-DOC-042,Revision Increment Criteria,Version/Revision,MUST,Tracks incremental changes,Review,KNOT-00-00-002,KNU-00-00-002-CM-001,OPEN
+REQ-AMPEL-00-00-08-CM-043,REQ-DOC-043,Version Reset on Issue,Version/Revision,MUST,Clean versioning per issue,Inspection,KNOT-00-00-002,KNU-00-00-002-CM-001,OPEN
+REQ-AMPEL-00-00-08-CM-044,REQ-DOC-044,Draft Marking,Version/Revision,SHOULD,Clearly distinguishes working documents,Inspection,KNOT-00-00-002,KNU-00-00-002-CM-001,OPEN
+REQ-AMPEL-00-00-08-CM-050,REQ-DOC-050,Folder Naming Convention,Folder Naming,MUST,Consistent navigation across repository,Inspection,KNOT-00-00-002,KNU-00-00-002-CM-001;KNU-00-00-002-PUB-001,OPEN
+REQ-AMPEL-00-00-08-CM-051,REQ-DOC-051,Lowercase Path Segments,Folder Naming,MUST,Consistency and URL compatibility,Inspection,KNOT-00-00-002,KNU-00-00-002-CM-001,OPEN
+REQ-AMPEL-00-00-08-CM-052,REQ-DOC-052,No Spaces in Paths,Folder Naming,MUST,Cross-platform compatibility,Inspection,KNOT-00-00-002,KNU-00-00-002-CM-001,OPEN
+REQ-AMPEL-00-00-08-CM-060,REQ-DOC-060,SSOT File Naming,File Naming,MUST,Self-describing file names,Inspection,KNOT-00-00-002,KNU-00-00-002-CM-001,OPEN
+REQ-AMPEL-00-00-08-CM-061,REQ-DOC-061,LC01 Standard Files,File Naming,MUST,Standard LC01 artifact set,Inspection,KNOT-00-00-002,KNU-00-00-002-CM-001;KNU-00-00-002-PUB-001,OPEN
+REQ-AMPEL-00-00-08-CM-062,REQ-DOC-062,Supporting File Naming,File Naming,SHOULD,Associates supporting files with parent artifacts,Inspection,KNOT-00-00-002,KNU-00-00-002-CM-001,OPEN
+REQ-AMPEL-00-00-04-SE-070,REQ-DOC-070,Internal URI Scheme,Cross-Reference,MUST,Portable references without absolute paths,Inspection,KNOT-00-00-004,KNU-00-00-004-REQ-001,OPEN
+REQ-AMPEL-00-00-04-SE-071,REQ-DOC-071,Anchor Naming,Cross-Reference,SHOULD,Consistent anchor generation,Inspection,KNOT-00-00-004,KNU-00-00-004-REQ-001,OPEN
+REQ-AMPEL-00-00-04-SE-072,REQ-DOC-072,External Reference Format,Cross-Reference,MUST,Precise external traceability,Review,KNOT-00-00-004,KNU-00-00-004-REQ-001,OPEN
+REQ-AMPEL-00-00-CROSS-PUB-080,REQ-DOC-080,DMC Alignment,S1000D Integration,SHOULD,Maintains consistency between SSOT and PUB,Review,KNOT-00-00-002,KNU-00-00-002-PUB-001;KNU-00-00-002-ICD-001,OPEN
+REQ-AMPEL-00-00-CROSS-PUB-081,REQ-DOC-081,CSDB Folder Structure,S1000D Integration,MUST,S1000D standard structure,Inspection,KNOT-00-00-002,KNU-00-00-002-PUB-001,OPEN

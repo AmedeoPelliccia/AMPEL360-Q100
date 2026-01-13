@@ -271,7 +271,8 @@ AMPEL360 requires:
 
 ### 6.1 General Requirements
 
-#### REQ-UNIT-001: SI as Canonical
+#### REQ-AMPEL-00-00-02-SE-001: SI as Canonical
+**Old ID:** REQ-UNIT-001  
 **Requirement:** All SSOT numeric values used for calculation or storage shall use **SI canonical units**, unless an approved exception is recorded.
 
 | Attribute | Value |
@@ -280,8 +281,10 @@ AMPEL360 requires:
 | Rationale | Prevents conversion ambiguity and calculation errors |
 | Verification | Review |
 | Parent | KNOT-00-00-005 |
+| Origin | AMPEL (Program-generated) |
 
-#### REQ-UNIT-002: Canonical Storage Rule
+#### REQ-AMPEL-00-00-02-SE-002: Canonical Storage Rule
+**Old ID:** REQ-UNIT-002  
 **Requirement:** For any parameter that can be expressed in multiple unit systems, the SSOT shall store **exactly one canonical value** and optionally derive display values by conversion.
 
 | Attribute | Value |
@@ -290,8 +293,10 @@ AMPEL360 requires:
 | Rationale | Eliminates multi-source numeric truth |
 | Verification | Review |
 | Parent | KNOT-00-00-005 |
+| Origin | AMPEL (Program-generated) |
 
-#### REQ-UNIT-003: No Mixed Units in a Single Value
+#### REQ-AMPEL-00-00-02-SE-004: No Mixed Units in a Single Value
+**Old ID:** REQ-UNIT-003  
 **Requirement:** Artifacts shall not express a single quantitative value using mixed units (e.g., “10 kg/m²-ft”); unit expressions shall be coherent within one system.
 
 | Attribute | Value |
@@ -300,8 +305,10 @@ AMPEL360 requires:
 | Rationale | Mixed units are error-prone and hard to verify |
 | Verification | Inspection |
 | Parent | KNOT-00-00-005 |
+| Origin | AMPEL (Program-generated) |
 
-#### REQ-UNIT-004: Dual-Unit Presentation Rules
+#### REQ-AMPEL-00-00-02-SE-005: Dual-Unit Presentation Rules
+**Old ID:** REQ-UNIT-004  
 **Requirement:** When dual-unit presentation is required, the format shall be:
 - **Primary unit first**, secondary in parentheses, and
 - both units shall be explicitly labeled by symbol.
@@ -314,12 +321,14 @@ AMPEL360 requires:
 | Rationale | Consistent readability and reduces misinterpretation |
 | Verification | Inspection |
 | Parent | KNOT-00-00-005 |
+| Origin | AMPEL (Program-generated) |
 
 ---
 
 ### 6.2 Unit Formatting Requirements (Human-Readable)
 
-#### REQ-UNIT-010: Unit Symbol Conventions
+#### REQ-AMPEL-00-00-02-SE-006: Unit Symbol Conventions
+**Old ID:** REQ-UNIT-010  
 **Requirement:** Unit symbols shall follow standard scientific conventions:
 - no pluralization (use `kg`, not `kgs`)
 - use a space between number and unit (e.g., `10 kg`), except for degree symbols (`20 °C`)
@@ -331,8 +340,10 @@ AMPEL360 requires:
 | Rationale | Standardized readability and reviewability |
 | Verification | Inspection |
 | Parent | KNOT-00-00-005 |
+| Origin | AMPEL (Program-generated) |
 
-#### REQ-UNIT-011: Decimal and Thousands Format
+#### REQ-AMPEL-00-00-02-SE-007: Decimal and Thousands Format
+**Old ID:** REQ-UNIT-011  
 **Requirement:** Numeric formatting shall use:
 - decimal point `.` (dot),
 - no thousands separators in machine files (CSV/YAML/JSON),
@@ -344,12 +355,14 @@ AMPEL360 requires:
 | Rationale | Prevents locale-induced parsing errors |
 | Verification | Inspection |
 | Parent | KNOT-00-00-005 |
+| Origin | AMPEL (Program-generated) |
 
 ---
 
 ### 6.3 Conversion and Rounding Requirements
 
-#### REQ-UNIT-020: Approved Conversion Factors
+#### REQ-AMPEL-00-00-02-SE-008: Approved Conversion Factors
+**Old ID:** REQ-UNIT-020  
 **Requirement:** Unit conversions shall use **approved exact factors** where defined (e.g., `1 in = 25.4 mm exactly`) and a controlled conversion table for all commonly used secondary units.
 
 | Attribute | Value |
@@ -358,8 +371,10 @@ AMPEL360 requires:
 | Rationale | Ensures consistent conversion across all artifacts |
 | Verification | Review |
 | Parent | KNOT-00-00-005 |
+| Origin | AMPEL (Program-generated) |
 
-#### REQ-UNIT-021: Conversion at Interfaces Only
+#### REQ-AMPEL-00-00-02-SE-009: Conversion at Interfaces Only
+**Old ID:** REQ-UNIT-021  
 **Requirement:** Conversions shall occur at **interfaces and presentation boundaries** (e.g., SSOT→PUB, SSOT→UI), not within canonical calculation chains, unless explicitly justified.
 
 | Attribute | Value |
@@ -368,8 +383,10 @@ AMPEL360 requires:
 | Rationale | Prevents rounding accumulation and hidden unit drift |
 | Verification | Review |
 | Parent | KNOT-00-00-005 |
+| Origin | AMPEL (Program-generated) |
 
-#### REQ-UNIT-022: Rounding Policy
+#### REQ-AMPEL-00-00-02-SE-010: Rounding Policy
+**Old ID:** REQ-UNIT-022  
 **Requirement:** Display values shall be rounded according to a documented rounding policy:
 - round-half-away-from-zero (default),
 - significant figures appropriate to measurement uncertainty,
@@ -381,8 +398,10 @@ AMPEL360 requires:
 | Rationale | Avoids false precision and certification challenges |
 | Verification | Review |
 | Parent | KNOT-00-00-005 |
+| Origin | AMPEL (Program-generated) |
 
-#### REQ-UNIT-023: Traceable Conversion Evidence
+#### REQ-AMPEL-00-00-02-SE-011: Traceable Conversion Evidence
+**Old ID:** REQ-UNIT-023  
 **Requirement:** When a requirement, analysis, or test report presents non-canonical units, the artifact shall include either:
 - the canonical value alongside the display value, or
 - a trace link to the canonical source and the conversion rule reference.
@@ -393,12 +412,14 @@ AMPEL360 requires:
 | Rationale | Enables audit and reproduction of numeric evidence |
 | Verification | Review |
 | Parent | KNOT-00-00-005 |
+| Origin | AMPEL (Program-generated) |
 
 ---
 
 ### 6.4 Domain-Specific Requirements
 
-#### REQ-UNIT-030: Aviation Operational Displays
+#### REQ-AMPEL-00-00-02-SE-012: Aviation Operational Displays
+**Old ID:** REQ-UNIT-030  
 **Requirement:** Pilot/operator-facing displays and operational procedures may use:
 - altitude in **ft**,
 - airspeed in **kt**,
@@ -411,8 +432,10 @@ as **display units**, while SSOT storage remains SI.
 | Rationale | Aligns with operational conventions while protecting SSOT integrity |
 | Verification | Review |
 | Parent | KNOT-00-00-005 |
+| Origin | AMPEL (Program-generated) |
 
-#### REQ-UNIT-031: Cryogenic Temperature Convention
+#### REQ-AMPEL-28-30-02-SE-002: Cryogenic Temperature Convention
+**Old ID:** REQ-UNIT-031  
 **Requirement:** Cryogenic hydrogen thermodynamic state parameters shall use:
 - **K** as canonical for cryogenic temperature/state modeling,
 - **°C** allowed for ambient/non-cryogenic display contexts.
@@ -423,8 +446,10 @@ as **display units**, while SSOT storage remains SI.
 | Rationale | Cryogenic models are Kelvin-based; Celsius used for human ambient interpretation |
 | Verification | Review |
 | Parent | KNOT-00-00-005 |
+| Origin | AMPEL (Program-generated) |
 
-#### REQ-UNIT-032: Pressure Convention
+#### REQ-AMPEL-00-00-02-SE-013: Pressure Convention
+**Old ID:** REQ-UNIT-032  
 **Requirement:** Pressure shall be canonical in **Pa** (or kPa/MPa as scaled SI), with secondary **bar** and/or **psi** permitted for display where appropriate.
 
 | Attribute | Value |
@@ -433,8 +458,10 @@ as **display units**, while SSOT storage remains SI.
 | Rationale | SI coherence with analysis; bar/psi commonly used by maintainers |
 | Verification | Review |
 | Parent | KNOT-00-00-005 |
+| Origin | AMPEL (Program-generated) |
 
-#### REQ-UNIT-033: Electrical Energy Convention
+#### REQ-AMPEL-00-00-02-SE-014: Electrical Energy Convention
+**Old ID:** REQ-UNIT-033  
 **Requirement:** Electrical energy shall be canonical in **J** (with scaled SI multiples) and may also be represented in **kWh** for operational energy management reporting.
 
 | Attribute | Value |
@@ -443,12 +470,14 @@ as **display units**, while SSOT storage remains SI.
 | Rationale | SI for physics-based modeling; kWh for operational planning |
 | Verification | Review |
 | Parent | KNOT-00-00-005 |
+| Origin | AMPEL (Program-generated) |
 
 ---
 
 ### 6.5 Data Interchange Requirements (Machine-Parseable)
 
-#### REQ-UNIT-040: Unit Tagging in Machine Data
+#### REQ-AMPEL-00-00-02-DATA-002: Unit Tagging in Machine Data
+**Old ID:** REQ-UNIT-040  
 **Requirement:** All machine-readable parameter exchanges (JSON/YAML/CSV defined by ICDs) shall include explicit unit tagging, either:
 - `value + unit` fields, or
 - a schema that binds each field name to a unit definition, with a referenced unit registry.
@@ -459,8 +488,10 @@ as **display units**, while SSOT storage remains SI.
 | Rationale | Prevents silent unit mismatches in automation |
 | Verification | Review |
 | Parent | KNOT-00-00-005 |
+| Origin | AMPEL (Program-generated) |
 
-#### REQ-UNIT-041: Canonical Unit Declaration
+#### REQ-AMPEL-00-00-02-DATA-003: Canonical Unit Declaration
+**Old ID:** REQ-UNIT-041  
 **Requirement:** Each ICD defining an interface shall explicitly declare:
 - canonical unit for each quantity,
 - allowed display units (if any),
@@ -472,8 +503,10 @@ as **display units**, while SSOT storage remains SI.
 | Rationale | Interface-level clarity for certification evidence chains |
 | Verification | Review |
 | Parent | KNOT-00-00-005 |
+| Origin | AMPEL (Program-generated) |
 
-#### REQ-UNIT-042: Consistent Unit Vocabulary
+#### REQ-AMPEL-00-00-02-DATA-004: Consistent Unit Vocabulary
+**Old ID:** REQ-UNIT-042  
 **Requirement:** The program shall use one consistent unit vocabulary for machine representation (e.g., SI symbols or a controlled code system), documented in a **Unit Registry**.
 
 | Attribute | Value |
@@ -482,12 +515,14 @@ as **display units**, while SSOT storage remains SI.
 | Rationale | Enables automated validation and reduces ambiguity |
 | Verification | Review |
 | Parent | KNOT-00-00-005 |
+| Origin | AMPEL (Program-generated) |
 
 ---
 
 ### 6.6 Governance Requirements
 
-#### REQ-UNIT-050: Unit Exceptions Control
+#### REQ-AMPEL-00-00-08-CM-001: Unit Exceptions Control
+**Old ID:** REQ-UNIT-050  
 **Requirement:** Any exception to canonical SI usage shall:
 - be justified (operational/regulatory/legacy reason),
 - be approved by STK_SE with STK_CERT concurrence when certification-relevant,
@@ -499,8 +534,10 @@ as **display units**, while SSOT storage remains SI.
 | Rationale | Prevents uncontrolled divergence from canonical policy |
 | Verification | Review |
 | Parent | KNOT-00-00-005 |
+| Origin | AMPEL (Program-generated) |
 
-#### REQ-UNIT-051: Publication Consistency
+#### REQ-AMPEL-00-00-02-PUB-001: Publication Consistency
+**Old ID:** REQ-UNIT-051  
 **Requirement:** PUB deliverables shall present units consistently within each publication type, using the program’s dual-unit rules and safety labeling standards where applicable.
 
 | Attribute | Value |
@@ -509,8 +546,10 @@ as **display units**, while SSOT storage remains SI.
 | Rationale | Maintains user trust and reduces safety risk |
 | Verification | Inspection |
 | Parent | KNOT-00-00-005 |
+| Origin | AMPEL (Program-generated) |
 
-#### REQ-UNIT-052: Traceability to Canonical SSOT
+#### REQ-AMPEL-00-00-02-SE-015: Traceability to Canonical SSOT
+**Old ID:** REQ-UNIT-052  
 **Requirement:** Every non-SSOT presentation of numeric values used in certification evidence shall trace to a canonical SSOT source via the cross-reference system.
 
 | Attribute | Value |
@@ -519,6 +558,7 @@ as **display units**, while SSOT storage remains SI.
 | Rationale | Preserves SSOT integrity and auditability |
 | Verification | Review |
 | Parent | KNOT-00-00-005 |
+| Origin | AMPEL (Program-generated) |
 
 ---
 
