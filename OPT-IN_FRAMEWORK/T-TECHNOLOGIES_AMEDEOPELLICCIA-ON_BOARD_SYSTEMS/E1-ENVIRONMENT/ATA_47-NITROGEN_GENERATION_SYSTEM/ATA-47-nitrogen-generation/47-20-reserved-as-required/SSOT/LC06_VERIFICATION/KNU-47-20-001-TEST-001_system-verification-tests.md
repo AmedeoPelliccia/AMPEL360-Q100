@@ -55,7 +55,6 @@ Define comprehensive test procedures to validate that the Nitrogen Generation Sy
 | ATA Spec 100 Ch. 47 | Air Transport Association | Nitrogen Generation Systems |
 | SAE AIR6525 | SAE International | Aircraft fuel tank inerting |
 | DO-160G | RTCA | Environmental testing |
-| DO-160G | RTCA | Environmental testing |
 
 ## 4. Test Cases
 
