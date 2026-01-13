@@ -1,5 +1,5 @@
 ICN,Symbol_ID,Name,Category,ATA_Chapter,ATA_Section,Source_File,Format,Size_Bytes,SHA256,Version,Status,Approved_Date,Approved_By,Notes
-ICN-AMPEL360-S1-00095-0040-001-A,AI-STAT-001,AI Active,AI-ML,95,40,ai-ml-symbols.ai,SVG,1024,placeholder,1.0,APPROVED,2026-01-13,STK_SAF,Blue robot icon - AI providing recommendations
+ICN-AMPEL360-S1-00095-0040-001-A,AI-STAT-001,AI Active,AI-ML,95,40,ai-ml-symbols.ai,SVG,1024,placeholder,1.0,APPROVED,2026-01-13,STK_SAF,Blue circle with "AI" text - AI providing recommendations (placeholder icon)
 ICN-AMPEL360-S1-00095-0040-002-A,AI-STAT-002,AI Confidence High,AI-ML,95,40,ai-ml-symbols.ai,SVG,1124,placeholder,1.0,APPROVED,2026-01-13,STK_SAF,Green robot with checkmark - ≥95% confidence
 ICN-AMPEL360-S1-00095-0040-003-A,AI-STAT-003,AI Confidence Low,AI-ML,95,40,ai-ml-symbols.ai,SVG,1256,placeholder,1.0,APPROVED,2026-01-13,STK_SAF,Amber robot with warning - ≤80% confidence
 ICN-AMPEL360-S1-00095-0040-004-A,AI-STAT-004,AI Degraded,AI-ML,95,40,ai-ml-symbols.ai,SVG,1189,placeholder,1.0,APPROVED,2026-01-13,STK_SAF,Red robot with X - AI in fallback mode
