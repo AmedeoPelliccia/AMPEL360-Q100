@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <title>H2-FLAM-001: Flammable Hydrogen</title>
+  <desc>Flammable H₂ (4-75% in air). Placeholder geometry.</desc>
+  <metadata>
+    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+             xmlns:dc="http://purl.org/dc/elements/1.1/">
+      <rdf:Description>
+        <dc:identifier>ICN-AMPEL360-S1-00028-0010-002-A</dc:identifier>
+        <dc:date>2026-01-13</dc:date>
+      </rdf:Description>
+    </rdf:RDF>
+  </metadata>
+  <!-- Placeholder: Red diamond with flame -->
+  <polygon points="50,5 95,50 50,95 5,50" fill="#FF3300" stroke="#CC0000" stroke-width="2"/>
+  <!-- Flame shape -->
+  <path d="M50 30 Q45 45 50 55 Q55 45 50 30 Z" fill="#FFAA00" stroke="#FF6600" stroke-width="1"/>
+  <path d="M50 40 Q47 48 50 55 Q53 48 50 40 Z" fill="#FFFFFF"/>
+  <!-- H₂ text -->
+  <text x="50" y="82" font-family="Arial, sans-serif" font-size="18" font-weight="bold"
+        fill="white" text-anchor="middle">H₂</text>
+</svg>

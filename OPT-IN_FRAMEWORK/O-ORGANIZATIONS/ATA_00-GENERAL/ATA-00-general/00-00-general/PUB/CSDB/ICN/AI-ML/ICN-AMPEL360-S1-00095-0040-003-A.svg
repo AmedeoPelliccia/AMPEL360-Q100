@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <title>AI-STAT-003: AI Confidence Low</title>
+  <desc>AI confidence ≤80%. Human review required. Placeholder geometry.</desc>
+  <metadata>
+    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+             xmlns:dc="http://purl.org/dc/elements/1.1/">
+      <rdf:Description>
+        <dc:identifier>ICN-AMPEL360-S1-00095-0040-003-A</dc:identifier>
+        <dc:date>2026-01-13</dc:date>
+      </rdf:Description>
+    </rdf:RDF>
+  </metadata>
+  <!-- Placeholder: Amber triangle with exclamation -->
+  <polygon points="50,10 90,85 10,85" fill="#FFAA00" stroke="#CC8800" stroke-width="2"/>
+  <text x="50" y="72" font-family="Arial, sans-serif" font-size="40" font-weight="bold" 
+        fill="black" text-anchor="middle">!</text>
+</svg>

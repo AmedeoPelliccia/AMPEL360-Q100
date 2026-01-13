@@ -1,0 +1,17 @@
+ICN,Symbol_ID,Name,Category,ATA_Chapter,ATA_Section,Source_File,Format,Size_Bytes,SHA256,Version,Status,Approved_Date,Approved_By,Notes
+ICN-AMPEL360-S1-00095-0040-001-A,AI-STAT-001,AI Active,AI-ML,95,40,ai-ml-symbols.ai,SVG,1024,placeholder,1.0,APPROVED,2026-01-13,STK_SAF,Blue robot icon - AI providing recommendations
+ICN-AMPEL360-S1-00095-0040-002-A,AI-STAT-002,AI Confidence High,AI-ML,95,40,ai-ml-symbols.ai,SVG,1124,placeholder,1.0,APPROVED,2026-01-13,STK_SAF,Green robot with checkmark - ≥95% confidence
+ICN-AMPEL360-S1-00095-0040-003-A,AI-STAT-003,AI Confidence Low,AI-ML,95,40,ai-ml-symbols.ai,SVG,1256,placeholder,1.0,APPROVED,2026-01-13,STK_SAF,Amber robot with warning - ≤80% confidence
+ICN-AMPEL360-S1-00095-0040-004-A,AI-STAT-004,AI Degraded,AI-ML,95,40,ai-ml-symbols.ai,SVG,1189,placeholder,1.0,APPROVED,2026-01-13,STK_SAF,Red robot with X - AI in fallback mode
+ICN-AMPEL360-S1-00095-0040-005-A,AI-STAT-005,AI Override,AI-ML,95,40,ai-ml-symbols.ai,SVG,1098,placeholder,1.0,APPROVED,2026-01-13,STK_SAF,White human icon - Human has overridden AI
+ICN-AMPEL360-S1-00095-0040-006-A,AI-OOD-001,OOD Detected,AI-ML,95,40,ai-ml-symbols.ai,SVG,1345,placeholder,1.0,APPROVED,2026-01-13,STK_SAF,Warning triangle with robot - Input outside training envelope
+ICN-AMPEL360-S1-00095-0040-007-A,AI-OOD-002,OOD Severe,AI-ML,95,40,ai-ml-symbols.ai,SVG,1456,placeholder,1.0,APPROVED,2026-01-13,STK_SAF,Red circle with robot - Significant deviation manual required
+ICN-AMPEL360-S1-00095-0040-008-A,AI-LRN-001,Learning Enabled,AI-ML,95,40,ai-ml-symbols.ai,SVG,1234,placeholder,1.0,APPROVED,2026-01-13,STK_SAF,Book icon - System is learning from operations
+ICN-AMPEL360-S1-00095-0040-009-A,AI-LRN-002,Learning Frozen,AI-ML,95,40,ai-ml-symbols.ai,SVG,1567,placeholder,1.0,APPROVED,2026-01-13,STK_SAF,Locked book icon - Learning disabled certified config
+ICN-AMPEL360-S1-00028-0010-001-A,H2-CRYO-001,Cryogenic Hazard,H2-HAZARD,28,10,h2-hazard-symbols.ai,SVG,1890,placeholder,1.0,APPROVED,2026-01-13,STK_SAF,Snowflake in triangle - Extreme cold hazard -253C
+ICN-AMPEL360-S1-00028-0010-002-A,H2-FLAM-001,Flammable H2,H2-HAZARD,28,10,h2-hazard-symbols.ai,SVG,1756,placeholder,1.0,APPROVED,2026-01-13,STK_SAF,Flame with H2 - Flammable hydrogen 4-75% range
+ICN-AMPEL360-S1-00028-0010-003-A,H2-PRES-001,High Pressure,H2-HAZARD,28,10,h2-hazard-symbols.ai,SVG,1654,placeholder,1.0,APPROVED,2026-01-13,STK_SAF,Pressure gauge in triangle - 700 bar warning
+ICN-AMPEL360-S1-00028-0010-004-A,H2-ASPH-001,Asphyxiation Risk,H2-HAZARD,28,10,h2-hazard-symbols.ai,SVG,1789,placeholder,1.0,APPROVED,2026-01-13,STK_SAF,Lungs with X - Oxygen displacement hazard
+ICN-AMPEL360-S1-00028-0010-005-A,H2-BOIL-001,Boil-Off Warning,H2-HAZARD,28,10,h2-hazard-symbols.ai,SVG,1923,placeholder,1.0,APPROVED,2026-01-13,STK_SAF,Snowflake with arrow up - Boil-off rate indicator
+ICN-AMPEL360-S1-00028-0010-006-A,H2-LEAK-001,Leak Detection,H2-HAZARD,28,10,h2-hazard-symbols.ai,SVG,1834,placeholder,1.0,APPROVED,2026-01-13,STK_SAF,Droplet with sensor - H2 leak detected
+ICN-AMPEL360-S1-00028-0010-007-A,H2-VENT-001,Venting Active,H2-HAZARD,28,10,h2-hazard-symbols.ai,SVG,1678,placeholder,1.0,APPROVED,2026-01-13,STK_SAF,Cloud with arrow - Active venting in progress
