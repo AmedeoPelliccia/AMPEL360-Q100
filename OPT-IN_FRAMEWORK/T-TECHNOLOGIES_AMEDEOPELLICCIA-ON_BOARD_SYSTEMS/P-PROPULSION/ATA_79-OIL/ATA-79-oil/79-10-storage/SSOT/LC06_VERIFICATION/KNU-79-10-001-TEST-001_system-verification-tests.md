@@ -173,16 +173,6 @@ Pass Criteria:
   - Oil quality monitoring operational
   - No false alarms or missed detections
 ```
-     
-  4. Fire suppression integration
-     Expected: Integrates correctly with fire system
-
-Pass Criteria:
-  - All safety functions operate correctly
-  - No false alarms or missed detections
-  - Response times within requirements
-```
-
 ### 4.4 TC-SYS-004: Interface Testing
 
 **Objective:** Validate interfaces with other systems
