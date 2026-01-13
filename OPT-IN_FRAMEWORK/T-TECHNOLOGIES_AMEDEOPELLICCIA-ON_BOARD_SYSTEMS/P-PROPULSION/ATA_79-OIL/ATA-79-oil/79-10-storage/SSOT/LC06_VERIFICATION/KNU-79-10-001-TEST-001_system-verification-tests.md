@@ -2,16 +2,19 @@
 
 ## 1. Purpose
 
-Define comprehensive test procedures to validate that the Oil Storage system meets all functional, performance, safety, and regulatory requirements as specified in KNU-79-10-001-REQ-001.
+Define comprehensive test procedures to validate that the Oil Storage System meets all functional, performance, safety, and regulatory requirements as specified in KNU-79-10-001-REQ-001. The oil system is critical for engine lubrication, cooling, and bearing protection.
 
 ## 2. Scope
 
 ### Systems Under Test
-- Oil storage tanks and reservoirs
-- Oil level monitoring systems
-- Temperature control systems
-- Filtration and circulation systems
-- Emergency drain systems
+- Oil Storage Tanks and Reservoirs
+- Oil Level Monitoring Systems (Capacitance/Ultrasonic)
+- Temperature Control and Monitoring
+- Filtration Systems (Full-Flow and Bypass)
+- Scavenge and Circulation Pumps
+- Chip Detectors and Debris Monitoring
+- Emergency Drain and Service Systems
+- Oil Cooler Interface
 
 ### Verification Domains
 1. Functional Requirements Validation
@@ -19,6 +22,7 @@ Define comprehensive test procedures to validate that the Oil Storage system mee
 3. Safety Critical Function Verification
 4. Interface Compatibility Testing
 5. Environmental Condition Testing
+6. Oil Quality and Contamination Monitoring
 
 ## 3. Test Environment
 
@@ -30,14 +34,14 @@ Define comprehensive test procedures to validate that the Oil Storage system mee
 ├─────────────────────────────────────────────────────────────┤
 │                                                              │
 │  ┌─────────────┐    ┌─────────────┐    ┌─────────────┐     │
-│  │ Test        │    │ Oil Storage │    │ Monitoring  │     │
-│  │ Framework   │───►│ System      │◄───│ Equipment   │     │
-│  │             │    │             │    │             │     │
+│  │ Engine      │    │ Oil Storage │    │ Oil Quality │     │
+│  │ Simulator   │◄──►│ System SUT  │───►│ Analysis    │     │
+│  │             │    │             │    │ Equipment   │     │
 │  └─────────────┘    └─────────────┘    └─────────────┘     │
 │         │                  │                  │             │
 │         ▼                  ▼                  ▼             │
 │  ┌─────────────────────────────────────────────────────┐   │
-│  │         Test Results & Evidence Database             │   │
+│  │    Level/Temp/Pressure/Contamination Monitoring      │   │
 │  └─────────────────────────────────────────────────────┘   │
 │                                                              │
 └─────────────────────────────────────────────────────────────┘
@@ -47,7 +51,10 @@ Define comprehensive test procedures to validate that the Oil Storage system mee
 
 | Standard | Source | Purpose |
 |----------|--------|---------|
-| ATA Spec 100 | Air Transport Association | System categorization |
+| ATA Spec 100 Ch. 79 | Air Transport Association | Oil Systems |
+| SAE AS5780 | SAE International | Aircraft engine oil quality |
+| MIL-PRF-23699 | US DoD | Turbine engine lubricating oil specification |
+| DO-160G | RTCA | Environmental testing |
 | SAE AS8016 | SAE International | Aerospace testing standards |
 | DO-160G | RTCA | Environmental testing |
 
@@ -55,81 +62,117 @@ Define comprehensive test procedures to validate that the Oil Storage system mee
 
 ### 4.1 TC-SYS-001: Functional Requirements Verification
 
-**Objective:** Validate all functional requirements are met
+**Objective:** Validate oil storage capacity and level indication
 
 ```yaml
 Test ID: TC-SYS-001
 Category: Functional
 Priority: Critical
 Preconditions: System installed and operational
+Reference: TBD-79-10-001-TEST-001-001
 
 Test Steps:
-  1. Verify storage capacity
-     Expected: Meets design specifications
+  1. Oil tank capacity verification
+     Expected: Tank capacity per design (typically 15-25 gallons for turbine engine)
+     Pass Threshold: Usable capacity ≥95% of design, unusable oil ≤5%
      
-  2. Test level monitoring accuracy
-     Expected: ±2% accuracy across full range
+  2. Oil level indication accuracy
+     Test: Compare sensor reading to calibrated dipstick measurement
+     Expected: Level indication error <5% of full scale
+     Pass Threshold: Accuracy ±5% across full range (0-100%)
      
-  3. Verify alarm thresholds
-     Expected: Alarms trigger at specified levels
+  3. Low oil level warning
+     Test: Drain oil to low level threshold
+     Expected: Crew alert at 50% capacity (typical), emergency at 25%
+     Pass Threshold: Warning at 50±5%, emergency alert at 25±3%
      
-  4. Test emergency drain function
-     Expected: Full drain within specified time
+  4. Oil replenishment and servicing
+     Expected: Ground service panel allows filling at ≥5 GPM
+     Pass Threshold: Fill rate ≥5 GPM, no spills, level indication updates
 
 Pass Criteria:
-  - All functional requirements met
-  - No deviations from specification
-  - Documentation complete
+  - Tank capacity meets specification
+  - Level indication accurate and reliable
+  - Alerts function correctly
+  - Ground servicing operational
 ```
 
 ### 4.2 TC-SYS-002: Performance Testing
 
-**Objective:** Validate system performance under operational conditions
+**Objective:** Validate oil temperature control and filtration performance
 
 ```yaml
 Test ID: TC-SYS-002
 Category: Performance
 Priority: High
-Preconditions: System at operating temperature
+Preconditions: System at operating conditions
+Reference: TBD-79-10-001-TEST-001-001
 
 Test Steps:
-  1. Flow rate testing
-     Expected: Meets minimum/maximum flow rates
+  1. Oil temperature range during operation
+     Expected: Operating range 180-230°F (82-110°C)
+     Pass Threshold: Temperature maintained 180-230°F throughout flight envelope
+     Maximum: 250°F (121°C) for 30 minutes emergency
      
-  2. Pressure testing
-     Expected: Maintains specified pressure range
+  2. Oil cooler effectiveness
+     Test: Oil cooling at cruise conditions
+     Expected: Oil outlet temp ≤230°F with full heat load
+     Pass Threshold: Temperature regulation ±10°F of setpoint
      
-  3. Temperature control
-     Expected: Maintains oil within operating range
+  3. Filtration system pressure drop
+     Test: Measure pressure drop across filters
+     Expected: Clean filter ΔP <5 psi, bypass opens at 25-30 psi
+     Pass Threshold: ΔP ≤5 psi (clean), bypass at 25-30 psi
      
-  4. Filtration efficiency
-     Expected: Removes contaminants per specification
+  4. Oil circulation and scavenge rates
+     Expected: Supply flow matches engine consumption, scavenge >supply
+     Pass Threshold: Supply flow ±10% of engine demand, scavenge/supply ratio >1.2
 
 Pass Criteria:
-  - Performance meets all requirements
-  - No performance degradation over test duration
-  - Consistent results across multiple runs
+  - Temperature maintained in operating range
+  - Oil cooling adequate for all conditions
+  - Filtration system performance verified
+  - Flow rates meet engine requirements
 ```
 
 ### 4.3 TC-SYS-003: Safety Critical Function Verification
 
-**Objective:** Verify all safety-critical functions operate correctly
+**Objective:** Verify chip detection and oil quality monitoring
 
 ```yaml
 Test ID: TC-SYS-003
 Category: Safety
 Priority: Critical
 Preconditions: Safety systems operational
+Reference: TBD-79-10-001-TEST-001-001
 
 Test Steps:
-  1. Overpressure protection
-     Expected: Relief valve operates at set pressure
+  1. Chip detector functionality
+     Test: Introduce calibrated ferrous/non-ferrous particles
+     Expected: Detection of particles ≥150 microns (ferrous), ≥300 microns (non-ferrous)
+     Pass Threshold: 100% detection rate, crew alert within 5 seconds
      
-  2. Emergency shutdown
-     Expected: System shuts down within specified time
+  2. High oil temperature alert
+     Test: Simulate oil temperature >250°F
+     Expected: Crew caution at 250°F, warning at 270°F
+     Pass Threshold: Alerts at 250±5°F (caution), 270±5°F (warning)
      
-  3. Leak detection
-     Expected: Detects leaks within specified threshold
+  3. Oil pressure monitoring
+     Test: Monitor oil supply pressure to engine
+     Expected: Normal pressure 40-80 psi, low pressure alert <30 psi
+     Pass Threshold: Low pressure alert at 30±2 psi, latency ≤2 seconds
+     
+  4. Oil quality degradation monitoring
+     Test: Spectroscopic analysis of oil samples
+     Expected: Detect viscosity changes, contamination, additive depletion
+     Pass Threshold: Trending analysis detects ≥10% viscosity change
+
+Pass Criteria:
+  - Chip detection system 100% reliable
+  - All temperature/pressure alerts functional
+  - Oil quality monitoring operational
+  - No false alarms or missed detections
+```
      
   4. Fire suppression integration
      Expected: Integrates correctly with fire system
@@ -251,3 +294,4 @@ All test results stored in:
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|
 | 1.0 | 2026-01-13 | STK_TEST | Initial test specification |
+| 1.1 | 2026-01-13 | STK_TEST | Enhanced with oil system domain-specific criteria, chip detection, quality monitoring |
