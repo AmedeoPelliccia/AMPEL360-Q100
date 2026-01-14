@@ -1,0 +1,243 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# _derivation.yaml — KNU-00-00-005-REQ-001 Derivation Metadata
+# ═══════════════════════════════════════════════════════════════════════════════
+# Purpose: Documents WHY this KNU exists and its traceability lineage
+# Schema: ../LC04_DESIGN_DEFINITION/_derivation.schema.yaml
+# Last Updated: 2026-01-14
+# ═══════════════════════════════════════════════════════════════════════════════
+
+schema_version: "1.0.0"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# KNU Identity
+# ─────────────────────────────────────────────────────────────────────────────
+knu_id:
+  legacy_id: "KNU-00-00-005-REQ-001"
+  normalized_id: "KNU_005_LC02_UNIT_SYS_REQ"
+  title: "Unit System Requirements"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Derivation Lineage (Answers: "Why does this KNU exist?")
+# ─────────────────────────────────────────────────────────────────────────────
+derivation_lineage:
+  parent_knot:
+    knot_id: "KNOT-00-00-005"
+    sequence_number: 5
+    title: "Unit Systems and Conversions"
+  
+  derivation_type: BASELINE
+  
+  rationale: |
+    International operations require SI units; FAA uses imperial; H₂-specific 
+    units need standardized presentation and conversion factors. This KNU 
+    establishes program-wide unit conventions for consistent engineering 
+    calculations, data storage, and certification evidence.
+  
+  parent_knus:
+    - knu_id: "KNU-00-00-002-REQ-001"
+      relationship: depends_on
+      description: "Document numbering conventions used in unit registries"
+    - knu_id: "KNU-00-00-004-REQ-001"
+      relationship: depends_on
+      description: "Cross-reference system for tracing unit values to SSOT"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Lifecycle Binding
+# ─────────────────────────────────────────────────────────────────────────────
+lifecycle_binding:
+  lifecycle_category: LC02
+  rec: "LC02_SYSTEM_REQUIREMENTS"
+  artifact_type: REQ
+  artifact_class: SSOT
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Creation Record (Immutable)
+# ─────────────────────────────────────────────────────────────────────────────
+creation_record:
+  created_utc: "2026-01-12T14:30:00Z"
+  created_by: "STK_SE"
+  baseline_version: "I01-R01"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# TBD Resolution Record (Collocated Lineage)
+# ─────────────────────────────────────────────────────────────────────────────
+tbd_resolution:
+  resolved_tbds:
+    - tbd_id: "TBD-00-00-005-ANA-002-001"
+      original_description: "Domain convention Primary/Canonical/Secondary units"
+      resolution_status: RESOLVED
+      resolution_date: "2026-01-13"
+      resolution_summary: "Section 5.2 Domain Conventions table defines per-ATA chapter"
+      evidence_location: "Section 5.2"
+    
+    - tbd_id: "TBD-00-00-005-REQ-001-005"
+      original_description: "Metadata schema for unit provenance"
+      resolution_status: RESOLVED
+      resolution_date: "2026-01-13"
+      resolution_summary: "Spawns KNU-00-00-005-ICD-002 (Unit Provenance Metadata Schema)"
+      evidence_location: "Section 5.3.4"
+    
+    - tbd_id: "TBD-00-00-005-REQ-001-006"
+      original_description: "S1000D CSDB integration layer"
+      resolution_status: RESOLVED
+      resolution_date: "2026-01-13"
+      resolution_summary: "Spawns KNU-00-00-005-ICD-003 (CSDB Unit Integration Specification)"
+      evidence_location: "Section 9.2"
+    
+    - tbd_id: "TBD-00-00-005-REQ-001-007"
+      original_description: "Aviation practice definition"
+      resolution_status: RESOLVED
+      resolution_date: "2026-01-13"
+      resolution_summary: "Spawns KNU-00-00-005-ANA-003; References ICAO Annex 5, FAA AC 00-45H, EASA CS-25"
+      evidence_location: "Section 5.2 + Regulatory Basis"
+  
+  spawned_tbds:
+    - tbd_id: "TBD-UNIT-001"
+      description: "Select machine unit vocabulary (SI symbols vs coded system)"
+      owner: "STK_DATA"
+      target_date: "2026-02-05"
+      status: OPEN
+    
+    - tbd_id: "TBD-UNIT-002"
+      description: "Define default significant figures per quantity type"
+      owner: "STK_SE"
+      target_date: "2026-02-10"
+      status: OPEN
+    
+    - tbd_id: "TBD-UNIT-003"
+      description: "Define when to permit psi vs bar in maintenance contexts"
+      owner: "STK_SAF"
+      target_date: "2026-02-15"
+      status: OPEN
+    
+    - tbd_id: "TBD-UNIT-004"
+      description: "Confirm dual-unit policy for certification submissions"
+      owner: "STK_CERT"
+      target_date: "2026-02-20"
+      status: OPEN
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Node Task Reference (Downstream Action Tracking)
+# ─────────────────────────────────────────────────────────────────────────────
+node_task_reference:
+  downstream_artifacts:
+    - target_knu_id: "KNU-00-00-005-ICD-001"
+      relationship: spawns
+      trigger_condition: "Upon REQ-001 baseline"
+      status: COMPLETE
+      notes: "Unit registry and tagging schema"
+    
+    - target_knu_id: "KNU-00-00-005-ICD-002"
+      relationship: spawns
+      trigger_condition: "TBD-00-00-005-REQ-001-005 resolution"
+      status: COMPLETE
+      notes: "Unit Provenance Metadata Schema for A.S.I.T. integration"
+    
+    - target_knu_id: "KNU-00-00-005-ICD-003"
+      relationship: spawns
+      trigger_condition: "TBD-00-00-005-REQ-001-006 resolution"
+      status: PENDING
+      notes: "CSDB Unit Integration Specification"
+    
+    - target_knu_id: "KNU-00-00-005-ANA-003"
+      relationship: spawns
+      trigger_condition: "TBD-00-00-005-REQ-001-007 resolution"
+      status: PENDING
+      notes: "Aviation Practice Standards Analysis"
+    
+    - target_knu_id: "KNU-00-00-005-CM-001"
+      relationship: spawns
+      trigger_condition: "Upon REQ-001 baseline"
+      status: COMPLETE
+      notes: "Unit database CM procedures"
+    
+    - target_knu_id: "KNU-00-00-005-PUB-001"
+      relationship: spawns
+      trigger_condition: "Upon REQ-001 baseline"
+      status: COMPLETE
+      notes: "Unit Systems Usage Guide DM"
+    
+    - target_knu_id: "KNU-00-00-005-TEST-001"
+      relationship: spawns
+      trigger_condition: "Upon ICD-001 completion"
+      status: COMPLETE
+      notes: "Unit Conversion Validation Tests"
+  
+  execution_log:
+    - timestamp_utc: "2026-01-12T14:30:00Z"
+      event_type: CREATED
+      actor: "STK_SE"
+      description: "Initial draft created from KNOT-00-00-005"
+    
+    - timestamp_utc: "2026-01-13T09:00:00Z"
+      event_type: UPDATED
+      actor: "STK_SE"
+      description: "Added Section 5.3 SSOT Architecture; resolved TBD-00-00-005-ANA-002-001"
+    
+    - timestamp_utc: "2026-01-13T14:00:00Z"
+      event_type: REVIEWED
+      actor: "STK_SE"
+      description: "Status → REVIEWED; resolved TBD-UNIT-005/006/007; spawned ICD-002, ICD-003, ANA-003"
+    
+    - timestamp_utc: "2026-01-13T16:00:00Z"
+      event_type: SPAWNED
+      actor: "STK_SE"
+      description: "Spawned KNU-00-00-005-ICD-002, KNU-00-00-005-ICD-003, KNU-00-00-005-ANA-003"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Traceability Links
+# ─────────────────────────────────────────────────────────────────────────────
+traceability:
+  upstream:
+    - ref_id: "KNOT-00-00-005"
+      ref_type: KNOT
+      description: "Unit Systems and Conversions problem statement"
+    
+    - ref_id: "KNU-00-00-002-REQ-001"
+      ref_type: KNU
+      description: "Document Numbering Requirements"
+    
+    - ref_id: "KNU-00-00-004-REQ-001"
+      ref_type: KNU
+      description: "Cross-Reference System Requirements"
+    
+    - ref_id: "ICAO Annex 5"
+      ref_type: STANDARD
+      description: "Units of Measurement"
+    
+    - ref_id: "FAA AC 00-45H"
+      ref_type: STANDARD
+      description: "Aviation Weather Services"
+    
+    - ref_id: "ISO 80000-1"
+      ref_type: STANDARD
+      description: "SI Units"
+  
+  downstream:
+    - ref_id: "KNU-00-00-005-ICD-001"
+      ref_type: KNU
+      description: "Unit Conversion Table Specification"
+    
+    - ref_id: "KNU-00-00-005-ICD-002"
+      ref_type: KNU
+      description: "Unit Provenance Metadata Schema"
+    
+    - ref_id: "KNU-00-00-005-ICD-003"
+      ref_type: KNU
+      description: "CSDB Unit Integration Specification"
+    
+    - ref_id: "KNU-00-00-005-ANA-003"
+      ref_type: KNU
+      description: "Aviation Practice Standards Analysis"
+    
+    - ref_id: "KNU-00-00-005-PUB-001"
+      ref_type: PUB
+      description: "Unit Systems Usage Guide DM"
+    
+    - ref_id: "KNU-00-00-005-TEST-001"
+      ref_type: TEST
+      description: "Unit Conversion Validation Tests"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# End of _derivation.yaml
+# ═══════════════════════════════════════════════════════════════════════════════
