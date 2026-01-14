@@ -21,6 +21,13 @@ npm install
 npm run build
 ```
 
+## Documentation
+
+- **[ICON_POLICY.md](./ICON_POLICY.md)** - Normative icon standards (SVG required)
+- **[DEVELOPER_GUIDE.md](./DEVELOPER_GUIDE.md)** - Development best practices
+- **[QUICKSTART.md](./QUICKSTART.md)** - 5-minute getting started guide
+- **[IMPLEMENTATION_SUMMARY.md](./IMPLEMENTATION_SUMMARY.md)** - Technical architecture
+
 ## Usage
 
 ### Basic Import
@@ -315,6 +322,7 @@ ATA-25-10-00/
 4. **Browser Compatibility**: Test autoplay across browsers (may be blocked)
 5. **File Paths**: Use relative paths for CSDB references
 6. **Error Handling**: Provide fallback content for media load failures
+7. **Icons**: Use SVG icons only (see [ICON_POLICY.md](./ICON_POLICY.md) for requirements)
 
 ## Browser Support
 

@@ -98,8 +98,43 @@ export const CollapsibleSection: React.FC<CollapsibleSectionProps> = ({
     padding: '16px',
   };
 
-  const defaultCollapsedIcon = collapsedIcon || '▼';
-  const defaultExpandedIcon = expandedIcon || '▼';
+  // Default SVG icons (chevron-down for collapsed, chevron-up for expanded)
+  const defaultCollapsedIcon = collapsedIcon || (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path
+        d="M4 6L8 10L12 6"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+  const defaultExpandedIcon = expandedIcon || (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path
+        d="M4 10L8 6L12 10"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
 
   return (
     <div className={`ietp-collapsible-section ${className}`} style={containerStyle}>
