@@ -1,0 +1,256 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema",
+  "title": "IETP Configuration",
+  "description": "Configuration for Interactive Electronic Technical Publication runtime",
+  "type": "object",
+  "properties": {
+    "section": {
+      "type": "string",
+      "description": "ATA chapter section identifier",
+      "pattern": "^ATA-\\d{2}-\\d{2}$",
+      "examples": ["ATA-25-10", "ATA-28-00"]
+    },
+    "title": {
+      "type": "string",
+      "description": "Human-readable section title",
+      "examples": ["Flight Compartment", "Fuel System"]
+    },
+    "version": {
+      "type": "string",
+      "description": "IETP content version",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "examples": ["1.0.0", "2.1.3"]
+    },
+    "issueDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Issue date in ISO 8601 format",
+      "examples": ["2026-01-14"]
+    },
+    "status": {
+      "type": "string",
+      "enum": ["Draft", "Review", "Approved", "Published"],
+      "description": "Publication status"
+    },
+    "paths": {
+      "type": "object",
+      "description": "File path configuration",
+      "properties": {
+        "media": {
+          "type": "string",
+          "description": "Relative path to media files (ICN)",
+          "default": "../CSDB/ICN/",
+          "examples": ["../CSDB/ICN/", "/media/"]
+        },
+        "dataModules": {
+          "type": "string",
+          "description": "Relative path to data modules",
+          "default": "../CSDB/DM/",
+          "examples": ["../CSDB/DM/"]
+        },
+        "exports": {
+          "type": "string",
+          "description": "Path for exported publications",
+          "default": "../EXPORT/",
+          "examples": ["../EXPORT/", "/output/"]
+        }
+      }
+    },
+    "features": {
+      "type": "object",
+      "description": "Feature flags for IETP behavior",
+      "properties": {
+        "autoplay": {
+          "type": "string",
+          "enum": ["on", "off", "muted"],
+          "default": "muted",
+          "description": "Default autoplay behavior for media"
+        },
+        "responsiveMedia": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable responsive scaling for media elements"
+        },
+        "interactiveComponents": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable interactive UI components"
+        },
+        "markdownSupport": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable markdown rendering"
+        },
+        "smoothScrolling": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable smooth scrolling for internal links"
+        },
+        "showExternalLinkIcon": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show icon for external links"
+        }
+      }
+    },
+    "ui": {
+      "type": "object",
+      "description": "UI customization options",
+      "properties": {
+        "theme": {
+          "type": "string",
+          "enum": ["light", "dark", "auto"],
+          "default": "light",
+          "description": "Color theme"
+        },
+        "primaryColor": {
+          "type": "string",
+          "pattern": "^#[0-9A-Fa-f]{6}$",
+          "default": "#0052cc",
+          "description": "Primary brand color (hex)",
+          "examples": ["#0052cc", "#1890ff"]
+        },
+        "fontFamily": {
+          "type": "string",
+          "default": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif",
+          "description": "Font family for body text"
+        },
+        "maxWidth": {
+          "type": "string",
+          "default": "1200px",
+          "description": "Maximum content width",
+          "examples": ["1200px", "100%", "1600px"]
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "description": "S1000D metadata",
+      "properties": {
+        "dmc": {
+          "type": "string",
+          "description": "Data Module Code",
+          "pattern": "^DMC-[A-Z0-9\\-]+$",
+          "examples": ["DMC-AMPEL360-A-25-10-00-00A-040A-A"]
+        },
+        "language": {
+          "type": "string",
+          "pattern": "^[a-z]{2}(-[A-Z]{2})?$",
+          "default": "en-US",
+          "description": "ISO 639-1 language code",
+          "examples": ["en-US", "de-DE", "fr-FR"]
+        },
+        "responsiblePartnerCompany": {
+          "type": "string",
+          "description": "RPC code or name",
+          "examples": ["AMPEL360", "AmedeoPelliccia"]
+        },
+        "originator": {
+          "type": "string",
+          "description": "Originator identification",
+          "examples": ["STK_SE", "STK_CM"]
+        }
+      }
+    },
+    "navigation": {
+      "type": "object",
+      "description": "Navigation configuration",
+      "properties": {
+        "showTableOfContents": {
+          "type": "boolean",
+          "default": true,
+          "description": "Display table of contents"
+        },
+        "showBreadcrumbs": {
+          "type": "boolean",
+          "default": true,
+          "description": "Display breadcrumb navigation"
+        },
+        "relatedSections": {
+          "type": "array",
+          "description": "Related ATA sections",
+          "items": {
+            "type": "object",
+            "properties": {
+              "section": {
+                "type": "string",
+                "pattern": "^ATA-\\d{2}-\\d{2}$"
+              },
+              "title": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri-reference"
+              }
+            },
+            "required": ["section", "title"]
+          },
+          "examples": [
+            [
+              {
+                "section": "ATA-25-00",
+                "title": "Equipment & Furnishings - General",
+                "url": "../25-00-general/"
+              },
+              {
+                "section": "ATA-27-00",
+                "title": "Flight Controls",
+                "url": "../../ATA_27-FLIGHT_CONTROLS/27-00-general/"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    "applicability": {
+      "type": "object",
+      "description": "Product applicability filtering",
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable applicability filtering"
+        },
+        "conditions": {
+          "type": "array",
+          "description": "Applicability conditions (ACT/PCT/CCT)",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": ["ACT", "PCT", "CCT"]
+              },
+              "value": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "analytics": {
+      "type": "object",
+      "description": "Usage tracking configuration",
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable analytics tracking"
+        },
+        "trackMediaPlayback": {
+          "type": "boolean",
+          "default": false,
+          "description": "Track media playback events"
+        },
+        "trackInteractions": {
+          "type": "boolean",
+          "default": false,
+          "description": "Track user interactions"
+        }
+      }
+    }
+  },
+  "required": ["section", "title", "version"]
+}

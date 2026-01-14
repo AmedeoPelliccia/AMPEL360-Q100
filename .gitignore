@@ -1,1 +1,7 @@
 *.bak
+*.log
+
+# IETP Runtime build artifacts
+IETP_RUNTIME/node_modules/
+IETP_RUNTIME/dist/
+IETP_RUNTIME/package-lock.json
