@@ -1,0 +1,69 @@
+{
+  "section": "ATA-25-10",
+  "title": "Flight Compartment",
+  "version": "1.0.0",
+  "issueDate": "2026-01-14",
+  "status": "Draft",
+  
+  "paths": {
+    "media": "../CSDB/ICN/",
+    "dataModules": "../CSDB/DM/",
+    "exports": "../EXPORT/"
+  },
+  
+  "features": {
+    "autoplay": "muted",
+    "responsiveMedia": true,
+    "interactiveComponents": true,
+    "markdownSupport": true,
+    "smoothScrolling": true,
+    "showExternalLinkIcon": true
+  },
+  
+  "ui": {
+    "theme": "light",
+    "primaryColor": "#0052cc",
+    "fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif",
+    "maxWidth": "1200px"
+  },
+  
+  "metadata": {
+    "dmc": "DMC-AMPEL360-A-25-10-00-00A-040A-A",
+    "language": "en-US",
+    "responsiblePartnerCompany": "AMPEL360",
+    "originator": "STK_SE"
+  },
+  
+  "navigation": {
+    "showTableOfContents": true,
+    "showBreadcrumbs": true,
+    "relatedSections": [
+      {
+        "section": "ATA-25-00",
+        "title": "Equipment & Furnishings - General",
+        "url": "../25-00-general/"
+      },
+      {
+        "section": "ATA-27-00",
+        "title": "Flight Controls",
+        "url": "../../ATA_27-FLIGHT_CONTROLS/27-00-general/"
+      },
+      {
+        "section": "ATA-31-00",
+        "title": "Indicating & Recording Systems",
+        "url": "../../ATA_31-INDICATING_RECORDING/31-00-general/"
+      }
+    ]
+  },
+  
+  "applicability": {
+    "enabled": false,
+    "conditions": []
+  },
+  
+  "analytics": {
+    "enabled": false,
+    "trackMediaPlayback": false,
+    "trackInteractions": false
+  }
+}
