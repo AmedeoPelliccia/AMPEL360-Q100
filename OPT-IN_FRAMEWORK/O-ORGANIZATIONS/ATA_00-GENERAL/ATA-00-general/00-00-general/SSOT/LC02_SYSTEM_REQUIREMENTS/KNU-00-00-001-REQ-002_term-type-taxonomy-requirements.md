@@ -760,8 +760,8 @@ DEFAULT → NOUN
 
 ### 9.1 Validation Test Cases
 
-#### REQ-AMPEL-00-00-02-SE-217:
-**Old ID:** REQ-TT-050   Test Coverage
+#### REQ-AMPEL-00-00-02-SE-217
+**Old ID:** REQ-TT-050 — Test Coverage
 
 **Requirement:** The term type taxonomy shall be validated with at least 10 representative examples per type.
 
