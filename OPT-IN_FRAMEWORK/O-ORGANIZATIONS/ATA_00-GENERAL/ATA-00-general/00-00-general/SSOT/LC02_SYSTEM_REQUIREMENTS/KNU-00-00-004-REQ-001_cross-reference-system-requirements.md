@@ -69,8 +69,8 @@ The cross-reference system shall adhere to these principles established in [KNOT
 
 ### 3.1 Reference Syntax Requirements
 
-#### REQ-AMPEL-00-00-04-SE-001: URI Scheme Definition
-**Old ID:** REQ-XRF-001
+#### REQ-AMPEL-00-00-04-SE-001:
+**Old ID:** REQ-XRF-001   URI Scheme Definition
 **Requirement:** The program shall define a URI scheme for internal references following the pattern:
 
 ```
@@ -805,16 +805,16 @@ links:
 
 | REQ ID | Method | Responsible | Evidence |
 |--------|--------|-------------|----------|
-| REQ-AMPEL-00-00-04-SE-001-004 | Inspection | STK_DATA | Syntax specification |
-| REQ-AMPEL-00-00-04-SE-010-012 | Review | STK_DATA | Link type registry |
-| REQ-AMPEL-00-00-04-SE-020-024 | Review | STK_CERT | Certification mapping |
-| REQ-AMPEL-00-00-04-SE-030-032 | Inspection | STK_DATA | Matrix templates |
-| REQ-AMPEL-00-00-04-SE-040-042 | Inspection | STK_CM | KNOT/KNU links |
-| REQ-AMPEL-00-00-04-SE-050-051 | Review | STK_SE | LC flow validation |
-| REQ-AMPEL-00-00-04-SE-060-062 | BREX+CI | STK_PUB | DM references |
-| REQ-AMPEL-00-00-04-SE-070-073 | Test | STK_DATA | CI validation |
-| REQ-AMPEL-00-00-04-SE-080-083 | Inspection | STK_CM | README review |
-| REQ-AMPEL-00-00-04-SE-090-092 | Demonstration | STK_DATA | Automation demo |
+| REQ-AMPEL-00-00-04-SE-001–004 | Inspection | STK_DATA | Syntax specification |
+| REQ-AMPEL-00-00-04-SE-010–012 | Review | STK_DATA | Link type registry |
+| REQ-AMPEL-00-00-04-SE-020–024 | Review | STK_CERT | Certification mapping |
+| REQ-AMPEL-00-00-04-SE-030–032 | Inspection | STK_DATA | Matrix templates |
+| REQ-AMPEL-00-00-04-SE-040–042 | Inspection | STK_CM | KNOT/KNU links |
+| REQ-AMPEL-00-00-04-SE-050–051 | Review | STK_SE | LC flow validation |
+| REQ-AMPEL-00-00-04-SE-060–062 | BREX+CI | STK_PUB | DM references |
+| REQ-AMPEL-00-00-04-SE-070–073 | Test | STK_DATA | CI validation |
+| REQ-AMPEL-00-00-04-SE-080–083 | Inspection | STK_CM | README review |
+| REQ-AMPEL-00-00-04-SE-090–092 | Demonstration | STK_DATA | Automation demo |
 
 ---
 

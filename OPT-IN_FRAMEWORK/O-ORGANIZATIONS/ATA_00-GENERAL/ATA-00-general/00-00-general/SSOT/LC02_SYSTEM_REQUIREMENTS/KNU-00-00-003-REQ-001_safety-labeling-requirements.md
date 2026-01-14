@@ -743,12 +743,12 @@ procedures in [reference].
 | REQ-SAF-021 | Inspection | STK_PUB | Color specification |
 | REQ-SAF-030 | Inspection | STK_PUB | NOTE format check |
 | REQ-SAF-031 | Inspection | STK_PUB | Color specification |
-| REQ-AMPEL-00-00-02-SAF-040-044 | Review | STK_SAF | Symbol library review |
+| REQ-AMPEL-00-00-02-SAF-040–044 | Review | STK_SAF | Symbol library review |
 | REQ-SAF-045 | Review | STK_SAF | Composite rules |
-| REQ-AMPEL-00-00-02-SAF-050-053 | Review | STK_AI | AI indication review |
-| REQ-AMPEL-00-00-02-SAF-060-063 | BREX+CI | STK_PUB | S1000D validation |
-| REQ-AMPEL-00-00-02-SAF-070-072 | Review | STK_SAF | Registry completeness |
-| REQ-AMPEL-00-00-02-SAF-080-082 | Inspection/Test | STK_SAF | Placard verification |
+| REQ-AMPEL-00-00-02-SAF-050–053 | Review | STK_AI | AI indication review |
+| REQ-AMPEL-00-00-02-SAF-060–063 | BREX+CI | STK_PUB | S1000D validation |
+| REQ-AMPEL-00-00-02-SAF-070–072 | Review | STK_SAF | Registry completeness |
+| REQ-AMPEL-00-00-02-SAF-080–082 | Inspection/Test | STK_SAF | Placard verification |
 
 ---
 

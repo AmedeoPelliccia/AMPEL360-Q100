@@ -273,8 +273,8 @@ KNOT-CC-SS-SU-NNN
 | Verification | Inspection |
 | Parent | KNOT-00-00-002 |
 
-#### REQ-AMPEL-00-00-02-SE-312: KNOT Sequence Assignment
-**Old ID:** REQ-DOC-031
+#### REQ-AMPEL-00-00-02-SE-312:
+**Old ID:** REQ-DOC-031   KNOT Sequence Assignment
 **Requirement:** KNOT sequence numbers shall be assigned in order of creation within each ATA subject and shall not be reused.
 
 | Attribute | Value |
