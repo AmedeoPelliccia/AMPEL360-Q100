@@ -45,7 +45,7 @@ KNU-AA-SS-NNN-LCXX-SU-SB-SX-DESCRIPTION
     │  │   │    │   │  │  └───────── Sub-sub-subject (finest level)
     │  │   │    │   │  └──────────── Sub-subject
     │  │   │    │   └─────────────── Subject
-    │  │   │    └──────────────────── Lifecycle category (LC01-LC14, PUB)
+    │  │   │    └──────────────────── Lifecycle category (LC01-LC14)
     │  │   └───────────────────────── KNOT sequence number
     │  └───────────────────────────── ATA Section (from KNOT)
     └──────────────────────────────── ATA Chapter (from KNOT)

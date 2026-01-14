@@ -12,7 +12,7 @@
 #             │  │   │    │   │  │  └───────── Sub-sub-subject (finest level)
 #             │  │   │    │   │  └──────────── Sub-subject
 #             │  │   │    │   └─────────────── Subject
-#             │  │   │    └──────────────────── Lifecycle category (LC01-LC14, PUB)
+#             │  │   │    └──────────────────── Lifecycle category (LC01-LC14)
 #             │  │   └───────────────────────── KNOT sequence number
 #             │  └───────────────────────────── ATA Section (from KNOT)
 #             └──────────────────────────────── ATA Chapter (from KNOT)
@@ -85,16 +85,16 @@ properties:
             AA = ATA Chapter (from KNOT)
             SS = ATA Section (from KNOT)
             NNN = KNOT sequence number
-            LCXX = Lifecycle category (LC01-LC14, PUB)
+            LCXX = Lifecycle category (LC01-LC14)
             SU = Subject (2 digits)
             SB = Sub-subject (2 digits)
             SX = Sub-sub-subject (2 digits)
             DESCRIPTION = Human-readable description (UPPER_SNAKE_CASE)
-        pattern: "^KNU-\\d{2}-\\d{2}-\\d{3}-LC\\d{2}-\\d{2}-\\d{2}-\\d{2}-[A-Z_]+$"
+        pattern: "^KNU-\\d{2}-\\d{2}-\\d{3}-LC\\d{2}-\\d{2}-\\d{2}-\\d{2}-[A-Z0-9_]+$"
         examples: ["KNU-00-00-005-LC02-00-00-00-SYSTEM_GENERAL_REQ"]
       ata_address:
         type: object
-        description: "Full ATA breakdown address (Chapter-Section-Subject-SubSubject-SubSubSubject)"
+        description: "Full ATA breakdown address (Chapter-Section-Subject-Sub-subject-Sub-sub-subject)"
         required:
           - chapter
           - section
