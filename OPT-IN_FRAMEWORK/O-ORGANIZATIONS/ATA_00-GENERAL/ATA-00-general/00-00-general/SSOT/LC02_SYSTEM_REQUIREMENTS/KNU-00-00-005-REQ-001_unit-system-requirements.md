@@ -271,7 +271,7 @@ AMPEL360 requires:
 
 ### 6.1 General Requirements
 
-#### REQ-AMPEL-00-00-02-SE-001: SI as Canonical
+#### REQ-AMPEL-00-00-02-SE-400: SI as Canonical
 **Old ID:** REQ-UNIT-001  
 **Requirement:** All SSOT numeric values used for calculation or storage shall use **SI canonical units**, unless an approved exception is recorded.
 
@@ -283,7 +283,7 @@ AMPEL360 requires:
 | Parent | KNOT-00-00-005 |
 | Origin | AMPEL (Program-generated) |
 
-#### REQ-AMPEL-00-00-02-SE-002: Canonical Storage Rule
+#### REQ-AMPEL-00-00-02-SE-401: Canonical Storage Rule
 **Old ID:** REQ-UNIT-002  
 **Requirement:** For any parameter that can be expressed in multiple unit systems, the SSOT shall store **exactly one canonical value** and optionally derive display values by conversion.
 
@@ -295,7 +295,7 @@ AMPEL360 requires:
 | Parent | KNOT-00-00-005 |
 | Origin | AMPEL (Program-generated) |
 
-#### REQ-AMPEL-00-00-02-SE-004: No Mixed Units in a Single Value
+#### REQ-AMPEL-00-00-02-SE-402: No Mixed Units in a Single Value
 **Old ID:** REQ-UNIT-003  
 **Requirement:** Artifacts shall not express a single quantitative value using mixed units (e.g., “10 kg/m²-ft”); unit expressions shall be coherent within one system.
 
@@ -307,7 +307,7 @@ AMPEL360 requires:
 | Parent | KNOT-00-00-005 |
 | Origin | AMPEL (Program-generated) |
 
-#### REQ-AMPEL-00-00-02-SE-005: Dual-Unit Presentation Rules
+#### REQ-AMPEL-00-00-02-SE-403: Dual-Unit Presentation Rules
 **Old ID:** REQ-UNIT-004  
 **Requirement:** When dual-unit presentation is required, the format shall be:
 - **Primary unit first**, secondary in parentheses, and
@@ -327,7 +327,7 @@ AMPEL360 requires:
 
 ### 6.2 Unit Formatting Requirements (Human-Readable)
 
-#### REQ-AMPEL-00-00-02-SE-006: Unit Symbol Conventions
+#### REQ-AMPEL-00-00-02-SE-404: Unit Symbol Conventions
 **Old ID:** REQ-UNIT-010  
 **Requirement:** Unit symbols shall follow standard scientific conventions:
 - no pluralization (use `kg`, not `kgs`)
@@ -342,7 +342,7 @@ AMPEL360 requires:
 | Parent | KNOT-00-00-005 |
 | Origin | AMPEL (Program-generated) |
 
-#### REQ-AMPEL-00-00-02-SE-007: Decimal and Thousands Format
+#### REQ-AMPEL-00-00-02-SE-405: Decimal and Thousands Format
 **Old ID:** REQ-UNIT-011  
 **Requirement:** Numeric formatting shall use:
 - decimal point `.` (dot),
@@ -361,7 +361,7 @@ AMPEL360 requires:
 
 ### 6.3 Conversion and Rounding Requirements
 
-#### REQ-AMPEL-00-00-02-SE-008: Approved Conversion Factors
+#### REQ-AMPEL-00-00-02-SE-406: Approved Conversion Factors
 **Old ID:** REQ-UNIT-020  
 **Requirement:** Unit conversions shall use **approved exact factors** where defined (e.g., `1 in = 25.4 mm exactly`) and a controlled conversion table for all commonly used secondary units.
 
@@ -373,7 +373,7 @@ AMPEL360 requires:
 | Parent | KNOT-00-00-005 |
 | Origin | AMPEL (Program-generated) |
 
-#### REQ-AMPEL-00-00-02-SE-009: Conversion at Interfaces Only
+#### REQ-AMPEL-00-00-02-SE-407: Conversion at Interfaces Only
 **Old ID:** REQ-UNIT-021  
 **Requirement:** Conversions shall occur at **interfaces and presentation boundaries** (e.g., SSOT→PUB, SSOT→UI), not within canonical calculation chains, unless explicitly justified.
 
@@ -385,7 +385,7 @@ AMPEL360 requires:
 | Parent | KNOT-00-00-005 |
 | Origin | AMPEL (Program-generated) |
 
-#### REQ-AMPEL-00-00-02-SE-010: Rounding Policy
+#### REQ-AMPEL-00-00-02-SE-408: Rounding Policy
 **Old ID:** REQ-UNIT-022  
 **Requirement:** Display values shall be rounded according to a documented rounding policy:
 - round-half-away-from-zero (default),
@@ -400,7 +400,7 @@ AMPEL360 requires:
 | Parent | KNOT-00-00-005 |
 | Origin | AMPEL (Program-generated) |
 
-#### REQ-AMPEL-00-00-02-SE-011: Traceable Conversion Evidence
+#### REQ-AMPEL-00-00-02-SE-409: Traceable Conversion Evidence
 **Old ID:** REQ-UNIT-023  
 **Requirement:** When a requirement, analysis, or test report presents non-canonical units, the artifact shall include either:
 - the canonical value alongside the display value, or
@@ -418,7 +418,7 @@ AMPEL360 requires:
 
 ### 6.4 Domain-Specific Requirements
 
-#### REQ-AMPEL-00-00-02-SE-012: Aviation Operational Displays
+#### REQ-AMPEL-00-00-02-SE-410: Aviation Operational Displays
 **Old ID:** REQ-UNIT-030  
 **Requirement:** Pilot/operator-facing displays and operational procedures may use:
 - altitude in **ft**,
@@ -448,7 +448,7 @@ as **display units**, while SSOT storage remains SI.
 | Parent | KNOT-00-00-005 |
 | Origin | AMPEL (Program-generated) |
 
-#### REQ-AMPEL-00-00-02-SE-013: Pressure Convention
+#### REQ-AMPEL-00-00-02-SE-411: Pressure Convention
 **Old ID:** REQ-UNIT-032  
 **Requirement:** Pressure shall be canonical in **Pa** (or kPa/MPa as scaled SI), with secondary **bar** and/or **psi** permitted for display where appropriate.
 
@@ -460,7 +460,7 @@ as **display units**, while SSOT storage remains SI.
 | Parent | KNOT-00-00-005 |
 | Origin | AMPEL (Program-generated) |
 
-#### REQ-AMPEL-00-00-02-SE-014: Electrical Energy Convention
+#### REQ-AMPEL-00-00-02-SE-412: Electrical Energy Convention
 **Old ID:** REQ-UNIT-033  
 **Requirement:** Electrical energy shall be canonical in **J** (with scaled SI multiples) and may also be represented in **kWh** for operational energy management reporting.
 
@@ -548,7 +548,7 @@ as **display units**, while SSOT storage remains SI.
 | Parent | KNOT-00-00-005 |
 | Origin | AMPEL (Program-generated) |
 
-#### REQ-AMPEL-00-00-02-SE-015: Traceability to Canonical SSOT
+#### REQ-AMPEL-00-00-02-SE-413: Traceability to Canonical SSOT
 **Old ID:** REQ-UNIT-052  
 **Requirement:** Every non-SSOT presentation of numeric values used in certification evidence shall trace to a canonical SSOT source via the cross-reference system.
 

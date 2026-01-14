@@ -250,7 +250,7 @@ class RequirementIDParser:
     
     PATTERN = re.compile(
         r"^REQ-"
-        r"(?P<origin>[A-Z]{2,6})-"
+        r"(?P<origin>[A-Z0-9]{2,6})-"
         r"(?P<ata>CROSS|[0-9]{2}-[0-9]{2})-"
         r"(?P<lc>CROSS|[0-9]{2})-"
         r"(?P<aor>[A-Z]{2,4})-"

@@ -66,7 +66,7 @@ The ID scheme shall adhere to these principles:
 
 ### 3.1 General ID Requirements
 
-#### REQ-AMPEL-00-00-02-SE-001:
+#### REQ-AMPEL-00-00-02-SE-300:
 **Old ID:** REQ-DOC-001   Unique Identification
 **Requirement:** Every artifact in the AMPEL360 Q100 program shall have a unique identifier that remains stable throughout the artifact's lifecycle.
 
@@ -77,7 +77,7 @@ The ID scheme shall adhere to these principles:
 | Verification | Inspection (uniqueness check) |
 | Parent | KNOT-00-00-002 |
 
-#### REQ-AMPEL-00-00-02-SE-002:
+#### REQ-AMPEL-00-00-02-SE-301:
 **Old ID:** REQ-DOC-002   ID Immutability
 **Requirement:** Once assigned, an artifact ID shall not be reused for any other artifact, even after the original artifact is retired or deleted.
 
@@ -88,7 +88,7 @@ The ID scheme shall adhere to these principles:
 | Verification | Review |
 | Parent | KNOT-00-00-002 |
 
-#### REQ-AMPEL-00-00-02-SE-003:
+#### REQ-AMPEL-00-00-02-SE-302:
 **Old ID:** REQ-DOC-003   Human-Readable Format
 **Requirement:** All IDs shall be human-readable and interpretable without specialized tooling or lookup tables.
 
@@ -99,7 +99,7 @@ The ID scheme shall adhere to these principles:
 | Verification | Demonstration |
 | Parent | KNOT-00-00-004 |
 
-#### REQ-AMPEL-00-00-02-SE-004:
+#### REQ-AMPEL-00-00-02-SE-303:
 **Old ID:** REQ-DOC-004   Machine-Parseable Format
 **Requirement:** All IDs shall be parseable by regular expressions to extract structural components (axis, ATA, section, type, sequence).
 
@@ -110,7 +110,7 @@ The ID scheme shall adhere to these principles:
 | Verification | Test (regex extraction) |
 | Parent | KNOT-00-00-002 |
 
-#### REQ-AMPEL-00-00-02-SE-005:
+#### REQ-AMPEL-00-00-02-SE-304:
 **Old ID:** REQ-DOC-005   Character Set
 **Requirement:** IDs shall use only ASCII alphanumeric characters (A-Z, a-z, 0-9) plus hyphen (-) and underscore (_) as separators.
 
@@ -125,7 +125,7 @@ The ID scheme shall adhere to these principles:
 
 ### 3.2 ATA Address Requirements
 
-#### REQ-AMPEL-00-00-02-SE-010:
+#### REQ-AMPEL-00-00-02-SE-305:
 **Old ID:** REQ-DOC-010   ATA Address Structure
 **Requirement:** The ATA address shall follow the hierarchical structure:
 
@@ -147,7 +147,7 @@ ATA-CC-SS-SU-SB
 | Verification | Inspection |
 | Parent | KNOT-00-00-002 |
 
-#### REQ-AMPEL-00-00-02-SE-011:
+#### REQ-AMPEL-00-00-02-SE-306:
 **Old ID:** REQ-DOC-011   ATA Chapter Range
 **Requirement:** Valid ATA chapter numbers shall be:
 - 00–05: O-ORGANIZATIONS
@@ -164,7 +164,7 @@ ATA-CC-SS-SU-SB
 | Verification | Inspection |
 | Parent | KNOT-00-00-002 |
 
-#### REQ-AMPEL-00-00-02-SE-012:
+#### REQ-AMPEL-00-00-02-SE-307:
 **Old ID:** REQ-DOC-012   Reserved Sections
 **Requirement:** Section 90 (xx-90) shall be reserved for tables, schemas, and indices within each ATA chapter.
 
@@ -179,7 +179,7 @@ ATA-CC-SS-SU-SB
 
 ### 3.3 KNU ID Requirements
 
-#### REQ-AMPEL-00-00-02-SE-020:
+#### REQ-AMPEL-00-00-02-SE-308:
 **Old ID:** REQ-DOC-020   KNU ID Structure
 **Requirement:** Knowledge Unit identifiers shall follow the structure:
 
@@ -204,7 +204,7 @@ KNU-CC-SS-NNN-TYP-SSS
 | Verification | Inspection |
 | Parent | KNOT-00-00-002 |
 
-#### REQ-AMPEL-00-00-02-SE-021:
+#### REQ-AMPEL-00-00-02-SE-309:
 **Old ID:** REQ-DOC-021   KNU Type Codes
 **Requirement:** Valid KNU type codes shall be:
 
@@ -235,7 +235,7 @@ KNU-CC-SS-NNN-TYP-SSS
 | Verification | Inspection |
 | Parent | KNOT-00-00-002 |
 
-#### REQ-AMPEL-00-00-02-SE-022:
+#### REQ-AMPEL-00-00-02-SE-310:
 **Old ID:** REQ-DOC-022   KNU ID Uniqueness Scope
 **Requirement:** KNU IDs shall be unique within the entire program (global scope), not just within a KNOT or section.
 
@@ -250,7 +250,7 @@ KNU-CC-SS-NNN-TYP-SSS
 
 ### 3.4 KNOT ID Requirements
 
-#### REQ-AMPEL-00-00-02-SE-030:
+#### REQ-AMPEL-00-00-02-SE-311:
 **Old ID:** REQ-DOC-030   KNOT ID Structure
 **Requirement:** Known Unknown (KNOT) identifiers shall follow the structure:
 
@@ -273,7 +273,7 @@ KNOT-CC-SS-SU-NNN
 | Verification | Inspection |
 | Parent | KNOT-00-00-002 |
 
-#### REQ-AMPEL-00-00-02-SE-031:
+#### REQ-AMPEL-00-00-02-SE-312:
 **Old ID:** REQ-DOC-031   KNOT Sequence Assignment
 **Requirement:** KNOT sequence numbers shall be assigned in order of creation within each ATA subject and shall not be reused.
 
