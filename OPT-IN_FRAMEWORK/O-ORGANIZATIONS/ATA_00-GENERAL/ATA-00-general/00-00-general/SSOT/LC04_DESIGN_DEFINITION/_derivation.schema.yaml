@@ -147,6 +147,9 @@ properties:
         description: "KNUs that this artifact depends on or extends"
         items:
           type: object
+          required:
+            - knu_id
+            - relationship
           properties:
             knu_id:
               type: string
@@ -246,6 +249,7 @@ properties:
           required:
             - tbd_id
             - resolution_status
+            - resolution_date
           properties:
             tbd_id:
               type: string
@@ -300,6 +304,7 @@ properties:
           required:
             - target_knu_id
             - relationship
+            - status
           properties:
             target_knu_id:
               type: string
@@ -351,6 +356,9 @@ properties:
         description: "References to parent/source artifacts"
         items:
           type: object
+          required:
+            - ref_id
+            - ref_type
           properties:
             ref_id:
               type: string
@@ -364,6 +372,9 @@ properties:
         description: "References to child/target artifacts"
         items:
           type: object
+          required:
+            - ref_id
+            - ref_type
           properties:
             ref_id:
               type: string
