@@ -1,0 +1,42 @@
+{
+  "name": "ampel360-ietp-runtime",
+  "version": "1.0.0",
+  "description": "Interactive Electronic Technical Publication (IETP) Runtime for AMPEL360 Q100",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "test": "jest",
+    "lint": "eslint src/**/*.{ts,tsx}"
+  },
+  "keywords": [
+    "ietp",
+    "s1000d",
+    "technical-publication",
+    "aerospace",
+    "react"
+  ],
+  "author": "Amedeo Pelliccia",
+  "license": "CC0-1.0",
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "dependencies": {
+    "react-markdown": "^9.0.1",
+    "remark-gfm": "^4.0.0",
+    "rehype-raw": "^7.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "typescript": "^5.3.0",
+    "@rollup/plugin-typescript": "^11.1.5",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "rollup": "^4.9.0",
+    "tslib": "^2.6.2"
+  }
+}
