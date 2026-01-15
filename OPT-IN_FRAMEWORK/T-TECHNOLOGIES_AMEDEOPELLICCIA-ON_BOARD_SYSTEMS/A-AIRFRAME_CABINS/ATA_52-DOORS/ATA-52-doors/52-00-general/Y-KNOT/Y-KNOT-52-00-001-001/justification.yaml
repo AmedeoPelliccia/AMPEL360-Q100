@@ -1,0 +1,27 @@
+# Y-KNOT Justification Record
+# Why-Knowledge Node - Decision Framing and Rationale
+
+y_knot_id: Y-KNOT-52-00-001-001
+o_knot_ref: O-KNOT-52-00-001
+title: DOORS Resolution Justification
+created_date: 2026-01-15
+
+relevance:
+  safety_impact: medium
+  certification_impact: high
+  cost_impact: medium
+  schedule_impact: low
+  operations_impact: medium
+
+decision_framing: |
+  This Y-KNOT justifies the need to resolve knowledge gaps
+  identified in O-KNOT-52-00-001 for ATA 52 DOORS.
+
+rationale: |
+  Unresolved knowledge gaps pose risks to program certification
+  and operational readiness. Systematic resolution is required.
+
+constraints:
+  - Must maintain traceability to heritage sources
+  - Must align with certification requirements
+  - Must support operational documentation needs
