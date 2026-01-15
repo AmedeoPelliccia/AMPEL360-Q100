@@ -37,25 +37,49 @@
 | **Peak-Power Buffering** | Buffer strategy for transients (energy management and load leveling) |
 | **Circularity + DPP** | Digital Product Passport foundations for lifecycle traceability |
 
-This repository contains a **certification-grade digital baseline** organized under the **OPT-IN Framework** and structured for **SSOT + PUB** workflows.
+This repository provides a certification-grade digital baseline within the OPT-IN Framework, enabling governed transitions from GENESIS through SSOT to CSDB and publication (PUB) workflows.
 
 ---
 
 ## How This Repo Is Organized
 
-At a high level, the repo separates **engineering truth** from **publishable deliverables**:
-
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│                         AMPEL360-AIR-T                          │
-├─────────────────────────┬───────────────────────────────────────┤
-│          SSOT (Back)    │           PUB (Front)                 │
-│   Lifecycle Engineering │    Controlled Deliverables            │
-│   • Requirements        │    • CSDB (S1000D)                    │
-│   • Safety Evidence     │    • EXPORT (PDF/HTML)                │
-│   • Design/ICDs         │    • IETP (Runtime)                   │
-│   • V&V Artifacts       │                                       │
-└─────────────────────────┴───────────────────────────────────────┘
+┌───────────────────────────────────────────────────────────────────────────────┐
+│                                AMPEL360-AIR-T                                 │
+├───────────────────────────────────────────────────────────────────────────────┤
+│  GENESIS (Uncertainty & Structure)                                             │
+│  ─────────────────────────────────                                             │
+│  • Ontology & schemas (structure, no data)                                     │
+│  • O-KNOT (origin uncertainty)                                                  │
+│  • Y-KNOT (justification & decision trees)                                     │
+│  • KNOT (framing & planning intent)                                             │
+│  • Programmatic logic & policy alignment                                       │
+│                                                                               │
+│        ┌───────────────────────────────────────────────────────────┐          │
+│        │  ALLOCATION GATE — “Reality Big Bang”                       │          │
+│        │  • Contractual, timestampable commitment                    │          │
+│        │  • Funding / responsibility / scope bound                   │          │
+│        │  • Irreversible transition to accountable reality            │          │
+│        └───────────────────────────────────────────────────────────┘          │
+│                                                                               │
+├───────────────────────────────┬───────────────────────────────────────────────┤
+│     SSOT (Engineering Truth)  │               PUB (Delivery)                  │
+│  Authoritative Backplane      │        Controlled Front-End Outputs            │
+│                               │                                               │
+│  • Lifecycle baselines        │  • CSDB (S1000D data modules)                  │
+│  • Requirements & ICDs        │  • EXPORT (PDF / HTML)                         │
+│  • Safety & certification     │  • IETP (Runtime / Interactive)                │
+│    evidence                   │                                               │
+│  • Design models              │                                               │
+│  • V&V artifacts              │                                               │
+│  • Deterministic reasoning    │                                               │
+├───────────────────────────────┴───────────────────────────────────────────────┤
+│  CSDB / NU (Operational Consumption)                                           │
+│  ─────────────────────────────────                                            │
+│  • Role-specific operational datasets                                         │
+│  • Atomic units (NU): steps, rows, parameters                                  │
+│  • Export control & access governance                                          │
+└───────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ### SSOT (Single Source of Truth)
