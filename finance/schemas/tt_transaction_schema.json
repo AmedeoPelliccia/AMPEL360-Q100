@@ -1,0 +1,128 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ampel360.eu/schemas/tt_transaction_schema.json",
+  "title": "Teknia Token Transaction Schema",
+  "description": "Schema for TT reward distribution events in the Knowledge Blockchain Ledger",
+  "type": "object",
+  "required": ["transaction_id", "block_id", "timestamp", "event_type", "knot_id", "contributors", "tt_total", "hash", "prev_hash"],
+  "properties": {
+    "transaction_id": {
+      "type": "string",
+      "pattern": "^TXN-[0-9]{4,}$",
+      "description": "Unique transaction identifier (e.g., TXN-0001)"
+    },
+    "block_id": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Blockchain block number"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp with UTC timezone"
+    },
+    "event_type": {
+      "type": "string",
+      "enum": ["knot_closure", "nku_production", "spillover_contribution", "manual_adjustment"],
+      "description": "Type of TT distribution event"
+    },
+    "knot_id": {
+      "type": "string",
+      "pattern": "^KNOT-[0-9]{2}-[0-9]{2}-[0-9]{3}$",
+      "description": "KNOT identifier (e.g., KNOT-25-10-001)"
+    },
+    "tt_total": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Total TT distributed in this transaction"
+    },
+    "contributors": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["contributor_id", "role", "tt_awarded", "effort_weight", "impact_weight"],
+        "properties": {
+          "contributor_id": {
+            "type": "string",
+            "description": "Contributor identifier (name or ID)"
+          },
+          "role": {
+            "type": "string",
+            "pattern": "^STK_[A-Z]+$",
+            "description": "Stakeholder role (e.g., STK_SE, STK_AI)"
+          },
+          "tt_awarded": {
+            "type": "number",
+            "minimum": 0,
+            "description": "TT awarded to this contributor"
+          },
+          "effort_weight": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "Normalized effort contribution (0-1)"
+          },
+          "impact_weight": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "Normalized impact contribution (0-1)"
+          },
+          "spillover_multiplier": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 2,
+            "default": 0,
+            "description": "Spillover bonus for cross-KNOT contributions (0-2)"
+          },
+          "knus_contributed": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^KNU-[0-9]{2}-[0-9]{2}-[0-9]{3}-LC[0-9]{2}-.*$"
+            },
+            "description": "List of KNU IDs contributed"
+          }
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "properties": {
+        "o_knot": {
+          "type": "string",
+          "description": "Origin O-KNOT discovery"
+        },
+        "y_knot": {
+          "type": "string",
+          "description": "Justification Y-KNOT"
+        },
+        "knot": {
+          "type": "string",
+          "description": "Framing KNOT"
+        },
+        "ssot_lc01_path": {
+          "type": "string",
+          "description": "Path to SSOT/LC01_PROBLEM_STATEMENT/"
+        }
+      }
+    },
+    "hash": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "description": "SHA-256 hash of this transaction"
+    },
+    "prev_hash": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "description": "SHA-256 hash of previous block"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["pending", "confirmed", "historical"],
+      "default": "confirmed",
+      "description": "Transaction status"
+    }
+  }
+}

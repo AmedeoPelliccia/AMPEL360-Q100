@@ -1,0 +1,3 @@
+Transaction_ID,Block_ID,Timestamp,Event_Type,KNOT_ID,KNU_ID,Contributor_Role,Contributor_Name,TT_Awarded,Effort_Weight,Impact_Weight,Spillover_Multiplier,Hash,Prev_Hash,Status
+# Transaction registry will be populated as KNOTs are closed and TT is distributed
+# Format: TXN-NNNN,Block_ID,ISO8601_Timestamp,Event_Type,KNOT-XX-YY-ZZZ,KNU-XX-YY-ZZZ-LCNN-AAA,STK_*,Name,TT_Value,Effort_0-1,Impact_0-1,Spillover_0-2,SHA256_Hash,SHA256_Prev_Hash,active|historical

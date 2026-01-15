@@ -1,0 +1,12 @@
+{
+  "ledger_version": "1.0",
+  "ledger_type": "Knowledge Blockchain Ledger (KBL)",
+  "programme": "AMPEL360-Q100",
+  "description": "Immutable ledger tracking Teknia Token (TT) rewards, NKU production, and knowledge provenance",
+  "genesis_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "created_date": "2026-01-15T12:00:00Z",
+  "last_updated": "2026-01-15T12:00:00Z",
+  "total_blocks": 0,
+  "total_tt_distributed": 0.0,
+  "entries": []
+}
