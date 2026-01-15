@@ -1,0 +1,24 @@
+# O-KNOT Discovery Record
+# Origin Knowledge Node - Problem Statement Awareness
+
+o_knot_id: O-KNOT-00-00-001
+title: General Program Knowledge Gap
+trigger_source: heritage
+created_date: 2026-01-15
+
+problem_statement: |
+  Initial program knowledge gaps inherited from prior programs
+  and legacy system architectures require systematic discovery
+  and documentation before resolution planning can begin.
+
+impact_hypothesis:
+  safety: medium
+  certification: high
+  cost: medium
+  schedule: low
+  operations: medium
+
+heritage_sources:
+  - Prior program documentation gaps
+  - Legacy system assumptions
+  - Historical data transfer requirements

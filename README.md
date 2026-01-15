@@ -1461,6 +1461,7 @@ HTML/PDF are outputs; the **IETP runtime** is the deliverable software "image" t
 
 | Document | Description |
 |----------|-------------|
+| [Ontology Genesis and Knowledge Model](./ONTOLOGY_GENESIS_KNOWLEDGE_MODEL.md) | Foundational methodology for uncertainty resolution and knowledge architecture |
 | [OPT-IN Framework Standard](./OPT-IN_FRAMEWORK_STANDARD.md) | Complete framework specification |
 | [Documentation Standard](./AMPEL360_DOCUMENTATION_STANDARD.md) | Formatting and structure guidelines |
 | [AI→ASI Transition Proposal](./AI-ASI-TP. md) | AI→ASI transition roadmap:  governance, assurance, and certification-grade adoption across SSOT+PUB |
@@ -1518,5 +1519,5 @@ Creative Commons Zero v1.0 Universal — see [LICENSE](./LICENSE).
 </p>
 
 <p align="center">
-  <i>Last updated: 2026-01-11</i>
+  <i>Last updated: 2026-01-15</i>
 </p>
