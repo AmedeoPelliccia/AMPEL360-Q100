@@ -65,27 +65,55 @@ U_knu = (Residual_before - Residual_after)_knu / (Residual_total_reduction)_knot
 
 ## 5. Contributor Attribution within KNU
 
-Each KNU can have multiple contributors:
+### 5.0 Single Authorship Rule (Governance)
+
+**CRITICAL RULE:** Each KNU artifact file has **1 single authorship assignment**.
+
+If multiple contributors co-author the same KNU artifact files:
+- **TT reward distribution** is conditioned by a **pre-committed agreement** between parties
+- Agreement must be documented **before KNU execution begins** in `KNU_PLAN.csv` or `RACI.csv`
+- Agreement specifies exact TT share allocation (e.g., 60/40, 50/50, or custom split)
+- **Blockchain ledger records the agreement** in the KNU_reward_breakdown
+- **Disputes avoided** through advance clarity
+
+**Example:**
+```
+KNU: LC04-HMI-DESIGN
+Primary author: ahmed.hassan (60% of KNU TT)
+Co-author: john.smith (40% of KNU TT)
+Pre-committed agreement signed: 2026-01-13T08:00:00Z
+```
+
+Without a pre-committed agreement, **default attribution = 100% to primary contributor**.
+
+---
 
 ### 5.1 Primary Contributor
 
 The main author/owner of the KNU:
 - **contribution_type:** "primary"
-- **tt_share:** Base allocation from TT_knu
+- **tt_share:** Base allocation from TT_knu (or % per pre-committed agreement)
 
-### 5.2 Supporting Contributors
+### 5.2 Co-Author Contributors
 
-Collaborators who assist:
+When multiple people co-author the same KNU artifacts:
+- **contribution_type:** "co_author"
+- **tt_share:** Per pre-committed agreement (mandatory)
+- **agreement_reference:** Path to signed agreement document
+
+### 5.3 Supporting Contributors
+
+Collaborators who assist but don't co-author:
 - **contribution_type:** "supporting"
 - **tt_share:** Fraction of TT_knu (defined in RACI matrix)
 
-### 5.3 Review Contributors
+### 5.4 Review Contributors
 
 Reviewers/approvers:
 - **contribution_type:** "review"
 - **tt_share:** Small fraction of TT_knu (typically 5-10%)
 
-### 5.4 Spillover Bonus
+### 5.5 Spillover Bonus
 
 For cross-KNOT/cross-ATA contributions:
 - **contribution_type:** "spillover_bonus"
@@ -130,6 +158,63 @@ For cross-KNOT/cross-ATA contributions:
 **Spillover justification:** HMI design for flight compartment also benefits:
 - ATA-31 (Instruments) — cockpit display integration
 - ATA-34 (Navigation) — navigation system interface
+
+---
+
+### Co-Authorship Example: LC02-SEAT-LAYOUT (Hypothetical)
+
+**Scenario:** Two contributors co-author the same KNU artifact files.
+
+**Pre-Committed Agreement:**
+```yaml
+knu_id: KNU-25-10-001-LC02-SEAT-LAYOUT-REQ
+agreement_type: co_authorship
+signed_date: 2026-01-09T10:00:00Z
+signatories:
+  - john.smith (STK_SE) - 70% TT share
+  - susan.wong (STK_SE) - 30% TT share
+agreement_path: "SSOT/LC01_PROBLEM_STATEMENT/KNOT-25-10-001/agreements/co_authorship_LC02.yaml"
+witness: STK_PMO
+```
+
+**TT Allocation (TT_knu = 18.5):**
+- **John Smith:** 18.5 × 0.70 = **12.95 TT**
+- **Susan Wong:** 18.5 × 0.30 = **5.55 TT**
+
+**Blockchain Record:**
+```json
+{
+  "knu_id": "KNU-25-10-001-LC02-SEAT-LAYOUT-REQ",
+  "lifecycle": "LC02",
+  "title": "Crew Seat Layout Requirements",
+  "tt_allocated": 18.5,
+  "contributors": [
+    {
+      "contributor_id": "john.smith",
+      "role": "STK_SE",
+      "contribution_type": "primary",
+      "effort_hours": 32,
+      "tt_share": 12.95,
+      "agreement_reference": "SSOT/.../agreements/co_authorship_LC02.yaml"
+    },
+    {
+      "contributor_id": "susan.wong",
+      "role": "STK_SE",
+      "contribution_type": "co_author",
+      "effort_hours": 13,
+      "tt_share": 5.55,
+      "agreement_reference": "SSOT/.../agreements/co_authorship_LC02.yaml"
+    }
+  ]
+}
+```
+
+**Key Points:**
+- ✅ Agreement signed **before** KNU execution
+- ✅ Clear percentage split (70/30)
+- ✅ Both contributors recorded in blockchain
+- ✅ No disputes at closure time
+- ✅ Single authorship maintained (john.smith = primary, susan.wong = co_author)
 
 ---
 
@@ -196,31 +281,110 @@ If contributors disagree with KNU allocation:
 
 ---
 
-## 10. Benefits of KNU-Level Breakdown
+## 10. Pre-Committed Agreements (Co-Authorship)
 
-### 10.1 Granular Attribution
+### 10.1 Purpose
+
+When multiple contributors will co-author the same KNU artifact files, a **pre-committed agreement** must be established **before work begins**.
+
+### 10.2 Agreement Template
+
+```yaml
+# Co-Authorship Agreement
+knu_id: KNU-{ATA}-{SEC}-{SUB}-LC{NN}-{TITLE}
+agreement_type: co_authorship
+signed_date: YYYY-MM-DDTHH:MM:SSZ
+
+signatories:
+  - contributor_id: {user_id}
+    role: {STK_role}
+    tt_share_percentage: {0-100}
+    responsibilities: "{description}"
+  
+  - contributor_id: {user_id}
+    role: {STK_role}
+    tt_share_percentage: {0-100}
+    responsibilities: "{description}"
+
+witness: STK_PMO
+witness_signature_date: YYYY-MM-DDTHH:MM:SSZ
+
+storage_path: "SSOT/LC01_PROBLEM_STATEMENT/{KNOT-ID}/agreements/co_authorship_{knu_short_id}.yaml"
+```
+
+### 10.3 Validation Rules
+
+- ✅ Sum of `tt_share_percentage` must equal 100%
+- ✅ Minimum 2 signatories required
+- ✅ Agreement must be signed before KNU `_executions/` begin
+- ✅ All signatories must have valid STK roles
+- ✅ Witness signature required (STK_PMO or delegated authority)
+
+### 10.4 Recording in Blockchain
+
+Co-authored KNUs record agreement reference:
+
+```json
+"contributors": [
+  {
+    "contributor_id": "john.smith",
+    "contribution_type": "primary",
+    "tt_share": 12.95,
+    "agreement_reference": "SSOT/.../co_authorship_LC02.yaml",
+    "agreement_date": "2026-01-09T10:00:00Z"
+  },
+  {
+    "contributor_id": "susan.wong",
+    "contribution_type": "co_author",
+    "tt_share": 5.55,
+    "agreement_reference": "SSOT/.../co_authorship_LC02.yaml",
+    "agreement_date": "2026-01-09T10:00:00Z"
+  }
+]
+```
+
+### 10.5 Default Behavior (No Agreement)
+
+If no pre-committed agreement exists:
+- **100% TT allocation to primary contributor** (first to commit to KNU_PLAN.csv)
+- Supporting contributors receive separate TT for separate KNU contributions
+- Co-authorship disputes **cannot be resolved retroactively**
+
+### 10.6 Amendment Process
+
+Agreements can be amended **only before KNU closure**:
+1. All original signatories must approve amendment
+2. Amendment recorded with new signature date
+3. STK_PMO re-witnesses amended agreement
+4. Blockchain records amendment history
+
+---
+
+## 11. Benefits of KNU-Level Breakdown
+
+### 11.1 Granular Attribution
 
 Contributors can see exactly which KNUs earned which TT amounts.
 
-### 10.2 Fairness
+### 11.2 Fairness
 
 Clear methodology prevents arbitrary or biased allocations.
 
-### 10.3 Incentive Alignment
+### 11.3 Incentive Alignment
 
 High-complexity, high-uncertainty KNUs receive proportionally higher rewards.
 
-### 10.4 Audit Trail
+### 11.4 Audit Trail
 
 Complete transparency for EU auditors and consortium partners.
 
-### 10.5 Reusability
+### 11.5 Reusability
 
 KNU allocation patterns can inform future TOKENOMICS_TT.yaml definitions.
 
 ---
 
-## 11. Relation to Contributor-Level Rewards
+## 12. Relation to Contributor-Level Rewards
 
 **Contributor total TT** = Sum of TT shares across all KNUs they contributed to.
 
@@ -257,6 +421,7 @@ The KNU_reward_breakdown integrates with:
 - `SSOT/LC01_PROBLEM_STATEMENT/TOKENOMICS_TT.yaml` — Initial TT pool and parameters
 - `SSOT/LC01_PROBLEM_STATEMENT/KNU_PLAN.csv` — KNU definitions
 - `SSOT/LC01_PROBLEM_STATEMENT/AWARDS_TT.csv` — Final distribution
+- `SSOT/LC01_PROBLEM_STATEMENT/{KNOT-ID}/agreements/co_authorship_*.yaml` — Pre-committed co-authorship agreements
 
 ---
 
@@ -265,6 +430,7 @@ The KNU_reward_breakdown integrates with:
 | Date | Author | Change |
 |------|--------|--------|
 | 2026-01-15 | STK_PMO | Initial KNU reward breakdown methodology |
+| 2026-01-15 | STK_PMO | Added single authorship rule and pre-committed co-authorship agreements (Section 5.0, 10) |
 
 ---
 
