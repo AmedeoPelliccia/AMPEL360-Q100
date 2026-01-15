@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <strong>Digital engineering baseline and publication-grade CSDB for a next-generation hydrogen-electric BWB aircraft.</strong>
+  <strong>Full Digital Information Twin Architecture for Clean Aviation programmes—from GENESIS to contract-ready execution.</strong>
 </p>
 
 <p align="center">
