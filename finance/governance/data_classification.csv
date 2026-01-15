@@ -1,0 +1,10 @@
+Resource_Path,Classification,Export_Control,Owner_Role,Reviewed_Date,Notes
+OPT-IN_FRAMEWORK/O-ORGANIZATIONS/ATA_00-GENERAL/,PUBLIC,NONE,STK_CM,2026-01-15,Programme structure and documentation
+OPT-IN_FRAMEWORK/T-TECHNOLOGIES_AMEDEOPELLICCIA-ON_BOARD_SYSTEMS/C2-CIRCULAR_CRYOGENIC_CELLS/ATA_28-FUEL/,CONSORTIUM,DUAL_USE,STK_SE,2026-01-15,H₂ storage and distribution — potential dual-use
+OPT-IN_FRAMEWORK/T-TECHNOLOGIES_AMEDEOPELLICCIA-ON_BOARD_SYSTEMS/E-ELECTRICAL/ATA_24-ELECTRICAL_POWER/,CONSORTIUM,NONE,STK_SE,2026-01-15,Electrical power distribution
+OPT-IN_FRAMEWORK/N-NEURAL_NETWORKS/ATA_95-AI_ML_MODELS/,CONFIDENTIAL,DUAL_USE,STK_AI,2026-01-15,AI/ML flight control algorithms — export-controlled
+README.md,PUBLIC,NONE,STK_PMO,2026-01-15,Programme overview (public)
+TEKNIA_MANIFESTO.md,PUBLIC,NONE,STK_PMO,2026-01-15,Knowledge management framework (public)
+EU_FUNDING_ALIGNMENT.md,PUBLIC,NONE,STK_PMO,2026-01-15,EU funding integration (public)
+finance/blockchain/ledger.json,CONSORTIUM,NONE,STK_DATA,2026-01-15,Blockchain ledger — consortium access only
+IETP_RUNTIME/,CONSORTIUM,NONE,STK_PUB,2026-01-15,Interactive technical publications

@@ -1,0 +1,60 @@
+# KNOT Framing Record
+# Knowledge Node - Bounded Scope and Planning Intent
+
+knot_id: KNOT-00-00-005
+title: Unit Systems and Conversions
+o_knot_ref: O-KNOT-00-00-001
+y_knot_ref: Y-KNOT-00-00-001-001
+created_date: 2026-01-15
+status: planning
+
+# Bounded Scope
+scope_in:
+  - Primary/secondary unit convention for all Q100 documentation
+  - Conversion tables for SI ↔ imperial units
+  - Display precision standards for measurements
+  - H₂-specific units (energy density, flow rates, cryogenic temps)
+  - Traceability to international standards (ISO 80000)
+
+scope_out:
+  - Unit implementation in analysis tools (separate engineering effort)
+  - Specific engineering calculations (use established conversion factors)
+  - Real-time unit conversion in software systems
+
+# Acceptance Criteria (Intent Level)
+acceptance_intent:
+  - All Q100 documents use consistent primary/secondary unit notation
+  - Conversion factors verified against international standards
+  - H₂-specific units clearly defined and consistently applied
+  - Display precision rules established for all measurement types
+  - Regulatory compliance (FAA/EASA) verified
+
+# High-Level Dependencies
+dependencies:
+  upstream:
+    - KNOT-00-00-001: Program terminology standardization
+  downstream:
+    - All ATA chapters using measurements and units
+    - LC02 system requirements for unit specifications
+    - LC04 design definitions using unit systems
+
+# Owner and Stakeholders
+owner: STK_SE
+stakeholders:
+  - STK_CERT  # Regulatory compliance
+  - STK_OPS   # Operational documentation
+  - STK_PUB   # Publication formatting
+
+# Target Residual
+residual_before: 100
+residual_target: 5
+
+# Notes
+notes: |
+  This KNOT addresses the specific challenge of H₂-specific units
+  (e.g., kg/m³ for liquid hydrogen density, kJ/kg for specific energy)
+  which are not commonly used in conventional aircraft documentation.
+  
+  The residual target is set to 5 (very low uncertainty) because unit
+  conversions are well-established and can be directly referenced from
+  international standards.

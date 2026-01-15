@@ -1,0 +1,37 @@
+{
+  "block_id": 0,
+  "block_type": "genesis",
+  "timestamp": "2026-01-15T12:00:00Z",
+  "programme": "AMPEL360-Q100",
+  "description": "Genesis block — Programme initialization",
+  "event_data": {
+    "event_type": "programme_initialization",
+    "programme_name": "AMPEL360 Q100",
+    "programme_mission": "Demonstrate climate-neutral aviation through hydrogen-electric BWB aircraft",
+    "genesis_stakeholders": [
+      "STK_PMO",
+      "STK_CM",
+      "STK_SE",
+      "STK_SAF",
+      "STK_CERT",
+      "STK_DATA"
+    ],
+    "initial_tt_allocation": {
+      "description": "Total TT pool allocated across all KNOTs",
+      "total_pool": 0.0,
+      "note": "Updated as KNOTs are framed with TOKENOMICS_TT.yaml"
+    },
+    "governance": {
+      "authority": "00-01-programme/SSOT/LC00_PROGRAM_BASELINE/",
+      "policy_anchor": "00-02-policy-and-funding/",
+      "eu_mandate": "European Green Deal, Clean Aviation JU, Horizon Europe"
+    }
+  },
+  "hash": "sha256:d4e56740f876aef8c010b86a40d5f56745a118d0906a34e69aec8c0db1cb8fa3",
+  "prev_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "signature": {
+    "signed_by": "STK_PMO",
+    "signature_method": "SHA-256",
+    "signature_timestamp": "2026-01-15T12:00:00Z"
+  }
+}

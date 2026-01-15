@@ -1,0 +1,147 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ampel360.eu/schemas/data_export_schema.json",
+  "title": "Data Export Control Schema",
+  "description": "Schema for data export metadata and classification control",
+  "type": "object",
+  "required": ["export_id", "timestamp", "resource_path", "classification", "requester", "approver", "destination"],
+  "properties": {
+    "export_id": {
+      "type": "string",
+      "pattern": "^EXP-[0-9]{4,}$",
+      "description": "Unique export request identifier"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Export request timestamp (ISO 8601 UTC)"
+    },
+    "resource_path": {
+      "type": "string",
+      "description": "Path to resource being exported (file, directory, or artifact)"
+    },
+    "resource_type": {
+      "type": "string",
+      "enum": ["file", "directory", "artifact", "dataset", "publication"],
+      "description": "Type of resource"
+    },
+    "classification": {
+      "type": "string",
+      "enum": ["PUBLIC", "CONSORTIUM", "CONFIDENTIAL", "EXPORT_CONTROLLED"],
+      "description": "Data classification level"
+    },
+    "export_control_category": {
+      "type": "string",
+      "enum": ["NONE", "DUAL_USE", "ITAR", "EAR", "OTHER"],
+      "description": "Export control regulation category"
+    },
+    "requester": {
+      "type": "object",
+      "required": ["name", "role", "organization"],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string",
+          "pattern": "^STK_[A-Z]+$"
+        },
+        "organization": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        }
+      }
+    },
+    "approver": {
+      "type": "object",
+      "required": ["name", "role", "approval_timestamp"],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string",
+          "pattern": "^STK_[A-Z]+$"
+        },
+        "approval_timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "approval_notes": {
+          "type": "string"
+        }
+      }
+    },
+    "destination": {
+      "type": "object",
+      "required": ["type", "description"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["INTERNAL", "CONSORTIUM", "EU_PROGRAMME", "EXTERNAL_APPROVED", "PUBLIC"],
+          "description": "Destination classification"
+        },
+        "description": {
+          "type": "string",
+          "description": "Destination details (organization, purpose, etc.)"
+        },
+        "country": {
+          "type": "string",
+          "description": "ISO 3166-1 alpha-2 country code"
+        },
+        "compliance_check": {
+          "type": "boolean",
+          "description": "Export control compliance verified"
+        }
+      }
+    },
+    "purpose": {
+      "type": "string",
+      "description": "Purpose of data export (e.g., 'EU periodic report', 'Partner collaboration')"
+    },
+    "encryption": {
+      "type": "object",
+      "properties": {
+        "encrypted": {
+          "type": "boolean",
+          "description": "Whether data is encrypted"
+        },
+        "method": {
+          "type": "string",
+          "description": "Encryption method (e.g., AES-256, PGP)"
+        }
+      }
+    },
+    "audit_trail": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "actor": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "hash": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "description": "SHA-256 hash of exported data (integrity check)"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["pending", "approved", "rejected", "completed", "expired"],
+      "description": "Export request status"
+    }
+  }
+}

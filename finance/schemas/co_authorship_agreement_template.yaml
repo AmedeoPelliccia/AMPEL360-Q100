@@ -1,0 +1,138 @@
+# Co-Authorship Agreement Template
+# 
+# PURPOSE: Define TT reward distribution when multiple contributors co-author the same KNU artifact files
+# AUTHORITY: STK_PMO + TOKENOMICS_TT.yaml
+# GOVERNANCE RULE: 1 single authorship per KNU artifact; multi-contributor rewards conditioned by pre-committed agreement
+# 
+# USAGE:
+#   1. Copy this template to: SSOT/LC01_PROBLEM_STATEMENT/{KNOT-ID}/agreements/co_authorship_{knu_short_id}.yaml
+#   2. Fill in all fields before KNU execution begins
+#   3. All signatories must sign before first commit to KNU _executions/
+#   4. STK_PMO or delegated authority must witness
+#   5. Agreement becomes immutable after KNU closure
+
+---
+
+# Agreement Metadata
+knu_id: "KNU-{ATA}-{SEC}-{SUB}-LC{NN}-{TITLE}"  # Full KNU identifier
+knot_id: "KNOT-{ATA}-{SEC}-{SUB}"               # Parent KNOT
+agreement_type: "co_authorship"                  # Fixed value
+agreement_version: "1.0"                         # Template version
+created_date: "YYYY-MM-DDTHH:MM:SSZ"            # Agreement creation (UTC)
+signed_date: "YYYY-MM-DDTHH:MM:SSZ"             # Final signature date (UTC)
+
+# Signatories (Minimum 2 required)
+signatories:
+  - contributor_id: "john.smith"                 # User ID (email prefix or LDAP)
+    contributor_name: "John Smith"               # Full name
+    role: "STK_SE"                               # Stakeholder role
+    organization: "Systems Engineering Team"     # Team/org affiliation
+    tt_share_percentage: 70.0                    # Must sum to 100% across all signatories
+    responsibilities: |
+      - Lead author for requirements analysis
+      - Primary owner of SSOT artifacts
+      - Final review and approval authority
+    effort_hours_planned: 32                     # Planned effort (for validation)
+    signature_date: "YYYY-MM-DDTHH:MM:SSZ"
+    signature_hash: "sha256:..."                 # Digital signature (optional)
+  
+  - contributor_id: "susan.wong"
+    contributor_name: "Susan Wong"
+    role: "STK_SE"
+    organization: "Systems Engineering Team"
+    tt_share_percentage: 30.0
+    responsibilities: |
+      - Supporting analysis and design
+      - Co-author of technical specifications
+      - Review and validation support
+    effort_hours_planned: 13
+    signature_date: "YYYY-MM-DDTHH:MM:SSZ"
+    signature_hash: "sha256:..."
+
+# Witness (STK_PMO or delegated authority)
+witness:
+  witness_id: "stk_pmo"
+  witness_name: "Programme Management Office"
+  role: "STK_PMO"
+  witness_signature_date: "YYYY-MM-DDTHH:MM:SSZ"
+  witness_signature_hash: "sha256:..."
+  approval_notes: "Agreement validated; tt_share_percentage sum = 100%; proceed with KNU execution"
+
+# Agreement Terms
+terms:
+  tt_pool_source: "TOKENOMICS_TT.yaml"           # Reference to TT pool definition
+  tt_knu_allocated: 18.5                         # Total TT for this KNU (from TOKENOMICS)
+  complexity_factor: 1.2                         # KNU complexity multiplier
+  uncertainty_contribution: 10                   # % of KNOT uncertainty resolved
+  
+  distribution_method: "percentage"              # Fixed: percentage-based split
+  
+  dispute_resolution: |
+    Any disputes regarding agreement interpretation must be escalated to STK_PMO.
+    Agreements cannot be amended retroactively after KNU closure.
+    All amendments require re-signature by all original signatories.
+  
+  termination_conditions: |
+    - Agreement becomes immutable at KNU closure
+    - If KNU is canceled, agreement is void
+    - If contributor leaves programme, TT share redistributed per STK_PMO decision
+
+# Validation (Auto-computed)
+validation:
+  tt_share_sum: 100.0                            # Must equal 100.0
+  signatory_count: 2                             # Minimum 2 required
+  effort_hours_sum: 45                           # Total planned effort
+  all_signatures_present: true                   # All signatories + witness signed
+  agreement_status: "active"                     # active | amended | closed | void
+
+# Blockchain Integration
+blockchain:
+  recorded_in_ledger: false                      # Updated to true after KNOT closure
+  ledger_block_id: null                          # Populated after closure
+  ledger_transaction_ids: []                     # TXN IDs for each contributor
+  ledger_hash: null                              # Block hash containing this agreement
+
+# Amendment History (if applicable)
+amendments: []
+# Example amendment:
+#   - amendment_id: 1
+#     amended_date: "YYYY-MM-DDTHH:MM:SSZ"
+#     amended_by: "john.smith"
+#     reason: "Effort reallocation due to scope change"
+#     changes:
+#       - field: "signatories[0].tt_share_percentage"
+#         old_value: 70.0
+#         new_value: 65.0
+#       - field: "signatories[1].tt_share_percentage"
+#         old_value: 30.0
+#         new_value: 35.0
+#     re_signatures: [...]
+#     witness_re_approval: {...}
+
+# Storage and Access
+storage:
+  agreement_path: "SSOT/LC01_PROBLEM_STATEMENT/{KNOT-ID}/agreements/co_authorship_{knu_short_id}.yaml"
+  access_control: "CONSORTIUM"                   # Classification level
+  immutable_after_closure: true                  # Cannot modify after KNU closure
+  audit_trail_required: true                     # All access logged
+
+---
+
+# VALIDATION CHECKLIST (Complete before signing):
+# 
+# ☐ All signatories have valid STK roles
+# ☐ Sum of tt_share_percentage = 100.0
+# ☐ Responsibilities clearly defined for each signatory
+# ☐ Planned effort hours reasonable for tt_share allocation
+# ☐ Agreement signed BEFORE any KNU _executions/ commits
+# ☐ STK_PMO witness signature obtained
+# ☐ Agreement stored in correct SSOT path
+# ☐ All signatories understand dispute resolution process
+# ☐ All signatories understand immutability after closure
+
+---
+
+# REFERENCES:
+# - finance/KNU_REWARD_BREAKDOWN_METHODOLOGY.md (Section 5.0, 10)
+# - TEKNIA_MANIFESTO.md (NKU concepts)
+# - SSOT/LC01_PROBLEM_STATEMENT/TOKENOMICS_TT.yaml (TT pool definition)

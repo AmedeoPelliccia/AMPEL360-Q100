@@ -1,0 +1,418 @@
+{
+  "ledger_version": "1.0",
+  "ledger_type": "Knowledge Blockchain Ledger (KBL)",
+  "programme": "AMPEL360-Q100",
+  "description": "Immutable ledger tracking Teknia Token (TT) rewards, NKU production, and knowledge provenance",
+  "genesis_hash": "sha256:d4e56740f876aef8c010b86a40d5f56745a118d0906a34e69aec8c0db1cb8fa3",
+  "created_date": "2026-01-15T12:00:00Z",
+  "last_updated": "2026-01-15T14:30:00Z",
+  "total_blocks": 1,
+  "total_tt_distributed": 150.0,
+  "entries": [
+    {
+      "block_id": 1,
+      "timestamp": "2026-01-15T14:30:00Z",
+      "event_type": "knot_closure",
+      "knot_id": "KNOT-25-10-001",
+      "knot_title": "Flight Compartment Layout Requirements",
+      "ata_reference": "ATA-25-10-00-00",
+      "tt_pool": 150.0,
+      "tt_distributed": 150.0,
+      "uncertainty_reduction": {
+        "baseline_residual": 100,
+        "target_residual": 15,
+        "achieved_residual": 12,
+        "reduction_percentage": 88
+      },
+      "contributors": [
+        {
+          "contributor_id": "john.smith",
+          "contributor_name": "John Smith",
+          "role": "STK_SE",
+          "organization": "Systems Engineering Team",
+          "tt_awarded": 45.5,
+          "effort_weight": 0.35,
+          "effort_hours": 120,
+          "impact_weight": 0.25,
+          "impact_score": 0.9,
+          "spillover_multiplier": 0.0,
+          "knus_contributed": [
+            "KNU-25-10-001-LC02-SEAT-LAYOUT-REQ",
+            "KNU-25-10-001-LC04-COMPARTMENT-ICD",
+            "KNU-25-10-001-LC05-ERGONOMICS-ANALYSIS"
+          ]
+        },
+        {
+          "contributor_id": "maria.garcia",
+          "contributor_name": "Maria Garcia",
+          "role": "STK_SAF",
+          "organization": "Safety Engineering Team",
+          "tt_awarded": 38.2,
+          "effort_weight": 0.28,
+          "effort_hours": 95,
+          "impact_weight": 0.22,
+          "impact_score": 0.85,
+          "spillover_multiplier": 0.0,
+          "knus_contributed": [
+            "KNU-25-10-001-LC03-SAFETY-ANALYSIS",
+            "KNU-25-10-001-LC06-EGRESS-TEST"
+          ]
+        },
+        {
+          "contributor_id": "ahmed.hassan",
+          "contributor_name": "Ahmed Hassan",
+          "role": "STK_AI",
+          "organization": "AI/ML Systems Team",
+          "tt_awarded": 32.8,
+          "effort_weight": 0.22,
+          "effort_hours": 75,
+          "impact_weight": 0.20,
+          "impact_score": 0.80,
+          "spillover_multiplier": 0.15,
+          "knus_contributed": [
+            "KNU-25-10-001-LC04-HMI-DESIGN",
+            "KNU-25-10-001-LC05-AI-CREW-ASSIST"
+          ],
+          "spillover_note": "AI crew assistance system contributes to ATA-31 (Instruments) and ATA-34 (Navigation)"
+        },
+        {
+          "contributor_id": "lisa.chen",
+          "contributor_name": "Lisa Chen",
+          "role": "STK_TEST",
+          "organization": "Verification & Test Team",
+          "tt_awarded": 21.5,
+          "effort_weight": 0.15,
+          "effort_hours": 50,
+          "impact_weight": 0.15,
+          "impact_score": 0.75,
+          "spillover_multiplier": 0.0,
+          "knus_contributed": [
+            "KNU-25-10-001-LC06-MOCKUP-TEST",
+            "KNU-25-10-001-LC06-VALIDATION-REPORT"
+          ]
+        },
+        {
+          "contributor_id": "robert.kumar",
+          "contributor_name": "Robert Kumar",
+          "role": "STK_CERT",
+          "organization": "Certification Team",
+          "tt_awarded": 12.0,
+          "effort_weight": 0.10,
+          "effort_hours": 30,
+          "impact_weight": 0.08,
+          "impact_score": 0.70,
+          "spillover_multiplier": 0.0,
+          "knus_contributed": [
+            "KNU-25-10-001-LC03-CERT-COMPLIANCE"
+          ]
+        }
+      ],
+      "KNU_reward_breakdown": [
+        {
+          "knu_id": "KNU-25-10-001-LC02-SEAT-LAYOUT-REQ",
+          "lifecycle": "LC02",
+          "title": "Crew Seat Layout Requirements",
+          "tt_allocated": 18.5,
+          "complexity_factor": 1.2,
+          "uncertainty_contribution": 10,
+          "contributors": [
+            {
+              "contributor_id": "john.smith",
+              "role": "STK_SE",
+              "contribution_type": "primary",
+              "effort_hours": 45,
+              "tt_share": 18.5
+            }
+          ]
+        },
+        {
+          "knu_id": "KNU-25-10-001-LC03-SAFETY-ANALYSIS",
+          "lifecycle": "LC03",
+          "title": "Flight Compartment Safety Analysis",
+          "tt_allocated": 28.0,
+          "complexity_factor": 1.5,
+          "uncertainty_contribution": 18,
+          "contributors": [
+            {
+              "contributor_id": "maria.garcia",
+              "role": "STK_SAF",
+              "contribution_type": "primary",
+              "effort_hours": 65,
+              "tt_share": 28.0
+            }
+          ]
+        },
+        {
+          "knu_id": "KNU-25-10-001-LC03-CERT-COMPLIANCE",
+          "lifecycle": "LC03",
+          "title": "Certification Compliance Evidence",
+          "tt_allocated": 12.0,
+          "complexity_factor": 1.0,
+          "uncertainty_contribution": 8,
+          "contributors": [
+            {
+              "contributor_id": "robert.kumar",
+              "role": "STK_CERT",
+              "contribution_type": "primary",
+              "effort_hours": 30,
+              "tt_share": 12.0
+            }
+          ]
+        },
+        {
+          "knu_id": "KNU-25-10-001-LC04-COMPARTMENT-ICD",
+          "lifecycle": "LC04",
+          "title": "Flight Compartment Interface Control Document",
+          "tt_allocated": 16.2,
+          "complexity_factor": 1.1,
+          "uncertainty_contribution": 12,
+          "contributors": [
+            {
+              "contributor_id": "john.smith",
+              "role": "STK_SE",
+              "contribution_type": "primary",
+              "effort_hours": 42,
+              "tt_share": 16.2
+            }
+          ]
+        },
+        {
+          "knu_id": "KNU-25-10-001-LC04-HMI-DESIGN",
+          "lifecycle": "LC04",
+          "title": "Human-Machine Interface Design",
+          "tt_allocated": 22.5,
+          "complexity_factor": 1.4,
+          "uncertainty_contribution": 15,
+          "contributors": [
+            {
+              "contributor_id": "ahmed.hassan",
+              "role": "STK_AI",
+              "contribution_type": "primary",
+              "effort_hours": 52,
+              "tt_share": 19.6
+            },
+            {
+              "contributor_id": "ahmed.hassan",
+              "role": "STK_AI",
+              "contribution_type": "spillover_bonus",
+              "spillover_multiplier": 0.15,
+              "tt_share": 2.9,
+              "spillover_note": "Cross-ATA contribution to ATA-31 (Instruments) and ATA-34 (Navigation)"
+            }
+          ]
+        },
+        {
+          "knu_id": "KNU-25-10-001-LC05-ERGONOMICS-ANALYSIS",
+          "lifecycle": "LC05",
+          "title": "Ergonomics and Human Factors Analysis",
+          "tt_allocated": 10.8,
+          "complexity_factor": 1.0,
+          "uncertainty_contribution": 9,
+          "contributors": [
+            {
+              "contributor_id": "john.smith",
+              "role": "STK_SE",
+              "contribution_type": "primary",
+              "effort_hours": 33,
+              "tt_share": 10.8
+            }
+          ]
+        },
+        {
+          "knu_id": "KNU-25-10-001-LC05-AI-CREW-ASSIST",
+          "lifecycle": "LC05",
+          "title": "AI Crew Assistance System Model",
+          "tt_allocated": 10.3,
+          "complexity_factor": 1.3,
+          "uncertainty_contribution": 8,
+          "contributors": [
+            {
+              "contributor_id": "ahmed.hassan",
+              "role": "STK_AI",
+              "contribution_type": "primary",
+              "effort_hours": 23,
+              "tt_share": 10.3
+            }
+          ]
+        },
+        {
+          "knu_id": "KNU-25-10-001-LC06-MOCKUP-TEST",
+          "lifecycle": "LC06",
+          "title": "Physical Mockup Testing",
+          "tt_allocated": 11.8,
+          "complexity_factor": 1.1,
+          "uncertainty_contribution": 10,
+          "contributors": [
+            {
+              "contributor_id": "lisa.chen",
+              "role": "STK_TEST",
+              "contribution_type": "primary",
+              "effort_hours": 28,
+              "tt_share": 11.8
+            }
+          ]
+        },
+        {
+          "knu_id": "KNU-25-10-001-LC06-EGRESS-TEST",
+          "lifecycle": "LC06",
+          "title": "Emergency Egress Testing",
+          "tt_allocated": 10.2,
+          "complexity_factor": 1.2,
+          "uncertainty_contribution": 8,
+          "contributors": [
+            {
+              "contributor_id": "maria.garcia",
+              "role": "STK_SAF",
+              "contribution_type": "primary",
+              "effort_hours": 30,
+              "tt_share": 10.2
+            }
+          ]
+        },
+        {
+          "knu_id": "KNU-25-10-001-LC06-VALIDATION-REPORT",
+          "lifecycle": "LC06",
+          "title": "Validation Test Report",
+          "tt_allocated": 9.7,
+          "complexity_factor": 0.9,
+          "uncertainty_contribution": 7,
+          "contributors": [
+            {
+              "contributor_id": "lisa.chen",
+              "role": "STK_TEST",
+              "contribution_type": "primary",
+              "effort_hours": 22,
+              "tt_share": 9.7
+            }
+          ]
+        }
+      ],
+      "provenance": {
+        "o_knot": "O-KNOT-25-10-001",
+        "o_knot_path": "OPT-IN_FRAMEWORK/T-TECHNOLOGIES_.../ATA_25-EQUIPMENT_FURNISHINGS/25-10-flight-compartment/GENESIS/O-KNOT/O-KNOT-25-10-001/",
+        "y_knot": "Y-KNOT-25-10-001-001",
+        "y_knot_path": "OPT-IN_FRAMEWORK/T-TECHNOLOGIES_.../ATA_25-EQUIPMENT_FURNISHINGS/25-10-flight-compartment/GENESIS/Y-KNOT/Y-KNOT-25-10-001-001/",
+        "knot": "KNOT-25-10-001",
+        "knot_path": "OPT-IN_FRAMEWORK/T-TECHNOLOGIES_.../ATA_25-EQUIPMENT_FURNISHINGS/25-10-flight-compartment/GENESIS/KNOT/KNOT-25-10-001/",
+        "ssot_lc01_path": "OPT-IN_FRAMEWORK/T-TECHNOLOGIES_.../ATA_25-EQUIPMENT_FURNISHINGS/25-10-flight-compartment/SSOT/LC01_PROBLEM_STATEMENT/",
+        "tokenomics_yaml": "OPT-IN_FRAMEWORK/T-TECHNOLOGIES_.../ATA_25-EQUIPMENT_FURNISHINGS/25-10-flight-compartment/SSOT/LC01_PROBLEM_STATEMENT/TOKENOMICS_TT.yaml"
+      },
+      "knus_completed": [
+        {
+          "knu_id": "KNU-25-10-001-LC02-SEAT-LAYOUT-REQ",
+          "lifecycle": "LC02",
+          "title": "Crew Seat Layout Requirements",
+          "execution_path": "SSOT/LC02_SYSTEM_REQUIREMENTS/KNU-25-10-001-LC02-SEAT-LAYOUT-REQ/_executions/2026-01-10T09-15-00Z/",
+          "completed_date": "2026-01-10T09:15:00Z"
+        },
+        {
+          "knu_id": "KNU-25-10-001-LC03-SAFETY-ANALYSIS",
+          "lifecycle": "LC03",
+          "title": "Flight Compartment Safety Analysis",
+          "execution_path": "SSOT/LC03_SAFETY_RELIABILITY/KNU-25-10-001-LC03-SAFETY-ANALYSIS/_executions/2026-01-11T14-20-00Z/",
+          "completed_date": "2026-01-11T14:20:00Z"
+        },
+        {
+          "knu_id": "KNU-25-10-001-LC03-CERT-COMPLIANCE",
+          "lifecycle": "LC03",
+          "title": "Certification Compliance Evidence",
+          "execution_path": "SSOT/LC03_SAFETY_RELIABILITY/KNU-25-10-001-LC03-CERT-COMPLIANCE/_executions/2026-01-12T11-00-00Z/",
+          "completed_date": "2026-01-12T11:00:00Z"
+        },
+        {
+          "knu_id": "KNU-25-10-001-LC04-COMPARTMENT-ICD",
+          "lifecycle": "LC04",
+          "title": "Flight Compartment Interface Control Document",
+          "execution_path": "SSOT/LC04_DESIGN_DEFINITION/KNU-25-10-001-LC04-COMPARTMENT-ICD/_executions/2026-01-13T10-30-00Z/",
+          "completed_date": "2026-01-13T10:30:00Z"
+        },
+        {
+          "knu_id": "KNU-25-10-001-LC04-HMI-DESIGN",
+          "lifecycle": "LC04",
+          "title": "Human-Machine Interface Design",
+          "execution_path": "SSOT/LC04_DESIGN_DEFINITION/KNU-25-10-001-LC04-HMI-DESIGN/_executions/2026-01-13T15-45-00Z/",
+          "completed_date": "2026-01-13T15:45:00Z"
+        },
+        {
+          "knu_id": "KNU-25-10-001-LC05-ERGONOMICS-ANALYSIS",
+          "lifecycle": "LC05",
+          "title": "Ergonomics and Human Factors Analysis",
+          "execution_path": "SSOT/LC05_ANALYSIS_MODELS/KNU-25-10-001-LC05-ERGONOMICS-ANALYSIS/_executions/2026-01-14T08-00-00Z/",
+          "completed_date": "2026-01-14T08:00:00Z"
+        },
+        {
+          "knu_id": "KNU-25-10-001-LC05-AI-CREW-ASSIST",
+          "lifecycle": "LC05",
+          "title": "AI Crew Assistance System Model",
+          "execution_path": "SSOT/LC05_ANALYSIS_MODELS/KNU-25-10-001-LC05-AI-CREW-ASSIST/_executions/2026-01-14T16-30-00Z/",
+          "completed_date": "2026-01-14T16:30:00Z"
+        },
+        {
+          "knu_id": "KNU-25-10-001-LC06-MOCKUP-TEST",
+          "lifecycle": "LC06",
+          "title": "Physical Mockup Testing",
+          "execution_path": "SSOT/LC06_VERIFICATION/KNU-25-10-001-LC06-MOCKUP-TEST/_executions/2026-01-15T09-00-00Z/",
+          "completed_date": "2026-01-15T09:00:00Z"
+        },
+        {
+          "knu_id": "KNU-25-10-001-LC06-EGRESS-TEST",
+          "lifecycle": "LC06",
+          "title": "Emergency Egress Testing",
+          "execution_path": "SSOT/LC06_VERIFICATION/KNU-25-10-001-LC06-EGRESS-TEST/_executions/2026-01-15T11-30-00Z/",
+          "completed_date": "2026-01-15T11:30:00Z"
+        },
+        {
+          "knu_id": "KNU-25-10-001-LC06-VALIDATION-REPORT",
+          "lifecycle": "LC06",
+          "title": "Validation Test Report",
+          "execution_path": "SSOT/LC06_VERIFICATION/KNU-25-10-001-LC06-VALIDATION-REPORT/_executions/2026-01-15T13-00-00Z/",
+          "completed_date": "2026-01-15T13:00:00Z"
+        }
+      ],
+      "downstream_deliverables": [
+        {
+          "type": "CSDB",
+          "path": "PUB/AMM/CSDB/DM/DMC-AMPEL360-25-10-01-00A-001A-A_001-00_EN-US.XML",
+          "title": "Flight Compartment Layout - AMM Data Module"
+        },
+        {
+          "type": "NU",
+          "path": "CSDB_REF/NU/NU-25-10-001-001.yaml",
+          "title": "Crew Seat Position Parameters (Atomic Unit)"
+        }
+      ],
+      "closure_metadata": {
+        "closed_by": "john.smith",
+        "closed_by_role": "STK_SE",
+        "closure_timestamp": "2026-01-15T14:30:00Z",
+        "approval_chain": [
+          {
+            "approver": "STK_SE",
+            "approved_date": "2026-01-15T14:15:00Z",
+            "approval_notes": "All technical requirements satisfied"
+          },
+          {
+            "approver": "STK_SAF",
+            "approved_date": "2026-01-15T14:20:00Z",
+            "approval_notes": "Safety analysis complete, no open hazards"
+          },
+          {
+            "approver": "STK_PMO",
+            "approved_date": "2026-01-15T14:25:00Z",
+            "approval_notes": "KNOT closure approved, authorize TT distribution"
+          }
+        ],
+        "verification_status": "verified",
+        "publication_status": "published"
+      },
+      "hash": "sha256:8b3f5d9e2a1c7f6e4b8d3a5c9e1f7b2d4a6c8e0f1a3b5d7e9c1f3a5b7d9e1f3a",
+      "prev_hash": "sha256:d4e56740f876aef8c010b86a40d5f56745a118d0906a34e69aec8c0db1cb8fa3",
+      "signature": {
+        "signed_by": "STK_PMO",
+        "signature_method": "SHA-256",
+        "signature_timestamp": "2026-01-15T14:30:00Z",
+        "signature_hash": "sha256:7a2b4c6d8e0f1a3b5c7d9e1f2a4b6c8d0e1f3a5b7c9d1e3f5a7b9c1d3e5f7a9b"
+      }
+    }
+  ]
+}

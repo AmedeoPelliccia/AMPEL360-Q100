@@ -1,0 +1,14 @@
+Role,PUBLIC,CONSORTIUM,CONFIDENTIAL,EXPORT_CONTROLLED,Description
+STK_PMO,RW,RW,RW,RW,Programme Management Office — full access
+STK_CM,RW,RW,R,R,Configuration Management — read-only on sensitive
+STK_SE,RW,RW,R,R,Systems Engineering — technical read access
+STK_SAF,RW,RW,R,R,Safety Engineering — safety analysis access
+STK_CERT,RW,RW,R,None,Certification Authority — no export-controlled access
+STK_OPS,RW,R,None,None,Operations — operational docs only
+STK_TEST,RW,RW,R,None,Verification & Test — test data access
+STK_AI,RW,RW,R,R,AI/ML Systems — algorithm access with export controls
+STK_DATA,RW,RW,RW,R,Data Management — full data access, export-controlled read-only
+STK_PUB,RW,R,None,None,Publications — public and consortium publications only
+Partner_Lead,RW,RW,RW,R,Partner Lead — full access to own IP, read export-controlled with approval
+External_Reviewer,R,None,None,None,External Reviewer — public access only
+Public,R,None,None,None,General Public — public access only

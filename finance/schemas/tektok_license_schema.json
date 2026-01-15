@@ -1,0 +1,210 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ampel360.eu/schemas/tektok_license_schema.json",
+  "title": "TEKTOK Knowledge Use License Schema",
+  "description": "Schema for knowledge use and exploitation licensing (TEKTOK)",
+  "type": "object",
+  "required": ["tektok_id", "timestamp", "nku_references", "licensor", "licensee", "rights", "obligations"],
+  "properties": {
+    "tektok_id": {
+      "type": "string",
+      "pattern": "^TEKTOK-[0-9]{4,}$",
+      "description": "Unique TEKTOK license identifier"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "License creation timestamp (ISO 8601 UTC)"
+    },
+    "nku_references": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "pattern": "^KNU-[0-9]{2}-[0-9]{2}-[0-9]{3}-LC[0-9]{2}-.*$"
+      },
+      "description": "NKUs covered by this license"
+    },
+    "licensor": {
+      "type": "object",
+      "required": ["organization", "representative"],
+      "properties": {
+        "organization": {
+          "type": "string",
+          "description": "Licensing organization"
+        },
+        "representative": {
+          "type": "string",
+          "description": "Authorized representative name"
+        },
+        "role": {
+          "type": "string",
+          "pattern": "^STK_[A-Z]+$"
+        }
+      }
+    },
+    "licensee": {
+      "type": "object",
+      "required": ["organization", "representative"],
+      "properties": {
+        "organization": {
+          "type": "string"
+        },
+        "representative": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string",
+          "description": "ISO 3166-1 alpha-2 country code"
+        }
+      }
+    },
+    "rights": {
+      "type": "object",
+      "required": ["use_type", "scope"],
+      "properties": {
+        "use_type": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["research", "development", "production", "commercialization", "publication", "derivative_works"]
+          },
+          "description": "Permitted use types"
+        },
+        "scope": {
+          "type": "string",
+          "enum": ["non_exclusive", "exclusive", "field_of_use_limited"],
+          "description": "License scope"
+        },
+        "territory": {
+          "type": "string",
+          "description": "Geographic territory (e.g., 'EU', 'Worldwide', 'USA')"
+        },
+        "duration": {
+          "type": "object",
+          "properties": {
+            "start_date": {
+              "type": "string",
+              "format": "date"
+            },
+            "end_date": {
+              "type": "string",
+              "format": "date"
+            },
+            "perpetual": {
+              "type": "boolean"
+            }
+          }
+        },
+        "sublicense": {
+          "type": "boolean",
+          "description": "Sublicensing permitted"
+        }
+      }
+    },
+    "obligations": {
+      "type": "object",
+      "properties": {
+        "attribution": {
+          "type": "boolean",
+          "description": "Attribution required"
+        },
+        "attribution_text": {
+          "type": "string",
+          "description": "Required attribution text"
+        },
+        "reporting": {
+          "type": "boolean",
+          "description": "Usage reporting required"
+        },
+        "reporting_frequency": {
+          "type": "string",
+          "enum": ["monthly", "quarterly", "annually", "on_request"]
+        },
+        "confidentiality": {
+          "type": "boolean",
+          "description": "Confidentiality obligations apply"
+        },
+        "export_control_compliance": {
+          "type": "boolean",
+          "description": "Export control compliance required"
+        }
+      }
+    },
+    "financial_terms": {
+      "type": "object",
+      "properties": {
+        "royalty_free": {
+          "type": "boolean"
+        },
+        "royalty_rate": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Royalty rate as percentage"
+        },
+        "payment_terms": {
+          "type": "string"
+        }
+      }
+    },
+    "risk_allocation": {
+      "type": "object",
+      "properties": {
+        "warranty": {
+          "type": "string",
+          "description": "Warranty terms"
+        },
+        "liability_limit": {
+          "type": "string",
+          "description": "Liability limitation terms"
+        },
+        "indemnification": {
+          "type": "string",
+          "description": "Indemnification terms"
+        }
+      }
+    },
+    "termination": {
+      "type": "object",
+      "properties": {
+        "termination_for_cause": {
+          "type": "boolean"
+        },
+        "notice_period_days": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "survival_clauses": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "governance": {
+      "type": "object",
+      "properties": {
+        "governing_law": {
+          "type": "string",
+          "description": "Governing law jurisdiction"
+        },
+        "dispute_resolution": {
+          "type": "string",
+          "enum": ["arbitration", "mediation", "litigation"]
+        }
+      }
+    },
+    "hash": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "description": "SHA-256 hash of license agreement"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["draft", "active", "suspended", "terminated", "expired"],
+      "description": "License status"
+    }
+  }
+}
