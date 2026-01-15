@@ -1,3 +1,7 @@
 Transaction_ID,Block_ID,Timestamp,Event_Type,KNOT_ID,KNU_ID,Contributor_Role,Contributor_Name,TT_Awarded,Effort_Weight,Impact_Weight,Spillover_Multiplier,Hash,Prev_Hash,Status
-# Transaction registry will be populated as KNOTs are closed and TT is distributed
-# Format: TXN-NNNN,Block_ID,ISO8601_Timestamp,Event_Type,KNOT-XX-YY-ZZZ,KNU-XX-YY-ZZZ-LCNN-AAA,STK_*,Name,TT_Value,Effort_0-1,Impact_0-1,Spillover_0-2,SHA256_Hash,SHA256_Prev_Hash,active|historical
+# Transaction registry populated as KNOTs are closed and TT is distributed
+TXN-0001,1,2026-01-15T14:30:00Z,knot_closure,KNOT-25-10-001,KNU-25-10-001-LC02-SEAT-LAYOUT-REQ,STK_SE,john.smith,45.5,0.35,0.25,0.0,sha256:8b3f5d9e2a1c7f6e4b8d3a5c9e1f7b2d4a6c8e0f1a3b5d7e9c1f3a5b7d9e1f3a,sha256:d4e56740f876aef8c010b86a40d5f56745a118d0906a34e69aec8c0db1cb8fa3,confirmed
+TXN-0002,1,2026-01-15T14:30:00Z,knot_closure,KNOT-25-10-001,KNU-25-10-001-LC03-SAFETY-ANALYSIS,STK_SAF,maria.garcia,38.2,0.28,0.22,0.0,sha256:8b3f5d9e2a1c7f6e4b8d3a5c9e1f7b2d4a6c8e0f1a3b5d7e9c1f3a5b7d9e1f3a,sha256:d4e56740f876aef8c010b86a40d5f56745a118d0906a34e69aec8c0db1cb8fa3,confirmed
+TXN-0003,1,2026-01-15T14:30:00Z,knot_closure,KNOT-25-10-001,KNU-25-10-001-LC04-HMI-DESIGN,STK_AI,ahmed.hassan,32.8,0.22,0.20,0.15,sha256:8b3f5d9e2a1c7f6e4b8d3a5c9e1f7b2d4a6c8e0f1a3b5d7e9c1f3a5b7d9e1f3a,sha256:d4e56740f876aef8c010b86a40d5f56745a118d0906a34e69aec8c0db1cb8fa3,confirmed
+TXN-0004,1,2026-01-15T14:30:00Z,knot_closure,KNOT-25-10-001,KNU-25-10-001-LC06-MOCKUP-TEST,STK_TEST,lisa.chen,21.5,0.15,0.15,0.0,sha256:8b3f5d9e2a1c7f6e4b8d3a5c9e1f7b2d4a6c8e0f1a3b5d7e9c1f3a5b7d9e1f3a,sha256:d4e56740f876aef8c010b86a40d5f56745a118d0906a34e69aec8c0db1cb8fa3,confirmed
+TXN-0005,1,2026-01-15T14:30:00Z,knot_closure,KNOT-25-10-001,KNU-25-10-001-LC03-CERT-COMPLIANCE,STK_CERT,robert.kumar,12.0,0.10,0.08,0.0,sha256:8b3f5d9e2a1c7f6e4b8d3a5c9e1f7b2d4a6c8e0f1a3b5d7e9c1f3a5b7d9e1f3a,sha256:d4e56740f876aef8c010b86a40d5f56745a118d0906a34e69aec8c0db1cb8fa3,confirmed
