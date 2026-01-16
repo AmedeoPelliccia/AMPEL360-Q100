@@ -14,11 +14,9 @@ Date: 2026-01-16
 """
 
 import argparse
-import os
-import shutil
 from datetime import datetime
 from pathlib import Path
-import csv
+import re
 
 # Default configuration
 DEFAULT_CONFIG = {
@@ -207,6 +205,8 @@ def substitute_template_vars(content, chapter, section, config):
 def create_directory_structure(base_path, chapter, section, config, dry_run=False):
     """Create the full directory structure for the chapter."""
     chapter_slug = config["title"].lower().replace(" ", "-").replace("/", "-")
+    # Collapse multiple consecutive hyphens into a single hyphen
+    chapter_slug = re.sub(r'-+', '-', chapter_slug)
     chapter_path = base_path / f"ATA_{chapter}-{config['title'].upper().replace(' ', '_').replace('/', '_')}" / f"ATA-{chapter}-{chapter_slug}" / f"{chapter}-{section}-general"
     
     directories = [
@@ -366,7 +366,7 @@ def scaffold_pub(chapter_path, chapter, section, config, template_dir, dry_run=F
     
     # XSLT transform
     process_template_file(
-        template_dir / "PUB_TEMPLATE" / "AMM" / "CSDB" / "DM" / "transforms" / "s1000d-to-markdown.xslt",
+        template_dir / "PUB_TEMPLATE" / "AMM" / "CSDB" / "DM" / "transforms" / "s1000d-to-markdown.xslt.template",
         chapter_path / "PUB" / "AMM" / "CSDB" / "DM" / "transforms" / "s1000d-to-markdown.xslt",
         chapter, section, config, dry_run
     )

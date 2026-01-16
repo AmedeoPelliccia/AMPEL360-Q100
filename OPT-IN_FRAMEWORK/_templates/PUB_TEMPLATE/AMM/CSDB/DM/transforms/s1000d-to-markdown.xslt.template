@@ -76,8 +76,15 @@
     
     <xsl:template match="levelledPara">
         <xsl:text>&#10;</xsl:text>
-        <xsl:value-of select="string-length(ancestor::levelledPara) + 2"/>
-        <xsl:text> </xsl:text>
+        <!-- Generate markdown heading based on nesting level -->
+        <xsl:variable name="level" select="count(ancestor::levelledPara) + 2"/>
+        <xsl:choose>
+            <xsl:when test="$level = 2"><xsl:text>## </xsl:text></xsl:when>
+            <xsl:when test="$level = 3"><xsl:text>### </xsl:text></xsl:when>
+            <xsl:when test="$level = 4"><xsl:text>#### </xsl:text></xsl:when>
+            <xsl:when test="$level = 5"><xsl:text>##### </xsl:text></xsl:when>
+            <xsl:otherwise><xsl:text>###### </xsl:text></xsl:otherwise>
+        </xsl:choose>
         <xsl:value-of select="title"/>
         <xsl:text>&#10;&#10;</xsl:text>
         <xsl:apply-templates select="*[not(self::title)]"/>

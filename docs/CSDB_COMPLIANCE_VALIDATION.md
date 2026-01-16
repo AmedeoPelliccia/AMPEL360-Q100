@@ -1,7 +1,7 @@
 # CSDB Compliance & Validation Strategy
 
 **Version:** 1.0.0  
-**Last Updated:** 2026-01-16  
+**Last Updated:** 2026-01-16 (Update this date when making changes)  
 **Applies To:** AMPEL360 Q100 Program - All ATA Chapters
 
 ---
@@ -249,7 +249,8 @@ jobs:
       
       - name: Download S1000D Schema
         run: |
-          # Download schema with checksum verification
+          # Download schema - note: s1000d.org may not support HTTPS
+          # If HTTPS is unavailable, consider hosting schema internally or verifying checksum
           wget -O /tmp/S1000D_5-0.zip http://www.s1000d.org/Downloads/S1000D_5-0.zip
           # TODO: Add checksum verification when official checksum is available
           # echo "EXPECTED_SHA256  /tmp/S1000D_5-0.zip" | sha256sum -c -
@@ -262,16 +263,18 @@ jobs:
             echo "Validating: $xml_file"
             xmllint --noout --schema /tmp/s1000d-schema/xml_schema_flat/descript.xsd "$xml_file" || EXIT_CODE=1
           done
+          
+          if [ "$EXIT_CODE" -eq 0 ]; then
+            echo "✅ All Data Modules passed S1000D schema validation"
+          else
+            echo "❌ Some Data Modules failed S1000D schema validation"
+          fi
           exit $EXIT_CODE
       
       - name: Report Results
         if: always()
         run: |
-          if [ $EXIT_CODE -eq 0 ]; then
-            echo "✅ All Data Modules passed S1000D schema validation"
-          else
-            echo "❌ Some Data Modules failed S1000D schema validation"
-          fi
+          echo "Validation complete. Check previous step for results."
 
   validate-brex:
     name: Validate BREX Business Rules

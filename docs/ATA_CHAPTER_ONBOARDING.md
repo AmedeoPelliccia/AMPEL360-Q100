@@ -64,7 +64,7 @@ Before starting chapter onboarding:
 - [ ] **Axis Assignment**: Determine which OPT-IN axis (O/N/T/P/I) the chapter belongs to
 - [ ] **Stakeholder Identification**: Identify chapter owner and key stakeholders
 - [ ] **Domain Expertise**: Ensure domain expert availability for HITL review
-- [ ] **Tools Setup**: Python 3.8+, XSLT processor, JSON Schema validator
+- [ ] **Tools Setup**: Python 3.6+, XSLT processor, JSON Schema validator
 
 ---
 
@@ -500,28 +500,30 @@ Link effectivity to S1000D applicability:
 
 ### Pre-Deployment Checklist
 
-- [ ] **Schema Validation**
+**Note:** The following validation scripts are planned for future implementation. For now, perform manual validation of schema compliance, BREX rules, and traceability.
+
+- [ ] **Schema Validation** (Future tool: validate_schema.py)
   ```bash
-  # Validate all YAML files
-  find . -name "*.yaml" -exec python validate_schema.py {} \;
+  # Manual validation: Use JSON Schema validators for YAML files
+  # Example: yamllint or python jsonschema library
   ```
 
-- [ ] **BREX Validation**
+- [ ] **BREX Validation** (Future tool: brex_validator.py)
   ```bash
-  # Run S1000D BREX check
-  s1000d-brex-check --brex DMC-AMPEL360-00-00-00-00A-022A-A --dm DMC-*.XML
+  # Manual validation: Use S1000D BREX checker if available
+  # s1000d-brex-check --brex DMC-AMPEL360-00-00-00-00A-022A-A --dm DMC-*.XML
   ```
 
-- [ ] **Traceability Audit**
+- [ ] **Traceability Audit** (Future tool: audit_traceability.py)
   ```bash
-  # Check for broken links
-  python audit_traceability.py --chapter XX
+  # Manual validation: Check for broken links in _derivation.yaml files
+  # Verify parent_knot references exist
   ```
 
-- [ ] **Confidence Score Analysis**
+- [ ] **Confidence Score Analysis** (Future tool: confidence_report.py)
   ```bash
-  # Report on low-confidence items
-  python confidence_report.py --chapter XX --threshold 0.85
+  # Manual validation: Review confidence scores in metadata
+  # Ensure low-confidence items are flagged for HITL review
   ```
 
 ### Continuous Integration Pipeline
@@ -573,8 +575,8 @@ jobs:
 ✅ **Right:** Every KNU must have _derivation.yaml linking to parent KNOT
 
 ### 3. **Inconsistent ATA Addressing**
-❌ **Wrong:** Mix of `ATA-28-10` and `ATA-2810` formats  
-✅ **Right:** Enforce `ATA-{CC}-{SS}-{SU}-{SB}-{SX}` format consistently (full addressing) or `ATA-{CC}-{SS}` (chapter-section only)
+❌ **Wrong:** Mix of `ATA-28-10` and `ATA-2810` formats, or using formats inappropriately  
+✅ **Right:** Use `ATA-{CC}-{SS}` for chapter-section references (e.g., `ATA-28-00`). Use full `ATA-{CC}-{SS}-{SU}-{SB}-{SX}` format only when source documents specify sub-unit/subject granularity. Never use unhyphenated forms.
 
 ### 4. **Missing Source Tracking**
 ❌ **Wrong:** Content without docId/span reference  
