@@ -10,6 +10,11 @@
 ```
 28-00-general/
 ├── README.md
+├── GENESIS/
+│   ├── O-KNOT/
+│   ├── Y-KNOT/
+│   ├── KNOT/
+│   └── _registry/
 ├── SSOT/
 │   ├── LC01_PROBLEM_STATEMENT/
 │   ├── LC02_SYSTEM_REQUIREMENTS/

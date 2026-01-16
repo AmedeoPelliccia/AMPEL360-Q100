@@ -1,0 +1,50 @@
+# KNOT Framing Record
+# Knowledge Node - Bounded Scope and Planning Intent
+
+knot_id: KNOT-28-00-001
+title: Fuel System Baseline
+o_knot_ref: O-KNOT-28-00-001
+y_knot_ref: Y-KNOT-28-00-001-001
+created_date: 2026-01-15
+status: planning
+
+# Bounded Scope
+scope_in:
+  - Fuel system baseline definition for ATA 28
+  - Cryogenic storage and distribution interfaces
+  - Safety and certification requirements for H₂ fuel
+
+scope_out:
+  - Detailed component design (handled in SSOT LC04)
+  - Manufacturing processes (handled in SSOT LC09)
+
+# Acceptance Criteria (Intent Level)
+acceptance_intent:
+  - Baseline scope for ATA 28 fuel systems documented
+  - Traceability established from GENESIS to SSOT LC01
+  - Stakeholder alignment captured for fuel system baseline
+
+# High-Level Dependencies
+dependencies:
+  upstream:
+    - KNOT-00-00-001: Program terminology standardization
+    - KNOT-00-00-002: Document architecture conventions
+  downstream:
+    - ATA 28 SSOT LC01 problem statement
+    - LC02 system requirements for Fuel
+
+# Owner and Stakeholders
+owner: STK_SE
+stakeholders:
+  - STK_CERT  # Regulatory compliance
+  - STK_FUEL
+  - STK_PUB
+
+# Target Residual
+residual_before: 100
+residual_target: 10
+
+# Notes
+notes: |
+  This KNOT frames the ATA 28 fuel system baseline and establishes
+  the intent for subsequent SSOT lifecycle work in LC01-LC14.
