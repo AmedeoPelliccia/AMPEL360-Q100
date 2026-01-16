@@ -37,8 +37,8 @@ dependencies:
 owner: STK_SE
 stakeholders:
   - STK_CERT  # Regulatory compliance
-  - {{STAKEHOLDER_1}}
-  - {{STAKEHOLDER_2}}
+  - STK_SE
+  - STK_PUB
 
 # Target Residual
 residual_before: 100

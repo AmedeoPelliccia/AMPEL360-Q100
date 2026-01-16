@@ -193,7 +193,9 @@ def substitute_template_vars(content, chapter, section, config):
         "{{DOWNSTREAM_DEPENDENCY}}": "All dependent chapters and systems",
         "{{CHAPTER_SPECIFIC_NOTES}}": "Chapter-specific implementation notes for " + config["title"],
         "{{DM_TITLE}}": config["title"] + " System Description",
-        "{{TBD_DESCRIPTION}}": config["title"] + "-specific parameter TBD"
+        "{{TBD_DESCRIPTION}}": config["title"] + "-specific parameter TBD",
+        "{{STAKEHOLDER_1}}": "STK_SE",
+        "{{STAKEHOLDER_2}}": "STK_PUB"
     }
     
     for key, value in substitutions.items():

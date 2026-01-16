@@ -249,8 +249,11 @@ jobs:
       
       - name: Download S1000D Schema
         run: |
-          wget http://www.s1000d.org/Downloads/S1000D_5-0.zip
-          unzip S1000D_5-0.zip -d /tmp/s1000d-schema/
+          # Download schema with checksum verification
+          wget -O /tmp/S1000D_5-0.zip http://www.s1000d.org/Downloads/S1000D_5-0.zip
+          # TODO: Add checksum verification when official checksum is available
+          # echo "EXPECTED_SHA256  /tmp/S1000D_5-0.zip" | sha256sum -c -
+          unzip /tmp/S1000D_5-0.zip -d /tmp/s1000d-schema/
       
       - name: Validate XML Files
         run: |

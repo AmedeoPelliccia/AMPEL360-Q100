@@ -574,7 +574,7 @@ jobs:
 
 ### 3. **Inconsistent ATA Addressing**
 ❌ **Wrong:** Mix of `ATA-28-10` and `ATA-2810` formats  
-✅ **Right:** Enforce `ATA-{CC}-{SS}` format consistently
+✅ **Right:** Enforce `ATA-{CC}-{SS}-{SU}-{SB}-{SX}` format consistently (full addressing) or `ATA-{CC}-{SS}` (chapter-section only)
 
 ### 4. **Missing Source Tracking**
 ❌ **Wrong:** Content without docId/span reference  
