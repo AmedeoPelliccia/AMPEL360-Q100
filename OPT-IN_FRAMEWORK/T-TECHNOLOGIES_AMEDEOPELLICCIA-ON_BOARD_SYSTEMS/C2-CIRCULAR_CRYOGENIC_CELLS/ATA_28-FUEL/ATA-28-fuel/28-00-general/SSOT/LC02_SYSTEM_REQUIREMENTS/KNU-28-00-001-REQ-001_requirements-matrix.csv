@@ -1,0 +1,9 @@
+REQ_ID,Old_ID,Title,Category,Priority,Rationale,Verification,Parent_KNOT,Downstream_Refs,Status
+REQ-AMPEL-28-00-02-SE-001,REQ-FUEL-001,Fuel System Function,General,MUST,Primary fuel system function for hydrogen-electric propulsion,Analysis + Test,KNOT-28-00-001,KNU-28-10-001-REQ-001;KNU-28-20-001-REQ-001,DRAFT
+REQ-AMPEL-28-00-02-SE-002,REQ-FUEL-002,Single Failure Tolerance,General,MUST,Airworthiness requirement for transport category aircraft (CS-25.951b),FMEA + SSA,KNOT-28-00-001,KNU-28-00-001-SAF-001,DRAFT
+REQ-AMPEL-28-00-02-SE-003,REQ-FUEL-003,Fuel Quantity Accuracy,General,MUST,Required for flight planning and safe operations,Test,KNOT-28-00-001,KNU-28-40-001-REQ-001,DRAFT
+REQ-AMPEL-28-00-02-SE-101,REQ-FUEL-101,LH₂ Storage Temperature,Cryogenic,MUST,Liquid hydrogen phase boundary constraint (14K-25K),Analysis + Test,KNOT-28-00-001,KNU-28-10-001-REQ-001,DRAFT
+REQ-AMPEL-28-00-02-SE-102,REQ-FUEL-102,Boil-Off Management,Cryogenic,MUST,Minimize fuel loss and maintain operational efficiency (≤2% per 24h ground; ≤0.5% per flight hour),Analysis + Test,KNOT-28-00-001,KNU-28-10-001-REQ-001;KNU-28-00-001-ANA-001,DRAFT
+REQ-AMPEL-28-00-02-SE-103,REQ-FUEL-103,C2 Cell Integration,Cryogenic,MUST,C2 technology enables low boil-off LH₂ storage,Analysis + Test,KNOT-28-00-001,KNU-28-10-001-REQ-001,DRAFT
+REQ-AMPEL-28-00-02-SAF-201,REQ-FUEL-201,H₂ Leak Detection,Safety,MUST,Early leak detection prevents flammability hazard (alarm at ≤25% LFL = 1% H₂ vol),Test,KNOT-28-00-001,KNU-28-00-001-SAF-001;KNU-28-40-001-REQ-001,DRAFT
+REQ-AMPEL-28-00-02-SAF-202,REQ-FUEL-202,Emergency Fuel Jettison,Safety,MUST,Emergency landing capability (MTOW to MLW in 15 min),Analysis + Test,KNOT-28-00-001,KNU-28-30-001-REQ-001;KNU-28-00-001-SAF-001,DRAFT
