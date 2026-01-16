@@ -1,4 +1,4 @@
-REQ_ID,Old_ID,Title,Category,Priority,Rationale,Verification,Parent_KNOT,Downstream_Refs,Status
+REQ_ID,Old_ID,Title,Category,Priority,Rationale,Verification,Parent_KNOT,Downstream_KNU,Status
 REQ-AMPEL-28-00-02-SE-001,REQ-FUEL-001,Fuel System Function,General,MUST,Primary fuel system function for hydrogen-electric propulsion,Analysis + Test,KNOT-28-00-001,KNU-28-10-001-REQ-001;KNU-28-20-001-REQ-001,DRAFT
 REQ-AMPEL-28-00-02-SE-002,REQ-FUEL-002,Single Failure Tolerance,General,MUST,Airworthiness requirement for transport category aircraft (CS-25.951b),FMEA + SSA,KNOT-28-00-001,KNU-28-00-001-SAF-001,DRAFT
 REQ-AMPEL-28-00-02-SE-003,REQ-FUEL-003,Fuel Quantity Accuracy,General,MUST,Required for flight planning and safe operations,Test,KNOT-28-00-001,KNU-28-40-001-REQ-001,DRAFT
