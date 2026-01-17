@@ -1,0 +1,95 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# DECISION RECORD — ATA {{CHAPTER}}-{{SECTION}} {{CHAPTER_TITLE}}
+# ═══════════════════════════════════════════════════════════════════════════════
+# Decision record for documenting engineering decisions and rationale
+# Version: v1.0
+# Last Updated: {{CREATED_DATE}}
+# ═══════════════════════════════════════════════════════════════════════════════
+
+decision_id: DEC-{{CHAPTER}}-{{SECTION}}-001
+title: "{{CHAPTER_TITLE}} Baseline Architecture Decision"
+status: PROPOSED  # PROPOSED | APPROVED | SUPERSEDED | REJECTED
+created_date: {{CREATED_DATE}}
+decision_date: null
+
+# Context
+context:
+  background: |
+    Engineering decision required for ATA {{CHAPTER}} ({{CHAPTER_TITLE}}) 
+    system baseline definition.
+    
+  problem_statement: |
+    Define the architectural approach for {{CHAPTER_TITLE}} systems
+    that meets program requirements and constraints.
+
+# Related KNOT
+knot_reference:
+  knot_id: KNOT-{{CHAPTER}}-{{SECTION}}-001
+  o_knot_ref: O-KNOT-{{CHAPTER}}-{{SECTION}}-001
+  y_knot_ref: Y-KNOT-{{CHAPTER}}-{{SECTION}}-001-001
+
+# Options Considered
+options:
+  - option_id: OPT-001
+    title: "Baseline Approach"
+    description: |
+      Standard ATA framework application with {{CHAPTER_TITLE}}-specific
+      adaptations.
+    pros:
+      - Proven methodology
+      - Program alignment
+    cons:
+      - May not address all domain-specific needs
+    risk_level: LOW
+
+  - option_id: OPT-002
+    title: "{{CHAPTER_SPECIFIC_OPTION}}"
+    description: |
+      {{CHAPTER_SPECIFIC_APPROACH}}
+    pros:
+      - Domain-specific optimization
+    cons:
+      - Requires additional validation
+    risk_level: MEDIUM
+
+# Decision
+decision:
+  selected_option: null
+  rationale: |
+    Decision pending. Will be documented upon stakeholder approval.
+  key_factors:
+    - Technical feasibility
+    - Regulatory compliance
+    - Program schedule
+    - Resource availability
+
+# Stakeholders
+stakeholders:
+  decision_maker: {{OWNER}}
+  consulted:
+    - STK_SE
+    - STK_CERT
+    - {{CHAPTER_STAKEHOLDER}}
+  informed:
+    - STK_PMO
+    - STK_CM
+
+# Approval Record
+approval:
+  approved_by: null
+  approval_date: null
+  approval_notes: null
+
+# Traceability
+traceability:
+  upstream:
+    - "Y-KNOT-{{CHAPTER}}-{{SECTION}}-001-001"
+  downstream:
+    - "KNU-{{CHAPTER}}-{{SECTION}}-001-REQ-001"
+
+# Change History
+change_history:
+  - version: "1.0"
+    date: {{CREATED_DATE}}
+    author: "{{OWNER}}"
+    changes: "Initial decision record creation"

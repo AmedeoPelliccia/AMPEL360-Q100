@@ -2,15 +2,20 @@
 """
 scaffold_chapter.py - ATA Chapter Scaffolding Script
 
-This script automates the creation of the full GENESIS → SSOT → CSDB → PUBS → EXPORT
-pipeline structure for new ATA chapters in the AMPEL360 Q100 OPT-IN Framework.
+This script automates the creation of the canonical "triple knowledge-base spine"
+(GENESIS → SSOT → PUBS) for new ATA chapters in the AMPEL360 Q100 OPT-IN Framework.
+
+The canonical structure for every ATA chapter:
+1. GENESIS/ - KNOT-driven uncertainty + decisions
+2. SSOT/ - Authoritative engineering truth (LC01-LC14)
+3. PUBS/ - Publication-grade customer/maintenance outputs (CSDB/DMC)
 
 Usage:
     python scaffold_chapter.py --chapter 28 --title "Fuel" --axis T-TECHNOLOGIES
 
 Author: AMPEL360 Program Office
-Version: 1.0.0
-Date: 2026-01-16
+Version: 1.1.0
+Date: 2026-01-17
 """
 
 import argparse
@@ -210,38 +215,32 @@ def create_directory_structure(base_path, chapter, section, config, dry_run=Fals
     chapter_path = base_path / f"ATA_{chapter}-{config['title'].upper().replace(' ', '_').replace('/', '_')}" / f"ATA-{chapter}-{chapter_slug}" / f"{chapter}-{section}-general"
     
     directories = [
-        # GENESIS structure
+        # GENESIS structure (Uncertainty Space)
+        "GENESIS/KNOT",
         "GENESIS/O-KNOT",
         "GENESIS/Y-KNOT",
-        "GENESIS/KNOT",
+        "GENESIS/DECISIONS",
+        "GENESIS/TRADE_STUDIES",
         "GENESIS/_registry",
-        # SSOT structure
+        # SSOT structure (Authoritative Engineering Truth - LC01-LC14)
         "SSOT/LC01_PROBLEM_STATEMENT",
         "SSOT/LC02_SYSTEM_REQUIREMENTS",
-        "SSOT/LC03_SAFETY_RELIABILITY",
-        "SSOT/LC04_DESIGN_DEFINITION",
-        "SSOT/LC05_ANALYSIS_MODELS",
-        "SSOT/LC06_VERIFICATION",
-        "SSOT/LC07_VALIDATION",
-        "SSOT/LC08_CONFIGURATION_MANAGEMENT",
-        "SSOT/LC09_MANUFACTURING",
-        "SSOT/LC10_OPERATIONS",
-        "SSOT/LC11_PUBLICATION_AMM",
-        "SSOT/LC12_PUBLICATION_OTHER",
-        "SSOT/LC13_TRAINING",
-        "SSOT/LC14_OBSOLESCENCE",
-        # PUB structure
-        "PUB/AMM/CSDB/DM",
-        "PUB/AMM/CSDB/DM/transforms",
-        "PUB/AMM/CSDB/DML",
-        "PUB/AMM/CSDB/ICN",
-        "PUB/AMM/CSDB/PM",
-        "PUB/AMM/CSDB/APPLICABILITY",
-        "PUB/AMM/CSDB/BREX",
-        "PUB/AMM/CSDB/COMMON",
-        "PUB/AMM/EXPORT",
-        "PUB/AMM/IETP",
-        "PUB/TRN/CSDB"
+        "SSOT/LC03_DESIGN_MODELS",
+        "SSOT/LC04_ANALYSIS_MODELS",
+        "SSOT/LC05_INTEGRATION_TESTING_V6V",
+        "SSOT/LC06_QUALITY",
+        "SSOT/LC07_SAFETY_AND_SECURITY",
+        "SSOT/LC08_CERTIFICATION_FIRST_FLIGHT",
+        "SSOT/LC09_GREEN_BASELINES",
+        "SSOT/LC10_INDUSTRIALIZATION_PRODUCTION",
+        "SSOT/LC11_OPERATIONS",
+        "SSOT/LC12_SUPPORT_SERVICES",
+        "SSOT/LC13_MRO_SUSTAINMENT",
+        "SSOT/LC14_RETIREMENT_CIRCULARITY",
+        # PUBS structure (Publication-grade outputs)
+        "PUBS/CSDB",
+        "PUBS/DMC",
+        "PUBS/EXPORTS"
     ]
     
     if dry_run:
@@ -324,6 +323,28 @@ def scaffold_genesis(chapter_path, chapter, section, config, template_dir, dry_r
             chapter_path / "GENESIS" / "_registry" / registry_file.replace(".template", ""),
             chapter, section, config, dry_run
         )
+    
+    # DECISIONS
+    decisions_dir = chapter_path / "GENESIS" / "DECISIONS"
+    if not dry_run:
+        decisions_dir.mkdir(parents=True, exist_ok=True)
+    
+    process_template_file(
+        template_dir / "GENESIS_TEMPLATE" / "DECISIONS" / "decision_record.yaml.template",
+        decisions_dir / f"DEC-{chapter}-{section}-001.yaml",
+        chapter, section, config, dry_run
+    )
+    
+    # TRADE_STUDIES
+    trade_studies_dir = chapter_path / "GENESIS" / "TRADE_STUDIES"
+    if not dry_run:
+        trade_studies_dir.mkdir(parents=True, exist_ok=True)
+    
+    process_template_file(
+        template_dir / "GENESIS_TEMPLATE" / "TRADE_STUDIES" / "trade_study.yaml.template",
+        trade_studies_dir / f"TS-{chapter}-{section}-001.yaml",
+        chapter, section, config, dry_run
+    )
 
 
 def scaffold_ssot(chapter_path, chapter, section, config, template_dir, dry_run=False):
@@ -345,81 +366,57 @@ def scaffold_ssot(chapter_path, chapter, section, config, template_dir, dry_run=
             chapter, section, config, dry_run
         )
     
-    # LC04 derivation schema
+    # LC04 derivation schema (to LC04_ANALYSIS_MODELS in canonical structure)
     process_template_file(
         template_dir / "SSOT_TEMPLATE" / "LC04_DESIGN_DEFINITION" / "_derivation.schema.yaml",
-        chapter_path / "SSOT" / "LC04_DESIGN_DEFINITION" / "_derivation.schema.yaml",
+        chapter_path / "SSOT" / "LC04_ANALYSIS_MODELS" / "_derivation.schema.yaml",
         chapter, section, config, dry_run
     )
 
 
-def scaffold_pub(chapter_path, chapter, section, config, template_dir, dry_run=False):
-    """Scaffold PUB layer files."""
-    print("\n=== Scaffolding PUB Layer ===")
+def scaffold_pubs(chapter_path, chapter, section, config, template_dir, dry_run=False):
+    """Scaffold PUBS layer files (canonical triple knowledge-base spine)."""
+    print("\n=== Scaffolding PUBS Layer ===")
     
-    # Data Module template
+    # CSDB configuration
     process_template_file(
-        template_dir / "PUB_TEMPLATE" / "AMM" / "CSDB" / "DM" / "data-module.yaml.template",
-        chapter_path / "PUB" / "AMM" / "CSDB" / "DM" / f"DMC-AMPEL360-{chapter}-{section}-00-00A-001A-A_001-00_EN-US.yaml",
+        template_dir / "PUBS_TEMPLATE" / "CSDB" / "csdb_config.yaml.template",
+        chapter_path / "PUBS" / "CSDB" / "csdb_config.yaml",
         chapter, section, config, dry_run
     )
     
-    # XSLT transform
+    # DMC index
     process_template_file(
-        template_dir / "PUB_TEMPLATE" / "AMM" / "CSDB" / "DM" / "transforms" / "s1000d-to-markdown.xslt.template",
-        chapter_path / "PUB" / "AMM" / "CSDB" / "DM" / "transforms" / "s1000d-to-markdown.xslt",
+        template_dir / "PUBS_TEMPLATE" / "DMC" / "dmc_index.yaml.template",
+        chapter_path / "PUBS" / "DMC" / "dmc_index.yaml",
+        chapter, section, config, dry_run
+    )
+    
+    # Export configuration
+    process_template_file(
+        template_dir / "PUBS_TEMPLATE" / "EXPORTS" / "export_config.yaml.template",
+        chapter_path / "PUBS" / "EXPORTS" / "export_config.yaml",
         chapter, section, config, dry_run
     )
 
 
-def create_readme_files(chapter_path, chapter, section, config, dry_run=False):
-    """Create README files for major directories."""
-    print("\n=== Creating README Files ===")
+def create_readme_and_index(chapter_path, chapter, section, config, template_dir, dry_run=False):
+    """Create README and 00_INDEX files using bootstrap pack templates."""
+    print("\n=== Creating README and 00_INDEX Files ===")
     
-    readme_content = f"""# ATA {chapter}-{section} — {config['title']}
-
-**ATA Address:** ATA-{chapter}-{section}-00-00  
-**Chapter:** ATA {chapter} — {config['title']}  
-**Axis:** [{config['axis']}](../../)  
-**Status:** SCAFFOLDED - Requires customization
-
----
-
-## Overview
-
-This chapter structure implements the full GENESIS → SSOT → LLM ENGINE → CSDB → PUBS → EXPORT pipeline for ATA {chapter} ({config['title']}).
-
-## Structure
-
-```
-{chapter}-{section}-general/
-├── GENESIS/          # Uncertainty space (O-KNOT, Y-KNOT, KNOT)
-├── SSOT/             # Certainty space (LC01-LC14)
-└── PUB/              # Publications (AMM, TRN)
-```
-
-## Next Steps
-
-1. Review and customize `GENESIS/O-KNOT/*/discovery.yaml`
-2. Update `SSOT/LC01_PROBLEM_STATEMENT/TOKENOMICS.yaml`
-3. Define chapter-specific KNUs in `KNU_PLAN.csv`
-4. Configure CSDB data modules in `PUB/AMM/CSDB/DM/`
-5. See [ATA Chapter Onboarding Guide](../../../../../docs/ATA_CHAPTER_ONBOARDING.md)
-
----
-
-**Created:** {datetime.now().strftime("%Y-%m-%d")}  
-**Tool:** scaffold_chapter.py v1.0.0  
-**Requires:** Customization per chapter domain
-"""
+    # Process README template
+    process_template_file(
+        template_dir / "BOOTSTRAP_PACK" / "README.md.template",
+        chapter_path / "README.md",
+        chapter, section, config, dry_run
+    )
     
-    readme_path = chapter_path / "README.md"
-    if dry_run:
-        print(f"[DRY RUN] Would create: {readme_path}")
-    else:
-        with open(readme_path, 'w') as f:
-            f.write(readme_content)
-        print(f"Created: {readme_path}")
+    # Process 00_INDEX template
+    process_template_file(
+        template_dir / "BOOTSTRAP_PACK" / "00_INDEX.md.template",
+        chapter_path / "00_INDEX.md",
+        chapter, section, config, dry_run
+    )
 
 
 def main():
@@ -434,7 +431,8 @@ def main():
     config = get_chapter_config(chapter, args.title, args.axis)
     
     print(f"\n{'='*70}")
-    print(f"ATA Chapter Scaffolding Tool v1.0.0")
+    print(f"ATA Chapter Scaffolding Tool v1.1.0")
+    print(f"Canonical Triple Knowledge-Base Spine")
     print(f"{'='*70}")
     print(f"Chapter: ATA {chapter} - {config['title']}")
     print(f"Axis: {config['axis']}")
@@ -460,8 +458,8 @@ def main():
         # Scaffold layers
         scaffold_genesis(chapter_path, chapter, section, config, template_dir, args.dry_run)
         scaffold_ssot(chapter_path, chapter, section, config, template_dir, args.dry_run)
-        scaffold_pub(chapter_path, chapter, section, config, template_dir, args.dry_run)
-        create_readme_files(chapter_path, chapter, section, config, args.dry_run)
+        scaffold_pubs(chapter_path, chapter, section, config, template_dir, args.dry_run)
+        create_readme_and_index(chapter_path, chapter, section, config, template_dir, args.dry_run)
     
     print(f"\n{'='*70}")
     if args.dry_run:
@@ -470,10 +468,12 @@ def main():
     else:
         print("SCAFFOLDING COMPLETE")
         print(f"\nChapter created at: {chapter_path}")
+        print(f"Structure: GENESIS/ | SSOT/ | PUBS/")
         print(f"\nNext steps:")
-        print(f"1. Review and customize templates in {chapter_path}")
-        print(f"2. See onboarding guide: docs/ATA_CHAPTER_ONBOARDING.md")
-        print(f"3. Run validation: python validate_chapter.py --chapter {chapter}")
+        print(f"1. Review README.md and 00_INDEX.md")
+        print(f"2. Customize GENESIS layer files")
+        print(f"3. Configure SSOT/LC01_PROBLEM_STATEMENT/TOKENOMICS.yaml")
+        print(f"4. See onboarding guide: docs/ATA_CHAPTER_ONBOARDING.md")
     print(f"{'='*70}\n")
 
 
