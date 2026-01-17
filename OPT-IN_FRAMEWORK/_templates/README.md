@@ -32,13 +32,13 @@ _templates/
 │   ├── LC02_SYSTEM_REQUIREMENTS/      # System requirements
 │   ├── LC03_DESIGN_MODELS/            # Design models
 │   ├── LC04_ANALYSIS_MODELS/          # Analysis models
-│   ├── LC05_INTEGRATION_TESTING_VandV/  # Integration testing & V&V
+│   ├── LC05_TESTING/                  # Testing
 │   ├── LC06_QUALITY/                  # Quality assurance
 │   ├── LC07_SAFETY_AND_SECURITY/      # Safety & security
 │   ├── LC08_CERTIFICATION_FIRST_FLIGHT/ # Certification
 │   ├── LC09_GREEN_BASELINES/          # Green baselines
 │   ├── LC10_INDUSTRIALIZATION_PRODUCTION/ # Production
-│   ├── LC11_OPERATIONS/               # Operations
+│   ├── LC11_SERIES/                   # Series
 │   ├── LC12_SUPPORT_SERVICES/         # Support services
 │   ├── LC13_MRO_SUSTAINMENT/          # MRO sustainment
 │   └── LC14_RETIREMENT_CIRCULARITY/   # Retirement/circularity
@@ -182,13 +182,13 @@ The scaffold script creates:
 │   ├── LC02_SYSTEM_REQUIREMENTS/
 │   ├── LC03_DESIGN_MODELS/
 │   ├── LC04_ANALYSIS_MODELS/
-│   ├── LC05_INTEGRATION_TESTING_VandV/
+│   ├── LC05_TESTING/
 │   ├── LC06_QUALITY/
 │   ├── LC07_SAFETY_AND_SECURITY/
 │   ├── LC08_CERTIFICATION_FIRST_FLIGHT/
 │   ├── LC09_GREEN_BASELINES/
 │   ├── LC10_INDUSTRIALIZATION_PRODUCTION/
-│   ├── LC11_OPERATIONS/
+│   ├── LC11_SERIES/
 │   ├── LC12_SUPPORT_SERVICES/
 │   ├── LC13_MRO_SUSTAINMENT/
 │   └── LC14_RETIREMENT_CIRCULARITY/
