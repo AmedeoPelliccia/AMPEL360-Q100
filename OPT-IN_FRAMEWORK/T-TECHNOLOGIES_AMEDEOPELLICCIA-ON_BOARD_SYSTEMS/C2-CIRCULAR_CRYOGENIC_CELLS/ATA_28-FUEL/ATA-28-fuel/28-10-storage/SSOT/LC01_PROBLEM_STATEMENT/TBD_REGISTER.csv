@@ -1,0 +1,10 @@
+TBD_LEGACY_ID,TBD_CANONICAL_ID,Description,Impact_Class,Origin_KNU,Parent_KNOT,ATA_Chapter,ATA_Section,Spawned_KNUs,Status,Discovery_Date,Resolution_Date,Resolution_Notes
+TBD-28-001,TBD-28-10-001-REQ-001-001,P-28-10-QDOT-MAX: Max allowable net heat leak into stored LH₂,I,KNU-28-10-001-REQ-001,KNOT-28-10-001,28,10,,OPEN,2026-01-17,,Pending thermal budget allocation and insulation architecture trade study
+TBD-28-002,TBD-28-10-001-REQ-001-002,P-28-10-BOG-MAX: Max allowable boil-off rate in hold condition,I,KNU-28-10-001-REQ-001,KNOT-28-10-001,28,10,,OPEN,2026-01-17,,Pending economics + mission readiness + ground constraints analysis
+TBD-28-003,TBD-28-10-001-REQ-001-003,P-28-10-HOLD-TGT: Minimum ground hold time without top-up,I,KNU-28-10-001-REQ-001,KNOT-28-10-001,28,10,,OPEN,2026-01-17,,Pending ambient envelope definition (hot-day/cold-soak)
+TBD-28-004,TBD-28-10-001-REQ-001-004,P-28-10-P-MIN: Minimum allowable tank pressure,II,KNU-28-10-001-REQ-001,KNOT-28-10-001,28,10,,OPEN,2026-01-17,,Pending design + safety analysis
+TBD-28-005,TBD-28-10-001-REQ-001-005,P-28-10-P-MAX: Maximum allowable tank pressure (normal ops),II,KNU-28-10-001-REQ-001,KNOT-28-10-001,28,10,,OPEN,2026-01-17,,Pending design + safety analysis
+TBD-28-006,TBD-28-10-001-REQ-001-006,P-28-10-P-RELIEF: Relief/overpressure threshold (safety),I,KNU-28-10-001-REQ-001,KNOT-28-10-001,28,10,,OPEN,2026-01-17,,Pending design + safety analysis
+TBD-28-007,TBD-28-10-001-REQ-001-007,P-28-10-REC-EFF: Minimum BOG capture/recovery efficiency,II,KNU-28-10-001-REQ-001,KNOT-28-10-001,28,10,,OPEN,2026-01-17,,Pending recovery topology selection
+TBD-28-008,TBD-28-10-001-REQ-001-008,P-28-10-LEAK-THR: Leak detection threshold (H₂ concentration or rate),II,KNU-28-10-001-REQ-001,KNOT-28-10-001,28,10,,OPEN,2026-01-17,,Pending sensor selection and safety analysis
+TBD-28-009,TBD-28-10-001-REQ-001-009,P-28-10-VAC-LEAK: Vacuum jacket degradation limit,II,KNU-28-10-001-REQ-001,KNOT-28-10-001,28,10,,OPEN,2026-01-17,,Pending maintenance interval definition
