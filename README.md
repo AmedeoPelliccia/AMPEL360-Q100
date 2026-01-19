@@ -1450,39 +1450,104 @@ OPT-IN_FRAMEWORK/
 
 **CSDB lives at section level. ** Each section carries both SSOT and PUB: 
 
-```
+```text
 ATA_XX-<SYSTEM>/
-└── xx-yy-<section>/
-    ├── xx-yy-00-<subject>/
-    │   ├── xx-yy-00-00-<sub-subject>/
-    │   │   ├── README.md
-    │   │   ├── SSOT/
-    │   │   │   ├── LC01_PROBLEM_STATEMENT/
-    │   │   │   │   ├── KNOTS.csv
-    │   │   │   │   ├── KNU_PLAN.csv
-    │   │   │   │   ├── TIMELINE. csv
-    │   │   │   │   ├── RACI.csv
-    │   │   │   │   ├── TOKENOMICS_TT. yaml
-    │   │   │   │   └── AWARDS_TT.csv
-    │   │   │   ├── LC02_SYSTEM_REQUIREMENTS/
-    │   │   │   ├── LC03_SAFETY_RELIABILITY/
-    │   │   │   ├── ... 
-    │   │   │   └── LC14_RETIREMENT_CIRCULARITY/
-    │   │   └── PUB/
-    │   │       └── AMM/
-    │   │           ├── CSDB/
-    │   │           │   ├── DM/
-    │   │           │   ├── PM/
-    │   │           │   ├── DML/
-    │   │           │   ├── BREX/
-    │   │           │   ├── ICN/
-    │   │           │   ├── COMMON/
-    │   │           │   └── APPLICABILITY/
-    │   │           ├── EXPORT/
-    │   │           └── IETP/
-    │   └── xx-yy-00-90-glossary-abbreviations-and-tables/
-    └── README.md
+└── xx-yy-<SECTION>/                                           # ATA chapter/section breakdown (e.g., 21-10)
+    ├── README.md                                              # Section overview, scope, AoR, applicability
+    └── xx-yy-00-<SUBJECT>/                                    # Topic bundle inside the section
+        ├── README.md                                          # Subject overview + entry points (KDB/IDB)
+        └── xx-yy-00-00-<SUB-SUBJECT>/                         # Smallest governed domain unit (work package scope)
+            ├── README.md                                      # Contract index + governance pointers
+            │
+            ├── KDB/                                           # Knowledge Data Base (epistemological core)
+            │   ├── GENESIS/                                   # Uncertainty & decision discovery layer
+            │   │   ├── KNOTS.csv
+            │   │   ├── KNU_PLAN.csv
+            │   │   ├── TIMELINE.csv
+            │   │   ├── RACI.csv
+            │   │   ├── TOKENOMICS_TT.yaml
+            │   │   └── AWARDS_TT.csv
+            │   │
+            │   └── SSOT/
+            │       └── PLM/                                   # Product Lifecycle Management scope
+            │           ├── LC01_PROBLEM_STATEMENT/
+            │           ├── LC02_SYSTEM_REQUIREMENTS/
+            │           ├── LC03_SAFETY_RELIABILITY/
+            │           ├── LC04_DESIGN_DEFINITION_DMU/
+            │           ├── LC05_ANALYSIS_MODELS_CAE/
+            │           ├── LC06_INTEGRATION_TEST_PMU/
+            │           ├── LC07_QUALITY/
+            │           ├── LC08_FLIGHT_TEST_CERTIFICATION/
+            │           ├── LC09_GREEN_AIRCRAFT_BASELINES/
+            │           └── LC10_INDUSTRIALIZATION_PRODUCTION_CAM/
+            │
+            ├── CONTRACTS/                                     # KDB → IDB contracts (governs what can be published)
+            │   ├── KITDM-CTR-001_KDB-to-CSDB.yaml
+            │   ├── KITDM-CTR-002_KDB-to-EXPORT.yaml
+            │   ├── KITDM-CTR-003_KDB-to-IETP.yaml
+            │   └── EVIDENCE/
+            │       ├── ACCEPTANCE_CRITERIA.md
+            │       └── TRACE_MATRIX_TEMPLATE.csv
+            │
+            ├── ASIT/                                          # Aircraft Standard Information Transponder
+            │   ├── README.md
+            │   ├── pipelines/
+            │   ├── rules/
+            │   └── runs/
+            │       └── <YYYYMMDD-HHMM>__<contract-id>/
+            │           ├── INPUT_MANIFEST.json
+            │           ├── OUTPUT_MANIFEST.json
+            │           ├── TRACE_MATRIX.csv
+            │           ├── VALIDATION_REPORT.json
+            │           └── LOG.txt
+            │
+            └── IDB/                                           # Information Data Base (projection for audiences)
+                ├── SSOT/
+                │   └── SLM/                                   # Service Lifecycle Management scope
+                │       ├── LC11_OPERATIONS_CUSTOMIZATION/     # Ops configurations & customer deltas
+                │       ├── LC12_SUPPORT_SERVICES/             # In-service support knowledge
+                │       ├── LC13_MRO_SUSTAINMENT/              # Maintenance & sustainment authority
+                │       └── LC14_RETIREMENT_CIRCULARITY/       # End-of-life & circularity closure
+                │
+                ├── PUB/                                       # Publication-oriented views
+                │   └── AMM/
+                │       ├── CSDB/
+                │       │   ├── DM/
+                │       │   ├── PM/
+                │       │   ├── DML/
+                │       │   ├── BREX/
+                │       │   ├── ICN/
+                │       │   ├── COMMON/
+                │       │   └── APPLICABILITY/
+                │       ├── EXPORT/
+                │       └── IETP/
+                │
+                └── INDEX/
+                    ├── IDB_RELEASE_NOTES.md
+                    └── IDB_TRACE_SUMMARY.md
+
+# Optional conventional ATA add-on:
+# └── xx-yy-00-90-glossary-abbreviations-and-tables/
 ```
+
+### What this change achieves (conceptual clarity)
+
+* **PLM vs SLM is now explicit and structural**
+
+  * `KDB/SSOT/PLM/` → authoritative *product* lifecycle knowledge (LC01–LC10)
+  * `IDB/SSOT/SLM/` → authoritative *service* lifecycle knowledge (LC11–LC14)
+
+* **Service knowledge is still SSOT**, but:
+
+  * owned by service/ops/MRO authorities,
+  * governed closer to information consumption,
+  * clearly separated from design/manufacturing truth.
+
+* **ASIT contracts remain the only bridge**
+
+  * PLM → PUB (engineering to publications)
+  * SLM → PUB (service knowledge to publications)
+  * No silent crossover between product and service domains.
 
 ---
 
