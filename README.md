@@ -1,199 +1,78 @@
-# AMPEL360 — KI-DM / KITDM / ASIT  
-## Synthetic Data Use Case Repository
-
-### Abstract (Functional Overview)
-
-This repository contains a **functional demonstration** of the **Knowledge and Information Data Model (KI-DM)** applied to aircraft systems, implemented through the **Knowledge and Information Technical Data Management (KITDM)** framework and orchestrated by **ASIT (Aircraft Standard Information Transponder)** agents.
-
-The use case is built entirely on **synthetic AMPEL360 program data**, ensuring that:
-- no proprietary or export-controlled information is exposed,
-- the full lifecycle logic can be exercised,
-- results are reproducible, inspectable, and auditable.
-
-The repository does **not** aim to deliver operational documentation.  
-Its purpose is to demonstrate **how knowledge becomes information in a controlled, scalable, and certifiable way**.
-
----
-
-## Purpose of the Repository
-
-This repository serves as a **reference implementation** to demonstrate:
-
-- how **authoritative technical knowledge** is structured and governed independently of publications,
-- how **information for operators, MROs, and authorities** is derived without redefining technical truth,
-- how **automation can be introduced without delegating authority to tools or AI**.
-
-It addresses a recurring industry challenge:
-
-> Engineering knowledge, documentation, and certification evidence tend to diverge as programs scale and become geographically distributed.
-
----
-
-## What This Repository Is (and Is Not)
-
-### This repository **is**
-- A **functional demonstration** of KITDM concepts.
-- A **sandbox** for KDB → IDB transformation using ASIT.
-- A **proof of governance**, not a proof of technical correctness.
-- A **synthetic but structurally realistic** aircraft program environment.
-
-### This repository **is not**
-- A certified or contract-ready documentation set.
-- A replacement for engineering judgment or technical authority.
-- A tool-specific or vendor-locked implementation.
-- A proposal for organizational restructuring.
-
----
-
-## Functional Architecture (Conceptual)
-
-The use case is organized around three functional layers:
-
-### 1. Knowledge Data Base (KDB)
-- Contains **synthetic but lifecycle-accurate knowledge artifacts**.
-- Explicitly separates:
-  - uncertainty and open decisions (GENESIS),
-  - validated and matured knowledge (SSOT).
-- Each knowledge unit declares:
-  - ownership (AoR),
-  - lifecycle maturity,
-  - validation intent.
-
-**Key question answered:**  
-*What do we know, what do we not know yet, and under whose authority?*
-
----
-
-### 2. Information Data Base (IDB)
-- Contains **derived information views**, structured by:
-  - applicable process (operation, maintenance, support),
-  - target audience (operator, MRO, authority).
-- Includes examples of:
-  - structured publication objects,
-  - static exports,
-  - interactive / IETP-style projections.
-
-**Key question answered:**  
-*What information is needed, by whom, to execute a specific process?*
-
----
-
-### 3. ASIT Orchestration
-- ASIT agents execute **formal transformation contracts** between KDB and IDB.
-- ASIT:
-  - does not create knowledge,
-  - does not validate content,
-  - does not assume technical authority.
-- Each transformation is:
-  - deterministic,
-  - reproducible,
-  - fully traceable to source knowledge and contract.
-
-**Key question answered:**  
-*How can validated knowledge be transformed into usable information without losing control or authority?*
-
----
-
-## Why Synthetic AMPEL360 Data
-
-AMPEL360 synthetic data is used to:
-
-- reflect the **complexity of a modern aircraft program** (variants, lifecycle phases, stakeholders),
-- simulate **realistic authoring and validation flows** without legal or contractual constraints,
-- enable **open inspection** of governance, traceability, and automation mechanisms.
-
-The value demonstrated lies in **structure and process**, not in the realism of technical parameters.
-
----
-
-## Intended Audience
-
-This repository is relevant for:
-
-- System, safety, and certification engineers
-- Technical publications and IETP architects
-- Configuration and information management leads
-- Digital transformation and automation teams
-- Program management and financial governance stakeholders
-
-No prior knowledge of KITDM is required to follow the examples.
-
----
-
-## How to Read This Repository
-
-A recommended reading path:
-
-1. Start with the **KDB directories** to understand how knowledge is declared and matured.
-2. Review the **transformation contracts** defining what knowledge is consumable.
-3. Inspect **ASIT execution logs and outputs**.
-4. Compare resulting **IDB artifacts** with their KDB sources.
-
-This mirrors how an auditor or authority would inspect the system.
-
----
-
-## Core Principle Demonstrated
-
-> **Technical authority remains human and explicit; automation remains bounded, deterministic, and auditable.**
-
-The repository demonstrates that **scalability, automation, and compliance are compatible** when knowledge and information are treated as distinct domains.
-
----
-
-## Disclaimer
-
-All data in this repository is **synthetic**.
-
-No claim is made regarding:
-- technical correctness,
-- airworthiness,
-- operational applicability.
-
-The repository exists solely to demonstrate **governance, traceability, and transformation logic**.
-
----
-
-## Status
-
-- **Maturity:** Conceptual / Demonstration  
-- **Stability:** Evolving  
-- **Scope:** Single-program synthetic use case  
-
----
-
-⸻
-
-# AMPEL360 Q100 (AMPEL360-AIR-T) — Hydrogen-Hybrid Electric BWB Aircraft
+# AMPEL360 Q100 (AMPEL360-AIR-T)
+## Hydrogen-Hybrid Electric BWB Aircraft — Digital Engineering Baseline
 
 <p align="center">
-  <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="License">
+  <img src="https://img.shields.io/badge/License-CC0%201.0-blue.svg" alt="License">
   <img src="https://img.shields.io/badge/Status-Active%20Development-brightgreen" alt="Status">
   <img src="https://img.shields.io/badge/ATA%20Chapters-79-orange" alt="ATA Chapters">
   <img src="https://img.shields.io/badge/Framework-OPT--IN-purple" alt="Framework">
   <img src="https://img.shields.io/badge/Publications-S1000D-teal" alt="S1000D">
-  <img src="https://img.shields.io/badge/Tokenomics-TT%20v3. 14-gold" alt="Teknia Tokens">
+  <img src="https://img.shields.io/badge/Tokenomics-TT%20v3.14-gold" alt="Teknia Tokens">
+  <img src="https://img.shields.io/badge/Architecture-KI--DM%20%2F%20KITDM-crimson" alt="KI-DM">
 </p>
 
 <p align="center">
-  <strong>Full Digital Information Twin Architecture for Clean Aviation programmes—from GENESIS to contract-ready execution.</strong>
-</p>
-
-<p align="center">
-  <a href="#overview">Overview</a> •
-  <a href="#how-this-repo-is-organized">Repo Organization</a> •
-  <a href="#lc01-uncertainty-orchestration">LC01 Orchestration</a> •
-  <a href="#quick-start">Quick Start</a> •
-  <a href="#publishing-model-csdb--ietp">Publishing Model</a> •
-  <a href="#standards--compliance">Standards</a> •
-  <a href="#contributing">Contributing</a>
+  <strong>Full Digital Information Twin Architecture for Clean Aviation Programmes<br/>
+  From GENESIS uncertainty discovery to contract-ready execution</strong>
 </p>
 
 ---
 
-## Overview
+## Table of Contents
 
-**AMPEL360 Q100** is a next-generation **~100 passenger regional aircraft concept** featuring: 
+1. [Executive Summary](#1-executive-summary)
+2. [Conceptual Architecture](#2-conceptual-architecture)
+   - [2.1 The Knowledge-Information Separation Principle](#21-the-knowledge-information-separation-principle)
+   - [2.2 GENESIS → KDB → IDB Flow](#22-genesis--kdb--idb-flow)
+   - [2.3 ASIT: Bounded Automation](#23-asit-bounded-automation)
+   - [2.4 PLM vs SLM Lifecycle Domains](#24-plm-vs-slm-lifecycle-domains)
+3. [Repository Organization](#3-repository-organization)
+   - [3.1 Top-Level Structure](#31-top-level-structure)
+   - [3.2 Canonical ATA Pattern](#32-canonical-ata-pattern)
+   - [3.3 File Naming Conventions](#33-file-naming-conventions)
+4. [OPT-IN Framework](#4-opt-in-framework)
+   - [4.1 Five-Axis Topology](#41-five-axis-topology)
+   - [4.2 Complete Directory Structure](#42-complete-directory-structure)
+5. [Governance & Workflows](#5-governance--workflows)
+   - [5.1 KNOT Lifecycle](#51-knot-lifecycle)
+   - [5.2 Contract-Based Transformation](#52-contract-based-transformation)
+   - [5.3 Tokenomics & Incentive Alignment](#53-tokenomics--incentive-alignment)
+   - [5.4 Change Control & Baselines](#54-change-control--baselines)
+6. [Standards & Compliance](#6-standards--compliance)
+7. [Getting Started](#7-getting-started)
+   - [7.1 Prerequisites & Setup](#71-prerequisites--setup)
+   - [7.2 First Contribution Walkthrough](#72-first-contribution-walkthrough)
+   - [7.3 Role-Based Entry Points](#73-role-based-entry-points)
+   - [7.4 Validation & CI Checks](#74-validation--ci-checks)
+8. [CAOS Framework](#8-caos-framework)
+9. [Publishing Model](#9-publishing-model)
+   - [9.1 CSDB (S1000D)](#91-csdb-s1000d)
+   - [9.2 IETP Runtime](#92-ietp-runtime)
+10. [Tooling & Automation](#10-tooling--automation)
+    - [10.1 CLI Tools Reference](#101-cli-tools-reference)
+    - [10.2 ASIT Pipeline Configuration](#102-asit-pipeline-configuration)
+    - [10.3 CI/CD Integration](#103-cicd-integration)
+11. [Security & Access Control](#11-security--access-control)
+    - [11.1 Data Classification](#111-data-classification)
+    - [11.2 Export Control Considerations](#112-export-control-considerations)
+    - [11.3 Role-Based Access Model](#113-role-based-access-model)
+12. [Key Documentation](#12-key-documentation)
+13. [Contributing](#13-contributing)
+14. [Glossary](#14-glossary)
+15. [Changelog](#15-changelog)
+16. [License & Acknowledgments](#16-license--acknowledgments)
+
+---
+
+## 1. Executive Summary
+
+### Mission Statement
+
+**AMPEL360 Q100** delivers a **certification-grade digital information architecture** for hydrogen-electric aviation, where *knowledge* and *information* are governed as distinct domains with explicit transformation contracts.
+
+This repository contains synthetic but structurally realistic program data demonstrating the **Knowledge and Information Data Model (KI-DM)** applied to a next-generation ~100 passenger regional aircraft concept.
+
+### The Aircraft Concept
 
 | Technology | Description |
 |------------|-------------|
@@ -203,145 +82,558 @@ The repository exists solely to demonstrate **governance, traceability, and tran
 | **Peak-Power Buffering** | Buffer strategy for transients (energy management and load leveling) |
 | **Circularity + DPP** | Digital Product Passport foundations for lifecycle traceability |
 
-This repository provides a certification-grade digital baseline within the OPT-IN Framework, enabling governed transitions from GENESIS through SSOT to CSDB and publication (PUB) workflows.
+### Why This Matters
+
+| Principle | Implementation |
+|-----------|----------------|
+| **Knowledge ≠ Information** | Engineering truth (KDB) is separated from consumable publications (IDB) |
+| **Uncertainty is First-Class** | Every unknown is tracked, planned, and closed with full traceability |
+| **Automation Without Delegation** | ASIT agents execute contracts; humans retain technical authority |
+| **Incentive Alignment** | Teknia Tokens reward uncertainty reduction, not just output volume |
+| **Certification-Grade Governance** | Explicit contracts, auditable transformations, traceable evidence |
+
+### At a Glance
+
+| Metric | Value |
+|--------|-------|
+| ATA Chapters | 79 |
+| Lifecycle Phases | 14 (LC01–LC14) |
+| Framework Axes | 5 (O-P-T-I-N) |
+| Publication Standard | S1000D |
+| Token System | TT v3.14 |
+| Knowledge Domains | PLM (Product) + SLM (Service) |
+
+### Core Principle
+
+> **Technical authority remains human and explicit; automation remains bounded, deterministic, and auditable.**
+
+**Live Spec (demo):** [v0-ampel-360-aircraft-specification.vercel.app](https://v0-ampel-360-aircraft-specification.vercel.app)
 
 ---
 
-## How This Repo Is Organized
+## 2. Conceptual Architecture
+
+### 2.1 The Knowledge-Information Separation Principle
+
+This repository addresses a recurring industry challenge:
+
+> Engineering knowledge, documentation, and certification evidence tend to diverge as programs scale and become geographically distributed.
+
+The **KI-DM (Knowledge and Information Data Model)** solves this by treating knowledge and information as fundamentally distinct domains:
+
+| Domain | Purpose | Authority |
+|--------|---------|-----------|
+| **Knowledge (KDB)** | What we know, what we don't know yet, and under whose authority | Engineering teams, domain experts |
+| **Information (IDB)** | What is needed, by whom, to execute a specific process | Publication authors, operators, MROs |
+| **Transformation (ASIT)** | How validated knowledge becomes usable information | Automated but governed by explicit contracts |
+
+**Key insight:** Information is always *derived* from knowledge—it never creates new knowledge. This separation ensures that:
+
+- Engineering truth remains authoritative and traceable
+- Publications can be regenerated from source knowledge
+- Changes propagate through governed channels
+- Auditors can inspect the complete chain from uncertainty to evidence
+
+### 2.2 GENESIS → KDB → IDB Flow
+
+The complete information pipeline flows through three major layers:
 
 ```
-┌───────────────────────────────────────────────────────────────────────────────┐
-│                                AMPEL360-AIR-T                                 │
-├───────────────────────────────────────────────────────────────────────────────┤
-│  GENESIS (Uncertainty & Structure)                                             │
-│  ─────────────────────────────────                                             │
-│  • Ontology & schemas (structure, no data)                                     │
-│  • O-KNOT (origin uncertainty)                                                  │
-│  • Y-KNOT (justification & decision trees)                                     │
-│  • KNOT (framing & planning intent)                                             │
-│  • Programmatic logic & policy alignment                                       │
-│                                                                               │
-│        ┌───────────────────────────────────────────────────────────┐          │
-│        │  ALLOCATION GATE — “Reality Big Bang”                       │          │
-│        │  • Contractual, timestampable commitment                    │          │
-│        │  • Funding / responsibility / scope bound                   │          │
-│        │  • Irreversible transition to accountable reality            │          │
-│        └───────────────────────────────────────────────────────────┘          │
-│                                                                               │
-├───────────────────────────────┬───────────────────────────────────────────────┤
-│     SSOT (Engineering Truth)  │               PUB (Delivery)                  │
-│  Authoritative Backplane      │        Controlled Front-End Outputs            │
-│                               │                                               │
-│  • Lifecycle baselines        │  • CSDB (S1000D data modules)                  │
-│  • Requirements & ICDs        │  • EXPORT (PDF / HTML)                         │
-│  • Safety & certification     │  • IETP (Runtime / Interactive)                │
-│    evidence                   │                                               │
-│  • Design models              │                                               │
-│  • V&V artifacts              │                                               │
-│  • Deterministic reasoning    │                                               │
-├───────────────────────────────┴───────────────────────────────────────────────┤
-│  CSDB / NU (Operational Consumption)                                           │
-│  ─────────────────────────────────                                            │
-│  • Role-specific operational datasets                                         │
-│  • Atomic units (NU): steps, rows, parameters                                  │
-│  • Export control & access governance                                          │
-└───────────────────────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                              GENESIS                                         │
+│            "What we don't know yet, and how we'll find out"                  │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  ┌─────────────┐    ┌─────────────┐    ┌─────────────┐                      │
+│  │   O-KNOT    │───▶│   Y-KNOT    │───▶│    KNOT     │                      │
+│  │   Origin    │    │ Justification│    │   Framed    │                      │
+│  │ Uncertainty │    │   Trees     │    │ Uncertainty │                      │
+│  └─────────────┘    └─────────────┘    └─────────────┘                      │
+│                                                                              │
+│  • Ontology & schemas (structure, no data)                                   │
+│  • Programmatic logic & policy alignment                                     │
+│  • Decision rationale capture                                                │
+│                                                                              │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                       ▼ ALLOCATION GATE ▼                                    │
+│                    "Reality Big Bang"                                        │
+│                                                                              │
+│  • Contractual, timestampable commitment                                     │
+│  • Funding / responsibility / scope bound                                    │
+│  • Irreversible transition to accountable reality                            │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                KDB                                           │
+│              "What we know, under whose authority"                           │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  ┌─────────────────────────────────────────────────────────────────────┐    │
+│  │  SSOT / PLM — Product Lifecycle Management (LC01–LC10)              │    │
+│  ├─────────────────────────────────────────────────────────────────────┤    │
+│  │  LC01  Problem Statement & Uncertainty Orchestration                │    │
+│  │  LC02  System Requirements                                          │    │
+│  │  LC03  Safety & Reliability                                         │    │
+│  │  LC04  Design Definition (DMU)                                      │    │
+│  │  LC05  Analysis Models (CAE)                                        │    │
+│  │  LC06  Integration & Test (PMU)                                     │    │
+│  │  LC07  Quality                                                      │    │
+│  │  LC08  Flight Test & Certification                                  │    │
+│  │  LC09  Green Aircraft Baselines                                     │    │
+│  │  LC10  Industrialization & Production (CAM)                         │    │
+│  └─────────────────────────────────────────────────────────────────────┘    │
+│                                                                              │
+│  • Lifecycle baselines                    • Deterministic reasoning          │
+│  • Requirements & ICDs                    • Safety & certification evidence  │
+│  • Design models                          • V&V artifacts                    │
+│                                                                              │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                       ▼ ASIT CONTRACTS ▼                                     │
+│          (Deterministic, traceable, auditable transformation)                │
+│                                                                              │
+│  • KITDM-CTR-001: KDB → CSDB                                                │
+│  • KITDM-CTR-002: KDB → EXPORT                                              │
+│  • KITDM-CTR-003: KDB → IETP                                                │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                IDB                                           │
+│        "What information is needed, by whom, for what process"               │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  ┌─────────────────────────────────────────────────────────────────────┐    │
+│  │  SSOT / SLM — Service Lifecycle Management (LC11–LC14)              │    │
+│  ├─────────────────────────────────────────────────────────────────────┤    │
+│  │  LC11  Operations & Customization                                   │    │
+│  │  LC12  Support Services                                             │    │
+│  │  LC13  MRO & Sustainment                                            │    │
+│  │  LC14  Retirement & Circularity                                     │    │
+│  └─────────────────────────────────────────────────────────────────────┘    │
+│                                                                              │
+│  ┌─────────────────────────────────────────────────────────────────────┐    │
+│  │  PUB — Publications                                                 │    │
+│  ├─────────────────────────────────────────────────────────────────────┤    │
+│  │  CSDB   S1000D data modules (DM/PM/DML/BREX/ICN)                   │    │
+│  │  EXPORT Rendered deliverables (PDF/HTML)                            │    │
+│  │  IETP   Interactive runtime delivery                                │    │
+│  └─────────────────────────────────────────────────────────────────────┘    │
+│                                                                              │
+└─────────────────────────────────────────────────────────────────────────────┘
 ```
 
-### SSOT (Single Source of Truth)
+### 2.3 ASIT: Bounded Automation
 
-**SSOT** is the *system of record* for lifecycle engineering artifacts (LC01–LC14):
+**ASIT (Aircraft Standard Information Transponder)** agents execute formal transformation contracts between KDB and IDB. Critical constraints:
 
-| Folder | Content |
-|--------|---------|
-| `LC01_PROBLEM_STATEMENT` | **Uncertainty orchestration**:  KNOTs, expected KNUs, timelines, RACI, tokenomics |
-| `LC02_SYSTEM_REQUIREMENTS` | Requirements and traceability |
-| `LC03_SAFETY_RELIABILITY` | Safety analysis, hazard logs, FMEA |
-| `LC04_DESIGN_DEFINITION` | Design specs, ICDs, architecture |
-| `LC05_ANALYSIS_MODELS` | FEA, CFD, thermal, performance models |
-| `LC06_VERIFICATION` | Test procedures, evidence, compliance |
-| `LC07_VALIDATION` | Integration and validation artifacts |
-| `LC08_CONFIGURATION` | Baselines, effectivity, change control |
-| `LC09_PRODUCTION` | Manufacturing specs, tooling |
-| `LC10_OPERATIONS` | Operational documentation sources |
-| `LC11_MAINTENANCE` | Maintenance program sources |
-| `LC12_CUSTOMER_CARE` | Customer support, technical services, post-delivery care |
-| `LC13_TRAINING` | Training content sources |
-| `LC14_RETIREMENT_CIRCULARITY` | End-of-life, recycling, DPP |
+| ASIT Does | ASIT Does Not |
+|-----------|---------------|
+| Execute deterministic transformations | Create knowledge |
+| Apply validation rules (BREX, schemas) | Make engineering decisions |
+| Generate trace matrices | Assume technical authority |
+| Log all operations with full provenance | Modify source knowledge |
+| Report validation failures | Interpret ambiguous inputs |
 
-### PUB (Publications)
+**Every ASIT transformation is:**
 
-**PUB** is the controlled *delivery surface*:
+- **Deterministic** — Same input always produces same output
+- **Reproducible** — Can be re-executed at any time
+- **Traceable** — Full audit trail from source to output
+- **Governed** — Controlled by explicit contract definition
 
-| Component | Purpose |
-|-----------|---------|
-| **CSDB** | S1000D Common Source Database (DM/PM/DML/BREX/ICN/APPLICABILITY) |
-| **EXPORT** | Rendered deliverables (PDF, HTML, other outputs) per publication |
-| **IETP** | Runtime "image" (viewer/config/index + packaging) for interactive delivery |
+### 2.4 PLM vs SLM Lifecycle Domains
 
-### Rule of Thumb
+The 14 lifecycle phases are split across two management domains:
 
-| If artifact is...  | Place in... |
-|-------------------|-------------|
-| Authoritative engineering evidence | `SSOT/` |
-| Publishable or deliverable | `PUB/` |
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    PLM — Product Lifecycle Management                        │
+│                         (KDB / SSOT Authority)                               │
+├─────────────────────────────────────────────────────────────────────────────┤
+│  LC01  │ Problem Statement      │ Uncertainty orchestration, KNOT/KNU       │
+│  LC02  │ System Requirements    │ Requirements, traceability                │
+│  LC03  │ Safety & Reliability   │ Hazard analysis, FMEA, safety cases       │
+│  LC04  │ Design Definition      │ DMU, ICDs, architecture                   │
+│  LC05  │ Analysis Models        │ FEA, CFD, thermal, performance            │
+│  LC06  │ Integration & Test     │ PMU, test procedures, evidence            │
+│  LC07  │ Quality                │ Quality plans, inspection records         │
+│  LC08  │ Flight Test & Cert     │ Certification basis, compliance matrix    │
+│  LC09  │ Green Aircraft         │ Delivery baselines, effectivity           │
+│  LC10  │ Industrialization      │ Manufacturing specs, tooling, CAM         │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                    SLM — Service Lifecycle Management                        │
+│                         (IDB / SSOT Authority)                               │
+├─────────────────────────────────────────────────────────────────────────────┤
+│  LC11  │ Operations             │ Ops configurations, customer deltas       │
+│  LC12  │ Support Services       │ In-service support, technical bulletins   │
+│  LC13  │ MRO & Sustainment      │ Maintenance programs, repair authority    │
+│  LC14  │ Retirement             │ End-of-life, circularity, DPP closure     │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+**Why this separation matters:**
+
+- **PLM** = Product knowledge owned by design/engineering authority
+- **SLM** = Service knowledge owned by operations/MRO authority
+- **Clear handoff** = LC09 (Green Aircraft) marks the transition point
+- **Both are SSOT** = Different authorities, same governance rigor
 
 ---
 
-## LC01 — Uncertainty Orchestration & Tokenomics
+## 3. Repository Organization
 
-**LC01_PROBLEM_STATEMENT** is the controlled orchestration layer for each ATA node.  It declares:
-
-- **What is unknown** (KNOTs — uncertainty register)
-- **What evidence must be created** (expected KNUs)
-- **Who is accountable** (stakeholders/RACI)
-- **When it must converge** (timeline/milestones)
-- **How incentives are allocated** (TT rewards via tokenomics)
-
-### LC01 Folder Structure
+### 3.1 Top-Level Structure
 
 ```
-.../SSOT/LC01_PROBLEM_STATEMENT/
-├── README.md              # Overview and closure criteria
-├── KNOTS.csv              # Uncertainty register
-├── KNU_PLAN.csv           # Expected KNUs per KNOT
-├── TIMELINE.csv           # Milestones and dates
-├── RACI.csv               # Stakeholder responsibility matrix
-├── TOKENOMICS_TT.yaml     # Reward pool and allocation parameters
-└── AWARDS_TT.csv          # Actual TT distributions (populated at closure)
+AMPEL360-AIR-T/
+├── README.md                          # This file
+├── LICENSE                            # CC0 1.0 Universal
+├── CHANGELOG.md                       # Version history
+├── requirements.txt                   # Python dependencies
+│
+├── OPT-IN_FRAMEWORK/                  # Main content organized by ATA chapters
+│   ├── O-ORGANIZATIONS/               # ATA 00–05
+│   ├── P-PROGRAMS/                    # ATA 06–12
+│   ├── T-TECHNOLOGIES_.../            # ATA 20–80 (on-board systems)
+│   ├── I-INFRASTRUCTURES/             # Ground support, H₂ logistics
+│   └── N-NEURAL_NETWORKS/             # Governance, ledger, AI/ML
+│
+├── CAOS/                              # Continuous Airworthiness framework
+│   ├── CAOS_INDEX.md
+│   ├── CAOS_ARCHITECTURE.md
+│   └── CAOS_OPERATIONS_FRAMEWORK.md
+│
+├── tools/                             # CLI tools and automation
+│   ├── ci/                            # CI/CD scripts
+│   ├── tek_tokens.py                  # Tokenomics CLI
+│   └── knu_distribution.py            # KNOT closure distribution
+│
+├── finance/                           # Token ledger
+│   └── ledger.json                    # SHA-256 hash chain
+│
+├── docs/                              # Additional documentation
+│   ├── ONTOLOGY_GENESIS_KNOWLEDGE_MODEL.md
+│   ├── OPT-IN_FRAMEWORK_STANDARD.md
+│   ├── AMPEL360_DOCUMENTATION_STANDARD.md
+│   ├── AI-ASI-TP.md
+│   └── DIGITAL_TWIN_CONTROL_LOOP.md
+│
+└── .github/                           # GitHub configuration
+    ├── hooks/
+    └── workflows/
 ```
 
-### KNOTS.csv — Uncertainty Register
+### 3.2 Canonical ATA Pattern
 
-Each KNOT represents a *known unknown* that must be resolved:
+Each ATA chapter follows the **KDB / CONTRACTS / ASIT / IDB** pattern:
+
+```
+ATA_XX-<SYSTEM>/
+└── ATA-XX-<system-slug>/
+    └── XX-YY-<section>/
+        ├── README.md                              # Section overview
+        └── XX-YY-00-<subject>/
+            ├── README.md                          # Subject overview
+            └── XX-YY-00-00-<sub-subject>/         # Smallest governed unit
+                ├── README.md                      # Contract index
+                │
+                ├── KDB/                           # Knowledge Data Base
+                │   ├── GENESIS/                   # Uncertainty discovery
+                │   │   ├── KNOTS.csv              # Uncertainty register
+                │   │   ├── KNU_PLAN.csv           # Expected knowledge units
+                │   │   ├── TIMELINE.csv           # Milestones
+                │   │   ├── RACI.csv               # Responsibility matrix
+                │   │   ├── TOKENOMICS_TT.yaml     # Reward allocation
+                │   │   └── AWARDS_TT.csv          # Distribution ledger
+                │   │
+                │   └── SSOT/
+                │       └── PLM/                   # Product lifecycle (LC01–LC10)
+                │           ├── LC01_PROBLEM_STATEMENT/
+                │           ├── LC02_SYSTEM_REQUIREMENTS/
+                │           ├── LC03_SAFETY_RELIABILITY/
+                │           ├── LC04_DESIGN_DEFINITION_DMU/
+                │           ├── LC05_ANALYSIS_MODELS_CAE/
+                │           ├── LC06_INTEGRATION_TEST_PMU/
+                │           ├── LC07_QUALITY/
+                │           ├── LC08_FLIGHT_TEST_CERTIFICATION/
+                │           ├── LC09_GREEN_AIRCRAFT_BASELINES/
+                │           └── LC10_INDUSTRIALIZATION_PRODUCTION_CAM/
+                │
+                ├── CONTRACTS/                     # KDB → IDB contracts
+                │   ├── KITDM-CTR-001_KDB-to-CSDB.yaml
+                │   ├── KITDM-CTR-002_KDB-to-EXPORT.yaml
+                │   ├── KITDM-CTR-003_KDB-to-IETP.yaml
+                │   └── EVIDENCE/
+                │       ├── ACCEPTANCE_CRITERIA.md
+                │       └── TRACE_MATRIX_TEMPLATE.csv
+                │
+                ├── ASIT/                          # Transformation agent
+                │   ├── README.md
+                │   ├── pipelines/
+                │   ├── rules/
+                │   └── runs/
+                │       └── <YYYYMMDD-HHMM>__<contract-id>/
+                │           ├── INPUT_MANIFEST.json
+                │           ├── OUTPUT_MANIFEST.json
+                │           ├── TRACE_MATRIX.csv
+                │           ├── VALIDATION_REPORT.json
+                │           └── LOG.txt
+                │
+                └── IDB/                           # Information Data Base
+                    ├── SSOT/
+                    │   └── SLM/                   # Service lifecycle (LC11–LC14)
+                    │       ├── LC11_OPERATIONS_CUSTOMIZATION/
+                    │       ├── LC12_SUPPORT_SERVICES/
+                    │       ├── LC13_MRO_SUSTAINMENT/
+                    │       └── LC14_RETIREMENT_CIRCULARITY/
+                    │
+                    ├── PUB/                       # Publications
+                    │   └── AMM/
+                    │       ├── CSDB/
+                    │       │   ├── DM/            # Data modules
+                    │       │   ├── PM/            # Publication modules
+                    │       │   ├── DML/           # Data module lists
+                    │       │   ├── BREX/          # Business rules
+                    │       │   ├── ICN/           # Graphics
+                    │       │   ├── COMMON/        # Reusable content
+                    │       │   └── APPLICABILITY/ # ACT/PCT/CCT
+                    │       ├── EXPORT/            # Rendered outputs
+                    │       └── IETP/              # Interactive runtime
+                    │
+                    └── INDEX/
+                        ├── IDB_RELEASE_NOTES.md
+                        └── IDB_TRACE_SUMMARY.md
+```
+
+### 3.3 File Naming Conventions
+
+| Type | Pattern | Example |
+|------|---------|---------|
+| **ATA Chapter** | `ATA_XX-SYSTEM_NAME/` | `ATA_28-FUEL/` |
+| **Section** | `XX-YY-<section-slug>/` | `28-10-storage/` |
+| **KNOT ID** | `KNOT-ATAXX-YY-ZZ-NNN` | `KNOT-ATA28-10-00-001` |
+| **KNU ID** | `KNU-ATAXX-YY-ZZ-TYPE-NNN` | `KNU-ATA28-10-00-REQ-001` |
+| **Contract** | `KITDM-CTR-NNN_<source>-to-<target>.yaml` | `KITDM-CTR-001_KDB-to-CSDB.yaml` |
+| **ASIT Run** | `YYYYMMDD-HHMM__<contract-id>/` | `20260115-1430__KITDM-CTR-001/` |
+| **Data Module** | S1000D DMC convention | `DMC-AMPEL-A-28-10-00-00A-040A-D` |
+
+---
+
+## 4. OPT-IN Framework
+
+### 4.1 Five-Axis Topology
+
+The OPT-IN Framework organizes all 79 ATA chapters across five axes:
+
+| Axis | Name | ATA Chapters | Scope |
+|------|------|--------------|-------|
+| **O** | Organizations | 00–05 | General, maintenance policy, operations org, airworthiness |
+| **P** | Programs | 06–12 | Dimensions, lifting, leveling, towing, parking, servicing |
+| **T** | Technologies | 20–80 | All on-board systems (airframe, avionics, propulsion, etc.) |
+| **I** | Infrastructures | 03*, 08*, 10*, 12*, 85, IN-XX | Ground support, H₂ logistics, facilities |
+| **N** | Neural Networks | 95, 96, 97, 98 | AI/ML, traceability, DPP, governance |
+
+*Note: Some chapters appear in multiple axes with different sub-scopes (e.g., ATA 08 PROGRAMS vs ATA 08 INFRA)*
+
+### 4.2 Complete Directory Structure
+
+<details>
+<summary><strong>Click to expand full OPT-IN directory tree</strong></summary>
+
+```
+OPT-IN_FRAMEWORK/
+├── README.md
+├── 00_INDEX.md
+│
+├── O-ORGANIZATIONS/                                      # ATA 00–05
+│   ├── README.md
+│   ├── 00_INDEX.md
+│   ├── ATA_00-GENERAL/
+│   ├── ATA_01-MAINTENANCE_POLICY/
+│   ├── ATA_02-OPERATIONS_ORG/
+│   ├── ATA_03-SUPPORT_INFORMATION/
+│   ├── ATA_04-AIRWORTHINESS_LIMITATIONS/
+│   └── ATA_05-TIME_LIMITS_MAINT_CHECKS/
+│
+├── P-PROGRAMS/                                           # ATA 06–12
+│   ├── README.md
+│   ├── 00_INDEX.md
+│   ├── ATA_06-DIMENSIONS_AND_AREAS/
+│   ├── ATA_07-LIFTING_AND_SHORING/
+│   ├── ATA_08-LEVELING_AND_WEIGHING/
+│   ├── ATA_09-TOWING_AND_TAXIING/
+│   ├── ATA_10-PARKING_MOORING_STORAGE_RETURN_TO_SERVICE/
+│   ├── ATA_11-PLACARDS_AND_MARKINGS/
+│   └── ATA_12-SERVICING/
+│
+├── T-TECHNOLOGIES_AMEDEOPELLICCIA-ON_BOARD_SYSTEMS/
+│   ├── README.md
+│   ├── 00_INDEX.md
+│   │
+│   ├── A-AIRFRAME_CABINS/
+│   │   ├── ATA_20-STANDARD_PRACTICES_AIRFRAME/
+│   │   ├── ATA_25-EQUIPMENT_FURNISHINGS/
+│   │   ├── ATA_44-CABIN_SYSTEMS/
+│   │   ├── ATA_50-CARGO_AND_ACCESSORY_COMPARTMENTS/
+│   │   ├── ATA_51-STANDARD_PRACTICES_GENERAL/
+│   │   ├── ATA_52-DOORS/
+│   │   ├── ATA_53-FUSELAGE/
+│   │   ├── ATA_54-NACELLES_PYLONS/
+│   │   ├── ATA_55-STABILIZERS/
+│   │   ├── ATA_56-WINDOWS/
+│   │   └── ATA_57-WINGS/
+│   │
+│   ├── M-MECHANICS/
+│   │   ├── ATA_27-FLIGHT_CONTROLS/
+│   │   ├── ATA_29-HYDRAULIC_POWER/
+│   │   └── ATA_32-LANDING_GEAR/
+│   │
+│   ├── E1-ENVIRONMENT/
+│   │   ├── ATA_21-AIR_CONDITIONING_PRESSURIZATION/
+│   │   ├── ATA_26-FIRE_PROTECTION/
+│   │   ├── ATA_30-ICE_RAIN_PROTECTION/
+│   │   ├── ATA_35-OXYGEN/
+│   │   ├── ATA_36-PNEUMATIC/
+│   │   ├── ATA_37-VACUUM/
+│   │   ├── ATA_38-WATER_WASTE/
+│   │   └── ATA_47-NITROGEN_GENERATION_SYSTEM/
+│   │
+│   ├── D-DATA/
+│   │   ├── ATA_31-INDICATING_RECORDING/
+│   │   └── ATA_45-CENTRAL_MAINTENANCE_SYSTEM_CMS/
+│   │
+│   ├── I-INFORMATION/
+│   │   └── ATA_46-INFORMATION_SYSTEMS/
+│   │
+│   ├── E2-ENERGY/
+│   │   ├── ATA_24-ELECTRICAL_POWER/
+│   │   └── ATA_49-AIRBORNE_AUXILIARY_POWER_APU/
+│   │
+│   ├── E3-ELECTRICS/
+│   │   ├── ATA_33-LIGHTS/
+│   │   └── ATA_39-ELECTRICAL_ELECTRONIC_PANELS_MULTIPURPOSE_COMPONENTS/
+│   │
+│   ├── L1-LOGICS/
+│   │   └── 00_RESERVED_AS_REQUIRED/
+│   │
+│   ├── L2-LINKS/
+│   │   └── ATA_34-NAVIGATION/
+│   │
+│   ├── C1-COMMS/
+│   │   └── ATA_23-COMMUNICATIONS/
+│   │
+│   ├── C2-CIRCULAR_CRYOGENIC_CELLS/
+│   │   └── ATA_28-FUEL/
+│   │
+│   ├── I2-INTELLIGENCE/
+│   │   ├── ATA_95-AI_ML_MODELS/
+│   │   └── ATA_97-SYNTHETIC_DATA_VALIDATION/
+│   │
+│   ├── A2-AVIONICS/
+│   │   ├── ATA_22-AUTO_FLIGHT/
+│   │   └── ATA_42-INTEGRATED_MODULAR_AVIONICS/
+│   │
+│   ├── O-OPERATING_SYSTEMS/
+│   │   └── ATA_40-MULTISYSTEM/
+│   │
+│   └── P-PROPULSION/
+│       ├── ATA_60-STANDARD_PRACTICES_PROPELLER_ROTOR/
+│       ├── ATA_61-PROPELLERS_PROPULSORS/
+│       ├── ATA_71-POWER_PLANT/
+│       ├── ATA_72-ENGINE_TURBINE_TURBOPROP_DUCTED_UNDUCTED_FAN/
+│       ├── ATA_73-ENGINE_FUEL_AND_CONTROL/
+│       ├── ATA_74-IGNITION/
+│       ├── ATA_75-AIR/
+│       ├── ATA_76-ENGINE_CONTROLS/
+│       ├── ATA_77-ENGINE_INDICATING/
+│       ├── ATA_78-EXHAUST/
+│       ├── ATA_79-OIL/
+│       └── ATA_80-STARTING/
+│
+├── I-INFRASTRUCTURES/                                     # Ground support
+│   ├── README.md
+│   ├── 00_INDEX.md
+│   ├── ATA_03-SUPPORT_INFRA/
+│   ├── ATA_08-LEVELING_AND_WEIGHING_INFRA/
+│   ├── ATA_10-PARKING_MOORING_STORAGE_RTS_INFRA/
+│   ├── ATA_12-SERVICING_INFRA/
+│   ├── ATA_85-FUEL_CELL_SYSTEMS_INFRA/
+│   └── ATA_IN_H2_GSE_AND_SUPPLY_CHAIN/
+│
+└── N-NEURAL_NETWORKS/                                     # Governance + AI
+    ├── README.md
+    ├── 00_INDEX.md
+    ├── ATA_96-TRACEABILITY_DPP_LEDGER/
+    └── ATA_98-RESERVED_PROGRAM_SLOT/
+```
+
+</details>
+
+---
+
+## 5. Governance & Workflows
+
+### 5.1 KNOT Lifecycle
+
+Work in this repository is managed through **KNOTs** (uncertainties) and **KNUs** (artifacts):
+
+| Concept | Definition |
+|---------|------------|
+| **KNOT** | A *Known uNknOwn Topic* — an identified uncertainty requiring resolution |
+| **KNU** | A *Knowledge Unit* — a concrete artifact that addresses a KNOT |
+
+#### KNOT Lifecycle Flow
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                           KNOT LIFECYCLE                                     │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  1. IDENTIFICATION                                                           │
+│     ├─ Uncertainty logged in KNOTS.csv                                       │
+│     ├─ Residual uncertainty = 100 (maximum)                                  │
+│     └─ Status = OPEN                                                         │
+│                                                                              │
+│  2. PLANNING                                                                 │
+│     ├─ Expected KNUs defined in KNU_PLAN.csv                                │
+│     ├─ Timeline milestones set in TIMELINE.csv                              │
+│     ├─ RACI responsibilities assigned                                        │
+│     └─ TT reward pool allocated in TOKENOMICS_TT.yaml                       │
+│                                                                              │
+│  3. EXECUTION                                                                │
+│     ├─ KNU artifacts produced in LC02–LC14 and PUB/CSDB                     │
+│     ├─ Effort and impact recorded per KNU                                   │
+│     └─ Status = IN_PROGRESS                                                  │
+│                                                                              │
+│  4. CLOSURE                                                                  │
+│     ├─ All KNUs reach COMPLETE or ACCEPTED status                           │
+│     ├─ Residual reduced to target (e.g., 100 → ≤10)                         │
+│     ├─ All PUB artifacts pass BREX validation                               │
+│     ├─ All trace links resolve (no dangling references)                     │
+│     ├─ Signoffs captured in evidence pack                                   │
+│     ├─ TT rewards distributed: w_i = α·Ê_i + (1-α)·Î_i                      │
+│     ├─ Awards logged to AWARDS_TT.csv + finance/ledger.json                 │
+│     └─ Status = CLOSED                                                       │
+│                                                                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+#### KNOTS.csv Schema
 
 | Field | Description |
 |-------|-------------|
-| `KNOT_ID` | Unique identifier (e.g., `KNOT-ATA25-10-00-001`) |
+| `KNOT_ID` | Unique identifier (e.g., `KNOT-ATA28-10-00-001`) |
 | `Title` | Short description of the uncertainty |
 | `Problem_Statement` | What is unknown and why it matters |
 | `Scope` | In-scope / out-of-scope boundaries |
 | `Status` | `OPEN` / `IN_PROGRESS` / `BLOCKED` / `CLOSED` |
-| `Owner_AoR` | Primary Area of Responsibility (e.g., `STK_SE`) |
+| `Owner_AoR` | Primary Area of Responsibility |
 | `Stakeholders` | Semicolon-separated list of involved AoRs |
 | `Residual_Before` | Initial uncertainty level (0–100) |
 | `Residual_Target` | Acceptable residual at closure |
 | `Dependencies` | Other KNOTs this depends on |
 | `Target_Close_Date` | Expected closure date |
 
-**Example:**
-```csv
-KNOT_ID,Title,Problem_Statement,Scope,Status,Owner_AoR,Stakeholders,Residual_Before,Residual_Target,Target_Close_Date
-KNOT-ATA25-10-00-001,Flight Compartment Layout,Crew seat positioning undefined for Q10,In:  seats; restraints.  Out:  galley,OPEN,STK_SE,"STK_SAF;STK_CERT;STK_CM",100,10,2026-02-28
-```
-
-### KNU_PLAN.csv — Expected Knowledge Units
-
-Each KNU is a concrete artifact that addresses a KNOT:
+#### KNU_PLAN.csv Schema
 
 | Field | Description |
 |-------|-------------|
-| `KNU_ID` | Unique identifier (e.g., `KNU-ATA25-10-00-REQ-001`) |
+| `KNU_ID` | Unique identifier (e.g., `KNU-ATA28-10-00-REQ-001`) |
 | `KNOT_ID` | Parent KNOT being addressed |
 | `KNU_Type` | `REQ` / `ICD` / `ANA` / `TEST` / `SAF` / `CM` / `PUB` |
 | `Artifact_Class` | `SSOT` or `CSDB` |
@@ -351,28 +643,102 @@ Each KNU is a concrete artifact that addresses a KNOT:
 | `Owner_AoR` | Responsible stakeholder |
 | `Due_Date` | Target completion date |
 | `Status` | `PLANNED` / `IN_PROGRESS` / `COMPLETE` / `ACCEPTED` |
-| `Effort_Predicted` | Estimated effort (story points / normalized hours) |
+| `Effort_Predicted` | Estimated effort (story points) |
 
-**Example:**
-```csv
-KNU_ID,KNOT_ID,KNU_Type,Artifact_Class,Expected_Location,Acceptance_Criteria,Owner_AoR,Due_Date,Status,Effort_Predicted
-KNU-ATA25-10-00-REQ-001,KNOT-ATA25-10-00-001,REQ,SSOT,../LC02_SYSTEM_REQUIREMENTS/,Requirement traced + reviewed,STK_SE,2026-01-25,PLANNED,5
-KNU-ATA25-10-00-PUB-DM-001,KNOT-ATA25-10-00-001,PUB,CSDB,../../PUB/AMM/CSDB/DM/,DM passes BREX,STK_CM,2026-02-15,PLANNED,3
+#### Allowed AoR (Area of Responsibility) Values
+
+| AoR Code | Role |
+|----------|------|
+| `STK_SE` | Systems Engineering |
+| `STK_SAF` | Safety |
+| `STK_CERT` | Certification |
+| `STK_CM` | Configuration Management |
+| `STK_OPS` | Operations |
+| `STK_TEST` | Test & Verification |
+| `STK_PMO` | Program Management |
+| `STK_AI` | AI/ML Engineering |
+| `STK_CY` | Circularity |
+| `STK_MRO` | Maintenance, Repair, Overhaul |
+| `STK_DATA` | Data Management |
+
+### 5.2 Contract-Based Transformation
+
+Every KDB → IDB transformation is governed by an explicit contract:
+
+#### Contract Structure (KITDM-CTR-XXX.yaml)
+
+```yaml
+contract:
+  id: "KITDM-CTR-001"
+  name: "KDB to CSDB Transformation"
+  version: "1.0.0"
+  effective_date: "2026-01-15"
+
+source:
+  type: "KDB"
+  paths:
+    - "KDB/SSOT/PLM/LC04_DESIGN_DEFINITION_DMU/"
+    - "KDB/SSOT/PLM/LC02_SYSTEM_REQUIREMENTS/"
+  required_maturity: "ACCEPTED"
+
+target:
+  type: "IDB/PUB/CSDB"
+  output_path: "IDB/PUB/AMM/CSDB/DM/"
+  format: "S1000D-5.0"
+
+transformation:
+  rules:
+    - rule_id: "TR-001"
+      description: "Requirements to Descriptive DM"
+      source_pattern: "LC02/**/REQ-*.md"
+      target_template: "templates/dm-description.xml"
+      validation: "BREX-001"
+  
+  exclusions:
+    - "DRAFT/**"
+    - "**/_archive/**"
+
+validation:
+  brex_rules:
+    - "BREX/AMPEL-BREX-01.xml"
+  schema_version: "S1000D-5.0"
+  require_trace_matrix: true
+
+governance:
+  approvers:
+    - "STK_CM"
+    - "STK_SE"
+  review_cycle: "30d"
+  
+audit:
+  log_level: "FULL"
+  retention: "10y"
+  hash_algorithm: "SHA-256"
 ```
 
-### TOKENOMICS_TT.yaml — Reward Allocation
+### 5.3 Tokenomics & Incentive Alignment
 
-Defines the **Teknia Token (TT)** reward pool and distribution algorithm for each KNOT: 
+#### Teknia Token (TT) System
+
+| Aspect | Specification |
+|--------|---------------|
+| **Token** | TT (1 TT = 360 deg) |
+| **Genesis Supply** | 2,000,000,000 TT |
+| **Fee Structure** | π-tier: 0.314% / 0.99% / 3.14% |
+| **Reward Fee** | 0.5% |
+| **Ledger** | `finance/ledger.json` (SHA-256 hash chain) |
+
+#### TOKENOMICS_TT.yaml Schema
 
 ```yaml
 tokenomics:
   token_symbol: "TT"
-  unit:  "deg"                    # 1 TT = 360 deg
+  unit: "deg"
   deg_per_tt: 360
 
-knot_reward: 
-  knot_id: "KNOT-ATA25-10-00-001"
-  pool_tt: 100                   # Total TT available for this KNOT
+knot_reward:
+  knot_id: "KNOT-ATA28-10-00-001"
+  pool_tt: 100
   pool_deg: 36000
 
 eligibility:
@@ -384,27 +750,27 @@ allocation:
   method: "effort_plus_impact"
   formula: "w_i = α·Ê_i + (1-α)·Î_i; T_i = P_k · w_i"
   params:
-    alpha_effort: 0.30           # 30% weight on effort
-    alpha_impact: 0.70           # 70% weight on impact
-    lambda_spillover: 0.50       # Spillover multiplier for adjacent KNOTs
-    rounding:  "floor_deg"
+    alpha_effort: 0.30
+    alpha_impact: 0.70
+    lambda_spillover: 0.50
+    rounding: "floor_deg"
 
 measurement:
-  residual_scale: "0.. 100"
-  required_fields_per_knu: 
-    - effort_predicted           # E_i
-    - delta_residual_primary     # ΔR_k,i (direct impact)
-    - delta_residual_adjacent_sum # S_i (spillover impact)
+  residual_scale: "0..100"
+  required_fields_per_knu:
+    - effort_predicted
+    - delta_residual_primary
+    - delta_residual_adjacent_sum
     - verification_status
     - linked_artifacts
 
 closure_record:
   residual_before: 100
-  residual_after: null           # Populated at closure
+  residual_after: null
   residual_target: 10
 ```
 
-### Token Distribution Formula
+#### Token Distribution Formula
 
 Rewards are distributed using a weighted combination of **effort** and **impact**:
 
@@ -414,79 +780,638 @@ T_i = P_k · w_i
 ```
 
 Where:
-- `P_k` = Pool amount (TT) for the KNOT
-- `α` = Effort weight (default: 0.30)
-- `Ê_i` = Normalized effort:  `E_i / Σ E_i`
-- `Î_i` = Normalized impact: `I_i / Σ I_i`
-- `I_i` = Effective impact:  `ΔR_k,i + λ · S_i`
-- `S_i` = Spillover:  `Σ(a_k→j · ΔR_j,i)` for adjacent KNOTs
-- `λ` = Spillover multiplier (default: 0.50)
+
+| Symbol | Definition |
+|--------|------------|
+| `P_k` | Pool amount (TT) for the KNOT |
+| `α` | Effort weight (default: 0.30) |
+| `Ê_i` | Normalized effort: `E_i / Σ E_i` |
+| `Î_i` | Normalized impact: `I_i / Σ I_i` |
+| `I_i` | Effective impact: `ΔR_k,i + λ · S_i` |
+| `S_i` | Spillover: `Σ(a_k→j · ΔR_j,i)` for adjacent KNOTs |
+| `λ` | Spillover multiplier (default: 0.50) |
 
 **This ensures:**
+
 - Contributors who do necessary work are rewarded (effort)
 - Contributors who reduce uncertainty most are rewarded more (impact)
 - Cross-KNOT contributions are recognized (spillover)
 
-### RACI.csv — Stakeholder Responsibilities
+### 5.4 Change Control & Baselines
 
-| Field | Description |
-|-------|-------------|
-| `KNOT_ID` | KNOT identifier |
-| `Activity` | Specific activity or deliverable |
-| `R` | Responsible (does the work) |
-| `A` | Accountable (final approver) |
-| `C` | Consulted (provides input) |
-| `I` | Informed (kept aware) |
-
-**Allowed AoR Values:**
-`STK_SE`, `STK_SAF`, `STK_CERT`, `STK_CM`, `STK_OPS`, `STK_TEST`, `STK_PMO`, `STK_AI`, `STK_CY`, `STK_MRO`, `STK_DATA`
-
-### TIMELINE.csv — Milestones
-
-| Field | Description |
-|-------|-------------|
-| `Milestone_ID` | Unique milestone identifier |
-| `KNOT_ID` | Associated KNOT |
-| `Name` | Milestone name |
-| `Date` | Target date |
-| `Entry_Criteria` | What must be true to enter |
-| `Exit_Criteria` | What must be true to exit |
-| `Status` | `PLANNED` / `ACTIVE` / `COMPLETE` |
-
-### AWARDS_TT. csv — Distribution Ledger
-
-Populated at KNOT closure with actual TT distributions: 
-
-```csv
-timestamp,knot_id,knu_id,owner,effort_predicted,delta_residual_primary,delta_residual_adjacent_sum,weight,tokens_tt,tokens_deg,tx_id,validated_by
-2026-02-20T14:30:00Z,KNOT-ATA25-10-00-001,KNU-ATA25-10-00-REQ-001,alice,5,30,10,0. 412,41. 2,14832,TX-2026-0142,knot_owner
-```
-
-### Closure Criteria
-
-A KNOT is **CLOSED** when: 
-1. ✅ All planned KNUs reach `COMPLETE` or `ACCEPTED` status
-2. ✅ Residual drops to or below target (e.g., 100 → ≤10)
-3. ✅ All PUB artifacts pass BREX validation
-4. ✅ All trace links resolve (no dangling references)
-5. ✅ Signoffs captured in evidence pack
-6. ✅ TT rewards distributed and logged
+| Baseline Type | Trigger | Authority | Artifacts |
+|---------------|---------|-----------|-----------|
+| **Design Baseline** | PDR/CDR gate | STK_SE | LC04 frozen |
+| **Safety Baseline** | Safety Review | STK_SAF | LC03 frozen |
+| **Certification Baseline** | TC Application | STK_CERT | LC08 frozen |
+| **Production Baseline** | FAI Complete | STK_CM | LC09/LC10 frozen |
+| **Publication Baseline** | IDB Release | STK_CM | PUB/CSDB tagged |
 
 ---
 
-## OPT-IN Framework (5-Axis Topology)
+## 6. Standards & Compliance
 
-The OPT-IN Framework organizes all 79 ATA chapters across five axes. Each ATA chapters is build on 3 main knowledge bases: GENESIS/KNOTS + SSOT/LC/KNU + PUB/CSDB/DMC
+| Standard | Application |
+|----------|-------------|
+| **EASA CS-25 / FAA Part 25** | Airworthiness requirements framing |
+| **ATA iSpec 2200** | Chapter/section/subject scaffolding |
+| **S1000D Issue 5.0** | Technical publications CSDB |
+| **DO-178C** | Software considerations in airborne systems |
+| **DO-254** | Hardware design assurance |
+| **DO-160G** | Environmental qualification |
+| **DO-326A / DO-356A** | Airborne security |
+| **ARP4754A** | Development of civil aircraft and systems |
+| **ARP4761** | Safety assessment process |
+| **ISO 15926** | Industrial data standards |
+| **ISO 14001** | Environmental management |
+| **EU Digital Product Passport** | Circularity requirements |
+
+---
+
+## 7. Getting Started
+
+### 7.1 Prerequisites & Setup
+
+**Requirements:**
+
+- Python 3.9+
+- Git 2.30+
+- 2GB disk space (full clone)
+
+**Installation:**
+
+```bash
+# Clone repository
+git clone https://github.com/AmedeoPelliccia/AMPEL360-AIR-T.git
+cd AMPEL360-AIR-T
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Setup pre-commit hooks
+bash .github/hooks/setup-hooks.sh
+
+# Verify installation
+python tools/ci/optin_structure_validator.py --check
+```
+
+### 7.2 First Contribution Walkthrough
+
+**Step 1: Identify or Create a KNOT**
+
+```bash
+# Navigate to target ATA section
+cd OPT-IN_FRAMEWORK/T-TECHNOLOGIES_.../C2-CIRCULAR_CRYOGENIC_CELLS/ATA_28-FUEL/
+
+# Check existing KNOTs
+cat ATA-28-fuel/28-10-storage/28-10-00-00-general/KDB/GENESIS/KNOTS.csv
+```
+
+**Step 2: Plan Your KNU**
+
+Add entry to `KNU_PLAN.csv`:
+
+```csv
+KNU_ID,KNOT_ID,KNU_Type,Artifact_Class,Expected_Location,Acceptance_Criteria,Owner_AoR,Due_Date,Status,Effort_Predicted
+KNU-ATA28-10-00-REQ-005,KNOT-ATA28-10-00-001,REQ,SSOT,../LC02_SYSTEM_REQUIREMENTS/,Requirement traced + reviewed,STK_SE,2026-02-15,PLANNED,3
+```
+
+**Step 3: Create the Artifact**
+
+```bash
+# Create requirement document
+cd KDB/SSOT/PLM/LC02_SYSTEM_REQUIREMENTS/
+touch REQ-ATA28-10-00-005_LH2_Tank_Insulation.md
+```
+
+**Step 4: Validate and Submit**
+
+```bash
+# Validate structure
+python tools/ci/optin_structure_validator.py --check --chapter 28
+
+# Commit with conventional format
+git add .
+git commit -m "feat(ATA28): Add LH2 tank insulation requirement
+
+- Addresses KNOT-ATA28-10-00-001
+- KNU-ATA28-10-00-REQ-005 now IN_PROGRESS
+- Effort: 3 points"
+
+# Push and create PR
+git push origin feature/ata28-lh2-insulation
+```
+
+### 7.3 Role-Based Entry Points
+
+| Role | Start Here | Primary Focus |
+|------|------------|---------------|
+| **Systems Engineer** | `OPT-IN_FRAMEWORK/README.md` | LC02–LC06 artifacts |
+| **Safety Engineer** | `LC03_SAFETY_RELIABILITY/` | Hazard analysis, FMEA |
+| **Certification Engineer** | `LC08_FLIGHT_TEST_CERTIFICATION/` | Compliance matrix |
+| **Publication Author** | `IDB/PUB/AMM/CSDB/README.md` | S1000D data modules |
+| **Configuration Manager** | `CONTRACTS/` | Transformation governance |
+| **Program Manager** | `docs/IMPLEMENTATION_SUMMARY.md` | Status dashboards |
+| **MRO Engineer** | `IDB/SSOT/SLM/LC13_MRO_SUSTAINMENT/` | Maintenance programs |
+| **AI/ML Engineer** | `ATA_95-AI_ML_MODELS/` | Model lifecycle |
+| **Tokenomics Analyst** | `KDB/GENESIS/TOKENOMICS_TT.yaml` | Incentive allocation |
+
+### 7.4 Validation & CI Checks
+
+**Local Validation:**
+
+```bash
+# Full structure check
+python tools/ci/optin_structure_validator.py --check
+
+# Single chapter
+python tools/ci/optin_structure_validator.py --check --chapter 28
+
+# BREX validation (requires S1000D tools)
+python tools/ci/brex_validator.py --csdb IDB/PUB/AMM/CSDB/
+
+# Trace matrix verification
+python tools/ci/trace_checker.py --contracts CONTRACTS/
+```
+
+**CI Pipeline (GitHub Actions):**
+
+```yaml
+# .github/workflows/validate.yml
+name: Validate
+on: [push, pull_request]
+jobs:
+  structure:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt
+      - run: python tools/ci/optin_structure_validator.py --check
+      - run: python tools/ci/trace_checker.py --contracts CONTRACTS/
+```
+
+---
+
+## 8. CAOS Framework
+
+**CAOS (Continuous Airworthiness for Operational Sustainment)** maintains airworthiness throughout the operational lifecycle:
+
+| Domain | Scope |
+|--------|-------|
+| **Continued Airworthiness** | AD compliance, SB tracking, modification status |
+| **Reliability Programs** | MSG-3, condition monitoring, fleet trends |
+| **Operational Feedback** | In-service data, SDR/MOR analysis |
+| **Technical Services** | Field support, AOG response, technical bulletins |
+| **Configuration Control** | As-maintained vs. as-designed reconciliation |
+
+**Key Documents:**
+
+- [`CAOS/CAOS_INDEX.md`](./CAOS/CAOS_INDEX.md) — Entry point
+- [`CAOS/CAOS_ARCHITECTURE.md`](./CAOS/CAOS_ARCHITECTURE.md) — System design
+- [`CAOS/CAOS_OPERATIONS_FRAMEWORK.md`](./CAOS/CAOS_OPERATIONS_FRAMEWORK.md) — Operational playbook
+
+**CAOS artifacts reside in:**
+
+- `IDB/SSOT/SLM/LC11_OPERATIONS_CUSTOMIZATION/`
+- `IDB/SSOT/SLM/LC12_SUPPORT_SERVICES/`
+- `IDB/SSOT/SLM/LC13_MRO_SUSTAINMENT/`
+
+---
+
+## 9. Publishing Model
+
+### 9.1 CSDB (S1000D)
+
+The Common Source Database is the single source for modular publications:
+
+| Component | Purpose | Location |
+|-----------|---------|----------|
+| **DM** | Atomic content modules | `IDB/PUB/AMM/CSDB/DM/` |
+| **PM** | Publication structures | `IDB/PUB/AMM/CSDB/PM/` |
+| **DML** | Controlled module lists | `IDB/PUB/AMM/CSDB/DML/` |
+| **BREX** | Business rules | `IDB/PUB/AMM/CSDB/BREX/` |
+| **ICN** | Graphics (SVG preferred) | `IDB/PUB/AMM/CSDB/ICN/` |
+| **APPLICABILITY** | ACT/PCT/CCT filters | `IDB/PUB/AMM/CSDB/APPLICABILITY/` |
+| **COMMON** | Reusable primitives | `IDB/PUB/AMM/CSDB/COMMON/` |
+
+**Data Module Types:**
+
+| Info Code | Type | Description |
+|-----------|------|-------------|
+| `0XX` | Descriptive | System descriptions |
+| `1XX` | Operational | Operating procedures |
+| `2XX` | Servicing | Servicing tasks |
+| `3XX` | Maintenance | Maintenance procedures |
+| `4XX` | Fault | Fault isolation |
+| `5XX` | Disconnect | Remove/install |
+| `6XX` | Repair | Repair procedures |
+| `7XX` | Illustrated | Parts data (IPD) |
+| `9XX` | Wiring | Wiring data |
+
+### 9.2 IETP Runtime
+
+The Interactive Electronic Technical Publication runtime:
+
+- Consumes PM/DM sets from CSDB
+- Applies applicability rules (ACT/PCT/CCT)
+- Provides interactive navigation, search, filtering
+- Packaged in `IDB/PUB/AMM/IETP/`
 
 ```
-├── ATA_NN-SYSTEM/
-│   └── ATA-NN-00-general/
-│       └── 00-00-general/
-│           ├── GENESIS/
-│           ├── SSOT/
-│           └── PUBS/
+IETP/
+├── config/
+│   ├── viewer.json
+│   └── applicability.json
+├── index/
+│   └── search_index.json
+├── runtime/
+│   └── viewer.js
+└── package.json
+```
+
+---
+
+## 10. Tooling & Automation
+
+### 10.1 CLI Tools Reference
+
+| Tool | Command | Description |
+|------|---------|-------------|
+| **Structure Validator** | `python tools/ci/optin_structure_validator.py` | Validates OPT-IN directory structure |
+| **BREX Validator** | `python tools/ci/brex_validator.py` | S1000D business rules check |
+| **Trace Checker** | `python tools/ci/trace_checker.py` | Contract trace matrix verification |
+| **Token CLI** | `python tools/tek_tokens.py` | TT operations (quote, transfer, verify) |
+| **KNU Distributor** | `python tools/knu_distribution.py` | KNOT closure TT distribution |
+
+**Examples:**
+
+```bash
+# Quote reward distribution
+python tools/tek_tokens.py quote --op reward --tt 100
+
+# Execute distribution after KNOT closure
+python tools/knu_distribution.py distribute --knot KNOT-ATA28-10-00-001
+
+# Verify ledger integrity
+python tools/tek_tokens.py verify
+
+# Generate trace matrix
+python tools/ci/trace_checker.py --contracts CONTRACTS/ --output trace_matrix.csv
+```
+
+### 10.2 ASIT Pipeline Configuration
+
+ASIT pipelines are defined in `ASIT/pipelines/`:
+
+```yaml
+# pipeline-kdb-to-csdb.yaml
+pipeline:
+  id: "ASIT-PIPE-001"
+  name: "KDB to CSDB"
+  contract: "KITDM-CTR-001"
+
+stages:
+  - name: "extract"
+    type: "kdb_reader"
+    config:
+      paths: "${CONTRACT.source.paths}"
+      maturity_filter: "${CONTRACT.source.required_maturity}"
+
+  - name: "transform"
+    type: "dm_generator"
+    config:
+      rules: "${CONTRACT.transformation.rules}"
+      templates: "templates/"
+
+  - name: "validate"
+    type: "brex_checker"
+    config:
+      brex_files: "${CONTRACT.validation.brex_rules}"
+      schema: "${CONTRACT.validation.schema_version}"
+
+  - name: "load"
+    type: "csdb_writer"
+    config:
+      output_path: "${CONTRACT.target.output_path}"
+      generate_dml: true
+
+  - name: "audit"
+    type: "trace_logger"
+    config:
+      log_level: "${CONTRACT.audit.log_level}"
+      output: "runs/${RUN_ID}/"
+
+triggers:
+  - type: "manual"
+  - type: "schedule"
+    cron: "0 2 * * *"
+  - type: "webhook"
+    events: ["kdb_update"]
+```
+
+### 10.3 CI/CD Integration
+
+**GitHub Actions Workflow:**
+
+```yaml
+# .github/workflows/asit-transform.yml
+name: ASIT Transform
+on:
+  push:
+    paths:
+      - 'OPT-IN_FRAMEWORK/**/KDB/**'
+  workflow_dispatch:
+
+jobs:
+  transform:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+        
+      - name: Validate KDB changes
+        run: python tools/ci/optin_structure_validator.py --check
+        
+      - name: Run ASIT transformation
+        run: python tools/asit/runner.py --pipeline pipeline-kdb-to-csdb.yaml
+        
+      - name: Validate CSDB output
+        run: python tools/ci/brex_validator.py --csdb IDB/PUB/AMM/CSDB/
+        
+      - name: Generate trace matrix
+        run: python tools/ci/trace_checker.py --output artifacts/trace_matrix.csv
+        
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: asit-run-${{ github.sha }}
+          path: artifacts/
+```
+
+---
+
+## 11. Security & Access Control
+
+### 11.1 Data Classification
+
+| Level | Label | Description | Examples |
+|-------|-------|-------------|----------|
+| **1** | PUBLIC | Open information | README, general descriptions |
+| **2** | INTERNAL | Program-internal | Design rationale, trade studies |
+| **3** | CONFIDENTIAL | Business-sensitive | Cost data, supplier info |
+| **4** | RESTRICTED | Export-controlled | Performance data, algorithms |
+| **5** | SECRET | National security | (Not applicable to this repo) |
+
+**Marking Convention:**
+
+```markdown
+<!-- CLASSIFICATION: INTERNAL -->
+<!-- EXPORT_CONTROL: NONE -->
+```
+
+### 11.2 Export Control Considerations
+
+| Jurisdiction | Regulation | Applicability |
+|--------------|------------|---------------|
+| **EU** | Dual-Use Regulation (EU 2021/821) | Aviation technology |
+| **US** | EAR (15 CFR 730-774) | US-origin technology |
+| **US** | ITAR (22 CFR 120-130) | Defense articles (if applicable) |
+| **Intl** | Wassenaar Arrangement | Aerospace technology |
+
+**Repository Policy:**
+
+- All content in this repository is **synthetic demonstration data**
+- No export-controlled technical data is included
+- Contributors must not add controlled technical data
+- Real program data requires separate controlled repository
+
+### 11.3 Role-Based Access Model
+
+| Role | KDB/GENESIS | KDB/SSOT | CONTRACTS | IDB/SSOT | IDB/PUB |
+|------|-------------|----------|-----------|----------|---------|
+| **Viewer** | Read | Read | Read | Read | Read |
+| **Contributor** | Read | Read/Write | Read | Read | Read |
+| **Author** | Read | Read/Write | Read | Read/Write | Read/Write |
+| **Approver** | Read | Read/Approve | Read/Approve | Read/Approve | Read/Approve |
+| **Admin** | Full | Full | Full | Full | Full |
+
+**Access is controlled by:**
+
+- GitHub repository permissions
+- Branch protection rules
+- CODEOWNERS file
+- CI/CD approval gates
+
+---
+
+## 12. Key Documentation
+
+| Document | Description | Location |
+|----------|-------------|----------|
+| **Ontology & Knowledge Model** | Foundational methodology | [`docs/ONTOLOGY_GENESIS_KNOWLEDGE_MODEL.md`](./docs/ONTOLOGY_GENESIS_KNOWLEDGE_MODEL.md) |
+| **OPT-IN Framework Standard** | Complete framework specification | [`docs/OPT-IN_FRAMEWORK_STANDARD.md`](./docs/OPT-IN_FRAMEWORK_STANDARD.md) |
+| **Documentation Standard** | Formatting and structure guidelines | [`docs/AMPEL360_DOCUMENTATION_STANDARD.md`](./docs/AMPEL360_DOCUMENTATION_STANDARD.md) |
+| **AI→ASI Transition Proposal** | AI governance roadmap | [`docs/AI-ASI-TP.md`](./docs/AI-ASI-TP.md) |
+| **Digital Twin Control Loop** | Digital twin architecture | [`docs/DIGITAL_TWIN_CONTROL_LOOP.md`](./docs/DIGITAL_TWIN_CONTROL_LOOP.md) |
+| **CAOS Index** | Airworthiness framework entry | [`CAOS/CAOS_INDEX.md`](./CAOS/CAOS_INDEX.md) |
+| **CAOS Architecture** | CAOS system design | [`CAOS/CAOS_ARCHITECTURE.md`](./CAOS/CAOS_ARCHITECTURE.md) |
+| **CAOS Operations** | Operational playbook | [`CAOS/CAOS_OPERATIONS_FRAMEWORK.md`](./CAOS/CAOS_OPERATIONS_FRAMEWORK.md) |
+
+---
+
+## 13. Contributing
+
+### Contribution Workflow
+
+1. **Fork** the repository
+2. **Setup hooks**: `bash .github/hooks/setup-hooks.sh`
+3. **Create branch**: `git checkout -b feature/ata-XX-description`
+4. **Follow** the canonical ATA pattern (KDB/CONTRACTS/ASIT/IDB)
+5. **Validate**: `python tools/ci/optin_structure_validator.py --check`
+6. **Commit** with conventional format
+7. **Submit** pull request
+
+### Commit Message Convention
 
 ```
+<type>(<scope>): <subject>
+
+<body>
+
+<footer>
+```
+
+| Type | Description |
+|------|-------------|
+| `feat` | New feature or artifact |
+| `fix` | Bug fix or correction |
+| `docs` | Documentation only |
+| `refactor` | Restructuring without functional change |
+| `test` | Test addition or modification |
+| `ci` | CI/CD changes |
+| `chore` | Maintenance tasks |
+
+**Example:**
+
+```
+feat(ATA28): Add LH2 tank thermal analysis
+
+- Addresses KNOT-ATA28-10-00-003
+- KNU-ATA28-10-00-ANA-001 complete
+- Includes CFD results and validation data
+
+Closes #142
+```
+
+### Contribution Rules
+
+| Rule | Guidance |
+|------|----------|
+| **Narrative docs** | Use Markdown (`.md`) — not `.pdf`, `.docx` |
+| **Matrices/logs** | Use CSV (`.csv`) — not `.xlsx` |
+| **Graphics** | Prefer SVG for illustrations (ICN) |
+| **S1000D content** | Keep XML/BREX compliant under `IDB/PUB/**/CSDB/**` |
+| **References** | Ensure DM ↔ ICN ↔ PM ↔ DML ↔ APPLICABILITY resolve |
+| **Safety-critical** | Include DO-178C compliance tags where applicable |
+| **KNOT/KNU** | Define uncertainties in GENESIS before producing artifacts |
+| **Tokenomics** | Declare reward pools in `TOKENOMICS_TT.yaml` per KNOT |
+| **Classification** | Mark all files with appropriate data classification |
+| **No real data** | This repository is for synthetic demonstration only |
+
+---
+
+## 14. Glossary
+
+| Acronym | Full Term | Definition |
+|---------|-----------|------------|
+| **ACT** | Applicability Cross-reference Table | S1000D product configuration mapping |
+| **AoR** | Area of Responsibility | Accountable stakeholder domain |
+| **ASIT** | Aircraft Standard Information Transponder | Agent executing KDB→IDB transformation contracts |
+| **ATA** | Air Transport Association | Industry standard for aircraft system numbering |
+| **BREX** | Business Rules Exchange | S1000D validation ruleset |
+| **BWB** | Blended Wing Body | Aircraft configuration with integrated wing-fuselage |
+| **CAE** | Computer-Aided Engineering | Analysis and simulation tools |
+| **CAM** | Computer-Aided Manufacturing | Production and tooling systems |
+| **CAOS** | Continuous Airworthiness for Operational Sustainment | In-service airworthiness framework |
+| **CCT** | Condition Cross-reference Table | S1000D condition-based filtering |
+| **CSDB** | Common Source Database | S1000D repository of modular content |
+| **DM** | Data Module | Atomic S1000D content unit |
+| **DML** | Data Module List | Controlled list of DMs with status |
+| **DMU** | Digital Mock-Up | 3D product definition |
+| **DPP** | Digital Product Passport | EU lifecycle traceability record |
+| **FMEA** | Failure Mode and Effects Analysis | Safety analysis method |
+| **GENESIS** | — | Pre-SSOT layer for uncertainty discovery |
+| **GSE** | Ground Support Equipment | Airport/maintenance tooling |
+| **ICN** | Information Control Number | S1000D graphic identifier |
+| **IDB** | Information Data Base | Derived information views |
+| **IETP** | Interactive Electronic Technical Publication | Runtime delivery system |
+| **KDB** | Knowledge Data Base | Authoritative engineering knowledge |
+| **KI-DM** | Knowledge and Information Data Model | Governance architecture |
+| **KITDM** | Knowledge and Information Technical Data Management | Implementation framework |
+| **KNU** | Knowledge Unit | Concrete artifact addressing a KNOT |
+| **KNOT** | Knowledge Node (Ontology Trading) | Registered uncertainty requiring resolution |
+| **LC** | Lifecycle Phase | One of 14 managed phases (LC01–LC14) |
+| **LH2** | Liquid Hydrogen | Cryogenic fuel |
+| **MRO** | Maintenance, Repair, Overhaul | In-service support activities |
+| **O-KNOT** | Origin KNOT | Fundamental/origin uncertainty |
+| **OPT-IN** | Organizations-Programs-Technologies-Infrastructures-Neural | Five-axis framework |
+| **PCT** | Product Cross-reference Table | S1000D variant mapping |
+| **PEM** | Proton Exchange Membrane | Fuel cell type |
+| **PLM** | Product Lifecycle Management | Design-through-production scope |
+| **PM** | Publication Module | S1000D publication structure |
+| **PMU** | Physical Mock-Up | Test and integration articles |
+| **RACI** | Responsible-Accountable-Consulted-Informed | Responsibility matrix |
+| **S1000D** | International specification for technical publications | XML-based modular documentation |
+| **SLM** | Service Lifecycle Management | Operations-through-retirement scope |
+| **SSOT** | Single Source of Truth | Authoritative record system |
+| **TT** | Teknia Token | Incentive token (1 TT = 360°) |
+| **V&V** | Verification and Validation | Evidence of compliance |
+| **Y-KNOT** | Justification KNOT | Decision rationale trees |
+
+---
+
+## 15. Changelog
+
+### [Unreleased]
+
+#### Added
+- KI-DM / KITDM / ASIT architecture documentation
+- GENESIS layer with O-KNOT, Y-KNOT, KNOT hierarchy
+- PLM vs SLM lifecycle domain separation
+- Contract-based transformation governance (KITDM-CTR)
+- Security and access control documentation
+- Comprehensive glossary
+
+#### Changed
+- Restructured canonical ATA pattern to KDB/CONTRACTS/ASIT/IDB
+- Moved LC11–LC14 to IDB/SSOT/SLM (Service Lifecycle Management)
+- Enhanced tokenomics documentation with full formula derivation
+
+### [1.0.0] — 2026-01-11
+
+#### Added
+- Initial OPT-IN Framework with 79 ATA chapters
+- SSOT/PUB separation model
+- KNOT/KNU uncertainty management
+- Teknia Token (TT) v3.14 integration
+- CAOS framework documentation
+- S1000D CSDB structure
+
+---
+
+## 16. License & Acknowledgments
+
+### License
+
+**Creative Commons Zero v1.0 Universal (CC0 1.0)**
+
+To the extent possible under law, the author has waived all copyright and related or neighboring rights to this work.
+
+See [LICENSE](./LICENSE) for full text.
+
+### Acknowledgments
+
+| Contributor | Role |
+|-------------|------|
+| **Amedeo Pelliccia** | Concept, Direction, Architecture |
+| **GitHub Copilot** | AI-assisted documentation generation |
+| **Claude (Anthropic)** | Technical writing and framework refinement |
+
+### Disclaimer
+
+All data in this repository is **synthetic**.
+
+No claim is made regarding:
+- Technical correctness
+- Airworthiness
+- Operational applicability
+
+This repository exists solely to demonstrate **governance, traceability, and transformation logic**.
+
+---
+
+<p align="center">
+  <strong>AMPEL360 Q100</strong><br/>
+  Digital engineering, traceability, and publication-grade CSDB for sustainable aviation
+</p>
+
+<p align="center">
+  <em>By Amedeo Pelliccia • AI-Assisted Development</em>
+</p>
+
+<p align="center">
+  <i>Last updated: 2026-01-19</i>
+</p>
 
 ```
 OPT-IN_FRAMEWORK/
@@ -1446,343 +2371,3 @@ OPT-IN_FRAMEWORK/
 ```
 ---
 
-## Canonical ATA Content Pattern 
-
-**CSDB lives at section level. ** Each section carries both SSOT and PUB: 
-
-```text
-ATA_XX-<SYSTEM>/
-└── xx-yy-<SECTION>/                                           # ATA chapter/section breakdown (e.g., 21-10)
-    ├── README.md                                              # Section overview, scope, AoR, applicability
-    └── xx-yy-00-<SUBJECT>/                                    # Topic bundle inside the section
-        ├── README.md                                          # Subject overview + entry points (KDB/IDB)
-        └── xx-yy-00-00-<SUB-SUBJECT>/                         # Smallest governed domain unit (work package scope)
-            ├── README.md                                      # Contract index + governance pointers
-            │
-            ├── KDB/                                           # Knowledge Data Base (epistemological core)
-            │   ├── GENESIS/                                   # Uncertainty & decision discovery layer
-            │   │   ├── KNOTS.csv
-            │   │   ├── KNU_PLAN.csv
-            │   │   ├── TIMELINE.csv
-            │   │   ├── RACI.csv
-            │   │   ├── TOKENOMICS_TT.yaml
-            │   │   └── AWARDS_TT.csv
-            │   │
-            │   └── SSOT/
-            │       └── PLM/                                   # Product Lifecycle Management scope
-            │           ├── LC01_PROBLEM_STATEMENT/
-            │           ├── LC02_SYSTEM_REQUIREMENTS/
-            │           ├── LC03_SAFETY_RELIABILITY/
-            │           ├── LC04_DESIGN_DEFINITION_DMU/
-            │           ├── LC05_ANALYSIS_MODELS_CAE/
-            │           ├── LC06_INTEGRATION_TEST_PMU/
-            │           ├── LC07_QUALITY/
-            │           ├── LC08_FLIGHT_TEST_CERTIFICATION/
-            │           ├── LC09_GREEN_AIRCRAFT_BASELINES/
-            │           └── LC10_INDUSTRIALIZATION_PRODUCTION_CAM/
-            │
-            ├── CONTRACTS/                                     # KDB → IDB contracts (governs what can be published)
-            │   ├── KITDM-CTR-001_KDB-to-CSDB.yaml
-            │   ├── KITDM-CTR-002_KDB-to-EXPORT.yaml
-            │   ├── KITDM-CTR-003_KDB-to-IETP.yaml
-            │   └── EVIDENCE/
-            │       ├── ACCEPTANCE_CRITERIA.md
-            │       └── TRACE_MATRIX_TEMPLATE.csv
-            │
-            ├── ASIT/                                          # Aircraft Standard Information Transponder
-            │   ├── README.md
-            │   ├── pipelines/
-            │   ├── rules/
-            │   └── runs/
-            │       └── <YYYYMMDD-HHMM>__<contract-id>/
-            │           ├── INPUT_MANIFEST.json
-            │           ├── OUTPUT_MANIFEST.json
-            │           ├── TRACE_MATRIX.csv
-            │           ├── VALIDATION_REPORT.json
-            │           └── LOG.txt
-            │
-            └── IDB/                                           # Information Data Base (projection for audiences)
-                ├── SSOT/
-                │   └── SLM/                                   # Service Lifecycle Management scope
-                │       ├── LC11_OPERATIONS_CUSTOMIZATION/     # Ops configurations & customer deltas
-                │       ├── LC12_SUPPORT_SERVICES/             # In-service support knowledge
-                │       ├── LC13_MRO_SUSTAINMENT/              # Maintenance & sustainment authority
-                │       └── LC14_RETIREMENT_CIRCULARITY/       # End-of-life & circularity closure
-                │
-                ├── PUB/                                       # Publication-oriented views
-                │   └── AMM/
-                │       ├── CSDB/
-                │       │   ├── DM/
-                │       │   ├── PM/
-                │       │   ├── DML/
-                │       │   ├── BREX/
-                │       │   ├── ICN/
-                │       │   ├── COMMON/
-                │       │   └── APPLICABILITY/
-                │       ├── EXPORT/
-                │       └── IETP/
-                │
-                └── INDEX/
-                    ├── IDB_RELEASE_NOTES.md
-                    └── IDB_TRACE_SUMMARY.md
-
-# Optional conventional ATA add-on:
-# └── xx-yy-00-90-glossary-abbreviations-and-tables/
-```
-
-### What this change achieves (conceptual clarity)
-
-* **PLM vs SLM is now explicit and structural**
-
-  * `KDB/SSOT/PLM/` → authoritative *product* lifecycle knowledge (LC01–LC10)
-  * `IDB/SSOT/SLM/` → authoritative *service* lifecycle knowledge (LC11–LC14)
-
-* **Service knowledge is still SSOT**, but:
-
-  * owned by service/ops/MRO authorities,
-  * governed closer to information consumption,
-  * clearly separated from design/manufacturing truth.
-
-* **ASIT contracts remain the only bridge**
-
-  * PLM → PUB (engineering to publications)
-  * SLM → PUB (service knowledge to publications)
-  * No silent crossover between product and service domains.
-
----
-
-## KNOT → KNU (Controlled Uncertainty Handling)
-
-Work in this repository is managed through **KNOTs** and **KNUs**:
-
-| Concept | Definition |
-|---------|------------|
-| **KNOT** | A *known unknown* — an identified uncertainty or problem node requiring resolution |
-| **KNU** | A *Knowledge Unit* — a concrete artifact that addresses a KNOT |
-
-### How It Works
-
-```
-┌─────────────────────────────────────────────────────────────────────────┐
-│                         KNOT Lifecycle                                   │
-├─────────────────────────────────────────────────────────────────────────┤
-│  1. IDENTIFICATION                                                       │
-│     └─ Uncertainty logged in KNOTS. csv (Residual = 100)                 │
-│                                                                          │
-│  2. PLANNING                                                             │
-│     └─ Expected KNUs defined in KNU_PLAN.csv                            │
-│     └─ Timeline milestones set                                          │
-│     └─ TT reward pool allocated in TOKENOMICS_TT.yaml                   │
-│                                                                          │
-│  3. EXECUTION                                                            │
-│     └─ KNU artifacts produced in LC02–LC14 and PUB/CSDB                 │
-│     └─ Effort and impact recorded per KNU                               │
-│                                                                          │
-│  4. CLOSURE                                                              │
-│     └─ All KNUs complete, links resolved, BREX passed                   │
-│     └─ Residual reduced to target (e.g., 100 → 8)                       │
-│     └─ TT rewards distributed:  w_i = α·Ê_i + (1-α)·Î_i                  │
-│     └─ Awards logged to AWARDS_TT.csv + finance/ledger. json             │
-└─────────────────────────────────────────────────────────────────────────┘
-```
-
-This provides **traceability from uncertainty to evidence to incentive** across the engineering and publication lifecycle.
-
----
-
-## Teknia Tokens (TT) Integration
-
-The repository integrates with the **Teknia Token (TT) v3.14** system for incentive alignment:
-
-| Aspect | Specification |
-|--------|---------------|
-| **Token** | TT (1 TT = 360 deg) |
-| **Genesis Supply** | 2,000,000,000 TT |
-| **Fee Structure** | π-tier for transfers (0.314%/0.99%/3.14%); 0.5% for rewards |
-| **KNOT Pools** | Defined per KNOT in `TOKENOMICS_TT.yaml` |
-| **Distribution** | Effort + Impact weighted formula |
-| **Ledger** | `finance/ledger.json` (SHA-256 hash chain) |
-
-### CLI Integration
-
-```bash
-# Quote a reward distribution
-python tools/tek_tokens. py quote --op reward --tt 100
-
-# Execute reward (after KNOT closure)
-python tools/knu_distribution.py distribute --knot KNOT-ATA25-10-00-001
-
-# Verify ledger integrity
-python tools/tek_tokens.py verify
-```
-
----
-
-## Quick Start
-
-### Prerequisites
-- Python 3.9+
-- Git
-
-### Clone and Setup
-
-```bash
-git clone https://github.com/AmedeoPelliccia/AMPEL360-AIR-T.git
-cd AMPEL360-AIR-T
-
-pip install -r requirements. txt
-bash . github/hooks/setup-hooks.sh
-```
-
-### Validate Structure
-
-```bash
-python tools/ci/optin_structure_validator.py --check
-python tools/ci/optin_structure_validator.py --check --chapter 31
-```
-
-### Navigate
-
-```bash
-cd OPT-IN_FRAMEWORK/
-ls
-```
-
-### Entry Points by Role
-
-| Role | Start Here |
-|------|------------|
-| **Engineers** | [`OPT-IN_FRAMEWORK/README.md`](./OPT-IN_FRAMEWORK/README.md) |
-| **Publication Authors** | Example: `.../PUB/AMM/CSDB/README.md` (pattern at each sub-subject) |
-| **Program Managers** | [`IMPLEMENTATION_SUMMARY.md`](./IMPLEMENTATION_SUMMARY.md) |
-| **CAOS / Airworthiness** | [`CAOS/CAOS_INDEX.md`](./CAOS/CAOS_INDEX. md) |
-| **Certification** | `XX-00-10_Certification/` folders |
-| **Tokenomics** | `LC01_PROBLEM_STATEMENT/TOKENOMICS_TT.yaml` at any ATA node |
-
----
-
-## CAOS — Continuous Airworthiness for Operational Sustainment
-
-**CAOS** is the framework for maintaining airworthiness throughout the operational lifecycle: 
-
-| Domain | Scope |
-|--------|-------|
-| **Continued Airworthiness** | AD compliance, SB tracking, modification status |
-| **Reliability Programs** | MSG-3, condition monitoring, fleet trends |
-| **Operational Feedback** | In-service data, SDR/MOR analysis, operator liaison |
-| **Technical Services** | Field support, AOG response, technical bulletins |
-| **Configuration Control** | As-maintained vs. as-designed reconciliation |
-
-CAOS artifacts reside primarily in: 
-- `LC11_MAINTENANCE` — maintenance program sources
-- `LC12_CUSTOMER_CARE` — technical services and post-delivery support
-- `CAOS/` — cross-cutting CAOS documentation and dashboards
-
-See:  [`CAOS/CAOS_INDEX. md`](./CAOS/CAOS_INDEX.md) • [`CAOS/CAOS_ARCHITECTURE.md`](./CAOS/CAOS_ARCHITECTURE.md) • [`CAOS/CAOS_OPERATIONS_FRAMEWORK.md`](./CAOS/CAOS_OPERATIONS_FRAMEWORK.md)
-
----
-
-## Publishing Model (CSDB + IETP)
-
-### CSDB (S1000D Common Source Database)
-
-The CSDB is the **single source for modular publications**:
-
-| Component | Purpose |
-|-----------|---------|
-| **DM** | Atomic content modules (descriptive, procedural, fault isolation, IPD, etc.) |
-| **PM** | Publication structures that assemble DMs into deliverables |
-| **DML** | Controlled lists of DMs with status and applicability |
-| **BREX** | Business rules for validation and compliance checking |
-| **ICN** | Graphics (SVG preferred) referenced by DMs |
-| **APPLICABILITY** | ACT/PCT/CCT for product/condition filtering |
-| **COMMON** | Reusable content primitives (warnings, cautions, notes) |
-
-### IETP (Interactive Electronic Technical Publication)
-
-HTML/PDF are outputs; the **IETP runtime** is the deliverable software "image" that: 
-- Consumes PM/DM sets from CSDB
-- Applies applicability rules (ACT/PCT/CCT)
-- Provides interactive navigation, search, and filtering
-- Is packaged and versioned in `PUB/<SUB_ID>/IETP/`
-
----
-
-## Standards & Compliance
-
-| Standard | Application |
-|----------|-------------|
-| **EASA CS-25 / FAA Part 25** | Airworthiness requirements framing |
-| **ATA iSpec 2200** | Chapter/section/subject scaffolding for system breakdown |
-| **S1000D (+ project BREX)** | Technical publications CSDB (DM/PM/DML/ICN/APPLICABILITY) |
-| **DO-178C** | Software considerations in airborne systems |
-| **DO-254** | Hardware design assurance |
-| **DO-160** | Environmental qualification |
-| **ISO 15926** | Industrial data standards |
-
----
-
-## Key Documentation
-
-| Document | Description |
-|----------|-------------|
-| [Ontology Genesis and Knowledge Model](./ONTOLOGY_GENESIS_KNOWLEDGE_MODEL.md) | Foundational methodology for uncertainty resolution and knowledge architecture |
-| [OPT-IN Framework Standard](./OPT-IN_FRAMEWORK_STANDARD.md) | Complete framework specification |
-| [Documentation Standard](./AMPEL360_DOCUMENTATION_STANDARD.md) | Formatting and structure guidelines |
-| [AI→ASI Transition Proposal](./AI-ASI-TP. md) | AI→ASI transition roadmap:  governance, assurance, and certification-grade adoption across SSOT+PUB |
-| [Digital Twin Control Loop](./DIGITAL_TWIN_CONTROL_LOOP.md) | Digital twin architecture and data flows |
-| [CAOS Index](./CAOS/CAOS_INDEX.md) | Continuous Airworthiness for Operational Sustainment |
-| [CAOS Architecture](./CAOS/CAOS_ARCHITECTURE.md) | CAOS system architecture |
-| [CAOS Operations Framework](./CAOS/CAOS_OPERATIONS_FRAMEWORK.md) | CAOS operational playbook |
-
----
-
-## Contributing
-
-1. **Fork** the repository
-2. **Setup hooks**:  `bash .github/hooks/setup-hooks.sh`
-3. **Follow** the SSOT + PUB pattern and OPT-IN structure
-4. **Validate**:  `python tools/ci/optin_structure_validator.py --check`
-5. **Submit** a pull request
-
-### Contribution Rules
-
-| Rule | Guidance |
-|------|----------|
-| **Narrative docs** | Use Markdown (`.md`) — not `.pdf`, `.docx` |
-| **Matrices/logs** | Use CSV (`.csv`) — not `.xlsx` |
-| **Graphics** | Prefer SVG for illustrations (ICN) |
-| **S1000D content** | Keep XML/BREX compliant under `PUB/**/CSDB/**` |
-| **References** | Ensure DM ↔ ICN ↔ PM ↔ DML ↔ APPLICABILITY resolve correctly |
-| **Safety-critical** | Include DO-178C compliance tags where applicable |
-| **KNOT/KNU** | Define uncertainties in LC01 before producing artifacts |
-| **Tokenomics** | Declare reward pools in `TOKENOMICS_TT.yaml` per KNOT |
-
----
-
-## License
-
-Creative Commons Zero v1.0 Universal — see [LICENSE](./LICENSE).
-
----
-
-## Acknowledgments
-
-- **Concept & Direction**: Amedeo Pelliccia
-- **AI Assistance**: GitHub Copilot (documentation generation)
-- **Framework Design**: OPT-IN Framework
-- **Tokenomics**: Teknia Token (TT) v3.14
-
----
-
-<p align="center">
-  <strong>AMPEL360 Q100</strong> — Digital engineering, traceability, and publication-grade CSDB for sustainable aviation. 
-</p>
-
-<p align="center">
-  <em>By Amedeo Pelliccia • AI-Assisted Development</em>
-</p>
-
-<p align="center">
-  <i>Last updated: 2026-01-15</i>
-</p>
