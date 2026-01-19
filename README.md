@@ -1,3 +1,169 @@
+# AMPEL360 — KI-DM / KITDM / ASIT  
+## Synthetic Data Use Case Repository
+
+### Abstract (Functional Overview)
+
+This repository contains a **functional demonstration** of the **Knowledge and Information Data Model (KI-DM)** applied to aircraft systems, implemented through the **Knowledge and Information Technical Data Management (KITDM)** framework and orchestrated by **ASIT (Aircraft Standard Information Transponder)** agents.
+
+The use case is built entirely on **synthetic AMPEL360 program data**, ensuring that:
+- no proprietary or export-controlled information is exposed,
+- the full lifecycle logic can be exercised,
+- results are reproducible, inspectable, and auditable.
+
+The repository does **not** aim to deliver operational documentation.  
+Its purpose is to demonstrate **how knowledge becomes information in a controlled, scalable, and certifiable way**.
+
+---
+
+## Purpose of the Repository
+
+This repository serves as a **reference implementation** to demonstrate:
+
+- how **authoritative technical knowledge** is structured and governed independently of publications,
+- how **information for operators, MROs, and authorities** is derived without redefining technical truth,
+- how **automation can be introduced without delegating authority to tools or AI**.
+
+It addresses a recurring industry challenge:
+
+> Engineering knowledge, documentation, and certification evidence tend to diverge as programs scale and become geographically distributed.
+
+---
+
+## What This Repository Is (and Is Not)
+
+### This repository **is**
+- A **functional demonstration** of KITDM concepts.
+- A **sandbox** for KDB → IDB transformation using ASIT.
+- A **proof of governance**, not a proof of technical correctness.
+- A **synthetic but structurally realistic** aircraft program environment.
+
+### This repository **is not**
+- A certified or contract-ready documentation set.
+- A replacement for engineering judgment or technical authority.
+- A tool-specific or vendor-locked implementation.
+- A proposal for organizational restructuring.
+
+---
+
+## Functional Architecture (Conceptual)
+
+The use case is organized around three functional layers:
+
+### 1. Knowledge Data Base (KDB)
+- Contains **synthetic but lifecycle-accurate knowledge artifacts**.
+- Explicitly separates:
+  - uncertainty and open decisions (GENESIS),
+  - validated and matured knowledge (SSOT).
+- Each knowledge unit declares:
+  - ownership (AoR),
+  - lifecycle maturity,
+  - validation intent.
+
+**Key question answered:**  
+*What do we know, what do we not know yet, and under whose authority?*
+
+---
+
+### 2. Information Data Base (IDB)
+- Contains **derived information views**, structured by:
+  - applicable process (operation, maintenance, support),
+  - target audience (operator, MRO, authority).
+- Includes examples of:
+  - structured publication objects,
+  - static exports,
+  - interactive / IETP-style projections.
+
+**Key question answered:**  
+*What information is needed, by whom, to execute a specific process?*
+
+---
+
+### 3. ASIT Orchestration
+- ASIT agents execute **formal transformation contracts** between KDB and IDB.
+- ASIT:
+  - does not create knowledge,
+  - does not validate content,
+  - does not assume technical authority.
+- Each transformation is:
+  - deterministic,
+  - reproducible,
+  - fully traceable to source knowledge and contract.
+
+**Key question answered:**  
+*How can validated knowledge be transformed into usable information without losing control or authority?*
+
+---
+
+## Why Synthetic AMPEL360 Data
+
+AMPEL360 synthetic data is used to:
+
+- reflect the **complexity of a modern aircraft program** (variants, lifecycle phases, stakeholders),
+- simulate **realistic authoring and validation flows** without legal or contractual constraints,
+- enable **open inspection** of governance, traceability, and automation mechanisms.
+
+The value demonstrated lies in **structure and process**, not in the realism of technical parameters.
+
+---
+
+## Intended Audience
+
+This repository is relevant for:
+
+- System, safety, and certification engineers
+- Technical publications and IETP architects
+- Configuration and information management leads
+- Digital transformation and automation teams
+- Program management and financial governance stakeholders
+
+No prior knowledge of KITDM is required to follow the examples.
+
+---
+
+## How to Read This Repository
+
+A recommended reading path:
+
+1. Start with the **KDB directories** to understand how knowledge is declared and matured.
+2. Review the **transformation contracts** defining what knowledge is consumable.
+3. Inspect **ASIT execution logs and outputs**.
+4. Compare resulting **IDB artifacts** with their KDB sources.
+
+This mirrors how an auditor or authority would inspect the system.
+
+---
+
+## Core Principle Demonstrated
+
+> **Technical authority remains human and explicit; automation remains bounded, deterministic, and auditable.**
+
+The repository demonstrates that **scalability, automation, and compliance are compatible** when knowledge and information are treated as distinct domains.
+
+---
+
+## Disclaimer
+
+All data in this repository is **synthetic**.
+
+No claim is made regarding:
+- technical correctness,
+- airworthiness,
+- operational applicability.
+
+The repository exists solely to demonstrate **governance, traceability, and transformation logic**.
+
+---
+
+## Status
+
+- **Maturity:** Conceptual / Demonstration  
+- **Stability:** Evolving  
+- **Scope:** Single-program synthetic use case  
+
+---
+
+⸻
+
 # AMPEL360 Q100 (AMPEL360-AIR-T) — Hydrogen-Hybrid Electric BWB Aircraft
 
 <p align="center">
