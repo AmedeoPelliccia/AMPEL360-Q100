@@ -105,9 +105,14 @@ This repository contains synthetic but structurally realistic program data demon
 
 ### Core Principle
 
-> **Technical authority remains human and explicit; automation remains bounded, deterministic, and auditable.**
+> **Technical authority remains human and explicit; automation remains bounded, deterministic, and auditable.** 
+**“This repository demonstrates governance and transformation mechanics, not aircraft certification data.”**
 
-**Live Spec (demo):** [v0-ampel-360-aircraft-specification.vercel.app](https://v0-ampel-360-aircraft-specification.vercel.app)
+### Explicit Non-Goals
+
+- This repository does not replace engineering authority
+- It does not assert airworthiness or certification compliance
+- It does not automate decision-making
 
 ---
 
