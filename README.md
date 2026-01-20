@@ -330,92 +330,111 @@ Each ATA chapter follows the **KDB / CONTRACTS / ASIT / IDB** pattern:
 ```
 ATA_XX-<SYSTEM>/
 └── ATA-XX-<system-slug>/
-    └── XX-YY-<section>/
-        ├── README.md                              # Section overview
-        └── XX-YY-00-<subject>/
-            ├── README.md                          # Subject overview
-            └── XX-YY-00-00-<sub-subject>/         # Smallest governed unit
-                ├── README.md                      # Contract index
+    └── XX-YY-<section>/                             # ATA section = epistemological scope
+        ├── README.md                                # Section overview
+        │
+        ├── GENESIS/                                 # Uncertainty DISCOVERY (section-wide)
+        │   ├── O-KNOTS.csv                          # Origin of Uncertainty register
+        │   │                                        #   - INHERITED (experience gaps)
+        │   │                                        #   - DERIVED (regulations, policies)
+        │   ├── Y-KNOTS.csv                          # whY-KNOTs (assumption challenges)
+        │   └── DISCOVERY_LOG.md                     # Session notes, graduation tracking
+        │
+        └── XX-YY-00-<subject>/                      # Smallest governed unit
+            ├── README.md                            # Subject contract index
+            │
+            ├── KDB/                                 # Knowledge Data Base
+            │   └── SSOT/
+            │       └── PLM/                         # Product Lifecycle (LC01–LC10)
+            │           ├── LC01_PROBLEM_STATEMENT/
+            │           │   ├── KNOTS.csv            # Formalized KNOTs (graduated)
+            │           │   ├── KNU_PLAN.csv         # Expected knowledge units
+            │           │   ├── TIMELINE.csv         # Milestones & gates
+            │           │   ├── RACI.csv             # Responsibility matrix
+            │           │   ├── TOKENOMICS_TT.yaml   # Reward pool allocation
+            │           │   └── AWARDS_TT.csv        # Distribution ledger
+            │           │
+            │           ├── LC02_SYSTEM_REQUIREMENTS/
+            │           ├── LC03_SAFETY_RELIABILITY/
+            │           ├── LC04_DESIGN_DEFINITION_DMU/
+            │           ├── LC05_ANALYSIS_MODELS_CAE/
+            │           ├── LC06_INTEGRATION_TEST_PMU/
+            │           ├── LC07_QUALITY/
+            │           ├── LC08_FLIGHT_TEST_CERTIFICATION/
+            │           ├── LC09_GREEN_AIRCRAFT_BASELINES/
+            │           └── LC10_INDUSTRIALIZATION_PRODUCTION_CAM/
+            │
+            ├── CONTRACTS/                           # KDB → IDB transformation contracts
+            │   ├── KITDM-CTR-CSDB_ATAxx-yy00.yaml
+            │   ├── KITDM-CTR-EXPORT_ATAxx-yy00.yaml
+            │   ├── KITDM-CTR-IETP_ATAxx-yy00.yaml
+            │   └── EVIDENCE/
+            │       ├── ACCEPTANCE_CRITERIA.md
+            │       └── TRACE_MATRIX_TEMPLATE.csv
+            │
+            ├── ASIT/                                # ASI Transformation agent
+            │   ├── README.md
+            │   ├── pipelines/
+            │   ├── rules/
+            │   └── runs/
+            │       └── <YYYYMMDD-HHMM>__<contract-id>/
+            │           ├── INPUT_MANIFEST.json
+            │           ├── OUTPUT_MANIFEST.json
+            │           ├── TRACE_MATRIX.csv
+            │           ├── VALIDATION_REPORT.json
+            │           └── LOG.txt
+            │
+            └── IDB/                                 # Information Data Base
+                ├── SSOT/
+                │   └── SLM/                         # Service Lifecycle (LC11–LC14)
+                │       ├── LC11_OPERATIONS_CUSTOMIZATION/
+                │       ├── LC12_SUPPORT_SERVICES/
+                │       ├── LC13_MRO_SUSTAINMENT/
+                │       └── LC14_RETIREMENT_CIRCULARITY/
                 │
-                ├── KDB/                           # Knowledge Data Base
-                │   ├── GENESIS/                   # Uncertainty discovery
-                │   │   ├── KNOTS.csv              # Uncertainty register
-                │   │   ├── KNU_PLAN.csv           # Expected knowledge units
-                │   │   ├── TIMELINE.csv           # Milestones
-                │   │   ├── RACI.csv               # Responsibility matrix
-                │   │   ├── TOKENOMICS_TT.yaml     # Reward allocation
-                │   │   └── AWARDS_TT.csv          # Distribution ledger
-                │   │
-                │   └── SSOT/
-                │       └── PLM/                   # Product lifecycle (LC01–LC10)
-                │           ├── LC01_PROBLEM_STATEMENT/
-                │           ├── LC02_SYSTEM_REQUIREMENTS/
-                │           ├── LC03_SAFETY_RELIABILITY/
-                │           ├── LC04_DESIGN_DEFINITION_DMU/
-                │           ├── LC05_ANALYSIS_MODELS_CAE/
-                │           ├── LC06_INTEGRATION_TEST_PMU/
-                │           ├── LC07_QUALITY/
-                │           ├── LC08_FLIGHT_TEST_CERTIFICATION/
-                │           ├── LC09_GREEN_AIRCRAFT_BASELINES/
-                │           └── LC10_INDUSTRIALIZATION_PRODUCTION_CAM/
+                ├── PUB/                             # Publications
+                │   └── AMM/
+                │       ├── CSDB/
+                │       │   ├── DM/
+                │       │   ├── PM/
+                │       │   ├── DML/
+                │       │   ├── BREX/
+                │       │   ├── ICN/
+                │       │   ├── COMMON/
+                │       │   └── APPLICABILITY/
+                │       ├── EXPORT/
+                │       └── IETP/
                 │
-                ├── CONTRACTS/                     # KDB → IDB contracts
-                │   ├── KITDM-CTR-001_KDB-to-CSDB.yaml
-                │   ├── KITDM-CTR-002_KDB-to-EXPORT.yaml
-                │   ├── KITDM-CTR-003_KDB-to-IETP.yaml
-                │   └── EVIDENCE/
-                │       ├── ACCEPTANCE_CRITERIA.md
-                │       └── TRACE_MATRIX_TEMPLATE.csv
-                │
-                ├── ASIT/                          # Transformation agent
-                │   ├── README.md
-                │   ├── pipelines/
-                │   ├── rules/
-                │   └── runs/
-                │       └── <YYYYMMDD-HHMM>__<contract-id>/
-                │           ├── INPUT_MANIFEST.json
-                │           ├── OUTPUT_MANIFEST.json
-                │           ├── TRACE_MATRIX.csv
-                │           ├── VALIDATION_REPORT.json
-                │           └── LOG.txt
-                │
-                └── IDB/                           # Information Data Base
-                    ├── SSOT/
-                    │   └── SLM/                   # Service lifecycle (LC11–LC14)
-                    │       ├── LC11_OPERATIONS_CUSTOMIZATION/
-                    │       ├── LC12_SUPPORT_SERVICES/
-                    │       ├── LC13_MRO_SUSTAINMENT/
-                    │       └── LC14_RETIREMENT_CIRCULARITY/
-                    │
-                    ├── PUB/                       # Publications
-                    │   └── AMM/
-                    │       ├── CSDB/
-                    │       │   ├── DM/            # Data modules
-                    │       │   ├── PM/            # Publication modules
-                    │       │   ├── DML/           # Data module lists
-                    │       │   ├── BREX/          # Business rules
-                    │       │   ├── ICN/           # Graphics
-                    │       │   ├── COMMON/        # Reusable content
-                    │       │   └── APPLICABILITY/ # ACT/PCT/CCT
-                    │       ├── EXPORT/            # Rendered outputs
-                    │       └── IETP/              # Interactive runtime
-                    │
-                    └── INDEX/
-                        ├── IDB_RELEASE_NOTES.md
-                        └── IDB_TRACE_SUMMARY.md
+                └── INDEX/
+                    ├── IDB_RELEASE_NOTES.md
+                    ├── IDB_TRACE_SUMMARY.md
+                    ├── IDB_INDEX.json
+                    ├── PUBLICATION_MANIFEST.yaml
+                    ├── COMPLIANCE_CHECKLIST.md
+                    ├── CHANGELOG.md
+                    ├── METRICS_DASHBOARD.html
+                    └── DPP_ANCHOR_RECEIPT.json
 ```
+---
 
-### 3.3 File Naming Conventions
+## 3.3 File Naming Conventions (Final – Sub-Subject Removed)
 
-| Type | Pattern | Example |
-|------|---------|---------|
-| **ATA Chapter** | `ATA_XX-SYSTEM_NAME/` | `ATA_28-FUEL/` |
-| **Section** | `XX-YY-<section-slug>/` | `28-10-storage/` |
-| **KNOT ID** | `KNOT-ATAXX-YY-ZZ-NNN` | `KNOT-ATA28-10-00-001` |
-| **KNU ID** | `KNU-ATAXX-YY-ZZ-TYPE-NNN` | `KNU-ATA28-10-00-REQ-001` |
-| **Contract** | `KITDM-CTR-NNN_<source>-to-<target>.yaml` | `KITDM-CTR-001_KDB-to-CSDB.yaml` |
-| **ASIT Run** | `YYYYMMDD-HHMM__<contract-id>/` | `20260115-1430__KITDM-CTR-001/` |
-| **Data Module** | S1000D DMC convention | `DMC-AMPEL-A-28-10-00-00A-040A-D` |
+### Directory & Identifier Naming
+
+| Type                       | Pattern                              | Example                                     | Normative Notes                                |
+| -------------------------- | ------------------------------------ | ------------------------------------------- | ---------------------------------------------- |
+| **ATA Chapter (external)** | `ATA_XX-SYSTEM_NAME/`                | `ATA_28-FUEL/`                              | ATA-visible chapter container                  |
+| **ATA Chapter (internal)** | `ATA-XX-<system-slug>/`              | `ATA-28-fuel/`                              | Canonical internal system slug                 |
+| **Section**                | `XX-YY-<section-slug>/`              | `28-10-storage/`                            | **Epistemological scope** (GENESIS lives here) |
+| **GENESIS Folder**         | `GENESIS/`                           | `28-10-storage/GENESIS/`                    | Section-level uncertainty discovery            |
+| **O-KNOT ID**              | `O-KNOT-XX-YY-NNN`                   | `O-KNOT-28-10-001`                          | Origin of uncertainty (section-scoped)         |
+| **Y-KNOT ID**              | `Y-KNOT-XX-YY-NNN`                   | `Y-KNOT-28-10-002`                          | Assumption challenge (section-scoped)          |
+| **Subject**                | `XX-YY-00-<subject-slug>/`           | `28-10-00-storage/`                         | **Smallest governed unit**                     |
+| **KNOT ID**                | `KNOT-XX-YY-00-NNN`                  | `KNOT-28-10-00-001`                         | Formalized uncertainty (LC01+)                 |
+| **KNU ID**                 | `KNU-XX-YY-00-TYPE-NNN`              | `KNU-28-10-00-REQ-001`                      | Knowledge Unit (LC02+)                         |
+| **Contract**               | `KITDM-CTR-<TARGET>_ATAxx-yy00.yaml` | `KITDM-CTR-CSDB_ATA28-1000.yaml`            | KDB → IDB contract (subject-scoped)            |
+| **ASIT Run**               | `YYYYMMDD-HHMM__<contract-id>/`      | `20260115-1430__KITDM-CTR-CSDB_ATA28-1000/` | Deterministic execution instance               |
+| **Data Module (DM)**       | S1000D DMC convention                | `DMC-AMPEL360-A-28-10-00-00A-040A-A.XML`    | Audience-facing, IDB-owned                     |
 
 ---
 
