@@ -328,71 +328,114 @@ AMPEL360-AIR-T/
 Each ATA chapter follows the **KDB / CONTRACTS / ASIT / IDB** pattern:
 
 ```
-ATA_XX-<SYSTEM>/
-└── ATA-XX-<system-slug>/
-    └── XX-YY-<section>/                             # ATA section = epistemological scope
-        ├── README.md                                # Section overview
+ATA_XX-<SYSTEM>/                                      # ATA Chapter (e.g. ATA_28-FUEL)
+└── ATA-XX-<system-slug>/                             # Internal canonical container
+    │
+    ├── README.md                                    # System mission, vision, objectives
+    │
+    ├── WBS/                                         # High-level Work Breakdown Structure
+    │   ├── SYSTEM_MISSION.md
+    │   ├── SYSTEM_OBJECTIVES.md
+    │   ├── WBS_LEVEL_1.yaml                          # Mission-driven decomposition
+    │   └── WBS_TRACE_TO_PROJECT.csv                  # Alignment to program objectives
+    │
+    └── XX-YY-<section-slug>/                         # ATA Section (e.g. 28-10-storage)
         │
-        ├── GENESIS/                                 # Uncertainty DISCOVERY (section-wide)
-        │   ├── O-KNOTS.csv                          # Origin of Uncertainty register
-        │   │                                        #   - INHERITED (experience gaps)
-        │   │                                        #   - DERIVED (regulations, policies)
-        │   ├── Y-KNOTS.csv                          # whY-KNOTs (assumption challenges)
-        │   └── DISCOVERY_LOG.md                     # Session notes, graduation tracking
+        ├── README.md                                 # Section scope, assumptions, AoR
         │
-        └── XX-YY-00-<subject>/                      # Smallest governed unit
-            ├── README.md                            # Subject contract index
+        ├── GENESIS/                                 # Uncertainty discovery (SECTION LEVEL)
+        │   ├── O-KNOTS.csv                           # Origin of uncertainty
+        │   ├── Y-KNOTS.csv                           # whY assumptions challenged
+        │   └── DISCOVERY_LOG.md                      # Workshops, sources, graduation notes
+        │
+        └── XX-YY-00-<subject-slug>/                  # Smallest governed unit
+            │
+            ├── README.md                             # Subject contract & governance index
             │
             ├── KDB/                                 # Knowledge Data Base
-            │   └── SSOT/
-            │       └── PLM/                         # Product Lifecycle (LC01–LC10)
-            │           ├── LC01_PROBLEM_STATEMENT/
-            │           │   ├── KNOTS.csv            # Formalized KNOTs (graduated)
-            │           │   ├── KNU_PLAN.csv         # Expected knowledge units
-            │           │   ├── TIMELINE.csv         # Milestones & gates
-            │           │   ├── RACI.csv             # Responsibility matrix
-            │           │   ├── TOKENOMICS_TT.yaml   # Reward pool allocation
-            │           │   └── AWARDS_TT.csv        # Distribution ledger
-            │           │
-            │           ├── LC02_SYSTEM_REQUIREMENTS/
-            │           ├── LC03_SAFETY_RELIABILITY/
-            │           ├── LC04_DESIGN_DEFINITION_DMU/
-            │           ├── LC05_ANALYSIS_MODELS_CAE/
-            │           ├── LC06_INTEGRATION_TEST_PMU/
-            │           ├── LC07_QUALITY/
-            │           ├── LC08_FLIGHT_TEST_CERTIFICATION/
-            │           ├── LC09_GREEN_AIRCRAFT_BASELINES/
-            │           └── LC10_INDUSTRIALIZATION_PRODUCTION_CAM/
+            │   │
+            │   ├── DEV/                              # Knowledge development space
+            │   │   └── SSOT/
+            │   │       └── PLM/                      # Product Lifecycle (Design Authority)
+            │   │           ├── LC01_PROBLEM_STATEMENT/
+            │   │           │   ├── KNOTS.csv
+            │   │           │   ├── KNU_PLAN.csv
+            │   │           │   ├── TIMELINE.csv
+            │   │           │   ├── RACI.csv
+            │   │           │   ├── TOKENOMICS_TT.yaml
+            │   │           │   └── AWARDS_TT.csv
+            │   │           │
+            │   │           ├── LC02_SYSTEM_REQUIREMENTS/
+            │   │           ├── LC03_SAFETY_RELIABILITY/
+            │   │           ├── LC04_DESIGN_DEFINITION_DMU/
+            │   │           ├── LC05_ANALYSIS_MODELS_CAE/
+            │   │           ├── LC06_INTEGRATION_TEST_PMU/
+            │   │           ├── LC07_QUALITY/
+            │   │           ├── LC08_FLIGHT_TEST_CERTIFICATION/
+            │   │           ├── LC09_GREEN_AIRCRAFT_BASELINES/
+            │   │           └── LC10_INDUSTRIALIZATION_PRODUCTION_CAM/
+            │   │
+            │   └── LM/                               # Lifecycle Management knowledge
+            │       ├── CONFIGURATION_EFFECTIVITY/
+            │       ├── CHANGE_IMPACT_ANALYSIS/
+            │       └── CERTIFICATION_BASIS/
             │
-            ├── CONTRACTS/                           # KDB → IDB transformation contracts
+            ├── CONTRACTS/                            # KDB → IDB governance
             │   ├── KITDM-CTR-CSDB_ATAxx-yy00.yaml
-            │   ├── KITDM-CTR-EXPORT_ATAxx-yy00.yaml
-            │   ├── KITDM-CTR-IETP_ATAxx-yy00.yaml
+            │   ├── KITDM-CTR-OPS-SB_ATAxx-yy00.yaml
+            │   ├── KITDM-CTR-OPS-REPAIR_ATAxx-yy00.yaml
+            │   ├── KITDM-CTR-OPS-QUERY_ATAxx-yy00.yaml
             │   └── EVIDENCE/
             │       ├── ACCEPTANCE_CRITERIA.md
             │       └── TRACE_MATRIX_TEMPLATE.csv
             │
-            ├── ASIT/                                # ASI Transformation agent
+            ├── ASIT/                                 # Aircraft Standard Information Transponder
             │   ├── README.md
             │   ├── pipelines/
             │   ├── rules/
             │   └── runs/
-            │       └── <YYYYMMDD-HHMM>__<contract-id>/
+            │       └── YYYYMMDD-HHMM__<contract-id>/
             │           ├── INPUT_MANIFEST.json
             │           ├── OUTPUT_MANIFEST.json
             │           ├── TRACE_MATRIX.csv
             │           ├── VALIDATION_REPORT.json
             │           └── LOG.txt
             │
-            └── IDB/                                 # Information Data Base
-                ├── SSOT/
-                │   └── SLM/                         # Service Lifecycle (LC11–LC14)
-                │       ├── LC11_OPERATIONS_CUSTOMIZATION/
-                │       ├── LC12_SUPPORT_SERVICES/
-                │       ├── LC13_MRO_SUSTAINMENT/
-                │       └── LC14_RETIREMENT_CIRCULARITY/
+            └── IDB/                                  # Information Data Base
                 │
-                ├── PUB/                             # Publications
+                ├── OPS/                              # Operations / In-Service domain
+                │   └── LM/
+                │       ├── LC11_OPERATIONS_CUSTOMIZATION/
+                │       │   ├── CUSTOMER_OPTIONS/
+                │       │   └── EFFECTIVITY_DELTAS/
+                │       │
+                │       ├── LC12_SUPPORT_SERVICES/    # 🔴 SUPPORT = SERVICE ACTIONS
+                │       │   ├── PACKAGES/
+                │       │   │   ├── SB/               # Service Bulletins
+                │       │   │   ├── REPAIR/           # In-service repairs
+                │       │   │   ├── QUERY/            # Technical queries
+                │       │   │   ├── AOG/              # AOG cases
+                │       │   │   ├── COC/              # Certificates of Conformance
+                │       │   │   └── COMPLIANCE/       # Closure & authority evidence
+                │       │   ├── CASES/
+                │       │   │   ├── QUERY_REGISTER.csv
+                │       │   │   └── AOG_REGISTER.csv
+                │       │   └── INDEX/
+                │       │
+                │       ├── LC13_MRO_SUSTAINMENT/     # Baseline sustainment manuals
+                │       │   ├── AMM/
+                │       │   ├── IPC/
+                │       │   ├── SRM/
+                │       │   ├── TSM/
+                │       │   ├── WDM/
+                │       │   └── CMM/
+                │       │
+                │       └── LC14_RETIREMENT_CIRCULARITY/
+                │           ├── DISMANTLING/
+                │           ├── MATERIAL_RECOVERY/
+                │           └── DPP_CLOSURE/
+                │
+                ├── PUB/                              # Published views
                 │   └── AMM/
                 │       ├── CSDB/
                 │       │   ├── DM/
