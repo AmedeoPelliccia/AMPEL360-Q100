@@ -328,68 +328,119 @@ AMPEL360-AIR-T/
 Each ATA chapter follows the **KDB / CONTRACTS / ASIT / IDB** pattern:
 
 ```
-ATA_XX-<SYSTEM>/                                      # ATA Chapter (e.g. ATA_28-FUEL)
-└── ATA-XX-<system-slug>/                             # Internal canonical container
-    │
-    ├── README.md                                    # System mission, vision, objectives
-    │
-    ├── WBS/                                         # High-level Work Breakdown Structure
+ATA_XX-<SYSTEM_NAME>/                                         # ATA Chapter (applies to any ATA)
+└── ATA-XX-<system-slug>/                                     # Canonical internal container
+    ├── README.md                                             # System mission, vision, objectives (project-aligned)
+    ├── WBS/                                                  # System-level WBS (derived from mission/vision)
     │   ├── SYSTEM_MISSION.md
+    │   ├── SYSTEM_VISION.md
     │   ├── SYSTEM_OBJECTIVES.md
-    │   ├── WBS_LEVEL_1.yaml                          # Mission-driven decomposition
-    │   └── WBS_TRACE_TO_PROJECT.csv                  # Alignment to program objectives
+    │   ├── WBS_LEVEL_1.yaml
+    │   ├── WBS_LEVEL_2.yaml
+    │   └── WBS_TRACE_TO_PROJECT.csv
     │
-    └── XX-YY-<section-slug>/                         # ATA Section (e.g. 28-10-storage)
+    └── XX-YY-<section-slug>/                                 # ATA section (e.g., XX-10)
+        ├── README.md                                         # Section scope, AoR, applicability, assumptions
         │
-        ├── README.md                                 # Section scope, assumptions, AoR
+        ├── GENESIS/                                          # Section-level discovery (not subject-level)
+        │   ├── O-KNOTS.csv                                   # Origin uncertainties (INHERITED/DERIVED)
+        │   ├── Y-KNOTS.csv                                   # whY challenges (assumptions)
+        │   └── DISCOVERY_LOG.md                              # Discovery sessions + graduation notes
         │
-        ├── GENESIS/                                 # Uncertainty discovery (SECTION LEVEL)
-        │   ├── O-KNOTS.csv                           # Origin of uncertainty
-        │   ├── Y-KNOTS.csv                           # whY assumptions challenged
-        │   └── DISCOVERY_LOG.md                      # Workshops, sources, graduation notes
-        │
-        └── XX-YY-00-<subject-slug>/                  # Smallest governed unit
+        └── XX-YY-00-<subject-slug>/                           # Smallest governed unit (no sub-subject)
+            ├── README.md                                      # Subject index + contract pointers
             │
-            ├── README.md                             # Subject contract & governance index
-            │
-            ├── KDB/                                 # Knowledge Data Base
+            ├── KDB/                                           # Knowledge Data Base (authoritative)
+            │   ├── DEV/                                       # Development knowledge space
+            │   │   ├── working/                               # drafts, experiments, sandboxes
+            │   │   ├── trade-studies/                         # options + rationale
+            │   │   ├── prototypes/                            # POC / prototypes
+            │   │   └── dev-evidence/                          # evidence produced during DEV
             │   │
-            │   ├── DEV/                              # Knowledge development space
-            │   │   └── SSOT/
-            │   │       └── PLM/                      # Product Lifecycle (Design Authority)
-            │   │           ├── LC01_PROBLEM_STATEMENT/
-            │   │           │   ├── KNOTS.csv
-            │   │           │   ├── KNU_PLAN.csv
-            │   │           │   ├── TIMELINE.csv
-            │   │           │   ├── RACI.csv
-            │   │           │   ├── TOKENOMICS_TT.yaml
-            │   │           │   └── AWARDS_TT.csv
-            │   │           │
-            │   │           ├── LC02_SYSTEM_REQUIREMENTS/
-            │   │           ├── LC03_SAFETY_RELIABILITY/
-            │   │           ├── LC04_DESIGN_DEFINITION_DMU/
-            │   │           ├── LC05_ANALYSIS_MODELS_CAE/
-            │   │           ├── LC06_INTEGRATION_TEST_PMU/
-            │   │           ├── LC07_QUALITY/
-            │   │           ├── LC08_FLIGHT_TEST_CERTIFICATION/
-            │   │           ├── LC09_GREEN_AIRCRAFT_BASELINES/
-            │   │           └── LC10_INDUSTRIALIZATION_PRODUCTION_CAM/
-            │   │
-            │   └── LM/                               # Lifecycle Management knowledge
-            │       ├── CONFIGURATION_EFFECTIVITY/
-            │       ├── CHANGE_IMPACT_ANALYSIS/
-            │       └── CERTIFICATION_BASIS/
+            │   └── LM/                                        # Lifecycle-managed knowledge
+            │       └── SSOT/
+            │           └── PLM/                               # Product lifecycle domain (LC01–LC10)
+            │               ├── LC01_PROBLEM_STATEMENT/
+            │               │   ├── KNOTS.csv
+            │               │   ├── KNU_PLAN.csv
+            │               │   ├── TIMELINE.csv
+            │               │   ├── RACI.csv
+            │               │   ├── TOKENOMICS_TT.yaml
+            │               │   ├── AWARDS_TT.csv
+            │               │   └── PACKAGES/
+            │               │       ├── KNOT_MGMT/
+            │               │       ├── KNU_PLANNING/
+            │               │       ├── GOVERNANCE/
+            │               │       └── INCENTIVES/
+            │               │
+            │               ├── LC02_SYSTEM_REQUIREMENTS/
+            │               │   └── PACKAGES/
+            │               │       ├── REQ/
+            │               │       ├── ICD/
+            │               │       ├── DATA/
+            │               │       └── COMPLIANCE_INTENT/
+            │               │
+            │               ├── LC03_SAFETY_RELIABILITY/
+            │               │   └── PACKAGES/
+            │               │       ├── SAFETY/
+            │               │       ├── RELIABILITY/
+            │               │       └── HAZARD_MGMT/
+            │               │
+            │               ├── LC04_DESIGN_DEFINITION_DMU/
+            │               │   └── PACKAGES/
+            │               │       ├── DESIGN/
+            │               │       ├── CONFIG/
+            │               │       └── INTERFACES/
+            │               │
+            │               ├── LC05_ANALYSIS_MODELS_CAE/
+            │               │   └── PACKAGES/
+            │               │       ├── ANALYSIS/
+            │               │       ├── MODELS/
+            │               │       └── VALIDATION/
+            │               │
+            │               ├── LC06_INTEGRATION_TEST_PMU/
+            │               │   └── PACKAGES/
+            │               │       ├── TEST/
+            │               │       ├── INTEGRATION/
+            │               │       └── CONFORMITY/
+            │               │
+            │               ├── LC07_QUALITY/
+            │               │   └── PACKAGES/
+            │               │       ├── QA/
+            │               │       ├── PROCESS_COMPLIANCE/
+            │               │       └── ACCEPTANCE/
+            │               │
+            │               ├── LC08_FLIGHT_TEST_CERTIFICATION/
+            │               │   └── PACKAGES/
+            │               │       ├── CERT_BASIS/
+            │               │       ├── COMPLIANCE/
+            │               │       └── FLIGHT_TEST/
+            │               │
+            │               ├── LC09_GREEN_AIRCRAFT_BASELINES/
+            │               │   └── PACKAGES/
+            │               │       ├── ESG/
+            │               │       ├── LCA/
+            │               │       └── ENV_COMPLIANCE/
+            │               │
+            │               └── LC10_INDUSTRIALIZATION_PRODUCTION_CAM/
+            │                   └── PACKAGES/
+            │                       ├── INDUSTRIAL/
+            │                       ├── SUPPLY/
+            │                       └── QUALITY_PROD/
             │
-            ├── CONTRACTS/                            # KDB → IDB governance
-            │   ├── KITDM-CTR-CSDB_ATAxx-yy00.yaml
-            │   ├── KITDM-CTR-OPS-SB_ATAxx-yy00.yaml
-            │   ├── KITDM-CTR-OPS-REPAIR_ATAxx-yy00.yaml
-            │   ├── KITDM-CTR-OPS-QUERY_ATAxx-yy00.yaml
+            ├── CONTRACTS/                                      # KDB → IDB contracts (governance)
+            │   ├── KITDM-CTR-LM-CSDB_ATAxx-yy00.yaml            # format/delivery contract: CSDB
+            │   ├── KITDM-CTR-LM-EXPORT_ATAxx-yy00.yaml          # format/delivery contract: EXPORT
+            │   ├── KITDM-CTR-LM-IETP_ATAxx-yy00.yaml            # format/delivery contract: IETP runtime
+            │   ├── KITDM-CTR-OPS-SB_ATAxx-yy00.yaml             # ops package: service bulletins
+            │   ├── KITDM-CTR-OPS-REPAIR_ATAxx-yy00.yaml         # ops package: in-service repairs
+            │   ├── KITDM-CTR-OPS-QUERY_ATAxx-yy00.yaml          # ops package: queries/AOG
+            │   ├── KITDM-CTR-OPS-COC_ATAxx-yy00.yaml            # ops package: CoC / release evidence
             │   └── EVIDENCE/
             │       ├── ACCEPTANCE_CRITERIA.md
             │       └── TRACE_MATRIX_TEMPLATE.csv
             │
-            ├── ASIT/                                 # Aircraft Standard Information Transponder
+            ├── ASIT/                                           # Automation (bounded, non-authoritative)
             │   ├── README.md
             │   ├── pipelines/
             │   ├── rules/
@@ -401,43 +452,51 @@ ATA_XX-<SYSTEM>/                                      # ATA Chapter (e.g. ATA_28
             │           ├── VALIDATION_REPORT.json
             │           └── LOG.txt
             │
-            └── IDB/                                  # Information Data Base
-                │
-                ├── OPS/                              # Operations / In-Service domain
+            └── IDB/                                            # Information Data Base (projection)
+                ├── OPS/                                        # Operational domain (in-service)
                 │   └── LM/
                 │       ├── LC11_OPERATIONS_CUSTOMIZATION/
-                │       │   ├── CUSTOMER_OPTIONS/
-                │       │   └── EFFECTIVITY_DELTAS/
+                │       │   └── PACKAGES/
+                │       │       ├── CUSTOMER_DELTAS/
+                │       │       ├── OPS_CONFIG/
+                │       │       └── RELEASE_NOTES/
                 │       │
-                │       ├── LC12_SUPPORT_SERVICES/    # 🔴 SUPPORT = SERVICE ACTIONS
+                │       ├── LC12_SUPPORT_SERVICES/              # SB, repairs, queries, AOG, CoC...
                 │       │   ├── PACKAGES/
-                │       │   │   ├── SB/               # Service Bulletins
-                │       │   │   ├── REPAIR/           # In-service repairs
-                │       │   │   ├── QUERY/            # Technical queries
-                │       │   │   ├── AOG/              # AOG cases
-                │       │   │   ├── COC/              # Certificates of Conformance
-                │       │   │   └── COMPLIANCE/       # Closure & authority evidence
+                │       │   │   ├── SB/
+                │       │   │   ├── REPAIR/
+                │       │   │   ├── QUERY/
+                │       │   │   ├── AOG/
+                │       │   │   ├── COC/
+                │       │   │   └── COMPLIANCE/
                 │       │   ├── CASES/
                 │       │   │   ├── QUERY_REGISTER.csv
-                │       │   │   └── AOG_REGISTER.csv
+                │       │   │   ├── AOG_REGISTER.csv
+                │       │   │   └── SLA_METRICS.csv
                 │       │   └── INDEX/
+                │       │       ├── LC12_RELEASE_NOTES.md
+                │       │       ├── LC12_TRACE_SUMMARY.md
+                │       │       └── LC12_INDEX.json
                 │       │
-                │       ├── LC13_MRO_SUSTAINMENT/     # Baseline sustainment manuals
-                │       │   ├── AMM/
-                │       │   ├── IPC/
-                │       │   ├── SRM/
-                │       │   ├── TSM/
-                │       │   ├── WDM/
-                │       │   └── CMM/
+                │       ├── LC13_MRO_SUSTAINMENT/
+                │       │   └── PACKAGES/
+                │       │       ├── AMM/
+                │       │       ├── IPC/
+                │       │       ├── SRM/
+                │       │       ├── TSM/
+                │       │       ├── WDM/
+                │       │       └── CMM/
                 │       │
                 │       └── LC14_RETIREMENT_CIRCULARITY/
-                │           ├── DISMANTLING/
-                │           ├── MATERIAL_RECOVERY/
-                │           └── DPP_CLOSURE/
+                │           └── PACKAGES/
+                │               ├── DISMANTLING/
+                │               ├── MATERIAL_RECOVERY/
+                │               ├── DPP_CLOSURE/
+                │               └── ESG_EOL/
                 │
-                ├── PUB/                              # Published views
-                │   └── AMM/
-                │       ├── CSDB/
+                ├── PUB/                                        # Publication deliverables (format views)
+                │   └── <PROCESS_PACKAGE>/                      # e.g., AMM, IPC, SRM, SB, CERT
+                │       ├── CSDB/                               # S1000D container
                 │       │   ├── DM/
                 │       │   ├── PM/
                 │       │   ├── DML/
@@ -445,10 +504,10 @@ ATA_XX-<SYSTEM>/                                      # ATA Chapter (e.g. ATA_28
                 │       │   ├── ICN/
                 │       │   ├── COMMON/
                 │       │   └── APPLICABILITY/
-                │       ├── EXPORT/
-                │       └── IETP/
+                │       ├── EXPORT/                             # PDF/HTML release bundles
+                │       └── IETP_RUNTIME/                       # interactive runtime packages + UI config
                 │
-                └── INDEX/
+                └── INDEX/                                      # Navigation + audit (always present)
                     ├── IDB_RELEASE_NOTES.md
                     ├── IDB_TRACE_SUMMARY.md
                     ├── IDB_INDEX.json
