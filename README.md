@@ -325,9 +325,7 @@ AMPEL360-AIR-T/
 
 ### 3.2 Canonical ATA Pattern
 
-Each ATA chapter follows the **KDB / CONTRACTS / ASIT / IDB** pattern:
-
-```
+```text
 ATA_XX-<SYSTEM_NAME>/                                         # Single canonical root (ATA iSpec 2200 aligned)
 ├── README.md                                                 # System overview, navigation, standards alignment
 ├── NAMING_CONVENTIONS.md                                     # ID rulebook (KNOT, KNU, REQ, DES, TEST, HAZ, DMC...)
@@ -578,26 +576,99 @@ ATA_XX-<SYSTEM_NAME>/                                         # Single canonical
                 ├── METRICS_DASHBOARD.html
                 └── DPP_ANCHOR_RECEIPT.json
 ```
+
 ---
 
-## 3.3 File Naming Conventions (Final – Sub-Subject Removed)
+## 3.3 File Naming Conventions (Updated)
 
-### Directory & Identifier Naming
+| Type                          | Pattern                                        | Example                                         |
+| ----------------------------- | ---------------------------------------------- | ----------------------------------------------- |
+| **ATA Chapter Root**          | `ATA_XX-<SYSTEM_NAME>/`                        | `ATA_28-FUEL/`                                  |
+| **Section Folder**            | `XX-YY-<section-slug>/`                        | `28-10-storage/`                                |
+| **Subject Folder**            | `XX-YY-ZZ-<subject-slug>/`                     | `28-10-00_fuel-storage-general/`                |
+| **O-KNOT ID** (section-level) | `O-KNOT-ATAXX-YY-NNN`                          | `O-KNOT-ATA28-10-001`                           |
+| **Y-KNOT ID** (section-level) | `Y-KNOT-ATAXX-YY-NNN`                          | `Y-KNOT-ATA28-10-001`                           |
+| **KNOT ID** (subject-level)   | `KNOT-ATAXX-YY-ZZ-NNN`                         | `KNOT-ATA28-10-00-001`                          |
+| **KNU ID** (subject-level)    | `KNU-ATAXX-YY-ZZ-TYPE-NNN`                     | `KNU-ATA28-10-00-REQ-001`                       |
+| **KITDM Contract**            | `KITDM-CTR-<DOMAIN>-<TARGET>_ATAxx-yy-zz.yaml` | `KITDM-CTR-LM-CSDB_ATA28-10-00.yaml`            |
+| **ASIT Run Folder**           | `YYYYMMDD-HHMM__<contract-id>/`                | `20260121-1130__KITDM-CTR-LM-CSDB_ATA28-10-00/` |
+| **S1000D Data Module**        | `DMC-<proj>-<model>-<...>` (S1000D convention) | `DMC-AMPEL-A-28-10-00-00A-040A-A.xml`           |
 
-| Type                       | Pattern                              | Example                                     | Normative Notes                                |
-| -------------------------- | ------------------------------------ | ------------------------------------------- | ---------------------------------------------- |
-| **ATA Chapter (external)** | `ATA_XX-SYSTEM_NAME/`                | `ATA_28-FUEL/`                              | ATA-visible chapter container                  |
-| **ATA Chapter (internal)** | `ATA-XX-<system-slug>/`              | `ATA-28-fuel/`                              | Canonical internal system slug                 |
-| **Section**                | `XX-YY-<section-slug>/`              | `28-10-storage/`                            | **Epistemological scope** (GENESIS lives here) |
-| **GENESIS Folder**         | `GENESIS/`                           | `28-10-storage/GENESIS/`                    | Section-level uncertainty discovery            |
-| **O-KNOT ID**              | `O-KNOT-XX-YY-NNN`                   | `O-KNOT-28-10-001`                          | Origin of uncertainty (section-scoped)         |
-| **Y-KNOT ID**              | `Y-KNOT-XX-YY-NNN`                   | `Y-KNOT-28-10-002`                          | Assumption challenge (section-scoped)          |
-| **Subject**                | `XX-YY-00-<subject-slug>/`           | `28-10-00-storage/`                         | **Smallest governed unit**                     |
-| **KNOT ID**                | `KNOT-XX-YY-00-NNN`                  | `KNOT-28-10-00-001`                         | Formalized uncertainty (LC01+)                 |
-| **KNU ID**                 | `KNU-XX-YY-00-TYPE-NNN`              | `KNU-28-10-00-REQ-001`                      | Knowledge Unit (LC02+)                         |
-| **Contract**               | `KITDM-CTR-<TARGET>_ATAxx-yy00.yaml` | `KITDM-CTR-CSDB_ATA28-1000.yaml`            | KDB → IDB contract (subject-scoped)            |
-| **ASIT Run**               | `YYYYMMDD-HHMM__<contract-id>/`      | `20260115-1430__KITDM-CTR-CSDB_ATA28-1000/` | Deterministic execution instance               |
-| **Data Module (DM)**       | S1000D DMC convention                | `DMC-AMPEL360-A-28-10-00-00A-040A-A.XML`    | Audience-facing, IDB-owned                     |
+**Note (intentional):** `ATA` prefix is kept **inside IDs** (`KNOT-ATA..`) to avoid ambiguity when IDs are aggregated across chapters.
+
+---
+
+## Package Types
+
+You asked “what are the package types?” In your schema, **packages are the controlled “buckets” inside each lifecycle**. The rule is:
+
+* **Engineering packages live under `KDB/LM/SSOT/PLM/LCxx.../PACKAGES/`**
+* **In-service packages live under `IDB/OPS/LM/LC1x.../PACKAGES/`**
+* **Publication packages live under `IDB/PUB/<manual>/...` (CSDB/EXPORT/IETP_RUNTIME)**
+
+### A) PLM Package Types (LC01–LC10)
+
+These are the canonical package families you are already implying:
+
+* **LC01_PROBLEM_STATEMENT**
+
+  * `KNOT_MGMT/`, `KNU_PLANNING/`, `GOVERNANCE/`, `INCENTIVES/`
+* **LC02_SYSTEM_REQUIREMENTS**
+
+  * `REQ/`, `ICD/`, `DATA/`, `COMPLIANCE_INTENT/`
+* **LC03_SAFETY_RELIABILITY**
+
+  * `SAFETY/`, `RELIABILITY/`, `HAZARD_MGMT/`
+* **LC04_DESIGN_DEFINITION_DMU**
+
+  * `DESIGN/`, `CONFIG/`, `INTERFACES/`
+* **LC05_ANALYSIS_MODELS_CAE**
+
+  * `ANALYSIS/`, `MODELS/`, `VALIDATION/`
+* **LC06_INTEGRATION_TEST_PMU**
+
+  * `TEST/`, `INTEGRATION/`, `CONFORMITY/`, `TEST_EVIDENCE/` (if you keep evidence immutable)
+* **LC07_QUALITY**
+
+  * `QA/`, `PROCESS_COMPLIANCE/`, `ACCEPTANCE/`, `AUDIT_REPORTS/`
+* **LC08_FLIGHT_TEST_CERTIFICATION**
+
+  * `CERT_BASIS/`, `COMPLIANCE/`, `ISSUE_PAPERS/`, `SPECIAL_CONDITIONS/`, `FLIGHT_TEST/`
+* **LC09_GREEN_AIRCRAFT_BASELINES**
+
+  * `ESG/`, `LCA/`, `ENV_COMPLIANCE/`
+* **LC10_INDUSTRIALIZATION_PRODUCTION_CAM**
+
+  * `INDUSTRIAL/`, `SUPPLY/`, `QUALITY_PROD/`
+
+### B) OPS Package Types (LC11–LC14)
+
+This directly reflects your definition of Support Services (SB, in-service repairs, CoC, query management, AoG, etc.):
+
+* **LC11_OPERATIONS_CUSTOMIZATION**
+
+  * `CUSTOMER_DELTAS/`, `OPS_CONFIG/`, `BRANDING/`, `RELEASE_NOTES/`
+* **LC12_SUPPORT_SERVICES**
+
+  * `SB/`, `REPAIR/`, `QUERY/`, `AOG/`, `COC/`, `COMPLIANCE/`, plus optionally `CASES/` and `SLA/`
+* **LC13_MRO_SUSTAINMENT**
+
+  * `AMM/`, `IPC/`, `SRM/`, `TSM/`, `WDM/`, `CMM/` (as operational “views” and sustainment bundles)
+* **LC14_RETIREMENT_CIRCULARITY**
+
+  * `DISMANTLING/`, `MATERIAL_RECOVERY/`, `DPP_CLOSURE/`, `ESG_EOL/`
+
+### C) PUB Package Types (Publication views)
+
+* **S1000D CSDB containers**
+
+  * `DM/`, `PM/`, `DML/`, `BREX/`, `ICN/`, `COMMON/`, `APPLICABILITY/`
+* **Rendered outputs**
+
+  * `EXPORT/` (e.g., `PDF/`, `HTML/`)
+* **Interactive runtime**
+
+  * `IETP_RUNTIME/` (e.g., `app/`, `data/`, `operators/`)
 
 ---
 
