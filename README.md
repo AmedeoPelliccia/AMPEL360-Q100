@@ -323,342 +323,364 @@ AMPEL360-AIR-T/
     └── workflows/
 ```
 
-### 3.2 Canonical ATA Pattern
+# ATA-XX Canonical Schema — Fully Annotated
 
-```text
-ATA_XX-<SYSTEM_NAME>/                                              # Single canonical root (applies to any ATA)
-├── README.md                                                      # System overview, mission/vision, scope, navigation
-├── NAMING_CONVENTIONS.md                                          # ID grammar + controlled vocab (O-KNOT/Y-KNOT/KNOT/KNU/DMC)
-├── TRACEABILITY_CONVENTIONS.md                                    # Relationship vocabulary + rules
-├── GOVERNANCE_POLICY.md                                           # Baselines, change control, approvals (system default)
-│
-├── WBS/                                                           # System-level WBS derived from mission/vision
-│   ├── SYSTEM_MISSION.md
-│   ├── SYSTEM_VISION.md
-│   ├── SYSTEM_OBJECTIVES.md
-│   ├── WBS_LEVEL_1.yaml
-│   ├── WBS_LEVEL_2.yaml
-│   ├── WBS_TRACE_TO_PROJECT.csv
-│   └── WBS_BUDGET_TT.yaml                                         # Informational (non-technical baseline)
-│
-├── GOVERNANCE/                                                    # System-level governance (DEFAULT authority)
-│   ├── README.md
-│   ├── BASELINES.md                                               # Baseline types + scope mapping to paths
-│   ├── BASELINE_REGISTER.csv
-│   ├── CHANGE_LOG.md
-│   ├── CHANGE_CONTROL/
-│   │   ├── README.md
-│   │   ├── ECR_TEMPLATE.md
-│   │   ├── ECO_TEMPLATE.md
-│   │   ├── ECR/
-│   │   │   ├── ECR_REGISTER.csv
-│   │   │   └── ECR-<...>.md
-│   │   ├── ECO/
-│   │   │   ├── ECO_REGISTER.csv
-│   │   │   └── ECO-<...>.md
-│   │   └── CCB_MINUTES/
-│   │       └── CCB-YYYY-MM-DD.md
-│   ├── APPROVALS/
-│   │   ├── APPROVAL_MATRIX.csv
-│   │   └── GATE_REVIEWS/
-│   │       ├── PDR_APPROVAL.md
-│   │       ├── CDR_APPROVAL.md
-│   │       ├── TRR_APPROVAL.md
-│   │       └── FRR_APPROVAL.md
-│   ├── RELEASES/
-│   │   ├── RELEASE_POLICY.md
-│   │   ├── RELEASE_REGISTER.csv
-│   │   └── RELEASE_NOTES/
-│   │       └── RELEASE_vX-Y-Z.md
-│   └── INCENTIVES/                                                # Informational, non-baseline
-│       ├── README.md
-│       ├── TT_ALLOCATION.yaml
-│       ├── TT_DISTRIBUTION.csv
-│       └── TT_POLICY.md
-│
-├── INDEX/                                                         # System-wide navigation & traceability
-│   ├── README.md
-│   ├── SSOT_INDEX.yaml                                            # authoritative sources registry
-│   ├── TRACE_MASTER.csv                                           # cross-subject end-to-end relationships
-│   ├── ID_REGISTRY.csv                                            # auto-generated ID catalog
-│   ├── ARTIFACT_CATALOG.yaml                                      # inventory
-│   └── NAVIGATION_MAP.html
-│
-└── XX-YY-<section-slug>/                                          # ATA section (e.g., 28-10-storage)
-    ├── README.md                                                  # Section scope, AoR, assumptions
-    ├── SECTION_INDEX.yaml                                         # Section artifact index
-    │
-    ├── GENESIS/                                                   # Section-level discovery ONLY
-    │   ├── README.md
-    │   ├── O-KNOTS.csv                                            # O-KNOT-ATAxx-yy-NNN
-    │   ├── Y-KNOTS.csv                                            # Y-KNOT-ATAxx-yy-NNN
-    │   ├── DISCOVERY_LOG.md
-    │   └── GRADUATION_CRITERIA.md
-    │
-    └── XX-YY-00-<subject-slug>/                                   # Subject (smallest governed unit)
-        ├── README.md                                              # Subject overview + contract pointers + UI links
-        ├── SUBJECT_MANIFEST.yaml                                  # Inventory snapshot
-        │
-        ├── GOVERNANCE/                                            # Optional overrides (must reference system policy)
-        │   ├── README.md
-        │   ├── BASELINES.md
-        │   ├── BASELINE_REGISTER.csv
-        │   ├── CHANGE_LOG.md
-        │   ├── CHANGE_CONTROL/
-        │   │   ├── ECR/
-        │   │   ├── ECO/
-        │   │   └── CCB_MINUTES/
-        │   ├── APPROVALS/
-        │   │   ├── APPROVAL_MATRIX.csv
-        │   │   └── GATE_REVIEWS/
-        │   └── RELEASES/
-        │       └── RELEASE_REGISTER.csv
-        │
-        ├── INDEX/                                                 # Subject-level navigation
-        │   ├── README.md
-        │   ├── SSOT_INDEX.yaml
-        │   ├── TRACE_MATRIX.csv
-        │   ├── ID_REGISTRY.csv
-        │   └── COMPLIANCE_STATUS.yaml
-        │
-        ├── KDB/                                                   # Knowledge Data Base (authoritative source side)
-        │   ├── README.md
-        │   ├── DEV/                                               # Workspace (NOT baselined)
-        │   │   ├── working/
-        │   │   ├── trade-studies/
-        │   │   ├── prototypes/
-        │   │   └── dev-evidence/
-        │   │
-        │   └── LM/                                                # Lifecycle-managed knowledge (BASELINED)
-        │       └── SSOT/                                          # Single Source of Truth
-        │           ├── SSOT_POLICY.md
-        │           └── PLM/                                       # LC01–LC10
-        │               ├── LC01_PROBLEM_STATEMENT/
-        │               │   ├── README.md
-        │               │   ├── KNOTS.csv                          # KNOT-ATAxx-yy-00-NNN
-        │               │   ├── KNU_PLAN.csv                       # KNU-ATAxx-yy-00-KNOTNNN-<TYPE>-NNN
-        │               │   ├── TIMELINE.csv
-        │               │   ├── RACI.csv
-        │               │   ├── TRACE_LC01.csv
-        │               │   └── PACKAGES/
-        │               │       ├── KNOT_MGMT/
-        │               │       ├── KNU_PLANNING/
-        │               │       ├── GOVERNANCE/
-        │               │       └── INCENTIVES/
-        │               │
-        │               ├── LC02_SYSTEM_REQUIREMENTS/
-        │               │   ├── README.md
-        │               │   ├── REQUIREMENTS_MANAGEMENT_PLAN.md
-        │               │   ├── TRACE_LC02.csv
-        │               │   └── PACKAGES/
-        │               │       ├── REQ/
-        │               │       ├── ICD/
-        │               │       ├── DATA/
-        │               │       └── COMPLIANCE_INTENT/
-        │               │
-        │               ├── LC03_SAFETY_RELIABILITY/
-        │               │   ├── README.md
-        │               │   ├── SAFETY_ASSESSMENT_PLAN.md
-        │               │   ├── TRACE_LC03.csv
-        │               │   └── PACKAGES/
-        │               │       ├── SAFETY/
-        │               │       ├── RELIABILITY/
-        │               │       └── HAZARD_MGMT/
-        │               │
-        │               ├── LC04_DESIGN_DEFINITION_DMU/
-        │               │   ├── README.md
-        │               │   ├── DESIGN_DESCRIPTION_DOCUMENT.md
-        │               │   ├── TRACE_LC04.csv
-        │               │   └── PACKAGES/
-        │               │       ├── DESIGN/
-        │               │       ├── CONFIG/
-        │               │       └── INTERFACES/
-        │               │
-        │               ├── LC05_ANALYSIS_MODELS_CAE/
-        │               │   ├── README.md
-        │               │   ├── ANALYSIS_PLAN.md
-        │               │   ├── TRACE_LC05.csv
-        │               │   └── PACKAGES/
-        │               │       ├── ANALYSIS/
-        │               │       ├── MODELS/
-        │               │       └── VALIDATION/
-        │               │
-        │               ├── LC06_INTEGRATION_TEST_PMU/
-        │               │   ├── README.md
-        │               │   ├── TEST_PROGRAM_PLAN.md
-        │               │   ├── TRACE_LC06.csv
-        │               │   └── PACKAGES/
-        │               │       ├── TEST/
-        │               │       ├── INTEGRATION/
-        │               │       └── CONFORMITY/
-        │               │
-        │               ├── LC07_QUALITY/
-        │               │   ├── README.md
-        │               │   ├── QUALITY_ASSURANCE_PLAN.md
-        │               │   ├── TRACE_LC07.csv
-        │               │   └── PACKAGES/
-        │               │       ├── QA/
-        │               │       ├── PROCESS_COMPLIANCE/
-        │               │       └── ACCEPTANCE/
-        │               │
-        │               ├── LC08_FLIGHT_TEST_CERTIFICATION/
-        │               │   ├── README.md
-        │               │   ├── CERTIFICATION_PLAN.md
-        │               │   ├── MEANS_OF_COMPLIANCE.md
-        │               │   ├── COMPLIANCE_MATRIX.csv
-        │               │   ├── TRACE_LC08.csv
-        │               │   └── PACKAGES/
-        │               │       ├── CERT_BASIS/
-        │               │       ├── COMPLIANCE/
-        │               │       └── FLIGHT_TEST/
-        │               │
-        │               ├── LC09_GREEN_AIRCRAFT_BASELINES/
-        │               │   ├── README.md
-        │               │   ├── ESG_REPORT.md
-        │               │   ├── TRACE_LC09.csv
-        │               │   └── PACKAGES/
-        │               │       ├── ESG/
-        │               │       ├── LCA/
-        │               │       └── ENV_COMPLIANCE/
-        │               │
-        │               └── LC10_INDUSTRIALIZATION_PRODUCTION_CAM/
-        │                   ├── README.md
-        │                   ├── PRODUCTION_PLAN.md
-        │                   ├── TRACE_LC10.csv
-        │                   └── PACKAGES/
-        │                       ├── INDUSTRIAL/
-        │                       ├── SUPPLY/
-        │                       └── QUALITY_PROD/
-        │
-        ├── CONTRACTS/                                            # Contract-first governance (KDB→IDB)
-        │   ├── README.md
-        │   ├── KITDM-CTR-LM-CSDB_ATAxx-yy-00.yaml
-        │   ├── KITDM-CTR-LM-EXPORT_ATAxx-yy-00.yaml
-        │   ├── KITDM-CTR-LM-IETP_ATAxx-yy-00.yaml
-        │   ├── KITDM-CTR-OPS-SB_ATAxx-yy-00.yaml
-        │   ├── KITDM-CTR-OPS-REPAIR_ATAxx-yy-00.yaml
-        │   ├── KITDM-CTR-OPS-QUERY_ATAxx-yy-00.yaml
-        │   ├── KITDM-CTR-OPS-COC_ATAxx-yy-00.yaml
-        │   ├── CONTRACT_APPROVAL_LOG.csv
-        │   └── EVIDENCE/
-        │       ├── ACCEPTANCE_CRITERIA.md
-        │       ├── TRACE_MATRIX_TEMPLATE.csv
-        │       └── VALIDATION_REPORTS/
-        │
-        ├── ASIT/                                                 # Aircraft System Information Transponder (non-authoritative)
-        │   ├── README.md
-        │   ├── asit_config.yaml
-        │   ├── pipelines/
-        │   ├── rules/
-        │   ├── k8s/
-        │   └── runs/
-        │       └── YYYYMMDD-HHMM__<contract-id>/
-        │           ├── INPUT_MANIFEST.json
-        │           ├── CONTEXT.json
-        │           ├── SELECTION_MANIFEST.json
-        │           ├── OUTPUT_MANIFEST.json
-        │           ├── TRACE_MATRIX.csv
-        │           ├── VALIDATION_REPORT.json
-        │           ├── METRICS.json
-        │           └── LOG.txt
-        │
-        └── IDB/                                                  # Information Data Base (projection/consumption)
-            ├── README.md
-            ├── IDB_GOVERNANCE.md
-            │
-            ├── OPS/                                              # Operational domain (in-service truth)
-            │   └── LM/                                           # LC11–LC14
-            │       ├── LC11_OPERATIONS_CUSTOMIZATION/
-            │       │   ├── README.md
-            │       │   └── PACKAGES/
-            │       │       ├── CUSTOMER_DELTAS/
-            │       │       ├── OPS_CONFIG/
-            │       │       └── RELEASE_NOTES/
-            │       │
-            │       ├── LC12_SUPPORT_SERVICES/
-            │       │   ├── README.md
-            │       │   ├── PACKAGES/
-            │       │   │   ├── SB/                               # Service Bulletins
-            │       │   │   ├── REPAIR/                            # In-service repairs (service-side)
-            │       │   │   ├── QUERY/                             # Technical queries / QSR
-            │       │   │   ├── AOG/                               # Aircraft on Ground
-            │       │   │   ├── COC/                               # Certificates of Conformance
-            │       │   │   └── COMPLIANCE/
-            │       │   ├── CASES/
-            │       │   └── INDEX/
-            │       │
-            │       ├── LC13_MRO_SUSTAINMENT/
-            │       │   ├── README.md
-            │       │   └── PACKAGES/
-            │       │       ├── Maintenance_Source/
-            │       │       │   ├── README.md
-            │       │       │   ├── AMM_TASKS/
-            │       │       │   ├── MSG3_TASK_CARDS/
-            │       │       │   ├── MPD_TASKS/
-            │       │       │   ├── TASK_EXECUTION_LOGS/
-            │       │       │   ├── CONDITION_MONITORING/
-            │       │       │   └── EVIDENCE/
-            │       │       ├── Repair_Source/
-            │       │       │   ├── README.md
-            │       │       │   ├── SRM_REPAIRS/
-            │       │       │   ├── REPAIR_SCHEMES/
-            │       │       │   ├── DAMAGE_REPORTS/
-            │       │       │   ├── DISPOSITION_RECORDS/
-            │       │       │   ├── TECHNICAL_APPROVALS/
-            │       │       │   └── EVIDENCE/
-            │       │       └── Overhaul_Source/
-            │       │           ├── README.md
-            │       │           ├── SHOP_VISIT_REPORTS/
-            │       │           ├── CMM_TASKS/
-            │       │           ├── TEARDOWN_FINDINGS/
-            │       │           ├── PARTS_REPLACEMENT/
-            │       │           ├── CONFIG_STATUS_EFFECTIVITY/
-            │       │           └── EVIDENCE/
-            │       │
-            │       └── LC14_RETIREMENT_CIRCULARITY/
-            │           ├── README.md
-            │           └── PACKAGES/
-            │               ├── DISMANTLING/
-            │               ├── MATERIAL_RECOVERY/
-            │               ├── DPP_CLOSURE/
-            │               └── ESG_EOL/
-            │
-            ├── PUB/                                              # Publication deliverables (views)
-            │   ├── AMM/
-            │   │   ├── CSDB/                                     # S1000D container
-            │   │   │   ├── DM/
-            │   │   │   ├── PM/
-            │   │   │   ├── DML/
-            │   │   │   ├── BREX/
-            │   │   │   ├── ICN/
-            │   │   │   ├── COMMON/
-            │   │   │   └── APPLICABILITY/
-            │   │   ├── EXPORT/
-            │   │   │   ├── PDF/
-            │   │   │   └── HTML/
-            │   │   └── IETP_RUNTIME/                             # Interactive runtime packages + UI config
-            │   │       ├── app/
-            │   │       ├── data/
-            │   │       ├── operators/
-            │   │       └── README.md
-            │   ├── IPC/
-            │   ├── SRM/
-            │   └── README.md
-            │
-            └── INDEX/                                            # Release + audit + provenance
-                ├── IDB_RELEASE_NOTES.md
-                ├── IDB_TRACE_SUMMARY.md
-                ├── IDB_INDEX.json
-                ├── PUBLICATION_MANIFEST.yaml
-                ├── BASELINE_REFERENCE.yaml                        # Which KDB baseline generated this IDB
-                ├── APPLICABILITY_INDEX.json
-                ├── OPERATOR_VIEWS.json
-                ├── COMPLIANCE_CHECKLIST.md
-                ├── COMPLIANCE_STATUS_DASHBOARD.html
-                ├── CHANGELOG.md
-                ├── METRICS_DASHBOARD.html
-                └── DPP_ANCHOR_RECEIPT.json
+> **Version:** 2.1.0  
+> **Status:** Normative  
+> **Last Updated:** 2026-01-21
+
+---
+
 ```
+ATA_XX-<SYSTEM_NAME>/                                    # Root folder for ATA chapter (e.g., ATA_28-FUEL)
+├── README.md                                            # System overview: mission, scope, navigation, contacts
+├── NAMING_CONVENTIONS.md                                # ID grammar rules, controlled vocabulary, slug formats
+├── TRACEABILITY_CONVENTIONS.md                          # Relationship types, trace link semantics, directionality
+├── GOVERNANCE_POLICY.md                                 # Default baseline policy, change authority, approval gates
+│
+├── WBS/                                                 # Work Breakdown Structure — project/program decomposition
+│   ├── SYSTEM_MISSION.md                                # Why this system exists (strategic purpose)
+│   ├── SYSTEM_VISION.md                                 # Target end-state and success criteria
+│   ├── SYSTEM_OBJECTIVES.md                             # Measurable goals derived from mission/vision
+│   ├── WBS_LEVEL_1.yaml                                 # Top-level work packages (major deliverables)
+│   ├── WBS_LEVEL_2.yaml                                 # Second-level decomposition (sub-deliverables)
+│   ├── WBS_TRACE_TO_PROJECT.csv                         # Maps WBS elements to project schedule/milestones
+│   └── WBS_BUDGET_TT.yaml                               # Token budget allocation per WBS element (informational)
+│
+├── GOVERNANCE/                                          # System-level governance — DEFAULT authority for all subjects
+│   ├── README.md                                        # Governance overview, roles, escalation paths
+│   ├── BASELINES.md                                     # Baseline types (FBL, DBL, PBL) and scope definitions
+│   ├── BASELINE_REGISTER.csv                            # Log of established baselines with dates and approvers
+│   ├── CHANGE_LOG.md                                    # Chronological record of governance changes
+│   ├── CHANGE_CONTROL/                                  # Engineering change management artifacts
+│   │   ├── README.md                                    # Change control process description and workflow
+│   │   ├── ECR_TEMPLATE.md                              # Engineering Change Request template (propose change)
+│   │   ├── ECO_TEMPLATE.md                              # Engineering Change Order template (implement change)
+│   │   ├── ECR/                                         # Container for all ECR instances
+│   │   │   ├── ECR_REGISTER.csv                         # Index of all ECRs with status tracking
+│   │   │   └── ECR-<ID>.md                              # Individual ECR document (one per change request)
+│   │   ├── ECO/                                         # Container for all ECO instances
+│   │   │   ├── ECO_REGISTER.csv                         # Index of all ECOs with implementation status
+│   │   │   └── ECO-<ID>.md                              # Individual ECO document (one per approved change)
+│   │   └── CCB_MINUTES/                                 # Configuration Control Board meeting records
+│   │       └── CCB-YYYY-MM-DD.md                        # Minutes from specific CCB meeting (dated)
+│   ├── APPROVALS/                                       # Formal approval artifacts and authority matrix
+│   │   ├── APPROVAL_MATRIX.csv                          # Who approves what (artifact type × role × gate)
+│   │   └── GATE_REVIEWS/                                # Formal review gate documentation
+│   │       ├── PDR_APPROVAL.md                          # Preliminary Design Review approval record
+│   │       ├── CDR_APPROVAL.md                          # Critical Design Review approval record
+│   │       ├── TRR_APPROVAL.md                          # Test Readiness Review approval record
+│   │       └── FRR_APPROVAL.md                          # Flight Readiness Review approval record
+│   ├── RELEASES/                                        # Release management and versioning
+│   │   ├── RELEASE_POLICY.md                            # Versioning scheme, release criteria, rollback rules
+│   │   ├── RELEASE_REGISTER.csv                         # Log of all releases with version/date/scope
+│   │   └── RELEASE_NOTES/                               # Per-release documentation
+│   │       └── RELEASE_vX-Y-Z.md                        # Release notes for specific version (semver)
+│   └── INCENTIVES/                                      # Token economics and contributor rewards (informational)
+│       ├── README.md                                    # Incentive program overview and eligibility
+│       ├── TT_ALLOCATION.yaml                           # Token pools per KNOT/activity type
+│       ├── TT_DISTRIBUTION.csv                          # Historical distribution ledger
+│       └── TT_POLICY.md                                 # Rules for earning, vesting, and redemption
+│
+├── INDEX/                                               # System-wide navigation and traceability indexes
+│   ├── README.md                                        # How to use the index, regeneration instructions
+│   ├── SSOT_INDEX.yaml                                  # Registry of all authoritative source locations
+│   ├── TRACE_MASTER.csv                                 # Cross-subject traceability matrix (end-to-end)
+│   ├── ID_REGISTRY.csv                                  # Auto-generated catalog of all IDs in the system
+│   ├── ARTIFACT_CATALOG.yaml                            # Inventory of all artifacts with metadata
+│   └── NAVIGATION_MAP.html                              # Visual/interactive navigation aid (generated)
+│
+└── XX-YY-<section-slug>/                                # ATA section folder (e.g., 28-10-storage)
+    ├── README.md                                        # Section scope, boundaries, Area of Responsibility
+    ├── SECTION_INDEX.yaml                               # Section-level artifact index and metrics
+    │
+    ├── GENESIS/                                         # Uncertainty discovery layer (section-level ONLY)
+    │   ├── README.md                                    # GENESIS purpose, O-KNOT vs Y-KNOT definitions
+    │   ├── O-KNOTS.csv                                  # Origin KNOTs: inherited/experience-gap uncertainties
+    │   ├── Y-KNOTS.csv                                  # Derived KNOTs: regulatory/requirement-driven unknowns
+    │   ├── DISCOVERY_LOG.md                             # Chronological narrative of uncertainty identification
+    │   └── GRADUATION_CRITERIA.md                       # Rules for promoting GENESIS items to subject KNOTs
+    │
+    └── XX-YY-ZZ-<subject-slug>/                         # Subject folder (e.g., 28-10-00-fuel-storage-general)
+        ├── README.md                                    # Subject overview, contract pointers, quick links
+        ├── SUBJECT_MANIFEST.yaml                        # Inventory snapshot: artifact counts, status summary
+        │
+        ├── GOVERNANCE/                                  # Subject-level overrides (optional, inherits system)
+        │   ├── README.md                                # Override scope and inheritance from system policy
+        │   ├── BASELINES.md                             # Subject-specific baseline definitions (if different)
+        │   ├── BASELINE_REGISTER.csv                    # Subject baseline log (if managed separately)
+        │   ├── CHANGE_LOG.md                            # Subject-specific change history
+        │   ├── CHANGE_CONTROL/                          # Subject ECR/ECO if delegated authority
+        │   │   ├── ECR/                                 # Subject-scoped Engineering Change Requests
+        │   │   ├── ECO/                                 # Subject-scoped Engineering Change Orders
+        │   │   └── CCB_MINUTES/                         # Subject CCB records (if separate board)
+        │   ├── APPROVALS/                               # Subject approval artifacts
+        │   │   ├── APPROVAL_MATRIX.csv                  # Subject-specific approval authorities
+        │   │   └── GATE_REVIEWS/                        # Subject gate review records
+        │   └── RELEASES/                                # Subject release management
+        │       └── RELEASE_REGISTER.csv                 # Subject release log
+        │
+        ├── INDEX/                                       # Subject-level navigation and compliance tracking
+        │   ├── README.md                                # Index usage and regeneration for this subject
+        │   ├── SSOT_INDEX.yaml                          # Authoritative sources within this subject
+        │   ├── TRACE_MATRIX.csv                         # Intra-subject traceability (REQ↔DES↔TEST↔PUB)
+        │   ├── ID_REGISTRY.csv                          # All IDs within this subject
+        │   └── COMPLIANCE_STATUS.yaml                   # Certification requirement compliance dashboard
+        │
+        ├── KDB/                                         # Knowledge Data Base — authoritative engineering truth
+        │   ├── README.md                                # KDB structure, DEV vs LM distinction, policies
+        │   ├── DEV/                                     # Development workspace (NOT baselined, mutable)
+        │   │   ├── working/                             # Active work-in-progress artifacts
+        │   │   ├── trade-studies/                       # Trade study drafts and comparisons
+        │   │   ├── prototypes/                          # Prototype designs, code, models
+        │   │   └── dev-evidence/                        # Supporting evidence not yet promoted
+        │   └── LM/                                      # Lifecycle-Managed artifacts (BASELINED, controlled)
+        │       └── SSOT/                                # Single Source of Truth container
+        │           ├── SSOT_POLICY.md                   # What qualifies as SSOT, promotion rules
+        │           └── PLM/                             # Product Lifecycle Management (LC01–LC10)
+        │               ├── LC01_PROBLEM_STATEMENT/      # Uncertainty orchestration and planning
+        │               │   ├── README.md                # LC01 purpose: KNOT/KNU management overview
+        │               │   ├── KNOTS.csv                # Uncertainty register (KNOT-ATAxx-yy-zz-NNN)
+        │               │   ├── KNU_PLAN.csv             # Planned knowledge units per KNOT
+        │               │   ├── TIMELINE.csv             # Milestones and target dates for closure
+        │               │   ├── RACI.csv                 # Stakeholder responsibility matrix
+        │               │   ├── TRACE_LC01.csv           # Traceability from KNOT→KNU→artifact
+        │               │   └── PACKAGES/                # LC01 artifact packages by type
+        │               │       ├── KNOT_MGMT/           # KNOT lifecycle management artifacts
+        │               │       ├── KNU_PLANNING/        # KNU planning and scheduling artifacts
+        │               │       ├── GOVERNANCE/          # LC01-specific governance documents
+        │               │       └── INCENTIVES/          # Token allocation for this subject's KNOTs
+        │               ├── LC02_SYSTEM_REQUIREMENTS/    # Requirements definition and management
+        │               │   ├── README.md                # LC02 purpose: requirements engineering overview
+        │               │   ├── REQUIREMENTS_MANAGEMENT_PLAN.md  # How requirements are captured/traced
+        │               │   ├── TRACE_LC02.csv           # REQ→parent, REQ→derived traceability
+        │               │   └── PACKAGES/                # LC02 artifact packages by type
+        │               │       ├── REQ/                 # Requirement specifications (SRS, SSS)
+        │               │       ├── ICD/                 # Interface Control Documents
+        │               │       ├── DATA/                # Data requirements and schemas
+        │               │       └── COMPLIANCE_INTENT/   # Intended means of compliance per requirement
+        │               ├── LC03_SAFETY_RELIABILITY/     # Safety assessment and reliability engineering
+        │               │   ├── README.md                # LC03 purpose: safety/reliability overview
+        │               │   ├── SAFETY_ASSESSMENT_PLAN.md  # Safety assessment methodology (ARP4761)
+        │               │   ├── TRACE_LC03.csv           # Hazard→requirement→mitigation traceability
+        │               │   └── PACKAGES/                # LC03 artifact packages by type
+        │               │       ├── SAFETY/              # FHA, PSSA, SSA, hazard logs
+        │               │       ├── RELIABILITY/         # FMEA, FMECA, reliability predictions
+        │               │       └── HAZARD_MGMT/         # Hazard tracking and mitigation status
+        │               ├── LC04_DESIGN_DEFINITION_DMU/  # Design definition and Digital Mock-Up
+        │               │   ├── README.md                # LC04 purpose: design engineering overview
+        │               │   ├── DESIGN_DESCRIPTION_DOCUMENT.md  # System/component design narrative
+        │               │   ├── TRACE_LC04.csv           # REQ→design element traceability
+        │               │   └── PACKAGES/                # LC04 artifact packages by type
+        │               │       ├── DESIGN/              # Design specifications, drawings, models
+        │               │       ├── CONFIG/              # Configuration items and BOM
+        │               │       └── INTERFACES/          # Interface definitions and protocols
+        │               ├── LC05_ANALYSIS_MODELS_CAE/    # Analysis and Computer-Aided Engineering
+        │               │   ├── README.md                # LC05 purpose: analysis/modeling overview
+        │               │   ├── ANALYSIS_PLAN.md         # Analysis strategy and tool selection
+        │               │   ├── TRACE_LC05.csv           # Model→requirement→result traceability
+        │               │   └── PACKAGES/                # LC05 artifact packages by type
+        │               │       ├── ANALYSIS/            # Analysis reports (FEA, CFD, thermal)
+        │               │       ├── MODELS/              # Simulation models and input files
+        │               │       └── VALIDATION/          # Model validation evidence
+        │               ├── LC06_INTEGRATION_TEST_PMU/   # Integration, test, and Physical Mock-Up
+        │               │   ├── README.md                # LC06 purpose: test engineering overview
+        │               │   ├── TEST_PROGRAM_PLAN.md     # Test strategy, matrix, and resources
+        │               │   ├── TRACE_LC06.csv           # REQ→test case→result traceability
+        │               │   └── PACKAGES/                # LC06 artifact packages by type
+        │               │       ├── TEST/                # Test procedures, reports, data
+        │               │       ├── INTEGRATION/         # Integration test artifacts
+        │               │       └── CONFORMITY/          # Conformity inspection records
+        │               ├── LC07_QUALITY/                # Quality assurance and process compliance
+        │               │   ├── README.md                # LC07 purpose: quality management overview
+        │               │   ├── QUALITY_ASSURANCE_PLAN.md  # QA methodology and audit schedule
+        │               │   ├── TRACE_LC07.csv           # Process→audit→finding traceability
+        │               │   └── PACKAGES/                # LC07 artifact packages by type
+        │               │       ├── QA/                  # Audit reports, NCR logs, CAPA
+        │               │       ├── PROCESS_COMPLIANCE/  # Process adherence evidence
+        │               │       └── ACCEPTANCE/          # Acceptance test and inspection records
+        │               ├── LC08_FLIGHT_TEST_CERTIFICATION/  # Certification and flight test
+        │               │   ├── README.md                # LC08 purpose: certification overview
+        │               │   ├── CERTIFICATION_PLAN.md    # Certification strategy and timeline
+        │               │   ├── MEANS_OF_COMPLIANCE.md   # MoC matrix (how each req is shown compliant)
+        │               │   ├── COMPLIANCE_MATRIX.csv    # Regulation→requirement→evidence matrix
+        │               │   ├── TRACE_LC08.csv           # Regulation→evidence traceability
+        │               │   └── PACKAGES/                # LC08 artifact packages by type
+        │               │       ├── CERT_BASIS/          # Certification basis documents (CS/FAR refs)
+        │               │       ├── COMPLIANCE/          # Compliance substantiation data
+        │               │       └── FLIGHT_TEST/         # Flight test plans, reports, data
+        │               ├── LC09_GREEN_AIRCRAFT_BASELINES/  # Environmental and sustainability
+        │               │   ├── README.md                # LC09 purpose: ESG/sustainability overview
+        │               │   ├── ESG_REPORT.md            # Environmental, Social, Governance summary
+        │               │   ├── TRACE_LC09.csv           # ESG goal→action→evidence traceability
+        │               │   └── PACKAGES/                # LC09 artifact packages by type
+        │               │       ├── ESG/                 # ESG metrics and reporting
+        │               │       ├── LCA/                 # Life Cycle Assessment artifacts
+        │               │       └── ENV_COMPLIANCE/      # Environmental regulation compliance
+        │               └── LC10_INDUSTRIALIZATION_PRODUCTION_CAM/  # Manufacturing and production
+        │                   ├── README.md                # LC10 purpose: industrialization overview
+        │                   ├── PRODUCTION_PLAN.md       # Production strategy and ramp-up
+        │                   ├── TRACE_LC10.csv           # Design→process→tooling traceability
+        │                   └── PACKAGES/                # LC10 artifact packages by type
+        │                       ├── INDUSTRIAL/          # Manufacturing process specs
+        │                       ├── SUPPLY/              # Supply chain and procurement
+        │                       └── QUALITY_PROD/        # Production quality control
+        │
+        ├── CONTRACTS/                                   # Contract-first governance (KDB→IDB transformation)
+        │   ├── README.md                                # Contract system overview and enforcement
+        │   ├── KITDM-CTR-LM-CSDB_ATAxx-yy-zz.yaml       # Contract: KDB→CSDB publication rules
+        │   ├── KITDM-CTR-LM-EXPORT_ATAxx-yy-zz.yaml     # Contract: CSDB→PDF/HTML export rules
+        │   ├── KITDM-CTR-LM-IETP_ATAxx-yy-zz.yaml       # Contract: CSDB→IETP runtime packaging
+        │   ├── KITDM-CTR-OPS-SB_ATAxx-yy-zz.yaml        # Contract: Service Bulletin generation rules
+        │   ├── KITDM-CTR-OPS-REPAIR_ATAxx-yy-zz.yaml    # Contract: Repair data publication rules
+        │   ├── KITDM-CTR-OPS-QUERY_ATAxx-yy-zz.yaml     # Contract: Technical query response rules
+        │   ├── KITDM-CTR-OPS-COC_ATAxx-yy-zz.yaml       # Contract: Certificate of Conformance rules
+        │   ├── CONTRACT_APPROVAL_LOG.csv                # Log of contract approvals and versions
+        │   └── EVIDENCE/                                # Contract validation evidence
+        │       ├── ACCEPTANCE_CRITERIA.md               # Pass/fail criteria for contract satisfaction
+        │       ├── TRACE_MATRIX_TEMPLATE.csv            # Template for input→output trace validation
+        │       └── VALIDATION_REPORTS/                  # Per-run validation report storage
+        │
+        ├── ASIT/                                        # Aircraft System Information Transponder (automation)
+        │   ├── README.md                                # ASIT purpose: automated KDB→IDB pipeline
+        │   ├── asit_config.yaml                         # Global ASIT configuration for this subject
+        │   ├── pipelines/                               # Pipeline definitions (DAGs, workflows)
+        │   ├── rules/                                   # Transformation and validation rules
+        │   ├── k8s/                                     # Kubernetes deployment manifests (if applicable)
+        │   └── runs/                                    # Historical run artifacts (immutable)
+        │       └── YYYYMMDD-HHMM__<contract-id>/        # Individual run folder (timestamped)
+        │           ├── INPUT_MANIFEST.json              # Snapshot of input artifacts consumed
+        │           ├── CONTEXT.json                     # Runtime context (versions, configs)
+        │           ├── SELECTION_MANIFEST.json          # Which KDB artifacts were selected
+        │           ├── OUTPUT_MANIFEST.json             # What IDB artifacts were produced
+        │           ├── TRACE_MATRIX.csv                 # Input→output trace for this run
+        │           ├── VALIDATION_REPORT.json           # BREX/schema validation results
+        │           ├── METRICS.json                     # Run metrics (duration, counts, errors)
+        │           └── LOG.txt                          # Execution log for debugging
+        │
+        └── IDB/                                         # Information Data Base — consumption/delivery surface
+            ├── README.md                                # IDB structure, OPS vs PUB distinction
+            ├── IDB_GOVERNANCE.md                        # IDB-specific governance and release policy
+            │
+            ├── OPS/                                     # Operational domain (in-service lifecycle)
+            │   └── LM/                                  # Lifecycle-Managed operational artifacts (LC11–LC14)
+            │       ├── LC11_OPERATIONS_CUSTOMIZATION/   # Operator customization and configuration
+            │       │   ├── README.md                    # LC11 purpose: operator customization overview
+            │       │   └── PACKAGES/                    # LC11 artifact packages by type
+            │       │       ├── CUSTOMER_DELTAS/         # Operator-specific configuration changes
+            │       │       ├── OPS_CONFIG/              # Operational configuration parameters
+            │       │       └── RELEASE_NOTES/           # Operator-facing release documentation
+            │       ├── LC12_SUPPORT_SERVICES/           # Technical support and field services
+            │       │   ├── README.md                    # LC12 purpose: support services overview
+            │       │   ├── PACKAGES/                    # LC12 artifact packages by type
+            │       │   │   ├── SB/                      # Service Bulletins (mandatory/optional)
+            │       │   │   ├── REPAIR/                  # In-service repair authorizations
+            │       │   │   ├── QUERY/                   # Technical query responses (QSR)
+            │       │   │   ├── AOG/                     # Aircraft on Ground support records
+            │       │   │   ├── COC/                     # Certificates of Conformance issued
+            │       │   │   └── COMPLIANCE/              # AD/SB compliance tracking
+            │       │   ├── CASES/                       # Support case management records
+            │       │   └── INDEX/                       # LC12 navigation and case index
+            │       ├── LC13_MRO_SUSTAINMENT/            # Maintenance, Repair, Overhaul
+            │       │   ├── README.md                    # LC13 purpose: MRO sustainment overview
+            │       │   └── PACKAGES/                    # LC13 artifact packages by type
+            │       │       ├── Maintenance_Source/      # Scheduled maintenance artifacts
+            │       │       │   ├── README.md            # Maintenance source overview
+            │       │       │   ├── AMM_TASKS/           # Aircraft Maintenance Manual task cards
+            │       │       │   ├── MSG3_TASK_CARDS/     # MSG-3 derived maintenance tasks
+            │       │       │   ├── MPD_TASKS/           # Maintenance Planning Document tasks
+            │       │       │   ├── TASK_EXECUTION_LOGS/ # Completed task execution records
+            │       │       │   ├── CONDITION_MONITORING/# On-condition and health monitoring
+            │       │       │   └── EVIDENCE/            # Maintenance completion evidence
+            │       │       ├── Repair_Source/           # Unscheduled repair artifacts
+            │       │       │   ├── README.md            # Repair source overview
+            │       │       │   ├── SRM_REPAIRS/         # Structural Repair Manual repairs
+            │       │       │   ├── REPAIR_SCHEMES/      # Approved repair schemes/drawings
+            │       │       │   ├── DAMAGE_REPORTS/      # Damage assessment reports
+            │       │       │   ├── DISPOSITION_RECORDS/ # Repair disposition decisions
+            │       │       │   ├── TECHNICAL_APPROVALS/ # Engineering approvals for repairs
+            │       │       │   └── EVIDENCE/            # Repair completion evidence
+            │       │       └── Overhaul_Source/         # Heavy maintenance and overhaul
+            │       │           ├── README.md            # Overhaul source overview
+            │       │           ├── SHOP_VISIT_REPORTS/  # Component shop visit reports
+            │       │           ├── CMM_TASKS/           # Component Maintenance Manual tasks
+            │       │           ├── TEARDOWN_FINDINGS/   # Inspection findings at teardown
+            │       │           ├── PARTS_REPLACEMENT/   # Parts replacement records
+            │       │           ├── CONFIG_STATUS_EFFECTIVITY/  # As-maintained configuration
+            │       │           └── EVIDENCE/            # Overhaul completion evidence
+            │       └── LC14_RETIREMENT_CIRCULARITY/     # End-of-life and circular economy
+            │           ├── README.md                    # LC14 purpose: retirement/circularity overview
+            │           └── PACKAGES/                    # LC14 artifact packages by type
+            │               ├── DISMANTLING/             # Aircraft dismantling procedures/records
+            │               ├── MATERIAL_RECOVERY/       # Material recovery and recycling data
+            │               ├── DPP_CLOSURE/             # Digital Product Passport closure
+            │               └── ESG_EOL/                 # End-of-life ESG reporting
+            │
+            ├── PUB/                                     # Publication deliverables (S1000D + exports)
+            │   ├── README.md                            # Publication structure and BREX overview
+            │   ├── AMM/                                 # Aircraft Maintenance Manual publications
+            │   │   ├── CSDB/                            # S1000D Common Source Database
+            │   │   │   ├── DM/                          # Data Modules (atomic content units)
+            │   │   │   ├── PM/                          # Publication Modules (assembly structures)
+            │   │   │   ├── DML/                         # Data Module Lists (controlled inventories)
+            │   │   │   ├── BREX/                        # Business Rules Exchange (validation rules)
+            │   │   │   ├── ICN/                         # Information Control Numbers (graphics)
+            │   │   │   ├── COMMON/                      # Reusable content (warnings, cautions, notes)
+            │   │   │   └── APPLICABILITY/               # ACT/PCT/CCT applicability filtering
+            │   │   ├── EXPORT/                          # Rendered deliverables
+            │   │   │   ├── PDF/                         # PDF exports per publication
+            │   │   │   └── HTML/                        # HTML exports per publication
+            │   │   └── IETP_RUNTIME/                    # Interactive Electronic Technical Publication
+            │   │       ├── app/                         # IETP viewer application code
+            │   │       ├── data/                        # Pre-processed content for viewer
+            │   │       ├── operators/                   # Operator-specific view configurations
+            │   │       └── README.md                    # IETP deployment and configuration guide
+            │   ├── IPC/                                 # Illustrated Parts Catalog publications
+            │   └── SRM/                                 # Structural Repair Manual publications
+            │
+            └── INDEX/                                   # IDB provenance, audit, and release tracking
+                ├── IDB_RELEASE_NOTES.md                 # Release notes for current IDB version
+                ├── IDB_TRACE_SUMMARY.md                 # Summary of KDB→IDB transformation traces
+                ├── IDB_INDEX.json                       # Machine-readable IDB artifact index
+                ├── PUBLICATION_MANIFEST.yaml            # List of all publications with versions
+                ├── BASELINE_REFERENCE.yaml              # Which KDB baseline produced this IDB
+                ├── APPLICABILITY_INDEX.json             # Applicability cross-reference (MSN/config)
+                ├── OPERATOR_VIEWS.json                  # Operator-specific view configurations
+                ├── COMPLIANCE_CHECKLIST.md              # Publication compliance verification checklist
+                ├── COMPLIANCE_STATUS_DASHBOARD.html     # Visual compliance status (generated)
+                ├── CHANGELOG.md                         # IDB change history (delta from prior release)
+                ├── METRICS_DASHBOARD.html               # Publication metrics (coverage, quality)
+                └── DPP_ANCHOR_RECEIPT.json              # Digital Product Passport anchoring proof
+```
+
+---
+
+## Legend
+
+| Symbol | Meaning |
+|--------|---------|
+| `#` | Inline comment explaining purpose |
+| `/` | Directory (folder) |
+| `.md` | Markdown narrative document |
+| `.csv` | Comma-separated tabular data |
+| `.yaml` | Structured configuration/data |
+| `.json` | Machine-readable data/manifest |
+| `.html` | Generated visual artifact |
+
+---
+
+## Quick Reference: Key Directories
+
+| Path | Purpose | Baseline Status |
+|------|---------|-----------------|
+| `KDB/DEV/` | Active development workspace | NOT baselined |
+| `KDB/LM/SSOT/PLM/` | Authoritative engineering truth | BASELINED |
+| `IDB/OPS/LM/` | In-service operational data | BASELINED |
+| `IDB/PUB/` | Publication deliverables | BASELINED |
+| `GENESIS/` | Uncertainty discovery | NOT baselined |
+| `CONTRACTS/` | Transformation governance | BASELINED |
+| `ASIT/runs/` | Automation execution history | Immutable archive |
+
 
 ---
 
