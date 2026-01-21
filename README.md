@@ -326,87 +326,80 @@ AMPEL360-AIR-T/
 ### 3.2 Canonical ATA Pattern
 
 ```text
-ATA_XX-<SYSTEM_NAME>/                                         # Single canonical root (ATA iSpec 2200 aligned)
-├── README.md                                                 # System overview, navigation, standards alignment
-├── NAMING_CONVENTIONS.md                                     # ID rulebook (KNOT, KNU, REQ, DES, TEST, HAZ, DMC...)
-├── TRACEABILITY_CONVENTIONS.md                               # Relationship vocabulary & rules
-├── GOVERNANCE_POLICY.md                                      # Baseline, change control, approval authority
+ATA_XX-<SYSTEM_NAME>/                                              # Single canonical root (applies to any ATA)
+├── README.md                                                      # System overview, mission/vision, scope, navigation
+├── NAMING_CONVENTIONS.md                                          # ID grammar + controlled vocab (O-KNOT/Y-KNOT/KNOT/KNU/DMC)
+├── TRACEABILITY_CONVENTIONS.md                                    # Relationship vocabulary + rules
+├── GOVERNANCE_POLICY.md                                           # Baselines, change control, approvals (system default)
 │
-├── WBS/                                                      # Work Breakdown Structure (system-level)
+├── WBS/                                                           # System-level WBS derived from mission/vision
 │   ├── SYSTEM_MISSION.md
 │   ├── SYSTEM_VISION.md
 │   ├── SYSTEM_OBJECTIVES.md
 │   ├── WBS_LEVEL_1.yaml
 │   ├── WBS_LEVEL_2.yaml
 │   ├── WBS_TRACE_TO_PROJECT.csv
-│   └── WBS_BUDGET_TT.yaml                                    # Informational (non-technical baseline)
+│   └── WBS_BUDGET_TT.yaml                                         # Informational (non-technical baseline)
 │
-├── GOVERNANCE/                                               # System-level governance (DEFAULT authority)
+├── GOVERNANCE/                                                    # System-level governance (DEFAULT authority)
 │   ├── README.md
-│   ├── BASELINES.md
-│   ├── BASELINE_REGISTER.csv                                 # Baseline_ID, Version, Date, Commit_SHA, Scope, Status...
+│   ├── BASELINES.md                                               # Baseline types + scope mapping to paths
+│   ├── BASELINE_REGISTER.csv
 │   ├── CHANGE_LOG.md
-│   │
-│   ├── CHANGE_CONTROL/                                       # ECR/ECO management (AS9100 aligned)
+│   ├── CHANGE_CONTROL/
 │   │   ├── README.md
 │   │   ├── ECR_TEMPLATE.md
 │   │   ├── ECO_TEMPLATE.md
 │   │   ├── ECR/
-│   │   │   ├── ECR-ATAxx-YYYY-001.md
-│   │   │   └── ECR_REGISTER.csv
+│   │   │   ├── ECR_REGISTER.csv
+│   │   │   └── ECR-<...>.md
 │   │   ├── ECO/
-│   │   │   ├── ECO-ATAxx-YYYY-001.md
-│   │   │   └── ECO_REGISTER.csv
+│   │   │   ├── ECO_REGISTER.csv
+│   │   │   └── ECO-<...>.md
 │   │   └── CCB_MINUTES/
 │   │       └── CCB-YYYY-MM-DD.md
-│   │
 │   ├── APPROVALS/
-│   │   ├── APPROVAL_MATRIX.csv                               # Artifact_Type, Approval_Level, R/A/C/I...
-│   │   ├── GATE_REVIEWS/
-│   │   │   ├── PDR_APPROVAL.md
-│   │   │   ├── CDR_APPROVAL.md
-│   │   │   ├── TRR_APPROVAL.md
-│   │   │   └── FRR_APPROVAL.md
-│   │   └── DIGITAL_SIGNATURES/
-│   │       └── .gitkeep
-│   │
+│   │   ├── APPROVAL_MATRIX.csv
+│   │   └── GATE_REVIEWS/
+│   │       ├── PDR_APPROVAL.md
+│   │       ├── CDR_APPROVAL.md
+│   │       ├── TRR_APPROVAL.md
+│   │       └── FRR_APPROVAL.md
 │   ├── RELEASES/
 │   │   ├── RELEASE_POLICY.md
 │   │   ├── RELEASE_REGISTER.csv
 │   │   └── RELEASE_NOTES/
-│   │       ├── RELEASE_v1-0-0.md
-│   │       └── RELEASE_v1-1-0.md
-│   │
-│   └── INCENTIVES/                                           # Informational (non-technical baseline)
+│   │       └── RELEASE_vX-Y-Z.md
+│   └── INCENTIVES/                                                # Informational, non-baseline
 │       ├── README.md
 │       ├── TT_ALLOCATION.yaml
 │       ├── TT_DISTRIBUTION.csv
 │       └── TT_POLICY.md
 │
-├── INDEX/                                                    # Master navigation & traceability (system-level)
+├── INDEX/                                                         # System-wide navigation & traceability
 │   ├── README.md
-│   ├── SSOT_INDEX.yaml                                       # Authoritative source registry
-│   ├── TRACE_MASTER.csv                                      # System trace: Source→Target with relationship vocabulary
-│   ├── ID_REGISTRY.csv                                       # Auto-generated ID catalog
-│   ├── ARTIFACT_CATALOG.yaml                                 # Full inventory
+│   ├── SSOT_INDEX.yaml                                            # authoritative sources registry
+│   ├── TRACE_MASTER.csv                                           # cross-subject end-to-end relationships
+│   ├── ID_REGISTRY.csv                                            # auto-generated ID catalog
+│   ├── ARTIFACT_CATALOG.yaml                                      # inventory
 │   └── NAVIGATION_MAP.html
 │
-└── XX-YY-<section-slug>/                                     # ATA section (e.g., 28-10-storage)
-    ├── README.md                                             # Section scope, AoR, assumptions
-    ├── SECTION_INDEX.yaml                                    # Section artifact index
+└── XX-YY-<section-slug>/                                          # ATA section (e.g., 28-10-storage)
+    ├── README.md                                                  # Section scope, AoR, assumptions
+    ├── SECTION_INDEX.yaml                                         # Section artifact index
     │
-    ├── GENESIS/                                              # Discovery phase (SECTION LEVEL)
+    ├── GENESIS/                                                   # Section-level discovery ONLY
     │   ├── README.md
-    │   ├── O-KNOTS.csv                                       # O-KNOT-ATAXX-YY-NNN
-    │   ├── Y-KNOTS.csv                                       # Y-KNOT-ATAXX-YY-NNN
+    │   ├── O-KNOTS.csv                                            # O-KNOT-ATAxx-yy-NNN
+    │   ├── Y-KNOTS.csv                                            # Y-KNOT-ATAxx-yy-NNN
     │   ├── DISCOVERY_LOG.md
     │   └── GRADUATION_CRITERIA.md
     │
-    └── XX-YY-00-<subject-slug>/                              # Subject (smallest governed unit)
-        ├── README.md
-        ├── SUBJECT_MANIFEST.yaml
+    └── XX-YY-00-<subject-slug>/                                   # Subject (smallest governed unit)
+        ├── README.md                                              # Subject overview + contract pointers + UI links
+        ├── SUBJECT_MANIFEST.yaml                                  # Inventory snapshot
         │
-        ├── GOVERNANCE/                                       # Optional subject overrides (must reference system policy)
+        ├── GOVERNANCE/                                            # Optional overrides (must reference system policy)
         │   ├── README.md
         │   ├── BASELINES.md
         │   ├── BASELINE_REGISTER.csv
@@ -421,73 +414,93 @@ ATA_XX-<SYSTEM_NAME>/                                         # Single canonical
         │   └── RELEASES/
         │       └── RELEASE_REGISTER.csv
         │
-        ├── INDEX/                                            # Subject navigation & status
+        ├── INDEX/                                                 # Subject-level navigation
         │   ├── README.md
         │   ├── SSOT_INDEX.yaml
         │   ├── TRACE_MATRIX.csv
         │   ├── ID_REGISTRY.csv
         │   └── COMPLIANCE_STATUS.yaml
         │
-        ├── KDB/                                              # Knowledge Data Base (authoritative)
+        ├── KDB/                                                   # Knowledge Data Base (authoritative source side)
         │   ├── README.md
-        │   │
-        │   ├── DEV/                                          # Workspace only (NOT baselined)
+        │   ├── DEV/                                               # Workspace (NOT baselined)
         │   │   ├── working/
         │   │   ├── trade-studies/
-        │   │   │   ├── TRADE_STUDY_TEMPLATE.md
-        │   │   │   └── .gitkeep
         │   │   ├── prototypes/
         │   │   └── dev-evidence/
         │   │
-        │   └── LM/                                           # Lifecycle-managed (BASELINED)
-        │       └── SSOT/
+        │   └── LM/                                                # Lifecycle-managed knowledge (BASELINED)
+        │       └── SSOT/                                          # Single Source of Truth
         │           ├── SSOT_POLICY.md
-        │           └── PLM/                                  # LC01–LC10 (engineering lifecycle)
+        │           └── PLM/                                       # LC01–LC10
         │               ├── LC01_PROBLEM_STATEMENT/
         │               │   ├── README.md
-        │               │   ├── KNOTS.csv
-        │               │   ├── KNU_PLAN.csv
+        │               │   ├── KNOTS.csv                          # KNOT-ATAxx-yy-00-NNN
+        │               │   ├── KNU_PLAN.csv                       # KNU-ATAxx-yy-00-KNOTNNN-<TYPE>-NNN
         │               │   ├── TIMELINE.csv
         │               │   ├── RACI.csv
         │               │   ├── TRACE_LC01.csv
-        │               │   └── PACKAGES/                     # See “PLM package types”
-        │               │       └── .gitkeep
+        │               │   └── PACKAGES/
+        │               │       ├── KNOT_MGMT/
+        │               │       ├── KNU_PLANNING/
+        │               │       ├── GOVERNANCE/
+        │               │       └── INCENTIVES/
+        │               │
         │               ├── LC02_SYSTEM_REQUIREMENTS/
         │               │   ├── README.md
         │               │   ├── REQUIREMENTS_MANAGEMENT_PLAN.md
         │               │   ├── TRACE_LC02.csv
         │               │   └── PACKAGES/
-        │               │       └── .gitkeep
+        │               │       ├── REQ/
+        │               │       ├── ICD/
+        │               │       ├── DATA/
+        │               │       └── COMPLIANCE_INTENT/
+        │               │
         │               ├── LC03_SAFETY_RELIABILITY/
         │               │   ├── README.md
         │               │   ├── SAFETY_ASSESSMENT_PLAN.md
         │               │   ├── TRACE_LC03.csv
         │               │   └── PACKAGES/
-        │               │       └── .gitkeep
+        │               │       ├── SAFETY/
+        │               │       ├── RELIABILITY/
+        │               │       └── HAZARD_MGMT/
+        │               │
         │               ├── LC04_DESIGN_DEFINITION_DMU/
         │               │   ├── README.md
         │               │   ├── DESIGN_DESCRIPTION_DOCUMENT.md
         │               │   ├── TRACE_LC04.csv
         │               │   └── PACKAGES/
-        │               │       └── .gitkeep
+        │               │       ├── DESIGN/
+        │               │       ├── CONFIG/
+        │               │       └── INTERFACES/
+        │               │
         │               ├── LC05_ANALYSIS_MODELS_CAE/
         │               │   ├── README.md
         │               │   ├── ANALYSIS_PLAN.md
         │               │   ├── TRACE_LC05.csv
         │               │   └── PACKAGES/
-        │               │       └── .gitkeep
+        │               │       ├── ANALYSIS/
+        │               │       ├── MODELS/
+        │               │       └── VALIDATION/
+        │               │
         │               ├── LC06_INTEGRATION_TEST_PMU/
         │               │   ├── README.md
         │               │   ├── TEST_PROGRAM_PLAN.md
         │               │   ├── TRACE_LC06.csv
         │               │   └── PACKAGES/
-        │               │       └── .gitkeep
+        │               │       ├── TEST/
+        │               │       ├── INTEGRATION/
+        │               │       └── CONFORMITY/
+        │               │
         │               ├── LC07_QUALITY/
         │               │   ├── README.md
         │               │   ├── QUALITY_ASSURANCE_PLAN.md
         │               │   ├── TRACE_LC07.csv
         │               │   └── PACKAGES/
-        │               │       └── .gitkeep
+        │               │       ├── QA/
+        │               │       ├── PROCESS_COMPLIANCE/
+        │               │       └── ACCEPTANCE/
+        │               │
         │               ├── LC08_FLIGHT_TEST_CERTIFICATION/
         │               │   ├── README.md
         │               │   ├── CERTIFICATION_PLAN.md
@@ -495,63 +508,124 @@ ATA_XX-<SYSTEM_NAME>/                                         # Single canonical
         │               │   ├── COMPLIANCE_MATRIX.csv
         │               │   ├── TRACE_LC08.csv
         │               │   └── PACKAGES/
-        │               │       └── .gitkeep
+        │               │       ├── CERT_BASIS/
+        │               │       ├── COMPLIANCE/
+        │               │       └── FLIGHT_TEST/
+        │               │
         │               ├── LC09_GREEN_AIRCRAFT_BASELINES/
         │               │   ├── README.md
         │               │   ├── ESG_REPORT.md
         │               │   ├── TRACE_LC09.csv
         │               │   └── PACKAGES/
-        │               │       └── .gitkeep
+        │               │       ├── ESG/
+        │               │       ├── LCA/
+        │               │       └── ENV_COMPLIANCE/
+        │               │
         │               └── LC10_INDUSTRIALIZATION_PRODUCTION_CAM/
         │                   ├── README.md
         │                   ├── PRODUCTION_PLAN.md
         │                   ├── TRACE_LC10.csv
         │                   └── PACKAGES/
-        │                       └── .gitkeep
+        │                       ├── INDUSTRIAL/
+        │                       ├── SUPPLY/
+        │                       └── QUALITY_PROD/
         │
-        ├── CONTRACTS/                                        # Contract governance (KDB → IDB)
+        ├── CONTRACTS/                                            # Contract-first governance (KDB→IDB)
         │   ├── README.md
-        │   ├── CONTRACT_APPROVAL_LOG.csv
         │   ├── KITDM-CTR-LM-CSDB_ATAxx-yy-00.yaml
         │   ├── KITDM-CTR-LM-EXPORT_ATAxx-yy-00.yaml
         │   ├── KITDM-CTR-LM-IETP_ATAxx-yy-00.yaml
         │   ├── KITDM-CTR-OPS-SB_ATAxx-yy-00.yaml
         │   ├── KITDM-CTR-OPS-REPAIR_ATAxx-yy-00.yaml
         │   ├── KITDM-CTR-OPS-QUERY_ATAxx-yy-00.yaml
-        │   ├── KITDM-CTR-OPS-AOG_ATAxx-yy-00.yaml
-        │   └── KITDM-CTR-OPS-COC_ATAxx-yy-00.yaml
+        │   ├── KITDM-CTR-OPS-COC_ATAxx-yy-00.yaml
+        │   ├── CONTRACT_APPROVAL_LOG.csv
+        │   └── EVIDENCE/
+        │       ├── ACCEPTANCE_CRITERIA.md
+        │       ├── TRACE_MATRIX_TEMPLATE.csv
+        │       └── VALIDATION_REPORTS/
         │
-        ├── ASIT/                                             # Aircraft System Information Transponder (non-authoritative)
+        ├── ASIT/                                                 # Aircraft System Information Transponder (non-authoritative)
         │   ├── README.md
         │   ├── asit_config.yaml
         │   ├── pipelines/
         │   ├── rules/
         │   ├── k8s/
         │   └── runs/
-        │       └── .gitkeep
+        │       └── YYYYMMDD-HHMM__<contract-id>/
+        │           ├── INPUT_MANIFEST.json
+        │           ├── CONTEXT.json
+        │           ├── SELECTION_MANIFEST.json
+        │           ├── OUTPUT_MANIFEST.json
+        │           ├── TRACE_MATRIX.csv
+        │           ├── VALIDATION_REPORT.json
+        │           ├── METRICS.json
+        │           └── LOG.txt
         │
-        └── IDB/                                              # Information Data Base (projection/consumption)
+        └── IDB/                                                  # Information Data Base (projection/consumption)
             ├── README.md
             ├── IDB_GOVERNANCE.md
             │
-            ├── OPS/                                          # In-service operational data domain
-            │   └── LM/                                       # LC11–LC14 (ops lifecycle)
+            ├── OPS/                                              # Operational domain (in-service truth)
+            │   └── LM/                                           # LC11–LC14
             │       ├── LC11_OPERATIONS_CUSTOMIZATION/
-            │       │   └── PACKAGES/                         # See “OPS package types”
-            │       │       └── .gitkeep
+            │       │   ├── README.md
+            │       │   └── PACKAGES/
+            │       │       ├── CUSTOMER_DELTAS/
+            │       │       ├── OPS_CONFIG/
+            │       │       └── RELEASE_NOTES/
+            │       │
             │       ├── LC12_SUPPORT_SERVICES/
-            │       │   └── PACKAGES/                         # See “OPS package types”
-            │       │       └── .gitkeep
+            │       │   ├── README.md
+            │       │   ├── PACKAGES/
+            │       │   │   ├── SB/                               # Service Bulletins
+            │       │   │   ├── REPAIR/                            # In-service repairs (service-side)
+            │       │   │   ├── QUERY/                             # Technical queries / QSR
+            │       │   │   ├── AOG/                               # Aircraft on Ground
+            │       │   │   ├── COC/                               # Certificates of Conformance
+            │       │   │   └── COMPLIANCE/
+            │       │   ├── CASES/
+            │       │   └── INDEX/
+            │       │
             │       ├── LC13_MRO_SUSTAINMENT/
-            │       │   └── PACKAGES/                         # See “OPS package types”
-            │       │       └── .gitkeep
+            │       │   ├── README.md
+            │       │   └── PACKAGES/
+            │       │       ├── Maintenance_Source/
+            │       │       │   ├── README.md
+            │       │       │   ├── AMM_TASKS/
+            │       │       │   ├── MSG3_TASK_CARDS/
+            │       │       │   ├── MPD_TASKS/
+            │       │       │   ├── TASK_EXECUTION_LOGS/
+            │       │       │   ├── CONDITION_MONITORING/
+            │       │       │   └── EVIDENCE/
+            │       │       ├── Repair_Source/
+            │       │       │   ├── README.md
+            │       │       │   ├── SRM_REPAIRS/
+            │       │       │   ├── REPAIR_SCHEMES/
+            │       │       │   ├── DAMAGE_REPORTS/
+            │       │       │   ├── DISPOSITION_RECORDS/
+            │       │       │   ├── TECHNICAL_APPROVALS/
+            │       │       │   └── EVIDENCE/
+            │       │       └── Overhaul_Source/
+            │       │           ├── README.md
+            │       │           ├── SHOP_VISIT_REPORTS/
+            │       │           ├── CMM_TASKS/
+            │       │           ├── TEARDOWN_FINDINGS/
+            │       │           ├── PARTS_REPLACEMENT/
+            │       │           ├── CONFIG_STATUS_EFFECTIVITY/
+            │       │           └── EVIDENCE/
+            │       │
             │       └── LC14_RETIREMENT_CIRCULARITY/
-            │           └── PACKAGES/                         # See “OPS package types”
-            │               └── .gitkeep
+            │           ├── README.md
+            │           └── PACKAGES/
+            │               ├── DISMANTLING/
+            │               ├── MATERIAL_RECOVERY/
+            │               ├── DPP_CLOSURE/
+            │               └── ESG_EOL/
             │
-            ├── PUB/                                          # Publication deliverables (views)
+            ├── PUB/                                              # Publication deliverables (views)
             │   ├── AMM/
-            │   │   ├── CSDB/
+            │   │   ├── CSDB/                                     # S1000D container
             │   │   │   ├── DM/
             │   │   │   ├── PM/
             │   │   │   ├── DML/
@@ -560,16 +634,25 @@ ATA_XX-<SYSTEM_NAME>/                                         # Single canonical
             │   │   │   ├── COMMON/
             │   │   │   └── APPLICABILITY/
             │   │   ├── EXPORT/
-            │   │   └── IETP_RUNTIME/
+            │   │   │   ├── PDF/
+            │   │   │   └── HTML/
+            │   │   └── IETP_RUNTIME/                             # Interactive runtime packages + UI config
+            │   │       ├── app/
+            │   │       ├── data/
+            │   │       ├── operators/
+            │   │       └── README.md
             │   ├── IPC/
-            │   └── SRM/
+            │   ├── SRM/
+            │   └── README.md
             │
-            └── INDEX/
+            └── INDEX/                                            # Release + audit + provenance
                 ├── IDB_RELEASE_NOTES.md
                 ├── IDB_TRACE_SUMMARY.md
                 ├── IDB_INDEX.json
                 ├── PUBLICATION_MANIFEST.yaml
-                ├── BASELINE_REFERENCE.yaml                   # Which KDB baseline generated this IDB
+                ├── BASELINE_REFERENCE.yaml                        # Which KDB baseline generated this IDB
+                ├── APPLICABILITY_INDEX.json
+                ├── OPERATOR_VIEWS.json
                 ├── COMPLIANCE_CHECKLIST.md
                 ├── COMPLIANCE_STATUS_DASHBOARD.html
                 ├── CHANGELOG.md
@@ -579,96 +662,50 @@ ATA_XX-<SYSTEM_NAME>/                                         # Single canonical
 
 ---
 
-## 3.3 File Naming Conventions (Updated)
+# Canonical “Package Types” (What belongs under `PACKAGES/`)
 
-| Type                          | Pattern                                        | Example                                         |
-| ----------------------------- | ---------------------------------------------- | ----------------------------------------------- |
-| **ATA Chapter Root**          | `ATA_XX-<SYSTEM_NAME>/`                        | `ATA_28-FUEL/`                                  |
-| **Section Folder**            | `XX-YY-<section-slug>/`                        | `28-10-storage/`                                |
-| **Subject Folder**            | `XX-YY-ZZ-<subject-slug>/`                     | `28-10-00_fuel-storage-general/`                |
-| **O-KNOT ID** (section-level) | `O-KNOT-ATAXX-YY-NNN`                          | `O-KNOT-ATA28-10-001`                           |
-| **Y-KNOT ID** (section-level) | `Y-KNOT-ATAXX-YY-NNN`                          | `Y-KNOT-ATA28-10-001`                           |
-| **KNOT ID** (subject-level)   | `KNOT-ATAXX-YY-ZZ-NNN`                         | `KNOT-ATA28-10-00-001`                          |
-| **KNU ID** (subject-level)    | `KNU-ATAXX-YY-ZZ-TYPE-NNN`                     | `KNU-ATA28-10-00-REQ-001`                       |
-| **KITDM Contract**            | `KITDM-CTR-<DOMAIN>-<TARGET>_ATAxx-yy-zz.yaml` | `KITDM-CTR-LM-CSDB_ATA28-10-00.yaml`            |
-| **ASIT Run Folder**           | `YYYYMMDD-HHMM__<contract-id>/`                | `20260121-1130__KITDM-CTR-LM-CSDB_ATA28-10-00/` |
-| **S1000D Data Module**        | `DMC-<proj>-<model>-<...>` (S1000D convention) | `DMC-AMPEL-A-28-10-00-00A-040A-A.xml`           |
+These are the **generic package types** used across all ATA subjects, aligned with your `KDB/LM/SSOT/PLM/LCxx/.../PACKAGES/` pattern and your OPS split:
 
-**Note (intentional):** `ATA` prefix is kept **inside IDs** (`KNOT-ATA..`) to avoid ambiguity when IDs are aggregated across chapters.
+## PLM (LC01–LC10)
+
+* LC01: `KNOT_MGMT`, `KNU_PLANNING`, `GOVERNANCE`, `INCENTIVES`
+* LC02: `REQ`, `ICD`, `DATA`, `COMPLIANCE_INTENT`
+* LC03: `SAFETY`, `RELIABILITY`, `HAZARD_MGMT`
+* LC04: `DESIGN`, `CONFIG`, `INTERFACES`
+* LC05: `ANALYSIS`, `MODELS`, `VALIDATION`
+* LC06: `TEST`, `INTEGRATION`, `CONFORMITY`
+* LC07: `QA`, `PROCESS_COMPLIANCE`, `ACCEPTANCE`
+* LC08: `CERT_BASIS`, `COMPLIANCE`, `FLIGHT_TEST`
+* LC09: `ESG`, `LCA`, `ENV_COMPLIANCE`
+* LC10: `INDUSTRIAL`, `SUPPLY`, `QUALITY_PROD`
+
+## OPS (LC11–LC14)
+
+* LC11: `CUSTOMER_DELTAS`, `OPS_CONFIG`, `RELEASE_NOTES`
+* LC12: `SB`, `REPAIR`, `QUERY`, `AOG`, `COC`, `COMPLIANCE` (+ `CASES`, `INDEX`)
+* LC13: `Maintenance_Source`, `Repair_Source`, `Overhaul_Source` (each with `EVIDENCE/`)
+* LC14: `DISMANTLING`, `MATERIAL_RECOVERY`, `DPP_CLOSURE`, `ESG_EOL`
 
 ---
 
-## Package Types
+# Minimal ID Grammar (to keep everything consistent)
 
-You asked “what are the package types?” In your schema, **packages are the controlled “buckets” inside each lifecycle**. The rule is:
+* Section-level GENESIS:
 
-* **Engineering packages live under `KDB/LM/SSOT/PLM/LCxx.../PACKAGES/`**
-* **In-service packages live under `IDB/OPS/LM/LC1x.../PACKAGES/`**
-* **Publication packages live under `IDB/PUB/<manual>/...` (CSDB/EXPORT/IETP_RUNTIME)**
+  * `O-KNOT-ATA<XX>-<YY>-<NNN>`
+  * `Y-KNOT-ATA<XX>-<YY>-<NNN>`
 
-### A) PLM Package Types (LC01–LC10)
+* Subject-level orchestration:
 
-These are the canonical package families you are already implying:
+  * `KNOT-ATA<XX>-<YY>-<ZZ>-<NNN>`
+  * `KNU-ATA<XX>-<YY>-<ZZ>-<KNOTNNN>-<TYPE>-<NNN>`
 
-* **LC01_PROBLEM_STATEMENT**
+Example subject slug you gave:
 
-  * `KNOT_MGMT/`, `KNU_PLANNING/`, `GOVERNANCE/`, `INCENTIVES/`
-* **LC02_SYSTEM_REQUIREMENTS**
+* `ATA28-10-00_fuel-storage-general` is valid as:
 
-  * `REQ/`, `ICD/`, `DATA/`, `COMPLIANCE_INTENT/`
-* **LC03_SAFETY_RELIABILITY**
-
-  * `SAFETY/`, `RELIABILITY/`, `HAZARD_MGMT/`
-* **LC04_DESIGN_DEFINITION_DMU**
-
-  * `DESIGN/`, `CONFIG/`, `INTERFACES/`
-* **LC05_ANALYSIS_MODELS_CAE**
-
-  * `ANALYSIS/`, `MODELS/`, `VALIDATION/`
-* **LC06_INTEGRATION_TEST_PMU**
-
-  * `TEST/`, `INTEGRATION/`, `CONFORMITY/`, `TEST_EVIDENCE/` (if you keep evidence immutable)
-* **LC07_QUALITY**
-
-  * `QA/`, `PROCESS_COMPLIANCE/`, `ACCEPTANCE/`, `AUDIT_REPORTS/`
-* **LC08_FLIGHT_TEST_CERTIFICATION**
-
-  * `CERT_BASIS/`, `COMPLIANCE/`, `ISSUE_PAPERS/`, `SPECIAL_CONDITIONS/`, `FLIGHT_TEST/`
-* **LC09_GREEN_AIRCRAFT_BASELINES**
-
-  * `ESG/`, `LCA/`, `ENV_COMPLIANCE/`
-* **LC10_INDUSTRIALIZATION_PRODUCTION_CAM**
-
-  * `INDUSTRIAL/`, `SUPPLY/`, `QUALITY_PROD/`
-
-### B) OPS Package Types (LC11–LC14)
-
-This directly reflects your definition of Support Services (SB, in-service repairs, CoC, query management, AoG, etc.):
-
-* **LC11_OPERATIONS_CUSTOMIZATION**
-
-  * `CUSTOMER_DELTAS/`, `OPS_CONFIG/`, `BRANDING/`, `RELEASE_NOTES/`
-* **LC12_SUPPORT_SERVICES**
-
-  * `SB/`, `REPAIR/`, `QUERY/`, `AOG/`, `COC/`, `COMPLIANCE/`, plus optionally `CASES/` and `SLA/`
-* **LC13_MRO_SUSTAINMENT**
-
-  * `AMM/`, `IPC/`, `SRM/`, `TSM/`, `WDM/`, `CMM/` (as operational “views” and sustainment bundles)
-* **LC14_RETIREMENT_CIRCULARITY**
-
-  * `DISMANTLING/`, `MATERIAL_RECOVERY/`, `DPP_CLOSURE/`, `ESG_EOL/`
-
-### C) PUB Package Types (Publication views)
-
-* **S1000D CSDB containers**
-
-  * `DM/`, `PM/`, `DML/`, `BREX/`, `ICN/`, `COMMON/`, `APPLICABILITY/`
-* **Rendered outputs**
-
-  * `EXPORT/` (e.g., `PDF/`, `HTML/`)
-* **Interactive runtime**
-
-  * `IETP_RUNTIME/` (e.g., `app/`, `data/`, `operators/`)
+  * folder: `28-10-storage/28-10-00_fuel-storage-general/`
+  * scope token: `ATA28-10-00`
 
 ---
 
