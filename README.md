@@ -330,389 +330,237 @@ Each ATA chapter follows the **KDB / CONTRACTS / ASIT / IDB** pattern:
 ```
 ATA_XX-<SYSTEM_NAME>/                                         # Single canonical root (ATA iSpec 2200 aligned)
 ├── README.md                                                 # System overview, navigation, standards alignment
-├── NAMING_CONVENTIONS.md                                     # ID rulebook (KNOT, REQ, DES, TEST, HAZ, DMC)
-├── TRACEABILITY_CONVENTIONS.md                               # 🆕 Relationship vocabulary & rules
+├── NAMING_CONVENTIONS.md                                     # ID rulebook (KNOT, KNU, REQ, DES, TEST, HAZ, DMC...)
+├── TRACEABILITY_CONVENTIONS.md                               # Relationship vocabulary & rules
 ├── GOVERNANCE_POLICY.md                                      # Baseline, change control, approval authority
 │
 ├── WBS/                                                      # Work Breakdown Structure (system-level)
-│   ├── SYSTEM_MISSION. md                                     # Mission statement
-│   ├── SYSTEM_VISION.md                                      # Strategic vision
-│   ├── SYSTEM_OBJECTIVES.md                                  # Measurable objectives
-│   ├── WBS_LEVEL_1.yaml                                      # Top-level work packages
-│   ├── WBS_LEVEL_2.yaml                                      # Detailed breakdown
-│   ├── WBS_TRACE_TO_PROJECT.csv                              # Project-level traceability
-│   └── WBS_BUDGET_TT.yaml                                    # Teknia Token allocation (informational)
+│   ├── SYSTEM_MISSION.md
+│   ├── SYSTEM_VISION.md
+│   ├── SYSTEM_OBJECTIVES.md
+│   ├── WBS_LEVEL_1.yaml
+│   ├── WBS_LEVEL_2.yaml
+│   ├── WBS_TRACE_TO_PROJECT.csv
+│   └── WBS_BUDGET_TT.yaml                                    # Informational (non-technical baseline)
 │
 ├── GOVERNANCE/                                               # System-level governance (DEFAULT authority)
-│   ├── README.md                                             # Governance framework overview
-│   ├── GOVERNANCE_POLICY.md                                  # Master policy document
-│   ├── BASELINES.md                                          # 🆕 Baseline policy & scope definition
-│   │   # Defines:  What is baselined (SSOT only), tagging convention,
-│   │   #          immutability rules, export requirements
-│   ├── BASELINE_REGISTER.csv                                 # Baseline tracking
-│   │   # Columns: Baseline_ID, Version, Date, Commit_SHA, Scope, Status, Approver, Description, Gate
-│   ├── CHANGE_LOG.md                                         # Human-readable change summary
+│   ├── README.md
+│   ├── BASELINES.md
+│   ├── BASELINE_REGISTER.csv                                 # Baseline_ID, Version, Date, Commit_SHA, Scope, Status...
+│   ├── CHANGE_LOG.md
 │   │
 │   ├── CHANGE_CONTROL/                                       # ECR/ECO management (AS9100 aligned)
-│   │   ├── README.md                                         # Change control process
-│   │   ├── ECR_TEMPLATE.md                                   # Engineering Change Request template
-│   │   ├── ECO_TEMPLATE.md                                   # Engineering Change Order template
-│   │   ├── ECR/                                              # Change requests
-│   │   │   ├── ECR-XX-2026-001.md
+│   │   ├── README.md
+│   │   ├── ECR_TEMPLATE.md
+│   │   ├── ECO_TEMPLATE.md
+│   │   ├── ECR/
+│   │   │   ├── ECR-ATAxx-YYYY-001.md
 │   │   │   └── ECR_REGISTER.csv
-│   │   │       # Columns: ECR_ID, Title, Initiator, Date, Status, Priority, Affected_Items, Approver, Closure_Date
-│   │   ├── ECO/                                              # Change orders
-│   │   │   ├── ECO-XX-2026-001.md
+│   │   ├── ECO/
+│   │   │   ├── ECO-ATAxx-YYYY-001.md
 │   │   │   └── ECO_REGISTER.csv
-│   │   └── CCB_MINUTES/                                      # Configuration Control Board
-│   │       └── CCB-2026-01-15.md                             # Date format:  YYYY-MM-DD
+│   │   └── CCB_MINUTES/
+│   │       └── CCB-YYYY-MM-DD.md
 │   │
-│   ├── APPROVALS/                                            # Approval workflows
-│   │   ├── APPROVAL_MATRIX.csv                               # Authority matrix (RACI)
-│   │   │   # Columns:  Artifact_Type, Approval_Level, Responsible, Accountable, Consulted, Informed
-│   │   ├── GATE_REVIEWS/                                     # Quality gate approvals
-│   │   │   ├── PDR_APPROVAL.md                               # Preliminary Design Review
-│   │   │   ├── CDR_APPROVAL.md                               # Critical Design Review
-│   │   │   ├── TRR_APPROVAL.md                               # Test Readiness Review
-│   │   │   └── FRR_APPROVAL. md                               # Flight Readiness Review
-│   │   └── DIGITAL_SIGNATURES/                               # Cryptographic signatures
-│   │       └── . gitkeep
+│   ├── APPROVALS/
+│   │   ├── APPROVAL_MATRIX.csv                               # Artifact_Type, Approval_Level, R/A/C/I...
+│   │   ├── GATE_REVIEWS/
+│   │   │   ├── PDR_APPROVAL.md
+│   │   │   ├── CDR_APPROVAL.md
+│   │   │   ├── TRR_APPROVAL.md
+│   │   │   └── FRR_APPROVAL.md
+│   │   └── DIGITAL_SIGNATURES/
+│   │       └── .gitkeep
 │   │
-│   ├── RELEASES/                                             # Release management
-│   │   ├── RELEASE_POLICY.md                                 # Release criteria
-│   │   ├── RELEASE_REGISTER.csv                              # Version history
-│   │   │   # Columns: Release_ID, Version, Date, Baseline_ID, Commit_SHA, Artifacts, Approver, Notes
+│   ├── RELEASES/
+│   │   ├── RELEASE_POLICY.md
+│   │   ├── RELEASE_REGISTER.csv
 │   │   └── RELEASE_NOTES/
-│   │       ├── RELEASE_v1-0-0.md                             # Consistent hyphenated versioning
+│   │       ├── RELEASE_v1-0-0.md
 │   │       └── RELEASE_v1-1-0.md
 │   │
-│   └── INCENTIVES/                                           # 🆕 TT ledgers (informational, non-baseline)
-│       ├── README.md                                         # TT governance (reference only)
-│       ├── TT_ALLOCATION.yaml                                # System-level TT budget
-│       ├── TT_DISTRIBUTION.csv                               # Actual awards
-│       └── TT_POLICY.md                                      # TT rules (informational)
+│   └── INCENTIVES/                                           # Informational (non-technical baseline)
+│       ├── README.md
+│       ├── TT_ALLOCATION.yaml
+│       ├── TT_DISTRIBUTION.csv
+│       └── TT_POLICY.md
 │
-├── INDEX/                                                    # Master navigation & traceability
-│   ├── README.md                                             # Index usage guide
-│   ├── SSOT_INDEX.yaml                                       # 🆕 Authoritative source registry
-│   │   # Defines: What is SSOT, where it lives, who owns it, change control rules
-│   ├── TRACE_MASTER.csv                                      # 🆕 System-level end-to-end traceability
-│   │   # Columns:  Source_Type, Source_ID, Target_Type, Target_ID, Relationship, 
-│   │   #          Validation_Status, Validation_Date, Validated_By, Notes, Baseline
-│   │   # Relationship vocabulary:  DERIVES, SATISFIES, VERIFIES, VALIDATES, ALLOCATED_TO, IMPLEMENTS, AFFECTS
+├── INDEX/                                                    # Master navigation & traceability (system-level)
+│   ├── README.md
+│   ├── SSOT_INDEX.yaml                                       # Authoritative source registry
+│   ├── TRACE_MASTER.csv                                      # System trace: Source→Target with relationship vocabulary
 │   ├── ID_REGISTRY.csv                                       # Auto-generated ID catalog
-│   │   # Columns: ID, Type, Title, Owner, Status, Created_Date, Baseline_First_Appeared, Path
-│   ├── ARTIFACT_CATALOG.yaml                                 # Complete artifact inventory
-│   └── NAVIGATION_MAP.html                                   # Interactive dashboard
+│   ├── ARTIFACT_CATALOG.yaml                                 # Full inventory
+│   └── NAVIGATION_MAP.html
 │
 └── XX-YY-<section-slug>/                                     # ATA section (e.g., 28-10-storage)
-    ├── README. md                                             # Section scope, AoR
+    ├── README.md                                             # Section scope, AoR, assumptions
     ├── SECTION_INDEX.yaml                                    # Section artifact index
     │
-    ├── GENESIS/                                              # Discovery phase
-    │   ├── README.md                                         # GENESIS methodology
-    │   ├── O-KNOTS.csv                                       # Origin uncertainties
-    │   ├── Y-KNOTS.csv                                       # Assumptions to validate
-    │   ├── DISCOVERY_LOG.md                                  # Session notes
-    │   └── GRADUATION_CRITERIA.md                            # Graduation rules
+    ├── GENESIS/                                              # Discovery phase (SECTION LEVEL)
+    │   ├── README.md
+    │   ├── O-KNOTS.csv                                       # O-KNOT-ATAXX-YY-NNN
+    │   ├── Y-KNOTS.csv                                       # Y-KNOT-ATAXX-YY-NNN
+    │   ├── DISCOVERY_LOG.md
+    │   └── GRADUATION_CRITERIA.md
     │
     └── XX-YY-00-<subject-slug>/                              # Subject (smallest governed unit)
-        ├── README.md                                         # Subject overview
-        ├── SUBJECT_MANIFEST.yaml                             # Complete inventory
+        ├── README.md
+        ├── SUBJECT_MANIFEST.yaml
         │
-        ├── GOVERNANCE/                                       # 🆕 Subject-level governance (optional overrides)
-        │   ├── README.md                                     # 🆕 CRITICAL: Must state: 
-        │   │   # "This subject follows system GOVERNANCE/ unless explicitly overridden below. 
-        │   │   #  See ../../GOVERNANCE/ for master policies."
-        │   ├── BASELINES.md                                  # Subject-specific baseline rules (if stricter)
-        │   ├── BASELINE_REGISTER.csv                         # Subject baseline tracking
+        ├── GOVERNANCE/                                       # Optional subject overrides (must reference system policy)
+        │   ├── README.md
+        │   ├── BASELINES.md
+        │   ├── BASELINE_REGISTER.csv
         │   ├── CHANGE_LOG.md
         │   ├── CHANGE_CONTROL/
         │   │   ├── ECR/
         │   │   ├── ECO/
         │   │   └── CCB_MINUTES/
         │   ├── APPROVALS/
-        │   │   ├── APPROVAL_MATRIX.csv                       # Subject-specific approvals (if different)
+        │   │   ├── APPROVAL_MATRIX.csv
         │   │   └── GATE_REVIEWS/
         │   └── RELEASES/
         │       └── RELEASE_REGISTER.csv
         │
-        ├── INDEX/                                            # Subject-level navigation
+        ├── INDEX/                                            # Subject navigation & status
         │   ├── README.md
-        │   ├── SSOT_INDEX.yaml                               # Subject SSOT pointers
-        │   ├── TRACE_MATRIX.csv                              # Subject traceability (subset of TRACE_MASTER)
-        │   ├── ID_REGISTRY.csv                               # Subject ID registry
-        │   └── COMPLIANCE_STATUS.yaml                        # Real-time compliance tracking
+        │   ├── SSOT_INDEX.yaml
+        │   ├── TRACE_MATRIX.csv
+        │   ├── ID_REGISTRY.csv
+        │   └── COMPLIANCE_STATUS.yaml
         │
-        ├── KDB/                                              # Knowledge Data Base (authoritative SSOT)
-        │   ├── README.md                                     # KDB governance
+        ├── KDB/                                              # Knowledge Data Base (authoritative)
+        │   ├── README.md
         │   │
-        │   ├── DEV/                                          # 🆕 NOT part of baseline (per BASELINES.md)
+        │   ├── DEV/                                          # Workspace only (NOT baselined)
         │   │   ├── working/
-        │   │   │   └── . gitkeep
         │   │   ├── trade-studies/
         │   │   │   ├── TRADE_STUDY_TEMPLATE.md
-        │   │   │   └── . gitkeep
+        │   │   │   └── .gitkeep
         │   │   ├── prototypes/
-        │   │   │   └── . gitkeep
         │   │   └── dev-evidence/
-        │   │       └── .gitkeep
         │   │
         │   └── LM/                                           # Lifecycle-managed (BASELINED)
-        │       └── SSOT/                                     # Single Source of Truth
-        │           ├── SSOT_POLICY.md                        # 🆕 SSOT rules
-        │           │   # States: "Only LM/SSOT/PLM/ is baselined. DEV/ is workspace only. 
-        │           │   #          TT ledgers are informational, not part of technical baseline."
-        │           │
-        │           └── PLM/                                  # Product Lifecycle Management
-        │               │
-        │               ├── LC01_PROBLEM_STATEMENT/           # Problem definition
+        │       └── SSOT/
+        │           ├── SSOT_POLICY.md
+        │           └── PLM/                                  # LC01–LC10 (engineering lifecycle)
+        │               ├── LC01_PROBLEM_STATEMENT/
         │               │   ├── README.md
-        │               │   ├── KNOTS.csv                     # Uncertainty register
-        │               │   │   # Columns:  KNOT_ID, Title, Description, Complexity, Owner, Status, Due_Date, Priority, Baseline
-        │               │   ├── KNU_PLAN.csv                  # Knowledge unit planning
-        │               │   ├── TIMELINE.csv                  # Milestones (date format: YYYY-MM-DD)
-        │               │   ├── RACI. csv                      # Stakeholder matrix
-        │               │   ├── TRACE_LC01.csv                # 🆕 LC01 traceability
-        │               │   │   # Relationships: KNOT DERIVES REQ
-        │               │   └── PACKAGES/
-        │               │       ├── KNOT_MGMT/
-        │               │       │   └── . gitkeep
-        │               │       ├── KNU_PLANNING/
-        │               │       │   └── .gitkeep
-        │               │       ├── GOVERNANCE/
-        │               │       │   └── .gitkeep
-        │               │       └── INCENTIVES/                # 🆕 Subject TT records (reference to GOVERNANCE/INCENTIVES/)
-        │               │           ├── README.md             # "See system GOVERNANCE/INCENTIVES/ for master TT policy"
-        │               │           ├── TT_ALLOCATION_LC01.yaml
-        │               │           └── TT_AWARDS_LC01.csv
-        │               │
-        │               ├── LC02_SYSTEM_REQUIREMENTS/         # Requirements engineering (ARP4754A aligned)
+        │               │   ├── KNOTS.csv
+        │               │   ├── KNU_PLAN.csv
+        │               │   ├── TIMELINE.csv
+        │               │   ├── RACI.csv
+        │               │   ├── TRACE_LC01.csv
+        │               │   └── PACKAGES/                     # See “PLM package types”
+        │               │       └── .gitkeep
+        │               ├── LC02_SYSTEM_REQUIREMENTS/
         │               │   ├── README.md
         │               │   ├── REQUIREMENTS_MANAGEMENT_PLAN.md
-        │               │   ├── TRACE_LC02.csv                # 🆕 Traceability
-        │               │   │   # Relationships: REQ DERIVES KNOT, REQ ALLOCATED_TO DES, REQ VERIFIES TEST
+        │               │   ├── TRACE_LC02.csv
         │               │   └── PACKAGES/
-        │               │       ├── REQ/
-        │               │       │   ├── REQ_INDEX.yaml
-        │               │       │   ├── SRD_SYSTEM_REQUIREMENTS. md
-        │               │       │   ├── REQUIREMENTS_DATABASE.csv  # Master requirements list
-        │               │       │   │   # Columns:  Req_ID, Title, Description, Type, Priority, Owner, Status, 
-        │               │       │   │   #          Verification_Method, Baseline, Parent_Req, Date_Created (YYYY-MM-DD)
-        │               │       │   ├── DERIVED_REQUIREMENTS.csv
-        │               │       │   ├── TRACE_TO_STAKEHOLDER.csv
-        │               │       │   └── REQUIREMENTS_TRACEABILITY_MATRIX.csv  # Full RTM
-        │               │       ├── ICD/
-        │               │       │   ├── ICD_INDEX.yaml
-        │               │       │   ├── INTERFACE_DEFINITIONS.md
-        │               │       │   └── INTERFACE_CONTROL_MATRIX.csv
-        │               │       ├── DATA/
-        │               │       │   └── . gitkeep
-        │               │       └── COMPLIANCE_INTENT/
-        │               │           ├── COMPLIANCE_CHECKLIST.md
-        │               │           └── REGULATORY_MAPPING.csv  # Regulation → Requirement
-        │               │
-        │               ├── LC03_SAFETY_RELIABILITY/          # Safety engineering (ARP4761 aligned)
+        │               │       └── .gitkeep
+        │               ├── LC03_SAFETY_RELIABILITY/
         │               │   ├── README.md
         │               │   ├── SAFETY_ASSESSMENT_PLAN.md
-        │               │   ├── TRACE_LC03.csv                # 🆕 Traceability
-        │               │   │   # Relationships:  HAZARD AFFECTS REQ, REQ SATISFIES HAZARD (mitigation)
+        │               │   ├── TRACE_LC03.csv
         │               │   └── PACKAGES/
-        │               │       ├── SAFETY/
-        │               │       │   ├── SAFETY_ASSESSMENT_INDEX.yaml
-        │               │       │   ├── FHA_FUNCTIONAL_HAZARD_ASSESSMENT.md
-        │               │       │   ├── PSSA_PRELIMINARY_SAFETY_ASSESSMENT.md
-        │               │       │   ├── SSA_SYSTEM_SAFETY_ASSESSMENT.md
-        │               │       │   ├── HAZARD_REGISTER.csv
-        │               │       │   │   # Columns: Hazard_ID, Description, Classification, Effect, Mitigation, 
-        │               │       │   │   #          Owner, Status, Linked_Req, Date_Identified (YYYY-MM-DD)
-        │               │       │   ├── SAFETY_REQUIREMENTS.csv
-        │               │       │   └── FMEA_FMECA. csv
-        │               │       ├── RELIABILITY/
-        │               │       │   └── . gitkeep
-        │               │       └── HAZARD_MGMT/
-        │               │           └── .gitkeep
-        │               │
-        │               ├── LC04_DESIGN_DEFINITION_DMU/       # Design artifacts
+        │               │       └── .gitkeep
+        │               ├── LC04_DESIGN_DEFINITION_DMU/
         │               │   ├── README.md
         │               │   ├── DESIGN_DESCRIPTION_DOCUMENT.md
-        │               │   ├── TRACE_LC04.csv                # 🆕 Traceability
-        │               │   │   # Relationships: DES SATISFIES REQ, DES IMPLEMENTS REQ, DES VALIDATES ANALYSIS
+        │               │   ├── TRACE_LC04.csv
         │               │   └── PACKAGES/
-        │               │       ├── DESIGN/
-        │               │       │   ├── DESIGN_INDEX.yaml
-        │               │       │   ├── DESIGN_DESCRIPTION. md
-        │               │       │   ├── CAD_REFERENCES.csv
-        │               │       │   ├── DESIGN_DECISIONS.md
-        │               │       │   ├── DESIGN_JUSTIFICATION.csv  # Design rationale → Req
-        │               │       │   └── DMU_MASTER_MODEL.yaml
-        │               │       ├── CONFIG/
-        │               │       │   ├── CONFIGURATION_ITEMS.csv
-        │               │       │   └── PART_NUMBERS.csv
-        │               │       └── INTERFACES/
-        │               │           └── . gitkeep
-        │               │
-        │               ├── LC05_ANALYSIS_MODELS_CAE/         # Engineering analysis
+        │               │       └── .gitkeep
+        │               ├── LC05_ANALYSIS_MODELS_CAE/
         │               │   ├── README.md
         │               │   ├── ANALYSIS_PLAN.md
-        │               │   ├── TRACE_LC05.csv                # 🆕 Traceability
-        │               │   │   # Relationships: ANALYSIS VALIDATES DES, ANALYSIS VERIFIES REQ
+        │               │   ├── TRACE_LC05.csv
         │               │   └── PACKAGES/
-        │               │       ├── ANALYSIS/
-        │               │       │   ├── ANALYSIS_INDEX.yaml
-        │               │       │   ├── STRESS_ANALYSIS_REPORT.md
-        │               │       │   ├── THERMAL_ANALYSIS_REPORT.md
-        │               │       │   ├── ANALYSIS_RESULTS.csv
-        │               │       │   ├── VALIDATION_CASES.csv
-        │               │       │   └── MODEL_CORRELATION.csv
-        │               │       ├── MODELS/
-        │               │       │   ├── MODEL_REGISTER.csv
-        │               │       │   └── . gitkeep
-        │               │       └── VALIDATION/
-        │               │           └── .gitkeep
-        │               │
-        │               ├── LC06_INTEGRATION_TEST_PMU/        # Testing & verification
-        │               │   ��── README.md
+        │               │       └── .gitkeep
+        │               ├── LC06_INTEGRATION_TEST_PMU/
+        │               │   ├── README.md
         │               │   ├── TEST_PROGRAM_PLAN.md
-        │               │   ├── TRACE_LC06.csv                # 🆕 Traceability
-        │               │   │   # Relationships: TEST VERIFIES REQ, TEST VALIDATES DES
+        │               │   ├── TRACE_LC06.csv
         │               │   └── PACKAGES/
-        │               │       ├── TEST/
-        │               │       │   ├── TEST_INDEX.yaml
-        │               │       │   ├── TEST_PLAN.md
-        │               │       │   ├── TEST_PROCEDURES.md
-        │               │       │   ├── TEST_CASES.csv         # 🆕 ID-based test cases
-        │               │       │   │   # Columns: Test_ID, Title, Req_ID, Procedure, Pass_Criteria, 
-        │               │       │   │   #          Result, Date (YYYY-MM-DD), Witness
-        │               │       │   ├── TEST_RESULTS. csv
-        │               │       │   ├── TEST_TRACEABILITY_MATRIX.csv
-        │               │       │   ├── NON_CONFORMANCE_REPORTS/
-        │               │       │   │   └── NCR_REGISTER.csv
-        │               │       │   └── TEST_EVIDENCE/         # Immutable test data
-        │               │       │       └── .gitkeep
-        │               │       ├── INTEGRATION/
-        │               │       │   └── .gitkeep
-        │               │       └── CONFORMITY/
-        │               │           └── .gitkeep
-        │               │
-        │               ├── LC07_QUALITY/                     # Quality assurance (AS9100)
+        │               │       └── .gitkeep
+        │               ├── LC07_QUALITY/
         │               │   ├── README.md
         │               │   ├── QUALITY_ASSURANCE_PLAN.md
-        │               │   ├── TRACE_LC07.csv                # 🆕 QA cross-checks all LCs
+        │               │   ├── TRACE_LC07.csv
         │               │   └── PACKAGES/
-        │               │       ├── QA/
-        │               │       │   ├── QA_INDEX.yaml
-        │               │       │   ├── QUALITY_PLAN.md
-        │               │       │   ├── INSPECTION_CHECKLIST.csv
-        │               │       │   ├── NCR_REGISTER.csv
-        │               │       │   ├── CORRECTIVE_ACTIONS.csv
-        │               │       │   └── AUDIT_REPORTS/
-        │               │       │       └── .gitkeep
-        │               │       ├── PROCESS_COMPLIANCE/
-        │               │       │   └── AS9100_COMPLIANCE_MATRIX.csv
-        │               │       └── ACCEPTANCE/
-        │               │           └── .gitkeep
-        │               │
-        │               ├── LC08_FLIGHT_TEST_CERTIFICATION/   # Certification (ARP4754A/DO-178C/DO-254)
+        │               │       └── .gitkeep
+        │               ├── LC08_FLIGHT_TEST_CERTIFICATION/
         │               │   ├── README.md
         │               │   ├── CERTIFICATION_PLAN.md
-        │               │   ├── MEANS_OF_COMPLIANCE.md        # 🆕 MOC methodology
-        │               │   ├── COMPLIANCE_MATRIX.csv         # 🆕 Master compliance matrix
-        │               │   │   # Columns: Regulation_ID, Regulation_Text, MOC_ID, MOC_Type, Evidence_ID,
-        │               │   │   #          Evidence_Location, Status, Issue_Paper_ID, Approver, Approval_Date (YYYY-MM-DD)
-        │               │   ├── TRACE_LC08.csv                # 🆕 Traceability
-        │               │   │   # Relationships: REGULATION ALLOCATED_TO REQ, MOC VERIFIES REGULATION, 
-        │               │   │   #                TEST SATISFIES MOC
+        │               │   ├── MEANS_OF_COMPLIANCE.md
+        │               │   ├── COMPLIANCE_MATRIX.csv
+        │               │   ├── TRACE_LC08.csv
         │               │   └── PACKAGES/
-        │               │       ├── CERT_BASIS/
-        │               │       │   ├── CERT_INDEX.yaml
-        │               │       │   ├── CERTIFICATION_PLAN.md
-        │               │       │   ├── CERTIFICATION_BASIS.md
-        │               │       │   ├── TYPE_CERTIFICATE_DATA_SHEET.md
-        │               │       │   ├── MOC_REGISTER.csv       # 🆕 Means of Compliance registry
-        │               │       │   │   # Columns: MOC_ID, Regulation_ID, Method, Evidence_Path, Status, Approver
-        │               │       │   ├── ISSUE_PAPERS/          # Certification issues
-        │               │       │   │   ├── IP-001_description.md
-        │               │       │   │   └── IP_REGISTER.csv
-        │               │       │   │       # Columns: IP_ID, Regulation, Issue, Resolution, Status, Date (YYYY-MM-DD)
-        │               │       │   └── SPECIAL_CONDITIONS/    # SC/ESF
-        │               │       │       └── .gitkeep
-        │               │       ├── COMPLIANCE/
-        │               │       │   ├── COMPLIANCE_CHECKLIST.md
-        │               │       │   ├── COMPLIANCE_EVIDENCE_INDEX.csv  # 🆕 Pointers to LC06 evidence
-        │               │       │   │   # Columns: Evidence_ID, MOC_ID, Evidence_Type, Location, Date (YYYY-MM-DD)
-        │               │       │   └── CONFORMITY_STATEMENTS/
-        │               │       │       └── .gitkeep
-        │               │       └── FLIGHT_TEST/
-        │               │           ├── FLIGHT_TEST_PLAN.md
-        │               │           ├── FLIGHT_TEST_RESULTS.csv
-        │               │           └── . gitkeep
-        │               │
-        │               ├── LC09_GREEN_AIRCRAFT_BASELINES/    # Sustainability
+        │               │       └── .gitkeep
+        │               ├── LC09_GREEN_AIRCRAFT_BASELINES/
         │               │   ├── README.md
         │               │   ├── ESG_REPORT.md
         │               │   ├── TRACE_LC09.csv
         │               │   └── PACKAGES/
-        │               │       ├── ESG/
-        │               │       │   └── . gitkeep
-        │               │       ├── LCA/
-        │               │       │   └── .gitkeep
-        │               │       └── ENV_COMPLIANCE/
-        │               │           └── .gitkeep
-        │               │
-        │               └── LC10_INDUSTRIALIZATION_PRODUCTION_CAM/  # Manufacturing
+        │               │       └── .gitkeep
+        │               └── LC10_INDUSTRIALIZATION_PRODUCTION_CAM/
         │                   ├── README.md
         │                   ├── PRODUCTION_PLAN.md
         │                   ├── TRACE_LC10.csv
         │                   └── PACKAGES/
-        │                       ├── INDUSTRIAL/
-        │                       │   └── .gitkeep
-        │                       ├── SUPPLY/
-        │                       │   └── .gitkeep
-        │                       └── QUALITY_PROD/
-        │                           └── .gitkeep
+        │                       └── .gitkeep
         │
-        ├── CONTRACTS/                                        # KDB → IDB governance
+        ├── CONTRACTS/                                        # Contract governance (KDB → IDB)
         │   ├── README.md
-        │   ├── KITDM-CTR-LM-CSDB_ATAxx-yy00. yaml
-        │   ├── KITDM-CTR-LM-EXPORT_ATAxx-yy00.yaml
-        │   ├── KITDM-CTR-LM-IETP_ATAxx-yy00.yaml
-        │   ├── KITDM-CTR-OPS-SB_ATAxx-yy00.yaml
-        │   ├── KITDM-CTR-OPS-REPAIR_ATAxx-yy00.yaml
-        │   ├── KITDM-CTR-OPS-QUERY_ATAxx-yy00.yaml
-        │   ├── KITDM-CTR-OPS-COC_ATAxx-yy00.yaml
         │   ├── CONTRACT_APPROVAL_LOG.csv
-        │   └── EVIDENCE/
-        │       ├── ACCEPTANCE_CRITERIA.md
-        │       ├── TRACE_MATRIX_TEMPLATE.csv
-        │       └── VALIDATION_REPORTS/
-        │           └── . gitkeep
+        │   ├── KITDM-CTR-LM-CSDB_ATAxx-yy-00.yaml
+        │   ├── KITDM-CTR-LM-EXPORT_ATAxx-yy-00.yaml
+        │   ├── KITDM-CTR-LM-IETP_ATAxx-yy-00.yaml
+        │   ├── KITDM-CTR-OPS-SB_ATAxx-yy-00.yaml
+        │   ├── KITDM-CTR-OPS-REPAIR_ATAxx-yy-00.yaml
+        │   ├── KITDM-CTR-OPS-QUERY_ATAxx-yy-00.yaml
+        │   ├── KITDM-CTR-OPS-AOG_ATAxx-yy-00.yaml
+        │   └── KITDM-CTR-OPS-COC_ATAxx-yy-00.yaml
         │
-        ├── ASIT/                                             # Automation
-        │   ├── README. md
+        ├── ASIT/                                             # Aircraft System Information Transponder (non-authoritative)
+        │   ├── README.md
         │   ├── asit_config.yaml
         │   ├── pipelines/
-        │   │   └── .gitkeep
         │   ├── rules/
-        │   │   └── .gitkeep
         │   ├── k8s/
-        │   │   └── .gitkeep
         │   └── runs/
-        │       └── . gitkeep
+        │       └── .gitkeep
         │
-        └── IDB/                                              # Information Data Base (projection)
-            ├── README. md
-            ├── IDB_GOVERNANCE. md
-            ├── OPS/
-            │   └── LM/
-            │       ├── LC11_OPERATIONS_CUSTOMIZATION/
-            │       ├── LC12_SUPPORT_SERVICES/
-            │       ├── LC13_MRO_SUSTAINMENT/
-            │       └── LC14_RETIREMENT_CIRCULARITY/
+        └── IDB/                                              # Information Data Base (projection/consumption)
+            ├── README.md
+            ├── IDB_GOVERNANCE.md
             │
-            ├── PUB/
+            ├── OPS/                                          # In-service operational data domain
+            │   └── LM/                                       # LC11–LC14 (ops lifecycle)
+            │       ├── LC11_OPERATIONS_CUSTOMIZATION/
+            │       │   └── PACKAGES/                         # See “OPS package types”
+            │       │       └── .gitkeep
+            │       ├── LC12_SUPPORT_SERVICES/
+            │       │   └── PACKAGES/                         # See “OPS package types”
+            │       │       └── .gitkeep
+            │       ├── LC13_MRO_SUSTAINMENT/
+            │       │   └── PACKAGES/                         # See “OPS package types”
+            │       │       └── .gitkeep
+            │       └── LC14_RETIREMENT_CIRCULARITY/
+            │           └── PACKAGES/                         # See “OPS package types”
+            │               └── .gitkeep
+            │
+            ├── PUB/                                          # Publication deliverables (views)
             │   ├── AMM/
             │   │   ├── CSDB/
+            │   │   │   ├── DM/
+            │   │   │   ├── PM/
+            │   │   │   ├── DML/
+            │   │   │   ├── BREX/
+            │   │   │   ├── ICN/
+            │   │   │   ├── COMMON/
+            │   │   │   └── APPLICABILITY/
             │   │   ├── EXPORT/
             │   │   └── IETP_RUNTIME/
             │   ├── IPC/
