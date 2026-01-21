@@ -584,24 +584,27 @@ ATA_XX-<SYSTEM_NAME>/                                    # Root folder for ATA c
             │       ├── LC13_MRO_SUSTAINMENT/            # Maintenance, Repair, Overhaul
             │       │   ├── README.md                    # LC13 purpose: MRO sustainment overview
             │       │   └── PACKAGES/                    # LC13 artifact packages by type
-            │       │       ├── Maintenance_Source/      # Scheduled maintenance artifacts
-            │       │       │   ├── README.md            # Maintenance source overview
+            │       │       │
+            │       │       ├── Maintenance_Source/      # Scheduled maintenance → publishes to IDB/PUB/AMM/
+            │       │       │   ├── README.md            # Maintenance source overview + AMM mapping
             │       │       │   ├── AMM_TASKS/           # Aircraft Maintenance Manual task cards
             │       │       │   ├── MSG3_TASK_CARDS/     # MSG-3 derived maintenance tasks
             │       │       │   ├── MPD_TASKS/           # Maintenance Planning Document tasks
             │       │       │   ├── TASK_EXECUTION_LOGS/ # Completed task execution records
             │       │       │   ├── CONDITION_MONITORING/# On-condition and health monitoring
             │       │       │   └── EVIDENCE/            # Maintenance completion evidence
-            │       │       ├── Repair_Source/           # Unscheduled repair artifacts
-            │       │       │   ├── README.md            # Repair source overview
+            │       │       │
+            │       │       ├── Repair_Source/           # Structural repairs → publishes to IDB/PUB/SRM/
+            │       │       │   ├── README.md            # Repair source overview + SRM mapping
             │       │       │   ├── SRM_REPAIRS/         # Structural Repair Manual repairs
             │       │       │   ├── REPAIR_SCHEMES/      # Approved repair schemes/drawings
             │       │       │   ├── DAMAGE_REPORTS/      # Damage assessment reports
             │       │       │   ├── DISPOSITION_RECORDS/ # Repair disposition decisions
             │       │       │   ├── TECHNICAL_APPROVALS/ # Engineering approvals for repairs
             │       │       │   └── EVIDENCE/            # Repair completion evidence
-            │       │       └── Overhaul_Source/         # Heavy maintenance and overhaul
-            │       │           ├── README.md            # Overhaul source overview
+            │       │       │
+            │       │       └── Overhaul_Source/         # Component overhaul → publishes to IDB/PUB/CMM/
+            │       │           ├── README.md            # Overhaul source overview + CMM mapping
             │       │           ├── SHOP_VISIT_REPORTS/  # Component shop visit reports
             │       │           ├── CMM_TASKS/           # Component Maintenance Manual tasks
             │       │           ├── TEARDOWN_FINDINGS/   # Inspection findings at teardown
@@ -618,7 +621,8 @@ ATA_XX-<SYSTEM_NAME>/                                    # Root folder for ATA c
             │
             ├── PUB/                                     # Publication deliverables (S1000D + exports)
             │   ├── README.md                            # Publication structure and BREX overview
-            │   ├── AMM/                                 # Aircraft Maintenance Manual publications
+            │   │
+            │   ├── AMM/                                 # Aircraft Maintenance Manual ← LC13/Maintenance_Source
             │   │   ├── CSDB/                            # S1000D Common Source Database
             │   │   │   ├── DM/                          # Data Modules (atomic content units)
             │   │   │   ├── PM/                          # Publication Modules (assembly structures)
@@ -635,8 +639,36 @@ ATA_XX-<SYSTEM_NAME>/                                    # Root folder for ATA c
             │   │       ├── data/                        # Pre-processed content for viewer
             │   │       ├── operators/                   # Operator-specific view configurations
             │   │       └── README.md                    # IETP deployment and configuration guide
+            │   │
             │   ├── IPC/                                 # Illustrated Parts Catalog publications
-            │   └── SRM/                                 # Structural Repair Manual publications
+            │   │
+            │   ├── SRM/                                 # Structural Repair Manual ← LC13/Repair_Source
+            │   │   ├── CSDB/                            # S1000D Common Source Database
+            │   │   │   ├── DM/                          # Data Modules (repair procedures)
+            │   │   │   ├── PM/                          # Publication Modules
+            │   │   │   ├── DML/                         # Data Module Lists
+            │   │   │   ├── BREX/                        # Business Rules Exchange
+            │   │   │   ├── ICN/                         # Graphics (damage maps, repair drawings)
+            │   │   │   ├── COMMON/                      # Reusable content
+            │   │   │   └── APPLICABILITY/               # ACT/PCT/CCT
+            │   │   ├── EXPORT/                          # Rendered deliverables
+            │   │   │   ├── PDF/                         # PDF exports
+            │   │   │   └── HTML/                        # HTML exports
+            │   │   └── IETP_RUNTIME/                    # Interactive viewer
+            │   │
+            │   └── CMM/                                 # Component Maintenance Manual ← LC13/Overhaul_Source
+            │       ├── CSDB/                            # S1000D Common Source Database
+            │       │   ├── DM/                          # Data Modules (overhaul procedures)
+            │       │   ├── PM/                          # Publication Modules
+            │       │   ├── DML/                         # Data Module Lists
+            │       │   ├── BREX/                        # Business Rules Exchange
+            │       │   ├── ICN/                         # Graphics (exploded views, tooling)
+            │       │   ├── COMMON/                      # Reusable content
+            │       │   └── APPLICABILITY/               # ACT/PCT/CCT
+            │       ├── EXPORT/                          # Rendered deliverables
+            │       │   ├── PDF/                         # PDF exports
+            │       │   └── HTML/                        # HTML exports
+            │       └── IETP_RUNTIME/                    # Interactive viewer
             │
             └── INDEX/                                   # IDB provenance, audit, and release tracking
                 ├── IDB_RELEASE_NOTES.md                 # Release notes for current IDB version
@@ -669,6 +701,27 @@ ATA_XX-<SYSTEM_NAME>/                                    # Root folder for ATA c
 
 ---
 
+## LC13 Source → Publication Mapping
+
+| OPS Source (LC13) | Publishes To | Manual Type |
+|-------------------|--------------|-------------|
+| `Maintenance_Source/` | `IDB/PUB/AMM/` | Aircraft Maintenance Manual |
+| `Repair_Source/` | `IDB/PUB/SRM/` | Structural Repair Manual |
+| `Overhaul_Source/` | `IDB/PUB/CMM/` | Component Maintenance Manual |
+
+**Data Flow:**
+```
+LC13/PACKAGES/Maintenance_Source/AMM_TASKS/
+        │
+        ▼ (via CONTRACTS + ASIT pipeline)
+        │
+IDB/PUB/AMM/CSDB/DM/
+```
+
+Each source folder contains the **authoritative operational data** that feeds the corresponding S1000D publication through the contract-governed ASIT transformation pipeline.
+
+---
+
 ## Quick Reference: Key Directories
 
 | Path | Purpose | Baseline Status |
@@ -676,7 +729,13 @@ ATA_XX-<SYSTEM_NAME>/                                    # Root folder for ATA c
 | `KDB/DEV/` | Active development workspace | NOT baselined |
 | `KDB/LM/SSOT/PLM/` | Authoritative engineering truth | BASELINED |
 | `IDB/OPS/LM/` | In-service operational data | BASELINED |
-| `IDB/PUB/` | Publication deliverables | BASELINED |
+| `IDB/OPS/LM/LC13/.../Maintenance_Source/` | AMM source data | BASELINED |
+| `IDB/OPS/LM/LC13/.../Repair_Source/` | SRM source data | BASELINED |
+| `IDB/OPS/LM/LC13/.../Overhaul_Source/` | CMM source data | BASELINED |
+| `IDB/PUB/AMM/` | Aircraft Maintenance Manual | BASELINED |
+| `IDB/PUB/SRM/` | Structural Repair Manual | BASELINED |
+| `IDB/PUB/CMM/` | Component Maintenance Manual | BASELINED |
+| `IDB/PUB/IPC/` | Illustrated Parts Catalog | BASELINED |
 | `GENESIS/` | Uncertainty discovery | NOT baselined |
 | `CONTRACTS/` | Transformation governance | BASELINED |
 | `ASIT/runs/` | Automation execution history | Immutable archive |
