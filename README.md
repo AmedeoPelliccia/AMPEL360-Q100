@@ -333,397 +333,341 @@ ATA_XX-<SYSTEM_NAME>/                                         # ATA Chapter (app
     ├── README.md                                             # System mission, vision, objectives (project-aligned)
     │
     ├── WBS/                                                  # System-level WBS (derived from mission/vision)
-    │   ├── SYSTEM_MISSION. md                                 # Why this system exists
+    │   ├── SYSTEM_MISSION.md                                 # Why this system exists
     │   ├── SYSTEM_VISION.md                                  # Where we're going (2030 vision)
     │   ├── SYSTEM_OBJECTIVES.md                              # Measurable goals & KPIs
     │   ├── WBS_LEVEL_1.yaml                                  # Top-level work packages
     │   ├── WBS_LEVEL_2.yaml                                  # Detailed breakdown
-    │   └── WBS_TRACE_TO_PROJECT. csv                          # Traceability to AMPEL360 master WBS
+    │   └── WBS_TRACE_TO_PROJECT.csv                          # Traceability to AMPEL360 master WBS
     │
-    └── XX-YY-<section-slug>/                                 # ATA section (e.g., 28-10)
-        ├── README.md                                         # Section scope, AoR, applicability, assumptions
-        │
-        ├── GENESIS/                                          # ✨ Section-level discovery (not subject-level)
-        │   ├── O-KNOTS. csv                                   # Origin uncertainties (INHERITED/DERIVED)
-        │   ├── Y-KNOTS.csv                                   # whY challenges (assumptions to validate)
-        │   └── DISCOVERY_LOG.md                              # Discovery sessions + graduation notes
-        │
-        └── XX-YY-00-<subject-slug>/                          # Smallest governed unit (no sub-subject)
-            ├── README.md                                     # Subject index + contract pointers + UI app links
-            │
-            ├── KDB/                                          # 📚 Knowledge Data Base (authoritative - SSOT)
-            │   ├── DEV/                                      # Development knowledge space
-            │   │   ├── working/                              # Drafts, experiments, sandboxes
-            │   │   │   └── . gitkeep
-            │   │   ├── trade-studies/                        # Options + rationale (DESIGN_DECISIONS.md)
-            │   │   │   └── . gitkeep
-            │   │   ├── prototypes/                           # POC / prototypes
-            │   │   │   └── .gitkeep
-            │   │   └── dev-evidence/                         # Evidence produced during DEV
-            │   │       └── . gitkeep
-            │   │
-            │   └── LM/                                       # Lifecycle-managed knowledge
-            │       └── SSOT/                                 # Single Source of Truth
-            │           └── PLM/                              # Product lifecycle domain (LC01–LC10)
-            │               │
-            │               ├── LC01_PROBLEM_STATEMENT/       # 🎯 Uncertainty orchestration
-            │               │   ├── KNOTS.csv                 # Uncertainty register
-            │               │   ├── KNU_PLAN.csv              # Knowledge unit planning
-            │               │   ├── TIMELINE.csv              # Milestones & gates
-            │               │   ├── RACI.csv                  # Stakeholder matrix
-            │               │   ├── TOKENOMICS_TT.yaml        # TT reward allocation
-            │               │   ├── AWARDS_TT.csv             # Actual TT distributions
-            │               │   └── PACKAGES/
-            │               │       ├── KNOT_MGMT/            # KNOT lifecycle tools
-            │               │       │   ├── knot_dashboard.html
-            │               │       │   ├── knot_tracker.csv
-            │               │       │   └── . gitkeep
-            │               │       ├── KNU_PLANNING/         # KNU planning artifacts
-            │               │       │   ├── knu_dependency_graph.svg
-            │               │       │   ├── knu_schedule.yaml
-            │               │       │   └── .gitkeep
-            │               │       ├── GOVERNANCE/           # Approval workflows
-            │               │       │   ├── approval_matrix. csv
-            │               │       │   ├── governance_policy.md
-            │               │       │   └── .gitkeep
-            │               │       └── INCENTIVES/           # TT distribution records
-            │               │           ├── distribution_log.csv
-            │               │           ├── performance_metrics.yaml
-            │               │           └── .gitkeep
-            │               │
-            │               ├── LC02_SYSTEM_REQUIREMENTS/     # 📋 Requirements engineering
-            │               │   ├── README.md
-            │               │   └── PACKAGES/
-            │               │       ├── REQ/                  # 🆕 Template-populated
-            │               │       │   ├── REQ_INDEX.yaml
-            │               │       │   ├── SRD_SYSTEM_REQUIREMENTS.md
-            │               │       │   ├── DERIVED_REQUIREMENTS.csv
-            │               │       │   ├── TRACE_TO_STAKEHOLDER.csv
-            │               │       │   └── .gitkeep
-            │               │       ├── ICD/                  # 🆕 Interface Control
-            │               │       │   ├── ICD_INDEX.yaml
-            │               │       │   ├── INTERFACE_DEFINITIONS.md
-            │               │       │   ├── INTERFACE_CONTROL_MATRIX.csv
-            │               │       │   └── .gitkeep
-            │               │       ├── DATA/                 # Data requirements
-            │               │       │   └── . gitkeep
-            │               │       └── COMPLIANCE_INTENT/    # Regulatory intent
-            │               │           └── .gitkeep
-            │               │
-            │               ├── LC03_SAFETY_RELIABILITY/      # ⚠️ Safety engineering
-            │               │   ├── README.md
-            │               │   └── PACKAGES/
-            │               │       ├── SAFETY/               # 🆕 Template-populated
-            │               │       │   ├── SAFETY_ASSESSMENT_INDEX.yaml
-            │               │       │   ├── FHA_FUNCTIONAL_HAZARD_ASSESSMENT.md
-            │               │       │   ├── PSSA_PRELIMINARY_SAFETY_ASSESSMENT.md
-            │               │       │   ├── HAZARD_REGISTER.csv
-            │               │       │   └── .gitkeep
-            │               │       ├── RELIABILITY/          # Reliability analysis
-            │               │       │   └── .gitkeep
-            │               │       └── HAZARD_MGMT/          # Hazard tracking
-            │               │           └── .gitkeep
-            │               │
-            │               ├── LC04_DESIGN_DEFINITION_DMU/   # 🎨 Design artifacts
-            │               │   ├── README.md
-            │               │   └── PACKAGES/
-            │               │       ├── DESIGN/               # 🆕 Template-populated
-            │               │       │   ├── DESIGN_INDEX.yaml
-            │               │       │   ├── DESIGN_DESCRIPTION.md
-            │               │       │   ├── CAD_REFERENCES.csv
-            │               │       │   ├── DESIGN_DECISIONS.md
-            │               │       │   └── .gitkeep
-            │               │       ├── CONFIG/               # Configuration management
-            │               │       │   └── .gitkeep
-            │               │       └── INTERFACES/           # Physical/logical interfaces
-            │               │           └── .gitkeep
-            │               │
-            │               ├── LC05_ANALYSIS_MODELS_CAE/     # 🔬 Engineering analysis
-            │               │   ├── README.md
-            │               │   └── PACKAGES/
-            │               │       ├── ANALYSIS/             # 🆕 Template-populated
-            │               │       │   ├── ANALYSIS_INDEX.yaml
-            │               │       │   ├── STRESS_ANALYSIS_REPORT.md
-            │               │       │   ├── THERMAL_ANALYSIS_REPORT.md
-            │               │       │   ├── ANALYSIS_RESULTS.csv
-            │               │       │   └── .gitkeep
-            │               │       ├── MODELS/               # CAE models (FEA, CFD)
-            │               │       │   └── .gitkeep
-            │               │       └── VALIDATION/           # Model validation
-            │               │           └── .gitkeep
-            │               │
-            │               ├── LC06_INTEGRATION_TEST_PMU/    # 🧪 Testing & verification
-            │               │   ├── README.md
-            │               │   └── PACKAGES/
-            │               │       ├── TEST/                 # 🆕 Template-populated
-            │               │       │   ├── TEST_INDEX. yaml
-            │               │       │   ├── TEST_PLAN.md
-            │               │       │   ├── TEST_PROCEDURES.md
-            │               │       │   ├── TEST_RESULTS.csv
-            │               │       │   └── . gitkeep
-            │               │       ├── INTEGRATION/          # System integration
-            │               │       │   └── .gitkeep
-            │               │       └── CONFORMITY/           # Conformity evidence
-            │               │           └── .gitkeep
-            │               │
-            │               ├── LC07_QUALITY/                 # ✅ Quality assurance
-            │               │   ├── README. md
-            │               │   └── PACKAGES/
-            │               │       ├── QA/                   # 🆕 Template-populated
-            │               │       │   ├── QA_INDEX.yaml
-            │               │       │   ├── QUALITY_PLAN.md
-            │               │       │   ├── INSPECTION_CHECKLIST.csv
-            │               │       │   ├── NCR_REGISTER.csv
-            │               │       │   └── .gitkeep
-            │               │       ├── PROCESS_COMPLIANCE/   # AS9100/ISO compliance
-            │               │       │   └── .gitkeep
-            │               │       └── ACCEPTANCE/           # Acceptance criteria
-            │               │           └── .gitkeep
-            │               │
-            │               ├── LC08_FLIGHT_TEST_CERTIFICATION/ # ✈️ Certification
-            │               │   ├── README.md
-            │               │   └── PACKAGES/
-            │               │       ├── CERT_BASIS/           # 🆕 Template-populated
-            │               │       │   ├── CERT_INDEX.yaml
-            │               │       │   ├── CERTIFICATION_PLAN.md
-            │               │       │   ├── COMPLIANCE_MATRIX.csv
-            │               │       │   ├── MOC_REGISTER.csv
-            │               │       │   └── .gitkeep
-            │               │       ├── COMPLIANCE/           # Means of compliance
-            │               │       │   └── .gitkeep
-            │               │       └── FLIGHT_TEST/          # Flight test data
-            │               │           └── .gitkeep
-            │               │
-            │               ├── LC09_GREEN_AIRCRAFT_BASELINES/ # 🌱 Sustainability
-            │               │   ├── README.md
-            │               │   └── PACKAGES/
-            │               │       ├── ESG/                  # ESG metrics
-            │               │       │   └── .gitkeep
-            │               │       ├── LCA/                  # Life Cycle Assessment
-            │               │       │   └── .gitkeep
-            │               │       └── ENV_COMPLIANCE/       # Environmental compliance
-            │               │           └── .gitkeep
-            │               │
-            │               └── LC10_INDUSTRIALIZATION_PRODUCTION_CAM/ # 🏭 Manufacturing
-            │                   ├── README.md
-            │                   └── PACKAGES/
-            │                       ├── INDUSTRIAL/           # Manufacturing engineering
-            │                       │   └── .gitkeep
-            │                       ├── SUPPLY/               # Supply chain
-            │                       │   └── .gitkeep
-            │                       └── QUALITY_PROD/         # Production quality
-            │                           └── .gitkeep
-            │
-            ├── CONTRACTS/                                    # 🤝 KDB → IDB contracts (governance)
-            │   ├── KITDM-CTR-LM-CSDB_ATAxx-yy00. yaml        # 📄 S1000D CSDB delivery
-            │   ├── KITDM-CTR-LM-EXPORT_ATAxx-yy00.yaml      # 📑 PDF/HTML export
-            │   ├── KITDM-CTR-LM-IETP_ATAxx-yy00.yaml        # 📱 IETP runtime
-            │   ├── KITDM-CTR-OPS-SB_ATAxx-yy00.yaml         # 📋 Service bulletins
-            │   ├── KITDM-CTR-OPS-REPAIR_ATAxx-yy00.yaml     # 🔧 In-service repairs
-            │   ├── KITDM-CTR-OPS-QUERY_ATAxx-yy00.yaml      # ❓ Technical queries/AOG
-            │   ├── KITDM-CTR-OPS-COC_ATAxx-yy00.yaml        # ✅ Certificates of Conformance
-            │   │
-            │   ├── EVIDENCE/                                 # Contract evidence
-            │   │   ├── ACCEPTANCE_CRITERIA.md                # Detailed pass/fail criteria
-            │   ��   ├── TRACE_MATRIX_TEMPLATE.csv            # Traceability template
-            │   │   └── . gitkeep
-            │   │
-            │   └── README.md                                 # 🆕 Contract governance guide
-            │
-            ├── ASIT/                                         # 🤖 Automation (bounded, non-authoritative)
-            │   ├── README.md                                 # ASIT architecture & principles
-            │   ├── asit_config.yaml                          # 🆕 ASIT configuration
-            │   │
-            │   ├── pipelines/                                # 🔄 Transformation pipelines
-            │   │   ├── pipeline_csdb_generation.yaml         # 🆕 S1000D generation
-            │   │   ├── pipeline_pdf_export.yaml              # 🆕 PDF export
-            │   │   ├── pipeline_validation.yaml              # 🆕 BREX validation
-            │   │   ├── pipeline_applicability_filter.yaml    # 🆕 Applicability filtering
-            │   │   ├── README.md
-            │   │   └── . gitkeep
-            │   │
-            │   ├── rules/                                    # 📏 Transformation & validation rules
-            │   │   ├── rule_brex_validation.yaml             # 🆕 S1000D BREX rules
-            │   │   ├── rule_traceability_check.yaml          # 🆕 Traceability verification
-            │   │   ├── rule_approval_routing.yaml            # 🆕 Approval workflow
-            │   │   ├── rule_applicability_engine.yaml        # 🆕 Applicability evaluation
-            │   │   ├── README.md
-            │   │   └── .gitkeep
-            │   │
-            │   ├── k8s/                                      # 🆕 Kubernetes orchestration
-            │   │   ├── ui-app-deployments/                   # UI app manifests
-            │   │   │   ├── manual-navigator.yaml
-            │   │   │   ├── kdb-editor.yaml
-            │   │   │   ├── idb-viewer.yaml
-            │   │   │   ├── metrics-dashboard.yaml
-            │   │   │   └── contract-manager.yaml
-            │   │   ├── job-templates/                        # Pipeline job templates
-            │   │   │   ├── transformation-job.yaml
-            │   │   │   └── validation-job.yaml
-            │   │   └── README.md
-            │   │
-            │   └── runs/                                     # 📊 Execution history & audit
-            │       ├── YYYYMMDD-HHMM__<contract-id>/         # Run-specific folder
-            │       │   ├── INPUT_MANIFEST.json               # What was processed
-            │       │   ├── OUTPUT_MANIFEST.json              # What was generated
-            │       │   ├── TRACE_MATRIX. csv                  # Source → target mapping
-            │       │   ├── VALIDATION_REPORT.json            # BREX/schema validation
-            │       │   ├── APPLICABILITY_REPORT.json         # 🆕 Applicability filtering results
-            │       │   ├── LOG. txt                           # Detailed execution log
-            │       │   └── METRICS.json                      # 🆕 Performance metrics
-            │       └── . gitkeep
-            │
-            └── IDB/                                          # 📊 Information Data Base (projection)
-                ├── OPS/                                      # Operational domain (in-service)
-                │   └── LM/                                   # Lifecycle management (ops)
-                │       │
-                │       ├── LC11_OPERATIONS_CUSTOMIZATION/    # 🎛️ Operator-specific config
-                │       │   ├── README.md
-                │       │   └── PACKAGES/
-                │       │       ├── CUSTOMER_DELTAS/          # Customer variations
-                │       │       │   ├── operator_profiles/    # 🆕 Operator configurations
-                │       │       │   │   ├── OPERATOR-001.yaml
-                │       │       │   │   └── . gitkeep
-                │       │       │   ├── aircraft_configs/     # 🆕 Aircraft configurations
-                │       │       │   │   ├── MSN-123.yaml
-                │       │       │   │   └── .gitkeep
-                │       │       │   └── . gitkeep
-                │       │       ├── OPS_CONFIG/               # Operational configuration
-                │       │       │   ├── applicability_profiles.yaml # 🆕 Applicability settings
-                │       │       │   ├── effectivity_rules.yaml     # 🆕 Effectivity rules
-                │       │       │   └── .gitkeep
-                │       │       └── RELEASE_NOTES/            # Release management
-                │       │           └── .gitkeep
-                │       │
-                │       ├── LC12_SUPPORT_SERVICES/            # 🛠️ In-service support
-                │       │   ├── README.md
-                │       │   ├── PACKAGES/
-                │       │   │   ├── SB/                       # Service bulletins
-                │       │   │   │   └── .gitkeep
-                │       │   │   ├── REPAIR/                   # Repair procedures
-                │       │   │   │   └── .gitkeep
-                │       │   │   ├── QUERY/                    # Technical queries
-                │       │   │   │   └── .gitkeep
-                │       │   │   ├── AOG/                      # Aircraft on Ground
-                │       │   │   │   └── .gitkeep
-                │       │   │   ├── COC/                      # Certificates of Conformance
-                │       │   │   │   └── .gitkeep
-                │       │   │   └── COMPLIANCE/               # Regulatory compliance
-                │       │   │       └── .gitkeep
-                │       │   │
-                │       │   ├── CASES/                        # Case management
-                │       │   │   ├── QUERY_REGISTER.csv
-                │       │   │   ├── AOG_REGISTER.csv
-                │       │   │   ├── SLA_METRICS.csv
-                │       │   │   └── .gitkeep
-                │       │   ��
-                │       │   └── INDEX/                        # Navigation & tracking
-                │       │       ├── LC12_RELEASE_NOTES.md
-                │       │       ├── LC12_TRACE_SUMMARY.md
-                │       │       └── LC12_INDEX.json
-                │       │
-                │       ├── LC13_MRO_SUSTAINMENT/             # 🔧 MRO publications
-                │       │   ├── README.md
-                │       │   └── PACKAGES/
-                │       │       ├── AMM/                      # Aircraft Maintenance Manual
-                │       │       │   └── .gitkeep
-                │       │       ├── IPC/                      # Illustrated Parts Catalog
-                │       │       │   └── .gitkeep
-                │       │       ├── SRM/                      # Structural Repair Manual
-                │       │       │   └── .gitkeep
-                │       │       ├── TSM/                      # Troubleshooting Manual
-                │       │       │   └── .gitkeep
-                │       │       ├── WDM/                      # Wiring Diagram Manual
-                │       │       │   └── .gitkeep
-                │       │       └── CMM/                      # Component Maintenance Manual
-                │       │           └── .gitkeep
-                │       │
-                │       └── LC14_RETIREMENT_CIRCULARITY/      # ♻️ End-of-life
-                │           ├── README.md
-                │           └── PACKAGES/
-                │               ├── DISMANTLING/              # Dismantling procedures
-                │               │   └── .gitkeep
-                │               ├── MATERIAL_RECOVERY/        # Material recycling
-                │               │   └── .gitkeep
-                │               ├── DPP_CLOSURE/              # Digital Product Passport closure
-                │               │   └── .gitkeep
-                │               └── ESG_EOL/                  # ESG end-of-life reporting
-                │                   └── . gitkeep
-                │
-                ├── PUB/                                      # 📚 Publication deliverables (format views)
-                │   │
-                │   ├── AMM/                                  # Aircraft Maintenance Manual
-                │   │   ├── CSDB/                             # S1000D container
-                │   │   │   ├── DM/                           # Data Modules
-                │   │   │   │   ├── DMC-AMPELQ100-*. xml       # S1000D Data Modules
-                │   │   │   │   └── . gitkeep
-                │   │   │   ├── PM/                           # Publication Modules
-                │   │   │   │   ├── PMC-AMPELQ100-*.xml
-                │   │   │   │   └── .gitkeep
-                │   │   │   ├── DML/                          # Data Module List
-                │   │   │   │   └── .gitkeep
-                │   │   │   ├── BREX/                         # Business Rules Exchange
-                │   │   │   │   ├── DMC-AMPELQ100-BREX-001.xml
-                │   │   │   │   └── .gitkeep
-                │   │   │   ├── ICN/                          # Graphics (Illustrations)
-                │   │   │   │   └── .gitkeep
-                │   │   │   ├── COMMON/                       # Common Information Repositories
-                │   │   │   │   └── .gitkeep
-                │   │   │   └── APPLICABILITY/                # 🆕 Applicability cross-reference tables
-                │   │   │       ├── ACT_AMPELQ100-001.xml     # Applicability Cross-Reference Table
-                │   │   │       └── .gitkeep
-                │   │   │
-                │   │   ├── EXPORT/                           # PDF/HTML release bundles
-                │   │   │   ├── PDF/
-                │   │   │   │   ├── AMM_ATA28_Rev01.pdf
-                │   │   │   │   └── .gitkeep
-                │   │   │   ├── HTML/
-                │   │   │   │   └── . gitkeep
-                │   │   │   └── README.md
-                │   │   │
-                │   │   └── IETP_RUNTIME/                     # 🆕 Interactive runtime packages + UI config
-                │   │       ├── app/                          # Manual Navigator UI files
-                │   │       │   ├── index.html
-                │   │       │   ├── config.json               # �� UI configuration
-                │   │       │   ├── assets/
-                │   │       │   └── . gitkeep
-                │   │       ├── data/                         # S1000D data for runtime
-                │   │       │   ├── data-modules/
-                │   │       │   ├── graphics/
-                │   │       │   └── .gitkeep
-                │   │       ├── operators/                    # 🆕 Operator-specific views
-                │   │       │   ├── OPERATOR-001/             # Pre-filtered content
-                │   │       │   │   ├── applicable_dms.json
-                │   │       │   │   └── configuration.yaml
-                │   │       │   └── .gitkeep
-                │   │       └── README.md
-                │   │
-                │   ├── IPC/                                  # Illustrated Parts Catalog (same structure)
-                │   │   ├── CSDB/
-                │   │   ├── EXPORT/
-                │   │   └── IETP_RUNTIME/
-                │   │
-                │   ├── SRM/                                  # Structural Repair Manual (same structure)
-                │   │   ├── CSDB/
-                │   │   ├── EXPORT/
-                │   │   └── IETP_RUNTIME/
-                │   │
-                │   └── README.md                             # Publication package overview
-                │
-                └── INDEX/                                    # 🗂️ Navigation + audit (always present)
-                    ├── IDB_RELEASE_NOTES.md                  # Version history
-                    ├── IDB_TRACE_SUMMARY. md                  # Traceability overview
-                    ├── IDB_INDEX.json                        # 🆕 Machine-readable index
-                    │                                         #     (for Manual Navigator TOC)
-                    ├── PUBLICATION_MANIFEST.yaml             # Publication metadata
-                    ├── APPLICABILITY_INDEX.json              # 🆕 Applicability index
-                    │                                         #     (which DMs apply to which configs)
-                    ├── OPERATOR_VIEWS.json                   # 🆕 Pre-computed operator views
-                    ├── COMPLIANCE_CHECKLIST.md               # Regulatory compliance status
-                    ├── CHANGELOG.md                          # Detailed change log
-                    ├── METRICS_DASHBOARD.html                # 🆕 Interactive metrics dashboard
-                    │                                         #     (served by Manual Navigator)
-                    ├── DPP_ANCHOR_RECEIPT.json               # Digital Product Passport anchor
+    ├── XX-YY-<section-slug>/                                 # ATA section (e.g., 28-10-storage)
+    │   ├── README.md                                         # Section scope, AoR, applicability, assumptions
+    │   │
+    │   ├── GENESIS/                                          # Section-level discovery (moved 1 level up)
+    │   │   ├── O-KNOTS.csv                                   # Origin uncertainties (INHERITED/DERIVED)
+    │   │   ├── Y-KNOTS.csv                                   # whY challenges (assumptions to validate)
+    │   │   └── DISCOVERY_LOG.md                              # Discovery sessions + graduation notes
+    │   │
+    │   └── ATAxx-yy-zz_<subject-slug>/                       # Smallest governed unit (NO sub-subject level)
+    │       ├── README.md                                     # Subject index + contract pointers + UI app links
+    │       │
+    │       ├── KDB/                                          # Knowledge Data Base (authoritative)
+    │       │   ├── DEV/                                      # Development knowledge space (non-baselined)
+    │       │   │   ├── working/                              # Drafts, experiments, sandboxes
+    │       │   │   │   └── .gitkeep
+    │       │   │   ├── trade-studies/                        # Options + rationale (DESIGN_DECISIONS.md)
+    │       │   │   │   └── .gitkeep
+    │       │   │   ├── prototypes/                           # POC / prototypes
+    │       │   │   │   └── .gitkeep
+    │       │   │   └── dev-evidence/                         # Evidence produced during DEV
+    │       │   │       └── .gitkeep
+    │       │   │
+    │       │   └── LM/                                       # Lifecycle-managed knowledge (baselined)
+    │       │       └── SSOT/                                 # Single Source of Truth
+    │       │           └── PLM/                              # Product lifecycle domain (LC01–LC10)
+    │       │               ├── LC01_PROBLEM_STATEMENT/       # Uncertainty orchestration
+    │       │               │   ├── KNOTS.csv                 # Formal uncertainty register (KNOT-ATAXX-YY-ZZ-NNN)
+    │       │               │   ├── KNU_PLAN.csv              # Planned knowledge units (KNU-ATAXX-YY-ZZ-TYPE-NNN)
+    │       │               │   ├── TIMELINE.csv              # Milestones & gates
+    │       │               │   ├── RACI.csv                  # Responsibility matrix
+    │       │               │   ├── TOKENOMICS_TT.yaml        # Reward pool allocation
+    │       │               │   ├── AWARDS_TT.csv             # Distribution ledger
+    │       │               │   └── PACKAGES/
+    │       │               │       ├── KNOT_MGMT/            # KNOT lifecycle tools
+    │       │               │       │   └── .gitkeep
+    │       │               │       ├── KNU_PLANNING/         # KNU dependency + schedules
+    │       │               │       │   └── .gitkeep
+    │       │               │       ├── GOVERNANCE/           # Approval workflows
+    │       │               │       │   └── .gitkeep
+    │       │               │       └── INCENTIVES/           # TT distribution records
+    │       │               │           └── .gitkeep
+    │       │               │
+    │       │               ├── LC02_SYSTEM_REQUIREMENTS/     # Requirements engineering
+    │       │               │   ├── README.md
+    │       │               │   └── PACKAGES/
+    │       │               │       ├── REQ/                  # Requirements package
+    │       │               │       │   ├── REQ_INDEX.yaml
+    │       │               │       │   ├── SRD_SYSTEM_REQUIREMENTS.md
+    │       │               │       │   ├── DERIVED_REQUIREMENTS.csv
+    │       │               │       │   ├── TRACE_TO_STAKEHOLDER.csv
+    │       │               │       │   └── .gitkeep
+    │       │               │       ├── ICD/                  # Interface control package
+    │       │               │       │   ├── ICD_INDEX.yaml
+    │       │               │       │   ├── INTERFACE_DEFINITIONS.md
+    │       │               │       │   ├── INTERFACE_CONTROL_MATRIX.csv
+    │       │               │       │   └── .gitkeep
+    │       │               │       ├── DATA/                 # Data requirements package
+    │       │               │       │   └── .gitkeep
+    │       │               │       └── COMPLIANCE_INTENT/    # Regulatory intent
+    │       │               │           └── .gitkeep
+    │       │               │
+    │       │               ├── LC03_SAFETY_RELIABILITY/      # Safety engineering
+    │       │               │   ├── README.md
+    │       │               │   └── PACKAGES/
+    │       │               │       ├── SAFETY/               # FHA/PSSA/SSA artifacts
+    │       │               │       │   ├── SAFETY_INDEX.yaml
+    │       │               │       │   ├── FHA.md
+    │       │               │       │   ├── PSSA.md
+    │       │               │       │   ├── HAZARD_REGISTER.csv
+    │       │               │       │   └── .gitkeep
+    │       │               │       ├── RELIABILITY/          # Reliability analyses (MTBF/FTA)
+    │       │               │       │   └── .gitkeep
+    │       │               │       └── HAZARD_MGMT/          # Hazard tracking workflows
+    │       │               │           └── .gitkeep
+    │       │               │
+    │       │               ├── LC04_DESIGN_DEFINITION_DMU/   # Design definition
+    │       │               │   ├── README.md
+    │       │               │   └── PACKAGES/
+    │       │               │       ├── DESIGN/               # Design description + decisions
+    │       │               │       │   ├── DESIGN_INDEX.yaml
+    │       │               │       │   ├── DESIGN_DESCRIPTION.md
+    │       │               │       │   ├── CAD_REFERENCES.csv
+    │       │               │       │   ├── DESIGN_DECISIONS.md
+    │       │               │       │   └── .gitkeep
+    │       │               │       ├── CONFIG/               # Configuration baselines
+    │       │               │       │   └── .gitkeep
+    │       │               │       └── INTERFACES/           # Physical/logical interface definitions
+    │       │               │           └── .gitkeep
+    │       │               │
+    │       │               ├── LC05_ANALYSIS_MODELS_CAE/     # Engineering analysis
+    │       │               │   ├── README.md
+    │       │               │   └── PACKAGES/
+    │       │               │       ├── ANALYSIS/             # Reports + results
+    │       │               │       │   ├── ANALYSIS_INDEX.yaml
+    │       │               │       │   ├── STRESS_REPORT.md
+    │       │               │       │   ├── THERMAL_REPORT.md
+    │       │               │       │   ├── ANALYSIS_RESULTS.csv
+    │       │               │       │   └── .gitkeep
+    │       │               │       ├── MODELS/               # FEA/CFD model artifacts
+    │       │               │       │   └── .gitkeep
+    │       │               │       └── VALIDATION/           # Model validation evidence
+    │       │               │           └── .gitkeep
+    │       │               │
+    │       │               ├── LC06_INTEGRATION_TEST_PMU/    # Integration + test
+    │       │               │   ├── README.md
+    │       │               │   └── PACKAGES/
+    │       │               │       ├── TEST/                 # Test plans/procedures/results
+    │       │               │       │   ├── TEST_INDEX.yaml
+    │       │               │       │   ├── TEST_PLAN.md
+    │       │               │       │   ├── TEST_PROCEDURES.md
+    │       │               │       │   ├── TEST_RESULTS.csv
+    │       │               │       │   └── .gitkeep
+    │       │               │       ├── INTEGRATION/          # Integration records
+    │       │               │       │   └── .gitkeep
+    │       │               │       └── CONFORMITY/           # Conformity evidence
+    │       │               │           └── .gitkeep
+    │       │               │
+    │       │               ├── LC07_QUALITY/                 # Quality assurance
+    │       │               │   ├── README.md
+    │       │               │   └── PACKAGES/
+    │       │               │       ├── QA/                   # Quality plan, NCRs, inspections
+    │       │               │       │   ├── QA_INDEX.yaml
+    │       │               │       │   ├── QUALITY_PLAN.md
+    │       │               │       │   ├── INSPECTION_CHECKLIST.csv
+    │       │               │       │   ├── NCR_REGISTER.csv
+    │       │               │       │   └── .gitkeep
+    │       │               │       ├── PROCESS_COMPLIANCE/   # AS9100/ISO process compliance
+    │       │               │       │   └── .gitkeep
+    │       │               │       └── ACCEPTANCE/           # Acceptance criteria
+    │       │               │           └── .gitkeep
+    │       │               │
+    │       │               ├── LC08_FLIGHT_TEST_CERTIFICATION/ # Certification
+    │       │               │   ├── README.md
+    │       │               │   └── PACKAGES/
+    │       │               │       ├── CERT_BASIS/           # Cert plan + compliance matrices
+    │       │               │       │   ├── CERT_INDEX.yaml
+    │       │               │       │   ├── CERTIFICATION_PLAN.md
+    │       │               │       │   ├── COMPLIANCE_MATRIX.csv
+    │       │               │       │   ├── MOC_REGISTER.csv
+    │       │               │       │   └── .gitkeep
+    │       │               │       ├── COMPLIANCE/           # MoC evidence packages
+    │       │               │       │   └── .gitkeep
+    │       │               │       └── FLIGHT_TEST/          # Flight test datasets
+    │       │               │           └── .gitkeep
+    │       │               │
+    │       │               ├── LC09_GREEN_AIRCRAFT_BASELINES/ # Sustainability baselines
+    │       │               │   ├── README.md
+    │       │               │   └── PACKAGES/
+    │       │               │       ├── ESG/                  # ESG metrics
+    │       │               │       │   └── .gitkeep
+    │       │               │       ├── LCA/                  # Life Cycle Assessment
+    │       │               │       │   └── .gitkeep
+    │       │               │       └── ENV_COMPLIANCE/       # Environmental compliance evidence
+    │       │               │           └── .gitkeep
+    │       │               │
+    │       │               └── LC10_INDUSTRIALIZATION_PRODUCTION_CAM/ # Manufacturing
+    │       │                   ├── README.md
+    │       │                   └── PACKAGES/
+    │       │                       ├── INDUSTRIAL/           # Manufacturing engineering
+    │       │                       │   └── .gitkeep
+    │       │                       ├── SUPPLY/               # Supply chain artifacts
+    │       │                       │   └── .gitkeep
+    │       │                       └── QUALITY_PROD/         # Production quality
+    │       │                           └── .gitkeep
+    │       │
+    │       ├── CONTRACTS/                                    # Contract governance (KDB → IDB)
+    │       │   ├── README.md                                 # Contract governance guide
+    │       │   ├── KITDM-CTR-LM-CSDB_ATAxx-yy-zz.yaml         # S1000D CSDB delivery
+    │       │   ├── KITDM-CTR-LM-EXPORT_ATAxx-yy-zz.yaml       # PDF/HTML exports
+    │       │   ├── KITDM-CTR-LM-IETP_ATAxx-yy-zz.yaml         # IETP runtime build
+    │       │   ├── KITDM-CTR-OPS-SB_ATAxx-yy-zz.yaml          # Service bulletins
+    │       │   ├── KITDM-CTR-OPS-REPAIR_ATAxx-yy-zz.yaml      # In-service repairs
+    │       │   ├── KITDM-CTR-OPS-QUERY_ATAxx-yy-zz.yaml       # Technical queries/AOG workflows
+    │       │   ├── KITDM-CTR-OPS-AOG_ATAxx-yy-zz.yaml         # AOG case handling
+    │       │   ├── KITDM-CTR-OPS-COC_ATAxx-yy-zz.yaml         # Certificates of Conformance
+    │       │   └── EVIDENCE/
+    │       │       ├── ACCEPTANCE_CRITERIA.md                # Pass/fail criteria
+    │       │       ├── TRACE_MATRIX_TEMPLATE.csv             # Traceability template
+    │       │       └── .gitkeep
+    │       │
+    │       ├── ASIT/                                         # Aircraft System Information Transponder (non-authoritative)
+    │       │   ├── README.md                                 # ASIT principles + architecture
+    │       │   ├── asit_config.yaml                          # ASIT configuration (local to subject)
+    │       │   ├── pipelines/                                # Transformation pipelines
+    │       │   │   ├── pipeline_lm_csdb_generation.yaml       # LM → CSDB
+    │       │   │   ├── pipeline_lm_export.yaml                # LM → EXPORT
+    │       │   │   ├── pipeline_lm_ietp.yaml                  # LM → IETP_RUNTIME
+    │       │   │   ├── pipeline_ops_sb.yaml                   # OPS → SB
+    │       │   │   ├── pipeline_ops_repair.yaml               # OPS → REPAIR
+    │       │   │   ├── pipeline_ops_query.yaml                # OPS → QUERY/AOG
+    │       │   │   ├── pipeline_ops_coc.yaml                  # OPS → COC
+    │       │   │   └── README.md
+    │       │   ├── rules/                                    # Validation + governance rules
+    │       │   │   ├── rule_brex_validation.yaml              # S1000D BREX checks
+    │       │   │   ├── rule_traceability_check.yaml           # Traceability verification
+    │       │   │   ├── rule_compliance_check.yaml             # Standards compliance checks
+    │       │   │   ├── rule_applicability_engine.yaml         # Applicability/effectivity filtering
+    │       │   │   ├── rule_approval_routing.yaml             # Approval routing rules
+    │       │   │   └── README.md
+    │       │   ├── k8s/                                      # Optional: orchestration manifests
+    │       │   │   ├── ui-app-deployments/
+    │       │   │   │   ├── manual-navigator.yaml
+    │       │   │   │   ├── kdb-editor.yaml
+    │       │   │   │   ├── idb-viewer.yaml
+    │       │   │   │   ├── metrics-dashboard.yaml
+    │       │   │   │   └── contract-manager.yaml
+    │       │   │   ├── job-templates/
+    │       │   │   │   ├── transformation-job.yaml
+    │       │   │   │   └── validation-job.yaml
+    │       │   │   └── README.md
+    │       │   └── runs/                                     # Append-only execution evidence
+    │       │       ├── YYYYMMDD-HHMM__<contract-id>/          # Example: 20260121-1130__KITDM-CTR-LM-CSDB_ATA28-10-00
+    │       │       │   ├── INPUT_MANIFEST.json
+    │       │       │   ├── CONTEXT.json
+    │       │       │   ├── SELECTION_MANIFEST.json
+    │       │       │   ├── OUTPUT_MANIFEST.json
+    │       │       │   ├── TRACE_MATRIX.csv
+    │       │       │   ├── VALIDATION_REPORT.json
+    │       │       │   ├── APPLICABILITY_REPORT.json
+    │       │       │   ├── METRICS.json
+    │       │       │   └── LOG.txt
+    │       │       └── .gitkeep
+    │       │
+    │       └── IDB/                                          # Information Data Base (projection/consumption)
+    │           ├── OPS/                                      # Operational domain (in-service)
+    │           │   └── LM/                                   # Ops lifecycle management (LC11–LC14)
+    │           │       ├── LC11_OPERATIONS_CUSTOMIZATION/    # Operator-specific configuration
+    │           │       │   ├── README.md
+    │           │       │   └── PACKAGES/
+    │           │       │       ├── CUSTOMER_DELTAS/           # Customer variations
+    │           │       │       │   ├── operator_profiles/
+    │           │       │       │   │   └── .gitkeep
+    │           │       │       │   ├── aircraft_configs/
+    │           │       │       │   │   └── .gitkeep
+    │           │       │       │   └── .gitkeep
+    │           │       │       ├── OPS_CONFIG/                # Effectivity/applicability rules + branding
+    │           │       │       │   ├── applicability_profiles.yaml
+    │           │       │       │   ├── effectivity_rules.yaml
+    │           │       │       │   ├── branding/
+    │           │       │       │   │   └── .gitkeep
+    │           │       │       │   └── .gitkeep
+    │           │       │       └── RELEASE_NOTES/
+    │           │       │           └── .gitkeep
+    │           │       │
+    │           │       ├── LC12_SUPPORT_SERVICES/            # Support services (SB, repairs, queries, AoG, CoC)
+    │           │       │   ├── README.md
+    │           │       │   ├── PACKAGES/
+    │           │       │   │   ├── SB/                       # Service bulletins
+    │           │       │   │   │   └── .gitkeep
+    │           │       │   │   ├── REPAIR/                   # In-service repairs
+    │           │       │   │   │   └── .gitkeep
+    │           │       │   │   ├── QUERY/                    # Technical queries
+    │           │       │   │   │   └── .gitkeep
+    │           │       │   │   ├── AOG/                      # Aircraft on Ground cases
+    │           │       │   │   │   └── .gitkeep
+    │           │       │   │   ├── COC/                      # Certificates of Conformance
+    │           │       │   │   │   └── .gitkeep
+    │           │       │   │   └── COMPLIANCE/               # Regulatory/service compliance
+    │           │       │   │       └── .gitkeep
+    │           │       │   ├── CASES/                        # Case management
+    │           │       │   │   ├── QUERY_REGISTER.csv
+    │           │       │   │   ├── AOG_REGISTER.csv
+    │           │       │   │   ├── SLA_METRICS.csv
+    │           │       │   │   └── .gitkeep
+    │           │       │   └── INDEX/
+    │           │       │       ├── LC12_RELEASE_NOTES.md
+    │           │       │       ├── LC12_TRACE_SUMMARY.md
+    │           │       │       └── LC12_INDEX.json
+    │           │       │
+    │           │       ├── LC13_MRO_SUSTAINMENT/             # MRO sustainment manuals (views)
+    │           │       │   ├── README.md
+    │           │       │   └── PACKAGES/
+    │           │       │       ├── AMM/
+    │           │       │       ├── IPC/
+    │           │       │       ├── SRM/
+    │           │       │       ├── TSM/
+    │           │       │       ├── WDM/
+    │           │       │       └── CMM/
+    │           │       │
+    │           │       └── LC14_RETIREMENT_CIRCULARITY/      # End-of-life + circularity
+    │           │           ├── README.md
+    │           │           └── PACKAGES/
+    │           │               ├── DISMANTLING/
+    │           │               ├── MATERIAL_RECOVERY/
+    │           │               ├── DPP_CLOSURE/
+    │           │               └── ESG_EOL/
+    │           │
+    │           ├── PUB/                                      # Publication deliverables (format views)
+    │           │   ├── AMM/
+    │           │   │   ├── CSDB/                             # S1000D container
+    │           │   │   │   ├── DM/
+    │           │   │   │   ├── PM/
+    │           │   │   │   ├── DML/
+    │           │   │   │   ├── BREX/
+    │           │   │   │   ├── ICN/
+    │           │   │   │   ├── COMMON/
+    │           │   │   │   └── APPLICABILITY/                # ACT/CTA/etc
+    │           │   │   ├── EXPORT/
+    │           │   │   │   ├── PDF/
+    │           │   │   │   └── HTML/
+    │           │   │   └── IETP_RUNTIME/                     # Interactive runtime packages + UI config
+    │           │   │       ├── app/
+    │           │   │       ├── data/
+    │           │   │       └── operators/
+    │           │   ├── IPC/
+    │           │   │   ├── CSDB/
+    │           │   │   ├── EXPORT/
+    │           │   │   └── IETP_RUNTIME/
+    │           │   ├── SRM/
+    │           │   │   ├── CSDB/
+    │           │   │   ├── EXPORT/
+    │           │   │   └── IETP_RUNTIME/
+    │           │   └── README.md
+    │           │
+    │           └── INDEX/                                    # Navigation + audit (always present)
+    │               ├── IDB_RELEASE_NOTES.md
+    │               ├── IDB_TRACE_SUMMARY.md
+    │               ├── IDB_INDEX.json
+    │               ├── PUBLICATION_MANIFEST.yaml
+    │               ├── APPLICABILITY_INDEX.json
+    │               ├── OPERATOR_VIEWS.json
+    │               ├── COMPLIANCE_CHECKLIST.md
+    │               ├── CHANGELOG.md
+    │               ├── METRICS_DASHBOARD.html
+    │               ├── DPP_ANCHOR_RECEIPT.json
+    │               └── README.md
+    │
+    └── README.md                                             # (Optional) Chapter-wide navigation index                ├── DPP_ANCHOR_RECEIPT.json               # Digital Product Passport anchor
                     └── README.md                             # 🆕 IDB navigation guide
 ```
 ---
