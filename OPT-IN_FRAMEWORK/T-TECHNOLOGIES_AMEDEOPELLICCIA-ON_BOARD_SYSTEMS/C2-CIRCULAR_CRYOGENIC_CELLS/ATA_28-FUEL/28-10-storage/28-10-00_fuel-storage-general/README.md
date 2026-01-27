@@ -94,24 +94,29 @@ This subject folder contains the complete knowledge and information architecture
 
 ### Pipeline Flow
 
-```
-GENESIS (O-KNOT/Y-KNOT)
-    │
-    ▼
-KDB/LM/SSOT/PLM (LC01-LC10)
-    │
-    ▼ CONTRACTS/KITDM-CTR-*
-    │
-ASIT Pipeline
-    │
-    ▼
-IDB/OPS/LM (LC11-LC14)
-    │
-    ▼
-IDB/PUB/AMM/CSDB (S1000D)
-    │
-    ▼
-IDB/PUB/AMM/EXPORT (PDF/HTML/IETP)
+```mermaid
+flowchart TB
+  %% ===========================
+  %% GENESIS → KDB → CONTRACTS/ASIT → IDB (OPS/PUB)
+  %% ===========================
+
+  GEN["**GENESIS**<br/>(O‑KNOT / Y‑KNOT)"]
+  SSOT["**KDB/LM/SSOT/PLM**<br/>(LC01–LC10)"]
+  CTR["**CONTRACTS**<br/>KITDM‑CTR‑*"]
+  ASIT["**ASIT Pipeline**"]
+  OPS["**IDB/OPS/LM**<br/>(LC11–LC14)"]
+  CSDB["**IDB/PUB/AMM/CSDB**<br/>(S1000D)"]
+  EXP["**IDB/PUB/AMM/EXPORT**<br/>(PDF / HTML / IETP)"]
+  GEN  -->|**C1:** Curation & graduation| SSOT
+  SSOT -->|**C2:** Governed by contracts| CTR
+  CTR  -->|**C3:** Contract execution| ASIT
+  ASIT -->|**C4:** Publish Ops baseline| OPS
+  OPS  -->|**C5:** Authoring to CSDB| CSDB
+  CSDB -->|**C6:** S1000D transformation| EXP
+
+  %% --------- Styling (optional) ---------
+  classDef box fill:#0c1626,stroke:#3884ff,stroke-width:1px,color:#e6ebf2,rx:6,ry:6;
+  class GEN,SSOT,CTR,ASIT,OPS,CSDB,EXP box;
 ```
 
 ### Source Tracking
