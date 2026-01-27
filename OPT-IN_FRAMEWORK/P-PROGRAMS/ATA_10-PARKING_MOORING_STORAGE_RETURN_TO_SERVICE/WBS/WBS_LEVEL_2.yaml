@@ -1,0 +1,35 @@
+# WBS Level 2 — ATA 10 (PARKING MOORING STORAGE RETURN TO SERVICE)
+# Second-level decomposition (sub-deliverables)
+
+wbs:
+  chapter: "10"
+  title: "PARKING MOORING STORAGE RETURN TO SERVICE"
+  level: 2
+  packages:
+    - parent: WP-10-1000
+      children:
+        - id: WP-10-1100
+          title: "System Requirements"
+        - id: WP-10-1200
+          title: "Interface Requirements"
+          
+    - parent: WP-10-2000
+      children:
+        - id: WP-10-2100
+          title: "Architecture Design"
+        - id: WP-10-2200
+          title: "Detailed Design"
+          
+    - parent: WP-10-3000
+      children:
+        - id: WP-10-3100
+          title: "Unit Testing"
+        - id: WP-10-3200
+          title: "Integration Testing"
+          
+    - parent: WP-10-4000
+      children:
+        - id: WP-10-4100
+          title: "Compliance Matrix"
+        - id: WP-10-4200
+          title: "Certification Package"

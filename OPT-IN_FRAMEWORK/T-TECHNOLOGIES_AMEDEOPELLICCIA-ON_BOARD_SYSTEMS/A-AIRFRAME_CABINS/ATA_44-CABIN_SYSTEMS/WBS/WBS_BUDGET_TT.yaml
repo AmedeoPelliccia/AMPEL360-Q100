@@ -1,0 +1,13 @@
+budget:
+  chapter: "44"
+  title: "CABIN SYSTEMS"
+  total_tt: 500
+  allocation:
+    - wbs_id: WP-44-1000
+      tt_budget: 150
+    - wbs_id: WP-44-2000
+      tt_budget: 150
+    - wbs_id: WP-44-3000
+      tt_budget: 125
+    - wbs_id: WP-44-4000
+      tt_budget: 75

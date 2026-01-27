@@ -1,0 +1,13 @@
+budget:
+  chapter: "73"
+  title: "ENGINE FUEL AND CONTROL"
+  total_tt: 500
+  allocation:
+    - wbs_id: WP-73-1000
+      tt_budget: 150
+    - wbs_id: WP-73-2000
+      tt_budget: 150
+    - wbs_id: WP-73-3000
+      tt_budget: 125
+    - wbs_id: WP-73-4000
+      tt_budget: 75

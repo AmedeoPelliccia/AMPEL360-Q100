@@ -1,0 +1,13 @@
+wbs:
+  chapter: "98"
+  title: "RESERVED PROGRAM SLOT"
+  level: 1
+  packages:
+    - id: WP-98-1000
+      title: "Requirements Definition"
+    - id: WP-98-2000
+      title: "Design Definition"
+    - id: WP-98-3000
+      title: "Verification & Validation"
+    - id: WP-98-4000
+      title: "Certification"

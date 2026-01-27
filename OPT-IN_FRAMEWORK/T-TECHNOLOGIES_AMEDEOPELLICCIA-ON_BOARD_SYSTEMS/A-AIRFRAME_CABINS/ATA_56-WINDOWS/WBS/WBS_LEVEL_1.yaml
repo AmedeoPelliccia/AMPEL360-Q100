@@ -1,0 +1,13 @@
+wbs:
+  chapter: "56"
+  title: "WINDOWS"
+  level: 1
+  packages:
+    - id: WP-56-1000
+      title: "Requirements Definition"
+    - id: WP-56-2000
+      title: "Design Definition"
+    - id: WP-56-3000
+      title: "Verification & Validation"
+    - id: WP-56-4000
+      title: "Certification"

@@ -1,0 +1,13 @@
+budget:
+  chapter: "71"
+  title: "POWER PLANT"
+  total_tt: 500
+  allocation:
+    - wbs_id: WP-71-1000
+      tt_budget: 150
+    - wbs_id: WP-71-2000
+      tt_budget: 150
+    - wbs_id: WP-71-3000
+      tt_budget: 125
+    - wbs_id: WP-71-4000
+      tt_budget: 75

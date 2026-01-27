@@ -1,0 +1,11 @@
+wbs:
+  chapter: "80"
+  title: "STARTING"
+  level: 2
+  packages:
+    - parent: WP-80-1000
+      children:
+        - id: WP-80-1100
+          title: "System Requirements"
+        - id: WP-80-1200
+          title: "Interface Requirements"

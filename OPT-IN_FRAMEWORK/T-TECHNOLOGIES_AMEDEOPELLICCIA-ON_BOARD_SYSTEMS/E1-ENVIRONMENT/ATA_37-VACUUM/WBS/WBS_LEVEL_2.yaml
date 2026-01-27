@@ -1,0 +1,11 @@
+wbs:
+  chapter: "37"
+  title: "VACUUM"
+  level: 2
+  packages:
+    - parent: WP-37-1000
+      children:
+        - id: WP-37-1100
+          title: "System Requirements"
+        - id: WP-37-1200
+          title: "Interface Requirements"

@@ -1,0 +1,35 @@
+# WBS Level 2 — ATA 12 (SERVICING)
+# Second-level decomposition (sub-deliverables)
+
+wbs:
+  chapter: "12"
+  title: "SERVICING"
+  level: 2
+  packages:
+    - parent: WP-12-1000
+      children:
+        - id: WP-12-1100
+          title: "System Requirements"
+        - id: WP-12-1200
+          title: "Interface Requirements"
+          
+    - parent: WP-12-2000
+      children:
+        - id: WP-12-2100
+          title: "Architecture Design"
+        - id: WP-12-2200
+          title: "Detailed Design"
+          
+    - parent: WP-12-3000
+      children:
+        - id: WP-12-3100
+          title: "Unit Testing"
+        - id: WP-12-3200
+          title: "Integration Testing"
+          
+    - parent: WP-12-4000
+      children:
+        - id: WP-12-4100
+          title: "Compliance Matrix"
+        - id: WP-12-4200
+          title: "Certification Package"

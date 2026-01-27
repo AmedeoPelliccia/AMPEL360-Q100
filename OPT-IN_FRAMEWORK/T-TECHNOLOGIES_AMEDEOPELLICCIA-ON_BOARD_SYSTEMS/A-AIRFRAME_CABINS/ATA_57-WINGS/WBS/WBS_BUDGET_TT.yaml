@@ -1,0 +1,13 @@
+budget:
+  chapter: "57"
+  title: "WINGS"
+  total_tt: 500
+  allocation:
+    - wbs_id: WP-57-1000
+      tt_budget: 150
+    - wbs_id: WP-57-2000
+      tt_budget: 150
+    - wbs_id: WP-57-3000
+      tt_budget: 125
+    - wbs_id: WP-57-4000
+      tt_budget: 75

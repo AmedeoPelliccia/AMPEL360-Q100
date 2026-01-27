@@ -1,0 +1,13 @@
+wbs:
+  chapter: "72"
+  title: "ENGINE TURBINE TURBOPROP DUCTED UNDUCTED FAN"
+  level: 1
+  packages:
+    - id: WP-72-1000
+      title: "Requirements Definition"
+    - id: WP-72-2000
+      title: "Design Definition"
+    - id: WP-72-3000
+      title: "Verification & Validation"
+    - id: WP-72-4000
+      title: "Certification"

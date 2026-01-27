@@ -1,0 +1,35 @@
+# WBS Level 2 — ATA 00 (GENERAL)
+# Second-level decomposition (sub-deliverables)
+
+wbs:
+  chapter: "00"
+  title: "GENERAL"
+  level: 2
+  packages:
+    - parent: WP-00-1000
+      children:
+        - id: WP-00-1100
+          title: "System Requirements"
+        - id: WP-00-1200
+          title: "Interface Requirements"
+          
+    - parent: WP-00-2000
+      children:
+        - id: WP-00-2100
+          title: "Architecture Design"
+        - id: WP-00-2200
+          title: "Detailed Design"
+          
+    - parent: WP-00-3000
+      children:
+        - id: WP-00-3100
+          title: "Unit Testing"
+        - id: WP-00-3200
+          title: "Integration Testing"
+          
+    - parent: WP-00-4000
+      children:
+        - id: WP-00-4100
+          title: "Compliance Matrix"
+        - id: WP-00-4200
+          title: "Certification Package"

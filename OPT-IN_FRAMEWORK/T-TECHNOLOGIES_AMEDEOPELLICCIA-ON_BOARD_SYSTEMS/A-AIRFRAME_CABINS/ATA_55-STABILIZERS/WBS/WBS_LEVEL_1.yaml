@@ -1,0 +1,13 @@
+wbs:
+  chapter: "55"
+  title: "STABILIZERS"
+  level: 1
+  packages:
+    - id: WP-55-1000
+      title: "Requirements Definition"
+    - id: WP-55-2000
+      title: "Design Definition"
+    - id: WP-55-3000
+      title: "Verification & Validation"
+    - id: WP-55-4000
+      title: "Certification"

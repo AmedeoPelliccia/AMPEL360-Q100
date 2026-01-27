@@ -1,0 +1,11 @@
+wbs:
+  chapter: "61"
+  title: "PROPELLERS PROPULSORS"
+  level: 2
+  packages:
+    - parent: WP-61-1000
+      children:
+        - id: WP-61-1100
+          title: "System Requirements"
+        - id: WP-61-1200
+          title: "Interface Requirements"

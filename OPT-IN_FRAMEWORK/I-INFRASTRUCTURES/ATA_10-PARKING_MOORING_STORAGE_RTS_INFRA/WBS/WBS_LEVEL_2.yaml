@@ -1,0 +1,9 @@
+wbs:
+  chapter: "10"
+  title: "PARKING MOORING STORAGE RTS INFRA"
+  level: 2
+  packages:
+    - parent: WP-10-1000
+      children:
+        - id: WP-10-1100
+          title: "System Requirements"

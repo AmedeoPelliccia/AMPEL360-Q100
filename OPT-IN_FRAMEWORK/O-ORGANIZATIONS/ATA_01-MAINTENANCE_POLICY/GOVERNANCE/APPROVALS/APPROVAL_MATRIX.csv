@@ -1,0 +1,5 @@
+Artifact_Type,Approver_Role,Gate,Required_Signatures
+Requirements,System Engineer,PDR,1
+Design,Design Lead,CDR,1
+Test Procedure,Test Lead,TRR,1
+Certification,DER,FRR,1

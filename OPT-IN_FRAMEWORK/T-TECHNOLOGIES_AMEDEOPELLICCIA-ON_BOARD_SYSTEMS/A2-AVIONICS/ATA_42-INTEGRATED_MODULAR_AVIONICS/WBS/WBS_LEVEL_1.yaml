@@ -1,0 +1,13 @@
+wbs:
+  chapter: "42"
+  title: "INTEGRATED MODULAR AVIONICS"
+  level: 1
+  packages:
+    - id: WP-42-1000
+      title: "Requirements Definition"
+    - id: WP-42-2000
+      title: "Design Definition"
+    - id: WP-42-3000
+      title: "Verification & Validation"
+    - id: WP-42-4000
+      title: "Certification"

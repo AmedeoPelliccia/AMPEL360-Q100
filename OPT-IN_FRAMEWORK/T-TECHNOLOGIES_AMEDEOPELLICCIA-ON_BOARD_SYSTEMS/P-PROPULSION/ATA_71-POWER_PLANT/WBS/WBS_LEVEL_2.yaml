@@ -1,0 +1,11 @@
+wbs:
+  chapter: "71"
+  title: "POWER PLANT"
+  level: 2
+  packages:
+    - parent: WP-71-1000
+      children:
+        - id: WP-71-1100
+          title: "System Requirements"
+        - id: WP-71-1200
+          title: "Interface Requirements"

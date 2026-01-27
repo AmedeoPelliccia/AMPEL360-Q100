@@ -1,0 +1,23 @@
+# WBS Budget (Teknia Tokens) — ATA 01 (MAINTENANCE POLICY)
+# Token budget allocation per WBS element (informational)
+
+budget:
+  chapter: "01"
+  title: "MAINTENANCE POLICY"
+  total_tt: 500
+  allocation:
+    - wbs_id: WP-01-1000
+      tt_budget: 150
+      description: "Requirements Definition"
+      
+    - wbs_id: WP-01-2000
+      tt_budget: 150
+      description: "Design Definition"
+      
+    - wbs_id: WP-01-3000
+      tt_budget: 125
+      description: "Verification & Validation"
+      
+    - wbs_id: WP-01-4000
+      tt_budget: 75
+      description: "Certification"

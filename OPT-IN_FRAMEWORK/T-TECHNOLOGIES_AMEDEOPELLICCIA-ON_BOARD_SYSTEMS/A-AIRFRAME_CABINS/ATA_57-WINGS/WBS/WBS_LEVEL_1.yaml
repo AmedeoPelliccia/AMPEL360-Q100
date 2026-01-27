@@ -1,0 +1,13 @@
+wbs:
+  chapter: "57"
+  title: "WINGS"
+  level: 1
+  packages:
+    - id: WP-57-1000
+      title: "Requirements Definition"
+    - id: WP-57-2000
+      title: "Design Definition"
+    - id: WP-57-3000
+      title: "Verification & Validation"
+    - id: WP-57-4000
+      title: "Certification"

@@ -1,0 +1,13 @@
+budget:
+  chapter: "49"
+  title: "AIRBORNE AUXILIARY POWER APU"
+  total_tt: 500
+  allocation:
+    - wbs_id: WP-49-1000
+      tt_budget: 150
+    - wbs_id: WP-49-2000
+      tt_budget: 150
+    - wbs_id: WP-49-3000
+      tt_budget: 125
+    - wbs_id: WP-49-4000
+      tt_budget: 75

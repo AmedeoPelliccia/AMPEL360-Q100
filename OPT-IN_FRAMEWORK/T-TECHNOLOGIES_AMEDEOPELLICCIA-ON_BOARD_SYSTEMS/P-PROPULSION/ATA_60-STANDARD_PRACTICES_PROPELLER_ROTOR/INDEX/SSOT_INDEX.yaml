@@ -1,0 +1,10 @@
+ssot:
+  chapter: "60"
+  title: "STANDARD PRACTICES PROPELLER ROTOR"
+  sources:
+    - type: "Requirements"
+      location: "KDB/LM/SSOT/PLM/LC02"
+    - type: "Design"
+      location: "KDB/LM/SSOT/PLM/LC04"
+    - type: "Test"
+      location: "KDB/LM/SSOT/PLM/LC06"

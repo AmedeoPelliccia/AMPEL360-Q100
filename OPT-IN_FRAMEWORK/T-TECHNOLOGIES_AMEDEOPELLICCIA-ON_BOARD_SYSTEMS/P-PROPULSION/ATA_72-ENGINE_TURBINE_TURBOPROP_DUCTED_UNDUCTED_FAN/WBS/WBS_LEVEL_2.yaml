@@ -1,0 +1,11 @@
+wbs:
+  chapter: "72"
+  title: "ENGINE TURBINE TURBOPROP DUCTED UNDUCTED FAN"
+  level: 2
+  packages:
+    - parent: WP-72-1000
+      children:
+        - id: WP-72-1100
+          title: "System Requirements"
+        - id: WP-72-1200
+          title: "Interface Requirements"

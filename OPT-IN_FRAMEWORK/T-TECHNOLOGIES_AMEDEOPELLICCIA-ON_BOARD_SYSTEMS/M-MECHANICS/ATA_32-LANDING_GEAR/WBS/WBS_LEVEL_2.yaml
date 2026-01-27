@@ -1,0 +1,11 @@
+wbs:
+  chapter: "32"
+  title: "LANDING GEAR"
+  level: 2
+  packages:
+    - parent: WP-32-1000
+      children:
+        - id: WP-32-1100
+          title: "System Requirements"
+        - id: WP-32-1200
+          title: "Interface Requirements"

@@ -1,0 +1,13 @@
+wbs:
+  chapter: "78"
+  title: "EXHAUST"
+  level: 1
+  packages:
+    - id: WP-78-1000
+      title: "Requirements Definition"
+    - id: WP-78-2000
+      title: "Design Definition"
+    - id: WP-78-3000
+      title: "Verification & Validation"
+    - id: WP-78-4000
+      title: "Certification"

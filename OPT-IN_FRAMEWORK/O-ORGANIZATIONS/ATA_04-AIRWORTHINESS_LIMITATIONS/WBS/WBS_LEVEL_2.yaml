@@ -1,0 +1,35 @@
+# WBS Level 2 — ATA 04 (AIRWORTHINESS LIMITATIONS)
+# Second-level decomposition (sub-deliverables)
+
+wbs:
+  chapter: "04"
+  title: "AIRWORTHINESS LIMITATIONS"
+  level: 2
+  packages:
+    - parent: WP-04-1000
+      children:
+        - id: WP-04-1100
+          title: "System Requirements"
+        - id: WP-04-1200
+          title: "Interface Requirements"
+          
+    - parent: WP-04-2000
+      children:
+        - id: WP-04-2100
+          title: "Architecture Design"
+        - id: WP-04-2200
+          title: "Detailed Design"
+          
+    - parent: WP-04-3000
+      children:
+        - id: WP-04-3100
+          title: "Unit Testing"
+        - id: WP-04-3200
+          title: "Integration Testing"
+          
+    - parent: WP-04-4000
+      children:
+        - id: WP-04-4100
+          title: "Compliance Matrix"
+        - id: WP-04-4200
+          title: "Certification Package"

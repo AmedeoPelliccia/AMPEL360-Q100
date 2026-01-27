@@ -1,0 +1,11 @@
+wbs:
+  chapter: "75"
+  title: "AIR"
+  level: 2
+  packages:
+    - parent: WP-75-1000
+      children:
+        - id: WP-75-1100
+          title: "System Requirements"
+        - id: WP-75-1200
+          title: "Interface Requirements"

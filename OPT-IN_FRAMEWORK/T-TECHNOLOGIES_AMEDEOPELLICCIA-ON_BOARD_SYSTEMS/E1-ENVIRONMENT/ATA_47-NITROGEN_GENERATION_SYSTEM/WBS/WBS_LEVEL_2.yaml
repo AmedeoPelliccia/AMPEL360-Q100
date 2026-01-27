@@ -1,0 +1,11 @@
+wbs:
+  chapter: "47"
+  title: "NITROGEN GENERATION SYSTEM"
+  level: 2
+  packages:
+    - parent: WP-47-1000
+      children:
+        - id: WP-47-1100
+          title: "System Requirements"
+        - id: WP-47-1200
+          title: "Interface Requirements"

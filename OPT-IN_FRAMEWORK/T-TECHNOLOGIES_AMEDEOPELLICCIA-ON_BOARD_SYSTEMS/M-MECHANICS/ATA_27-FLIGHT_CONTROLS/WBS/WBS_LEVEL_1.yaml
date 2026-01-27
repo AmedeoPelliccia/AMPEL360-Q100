@@ -1,0 +1,13 @@
+wbs:
+  chapter: "27"
+  title: "FLIGHT CONTROLS"
+  level: 1
+  packages:
+    - id: WP-27-1000
+      title: "Requirements Definition"
+    - id: WP-27-2000
+      title: "Design Definition"
+    - id: WP-27-3000
+      title: "Verification & Validation"
+    - id: WP-27-4000
+      title: "Certification"

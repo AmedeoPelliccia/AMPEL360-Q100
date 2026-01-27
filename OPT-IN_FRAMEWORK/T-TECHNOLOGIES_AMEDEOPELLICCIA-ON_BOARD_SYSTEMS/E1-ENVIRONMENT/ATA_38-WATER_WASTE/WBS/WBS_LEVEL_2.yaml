@@ -1,0 +1,11 @@
+wbs:
+  chapter: "38"
+  title: "WATER WASTE"
+  level: 2
+  packages:
+    - parent: WP-38-1000
+      children:
+        - id: WP-38-1100
+          title: "System Requirements"
+        - id: WP-38-1200
+          title: "Interface Requirements"

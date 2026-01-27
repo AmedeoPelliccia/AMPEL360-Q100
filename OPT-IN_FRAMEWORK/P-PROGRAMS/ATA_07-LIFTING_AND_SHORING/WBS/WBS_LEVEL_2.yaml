@@ -1,0 +1,35 @@
+# WBS Level 2 — ATA 07 (LIFTING AND SHORING)
+# Second-level decomposition (sub-deliverables)
+
+wbs:
+  chapter: "07"
+  title: "LIFTING AND SHORING"
+  level: 2
+  packages:
+    - parent: WP-07-1000
+      children:
+        - id: WP-07-1100
+          title: "System Requirements"
+        - id: WP-07-1200
+          title: "Interface Requirements"
+          
+    - parent: WP-07-2000
+      children:
+        - id: WP-07-2100
+          title: "Architecture Design"
+        - id: WP-07-2200
+          title: "Detailed Design"
+          
+    - parent: WP-07-3000
+      children:
+        - id: WP-07-3100
+          title: "Unit Testing"
+        - id: WP-07-3200
+          title: "Integration Testing"
+          
+    - parent: WP-07-4000
+      children:
+        - id: WP-07-4100
+          title: "Compliance Matrix"
+        - id: WP-07-4200
+          title: "Certification Package"

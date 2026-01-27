@@ -1,0 +1,23 @@
+# WBS Budget (Teknia Tokens) — ATA 04 (AIRWORTHINESS LIMITATIONS)
+# Token budget allocation per WBS element (informational)
+
+budget:
+  chapter: "04"
+  title: "AIRWORTHINESS LIMITATIONS"
+  total_tt: 500
+  allocation:
+    - wbs_id: WP-04-1000
+      tt_budget: 150
+      description: "Requirements Definition"
+      
+    - wbs_id: WP-04-2000
+      tt_budget: 150
+      description: "Design Definition"
+      
+    - wbs_id: WP-04-3000
+      tt_budget: 125
+      description: "Verification & Validation"
+      
+    - wbs_id: WP-04-4000
+      tt_budget: 75
+      description: "Certification"

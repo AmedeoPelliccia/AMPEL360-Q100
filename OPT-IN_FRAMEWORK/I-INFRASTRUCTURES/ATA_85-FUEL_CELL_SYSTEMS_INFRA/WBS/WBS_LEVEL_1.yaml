@@ -1,0 +1,13 @@
+wbs:
+  chapter: "85"
+  title: "FUEL CELL SYSTEMS INFRA"
+  level: 1
+  packages:
+    - id: WP-85-1000
+      title: "Requirements Definition"
+    - id: WP-85-2000
+      title: "Design Definition"
+    - id: WP-85-3000
+      title: "Verification & Validation"
+    - id: WP-85-4000
+      title: "Certification"

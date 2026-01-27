@@ -1,0 +1,13 @@
+wbs:
+  chapter: "32"
+  title: "LANDING GEAR"
+  level: 1
+  packages:
+    - id: WP-32-1000
+      title: "Requirements Definition"
+    - id: WP-32-2000
+      title: "Design Definition"
+    - id: WP-32-3000
+      title: "Verification & Validation"
+    - id: WP-32-4000
+      title: "Certification"

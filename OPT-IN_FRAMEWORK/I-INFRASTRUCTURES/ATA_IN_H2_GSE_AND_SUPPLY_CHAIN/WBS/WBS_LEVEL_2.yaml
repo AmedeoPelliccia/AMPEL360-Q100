@@ -1,0 +1,9 @@
+wbs:
+  chapter: "IN"
+  title: "ATA IN H2 GSE AND SUPPLY CHAIN"
+  level: 2
+  packages:
+    - parent: WP-IN-1000
+      children:
+        - id: WP-IN-1100
+          title: "System Requirements"

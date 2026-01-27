@@ -1,0 +1,11 @@
+wbs:
+  chapter: "20"
+  title: "STANDARD PRACTICES AIRFRAME"
+  level: 2
+  packages:
+    - parent: WP-20-1000
+      children:
+        - id: WP-20-1100
+          title: "System Requirements"
+        - id: WP-20-1200
+          title: "Interface Requirements"

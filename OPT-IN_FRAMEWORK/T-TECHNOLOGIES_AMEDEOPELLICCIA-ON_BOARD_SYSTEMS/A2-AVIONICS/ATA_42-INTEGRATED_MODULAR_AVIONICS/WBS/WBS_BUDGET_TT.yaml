@@ -1,0 +1,13 @@
+budget:
+  chapter: "42"
+  title: "INTEGRATED MODULAR AVIONICS"
+  total_tt: 500
+  allocation:
+    - wbs_id: WP-42-1000
+      tt_budget: 150
+    - wbs_id: WP-42-2000
+      tt_budget: 150
+    - wbs_id: WP-42-3000
+      tt_budget: 125
+    - wbs_id: WP-42-4000
+      tt_budget: 75

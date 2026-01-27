@@ -1,0 +1,13 @@
+budget:
+  chapter: "53"
+  title: "FUSELAGE"
+  total_tt: 500
+  allocation:
+    - wbs_id: WP-53-1000
+      tt_budget: 150
+    - wbs_id: WP-53-2000
+      tt_budget: 150
+    - wbs_id: WP-53-3000
+      tt_budget: 125
+    - wbs_id: WP-53-4000
+      tt_budget: 75

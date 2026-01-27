@@ -1,0 +1,11 @@
+wbs:
+  chapter: "29"
+  title: "HYDRAULIC POWER"
+  level: 2
+  packages:
+    - parent: WP-29-1000
+      children:
+        - id: WP-29-1100
+          title: "System Requirements"
+        - id: WP-29-1200
+          title: "Interface Requirements"

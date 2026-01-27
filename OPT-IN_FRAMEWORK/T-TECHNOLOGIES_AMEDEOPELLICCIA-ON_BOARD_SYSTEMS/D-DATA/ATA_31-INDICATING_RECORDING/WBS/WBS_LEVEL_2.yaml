@@ -1,0 +1,11 @@
+wbs:
+  chapter: "31"
+  title: "INDICATING RECORDING"
+  level: 2
+  packages:
+    - parent: WP-31-1000
+      children:
+        - id: WP-31-1100
+          title: "System Requirements"
+        - id: WP-31-1200
+          title: "Interface Requirements"

@@ -1,0 +1,13 @@
+wbs:
+  chapter: "77"
+  title: "ENGINE INDICATING"
+  level: 1
+  packages:
+    - id: WP-77-1000
+      title: "Requirements Definition"
+    - id: WP-77-2000
+      title: "Design Definition"
+    - id: WP-77-3000
+      title: "Verification & Validation"
+    - id: WP-77-4000
+      title: "Certification"

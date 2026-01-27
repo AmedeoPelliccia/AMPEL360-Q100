@@ -1,0 +1,13 @@
+budget:
+  chapter: "77"
+  title: "ENGINE INDICATING"
+  total_tt: 500
+  allocation:
+    - wbs_id: WP-77-1000
+      tt_budget: 150
+    - wbs_id: WP-77-2000
+      tt_budget: 150
+    - wbs_id: WP-77-3000
+      tt_budget: 125
+    - wbs_id: WP-77-4000
+      tt_budget: 75

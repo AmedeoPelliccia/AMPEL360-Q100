@@ -1,0 +1,11 @@
+wbs:
+  chapter: "57"
+  title: "WINGS"
+  level: 2
+  packages:
+    - parent: WP-57-1000
+      children:
+        - id: WP-57-1100
+          title: "System Requirements"
+        - id: WP-57-1200
+          title: "Interface Requirements"

@@ -1,0 +1,11 @@
+wbs:
+  chapter: "21"
+  title: "AIR CONDITIONING PRESSURIZATION"
+  level: 2
+  packages:
+    - parent: WP-21-1000
+      children:
+        - id: WP-21-1100
+          title: "System Requirements"
+        - id: WP-21-1200
+          title: "Interface Requirements"

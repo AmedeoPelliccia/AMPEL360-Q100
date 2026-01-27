@@ -1,0 +1,9 @@
+wbs:
+  chapter: "03"
+  title: "SUPPORT INFRA"
+  level: 2
+  packages:
+    - parent: WP-03-1000
+      children:
+        - id: WP-03-1100
+          title: "System Requirements"

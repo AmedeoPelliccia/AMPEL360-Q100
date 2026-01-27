@@ -1,0 +1,11 @@
+wbs:
+  chapter: "44"
+  title: "CABIN SYSTEMS"
+  level: 2
+  packages:
+    - parent: WP-44-1000
+      children:
+        - id: WP-44-1100
+          title: "System Requirements"
+        - id: WP-44-1200
+          title: "Interface Requirements"

@@ -1,0 +1,13 @@
+wbs:
+  chapter: "26"
+  title: "FIRE PROTECTION"
+  level: 1
+  packages:
+    - id: WP-26-1000
+      title: "Requirements Definition"
+    - id: WP-26-2000
+      title: "Design Definition"
+    - id: WP-26-3000
+      title: "Verification & Validation"
+    - id: WP-26-4000
+      title: "Certification"

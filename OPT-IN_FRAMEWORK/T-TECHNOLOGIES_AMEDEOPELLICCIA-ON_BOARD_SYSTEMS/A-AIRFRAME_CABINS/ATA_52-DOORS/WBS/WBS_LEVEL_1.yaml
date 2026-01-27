@@ -1,0 +1,13 @@
+wbs:
+  chapter: "52"
+  title: "DOORS"
+  level: 1
+  packages:
+    - id: WP-52-1000
+      title: "Requirements Definition"
+    - id: WP-52-2000
+      title: "Design Definition"
+    - id: WP-52-3000
+      title: "Verification & Validation"
+    - id: WP-52-4000
+      title: "Certification"
