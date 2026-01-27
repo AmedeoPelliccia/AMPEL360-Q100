@@ -33,17 +33,33 @@ Each contract defines:
 
 ## Contract Execution Model
 
-```
-┌─────────────────┐      ┌─────────────────┐      ┌─────────────────┐
-│  KDB Source     │      │  ASIT Pipeline  │      │  IDB Target     │
-│  Artifacts      │─────▶│  (Contract      │─────▶│  Publications   │
-│                 │      │   Executor)     │      │                 │
-└─────────────────┘      └─────────────────┘      └─────────────────┘
-        │                        │                        │
-        │                        │                        │
-        ▼                        ▼                        ▼
-   INPUT_MANIFEST          VALIDATION             OUTPUT_MANIFEST
-   TRACE_MATRIX            REPORT                 TRACE_MATRIX
+```mermaid
+flowchart LR
+  %% ===========================
+  %% KDB → ASIT → IDB pipeline
+  %% ===========================
+
+  %% Top pipeline (left-to-right)
+  subgraph PIPE[ ]
+    direction LR
+    KDB["**KDB Source**<br/>Artifacts"]
+    ASIT["**ASIT Pipeline**<br/>(Contract Executor)"]
+    IDB["**IDB Target**<br/>Publications"]
+    KDB --> ASIT --> IDB
+  end
+
+  %% Stage outputs (top-to-bottom)
+  KDB --> IN_MAN["INPUT_MANIFEST"]
+  KDB --> TR_IN["TRACE_MATRIX"]
+
+  ASIT --> VALREP["VALIDATION<br/>REPORT"]
+
+  IDB --> OUT_MAN["OUTPUT_MANIFEST"]
+  IDB --> TR_OUT["TRACE_MATRIX"]
+
+  %% Optional styling
+  classDef box fill:#0c1626,stroke:#3884ff,stroke-width:1px,color:#e6ebf2,rx:6,ry:6;
+  class KDB,ASIT,IDB,IN_MAN,TR_IN,VALREP,OUT_MAN,TR_OUT box;
 ```
 
 ---
