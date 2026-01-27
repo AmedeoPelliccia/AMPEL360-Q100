@@ -1,2 +1,0 @@
-knot_id,title,o_knot_ref,y_knot_ref,status,owner,residual_target
-KNOT-{{CHAPTER}}-{{SECTION}}-001,"{{CHAPTER_TITLE}} {{KNOT_TITLE}}",O-KNOT-{{CHAPTER}}-{{SECTION}}-001,Y-KNOT-{{CHAPTER}}-{{SECTION}}-001-001,PLANNING,{{OWNER}},{{RESIDUAL_TARGET}}

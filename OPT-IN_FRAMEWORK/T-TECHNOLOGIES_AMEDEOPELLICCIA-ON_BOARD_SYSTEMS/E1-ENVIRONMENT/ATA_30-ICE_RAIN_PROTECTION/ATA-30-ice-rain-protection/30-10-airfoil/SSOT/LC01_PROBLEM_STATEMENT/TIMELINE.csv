@@ -1,4 +1,0 @@
-Milestone_ID,KNOT_ID,Name,Date,Entry_Criteria,Exit_Criteria,Status,Dependencies
-MS-30-10-001,ALL,Airfoil Kickoff,2026-02-15,Program baseline approved,Kickoff complete; ownership assigned,PLANNED,
-MS-30-10-002,KNOT-30-10-001,Requirements Review,2026-04-30,Requirements draft complete,Requirements approved,PLANNED,MS-30-10-001
-MS-30-10-003,KNOT-30-10-001,Node Closure,2026-06-30,All KNOTs closed; residuals at target,Node closure approved,PLANNED,MS-30-10-002

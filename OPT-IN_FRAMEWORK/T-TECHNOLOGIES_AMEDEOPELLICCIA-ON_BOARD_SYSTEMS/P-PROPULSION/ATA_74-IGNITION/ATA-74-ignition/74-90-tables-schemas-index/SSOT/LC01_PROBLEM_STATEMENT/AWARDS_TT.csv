@@ -1,7 +1,0 @@
-timestamp,knot_id,knu_id,contributor_id,contributor_aor,effort_predicted,effort_actual,delta_residual_primary,delta_residual_adjacent_sum,weight,tokens_tt,tokens_deg,complexity_mult,bonus_mult,tx_id,validated_by
-# ═══════════════════════════════════════════════════════════════════════════════
-# AWARDS_TT.csv — ATA 74-90
-# ═══════════════════════════════════════════════════════════════════════════════
-# This ledger is populated upon KNOT closure with actual TT distributions.
-# Hash chain integrity: Each tx_id = SHA-256(previous_tx_id + row_data)
-# ═══════════════════════════════════════════════════════════════════════════════

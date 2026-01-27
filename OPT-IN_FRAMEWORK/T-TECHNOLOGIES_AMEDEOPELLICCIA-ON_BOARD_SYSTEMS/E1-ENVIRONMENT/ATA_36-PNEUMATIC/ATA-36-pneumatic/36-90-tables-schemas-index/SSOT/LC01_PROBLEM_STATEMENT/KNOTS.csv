@@ -1,2 +1,0 @@
-KNOT_ID,Title,Problem_Statement,Scope,Status,Owner_AoR,Stakeholders,Residual_Before,Residual_Target,Planned_KNU_Count,Dependencies,Target_Close_Date,Created_Date,Last_Updated
-KNOT-36-90-001,Tables Schemas Index Requirements,"System requirements for Tables Schemas Index are to be defined. Need to establish baseline specifications and compliance criteria.","In: System requirements. Out: Detailed design.",OPEN,STK_SE,"STK_SAF;STK_CERT;STK_CM",100,10,3,"",2026-06-30,2026-01-11,2026-01-11

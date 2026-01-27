@@ -1,2 +1,0 @@
-knot_id,title,status,owner,residual_before,residual_target,pool_tt
-KNOT-{{CHAPTER}}-{{SECTION}}-001,"{{KNOT_1_TITLE}}",PLANNING,{{OWNER}},100,{{RESIDUAL_TARGET}},{{KNOT_1_TT}}

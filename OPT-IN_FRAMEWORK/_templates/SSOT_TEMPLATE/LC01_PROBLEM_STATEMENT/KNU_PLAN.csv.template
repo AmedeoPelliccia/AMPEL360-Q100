@@ -1,2 +1,0 @@
-knu_id,knot_id,title,lifecycle_category,artifact_type,status,owner,priority,effort_predicted
-KNU-{{CHAPTER}}-{{SECTION}}-001-REQ-001,KNOT-{{CHAPTER}}-{{SECTION}}-001,"{{CHAPTER_TITLE}} Requirements",LC02,REQ,PLANNED,{{OWNER}},HIGH,8

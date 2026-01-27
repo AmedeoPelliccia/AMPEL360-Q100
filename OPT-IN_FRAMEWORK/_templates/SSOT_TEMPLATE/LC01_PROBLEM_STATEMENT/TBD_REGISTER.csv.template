@@ -1,2 +1,0 @@
-tbd_id,knu_id,description,owner,priority,status,target_date,confidence
-TBD-{{CHAPTER}}-{{SECTION}}-001-REQ-001-001,KNU-{{CHAPTER}}-{{SECTION}}-001-REQ-001,"{{TBD_DESCRIPTION}}",{{OWNER}},MEDIUM,OPEN,{{TARGET_DATE}},MEDIUM
