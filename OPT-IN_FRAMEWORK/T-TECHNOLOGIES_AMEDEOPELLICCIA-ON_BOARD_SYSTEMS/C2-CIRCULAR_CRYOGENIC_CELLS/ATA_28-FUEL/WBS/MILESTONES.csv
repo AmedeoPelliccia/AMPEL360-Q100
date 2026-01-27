@@ -17,6 +17,6 @@ MS-28-5.3,Management Qualification,Fuel Management Systems,WBS-28-5.0,28-50,2028
 MS-28-6.1,Safety PDR,Safety and Monitoring Systems,WBS-28-6.0,28-60,2026-09-30,PLANNED,,YES,30,0,STK_SF
 MS-28-6.2,Safety CDR,Safety and Monitoring Systems,WBS-28-6.0,28-60,2027-03-31,PLANNED,MS-28-6.1,YES,30,0,STK_SF
 MS-28-6.3,Safety Qualification,Safety and Monitoring Systems,WBS-28-6.0,28-60,2028-03-31,PLANNED,MS-28-6.2,YES,30,0,STK_TE
-MS-28-7.1,System Integration Test,System Integration and Certification,WBS-28-7.0,28-00,2028-06-30,PLANNED,"MS-28-1.3;MS-28-6.3",YES,33,0,STK_SE
+MS-28-7.1,System Integration Test,System Integration and Certification,WBS-28-7.0,28-00,2028-06-30,PLANNED,"MS-28-1.3|MS-28-6.3",YES,33,0,STK_SE
 MS-28-7.2,Ground Test Complete,System Integration and Certification,WBS-28-7.0,28-00,2028-12-31,PLANNED,MS-28-7.1,YES,33,0,STK_TE
 MS-28-7.3,Type Certification,System Integration and Certification,WBS-28-7.0,28-00,2029-12-31,PLANNED,MS-28-7.2,YES,34,0,STK_CT
