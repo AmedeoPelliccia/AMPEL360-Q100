@@ -118,7 +118,7 @@ transformation_rules:
       action: "include"
   
   # Aggregation Logic
-  aggregation:
+  aggregation_logic:
     method: "hierarchical"  # Values: hierarchical | flat | modular
     grouping_key: "ata_chapter"
     sort_order: "ascending"
