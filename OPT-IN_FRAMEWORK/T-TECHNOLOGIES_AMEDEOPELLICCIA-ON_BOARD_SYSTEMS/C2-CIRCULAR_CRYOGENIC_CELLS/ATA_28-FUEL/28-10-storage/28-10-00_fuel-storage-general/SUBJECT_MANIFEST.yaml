@@ -1,0 +1,148 @@
+# Subject Manifest — ATA-28-10-00 Fuel Storage General
+
+manifest_version: "1.0.0"
+subject_id: "ATA28-10-00"
+subject_title: "Fuel Storage General"
+ata_chapter: 28
+ata_section: "28-10"
+ata_subject: "28-10-00"
+created_date: "2026-01-27"
+last_updated: "2026-01-27"
+owner: "STK_SE"
+
+# Subject Scope
+scope:
+  description: "LH₂ cryogenic fuel storage system for AMPEL360 Q100 BWB zero-emission aircraft"
+  in_scope:
+    - "Cryogenic tank design and qualification"
+    - "Tank insulation systems (MLI)"
+    - "Fill/drain interfaces"
+    - "Pressure management"
+    - "Level and temperature sensing"
+    - "Tank safety case"
+    - "Certification strategy"
+  out_of_scope:
+    - "Fuel distribution (ATA 28-20)"
+    - "Fuel delivery to power plant (ATA 28-30)"
+    - "Ground support equipment design (ATA 85)"
+
+# Artifact Inventory
+inventory:
+  genesis:
+    o_knots: 6
+    y_knots: 6
+    status: "ACTIVE"
+  
+  kdb:
+    dev_artifacts: 5
+    lm_artifacts: 59
+    baseline_status: "FBL-28-10-001 ESTABLISHED"
+  
+  idb:
+    ops_artifacts: 12
+    pub_data_modules: 12
+    publication_status: "IN_DEVELOPMENT"
+  
+  contracts:
+    active_contracts: 4
+    execution_status: "OPERATIONAL"
+
+# Lifecycle Status
+lifecycle_status:
+  LC01_PROBLEM_STATEMENT:
+    status: "ACTIVE"
+    knots_open: 3
+    knots_closed: 2
+    knu_complete: 5
+    knu_in_progress: 14
+  
+  LC02_SYSTEM_REQUIREMENTS:
+    status: "IN_PROGRESS"
+    artifacts: 15
+    approved: 10
+    
+  LC03_SAFETY_RELIABILITY:
+    status: "IN_PROGRESS"
+    artifacts: 8
+    approved: 2
+    
+  LC04_DESIGN_DEFINITION:
+    status: "PLANNED"
+    artifacts: 12
+    approved: 0
+    
+  LC05_ANALYSIS_MODELS:
+    status: "IN_PROGRESS"
+    artifacts: 10
+    approved: 0
+    
+  LC06_INTEGRATION_TEST:
+    status: "PLANNED"
+    artifacts: 8
+    approved: 0
+    
+  LC08_CERTIFICATION:
+    status: "IN_PROGRESS"
+    artifacts: 6
+    approved: 0
+
+# Dependencies
+dependencies:
+  upstream:
+    - "TLAR (Top-Level Aircraft Requirements)"
+    - "CS-25 Regulations"
+    - "Special Conditions SC-H2-001"
+  
+  downstream:
+    - "ATA 28-20 Distribution"
+    - "ATA 28-30 Delivery"
+    - "ATA 71 Power Plant"
+    - "ATA 85 Fuel Cell Infrastructure"
+  
+  interfaces:
+    - { ata: "21", system: "Air Conditioning", interface: "Thermal management" }
+    - { ata: "24", system: "Electrical Power", interface: "Valve actuation" }
+    - { ata: "31", system: "Indicating", interface: "Flight deck display" }
+    - { ata: "42", system: "IMA", interface: "Data bus" }
+
+# Key Metrics
+metrics:
+  uncertainty_reduction:
+    initial_residual: 500
+    current_residual: 415
+    target_residual: 50
+    reduction_percentage: 17
+  
+  artifact_completion:
+    total_planned: 59
+    complete: 10
+    in_progress: 20
+    planned: 29
+    completion_percentage: 17
+  
+  token_allocation:
+    total_tt: 702
+    distributed_tt: 120
+    remaining_tt: 582
+
+# Quality Status
+quality:
+  schema_validation: "PASSING"
+  traceability_audit: "COMPLETE"
+  brex_compliance: "PASSING"
+  review_status: "ON_TRACK"
+
+# Milestones
+milestones:
+  - { id: "MS-28-10-PDR", name: "Preliminary Design Review", target: "2026-Q3", status: "PLANNED" }
+  - { id: "MS-28-10-CDR", name: "Critical Design Review", target: "2027-Q1", status: "PLANNED" }
+  - { id: "MS-28-10-TRR", name: "Test Readiness Review", target: "2027-Q4", status: "PLANNED" }
+  - { id: "MS-28-10-QUAL", name: "Qualification Complete", target: "2028-Q2", status: "PLANNED" }
+
+# Contacts
+contacts:
+  - { role: "Subject Owner", stakeholder: "STK_SE", email: "systems@ampel360.eu" }
+  - { role: "Safety Lead", stakeholder: "STK_SF", email: "safety@ampel360.eu" }
+  - { role: "Design Lead", stakeholder: "STK_DE", email: "design@ampel360.eu" }
+  - { role: "Test Lead", stakeholder: "STK_TE", email: "test@ampel360.eu" }
+  - { role: "Certification Lead", stakeholder: "STK_CT", email: "cert@ampel360.eu" }

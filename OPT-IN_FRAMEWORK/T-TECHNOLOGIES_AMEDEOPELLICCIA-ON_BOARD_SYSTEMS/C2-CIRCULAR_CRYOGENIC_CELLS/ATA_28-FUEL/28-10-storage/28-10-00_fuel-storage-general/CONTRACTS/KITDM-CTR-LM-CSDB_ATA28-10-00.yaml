@@ -1,0 +1,172 @@
+# KITDM Contract: KDB to CSDB Transformation
+# ATA-28-10-00 Fuel Storage General
+
+contract_id: "KITDM-CTR-LM-CSDB_ATA28-10-00"
+contract_version: "1.0.0"
+contract_status: "ACTIVE"
+created_date: "2026-01-27"
+last_updated: "2026-01-27"
+author: "STK_CM"
+
+# Contract Metadata
+metadata:
+  subject: "ATA28-10-00_fuel-storage-general"
+  description: "Governs transformation of KDB knowledge artifacts to S1000D CSDB data modules"
+  authority: "STK_PB"
+  approval_date: "2026-01-27"
+  review_cycle: "6 months"
+
+# Input Specification
+input:
+  source_path: "KDB/LM/SSOT/PLM/"
+  artifact_types:
+    - lifecycle: "LC02"
+      packages: ["REQ", "ICD"]
+      transforms_to: ["description_dm", "ipc_dm"]
+    - lifecycle: "LC04"
+      packages: ["DESIGN"]
+      transforms_to: ["description_dm", "ipc_dm"]
+    - lifecycle: "LC13"
+      packages: ["Maintenance_Source/AMM_TASKS"]
+      transforms_to: ["proced_dm", "fault_dm"]
+    - lifecycle: "LC13"
+      packages: ["Repair_Source/SRM_REPAIRS"]
+      transforms_to: ["repair_dm"]
+  
+  selection_criteria:
+    status: ["APPROVED", "RELEASED"]
+    baseline_required: true
+    min_confidence: 0.85
+
+# Output Specification
+output:
+  target_path: "IDB/PUB/AMM/CSDB/"
+  publication_types:
+    - type: "DM"
+      path: "DM/"
+      schema: "S1000D Issue 5.0"
+    - type: "PM"
+      path: "PM/"
+      schema: "S1000D Issue 5.0"
+    - type: "DML"
+      path: "DML/"
+      schema: "S1000D Issue 5.0"
+  
+  naming_convention:
+    dmc_format: "DMC-AMPEL360-28-{SS}-{SU}-{SB}{SX}-{AAA}{V}-{LC}"
+    issue_format: "NNN"
+
+# Transformation Rules
+transformation:
+  rules:
+    - name: "requirements_to_description"
+      input_type: "REQ"
+      output_type: "description_dm"
+      info_codes: ["001A", "040A"]
+      mapping:
+        - source: "requirement.title"
+          target: "dm.title"
+        - source: "requirement.description"
+          target: "dm.content"
+        - source: "requirement.rationale"
+          target: "dm.remarks"
+    
+    - name: "maintenance_to_procedure"
+      input_type: "AMM_TASK"
+      output_type: "proced_dm"
+      info_codes: ["200A", "300A", "500A"]
+      mapping:
+        - source: "task.title"
+          target: "dm.title"
+        - source: "task.steps"
+          target: "dm.procedureSteps"
+        - source: "task.warnings"
+          target: "dm.warningsAndCautions"
+        - source: "task.tools"
+          target: "dm.supportEquipDescr"
+
+  metadata_enrichment:
+    confidence_threshold: 0.85
+    source_tracking: true
+    span_referencing: true
+    
+  safety_handling:
+    safety_critical_review: true
+    auto_accept_threshold: 0.90
+    mandatory_hitl:
+      - "Part numbers"
+      - "Torque specifications"
+      - "Pressure values"
+      - "Temperature limits"
+      - "Safety warnings"
+
+# Validation Requirements
+validation:
+  pre_transform:
+    - check: "input_baseline_exists"
+      required: true
+    - check: "input_schema_valid"
+      required: true
+    - check: "source_traceability_complete"
+      required: true
+  
+  post_transform:
+    - check: "s1000d_schema_valid"
+      required: true
+    - check: "brex_compliant"
+      brex_ref: "DMC-AMPEL360-00-00-00-00A-022A-A"
+      required: true
+    - check: "dmc_unique"
+      required: true
+    - check: "trace_matrix_complete"
+      required: true
+    - check: "applicability_valid"
+      required: true
+
+# Traceability Requirements
+traceability:
+  required_links:
+    - direction: "upstream"
+      source: "dm"
+      target: "kdb_artifact"
+      relationship: "derives-from"
+    - direction: "downstream"
+      source: "dm"
+      target: "export"
+      relationship: "publishes-to"
+  
+  audit_requirements:
+    log_all_transforms: true
+    preserve_input_snapshot: true
+    generate_trace_matrix: true
+    retention_period: "10 years"
+
+# Execution Configuration
+execution:
+  mode: "batch"
+  schedule: "on_baseline_release"
+  parallel_execution: true
+  max_concurrent: 4
+  retry_policy:
+    max_retries: 3
+    backoff: "exponential"
+  
+  notifications:
+    on_success: ["STK_PB", "STK_CM"]
+    on_failure: ["STK_PB", "STK_CM", "STK_SE"]
+    on_validation_warning: ["STK_PB"]
+
+# Acceptance Criteria
+acceptance:
+  criteria:
+    - "All output DMs pass S1000D schema validation"
+    - "All output DMs pass BREX validation"
+    - "Trace matrix shows 100% input→output coverage"
+    - "No orphaned outputs (all DMs trace to KDB source)"
+    - "Confidence scores meet threshold (≥0.85)"
+  
+  evidence_required:
+    - "VALIDATION_REPORT.json"
+    - "TRACE_MATRIX.csv"
+    - "BREX_REPORT.xml"
+    - "METRICS.json"
