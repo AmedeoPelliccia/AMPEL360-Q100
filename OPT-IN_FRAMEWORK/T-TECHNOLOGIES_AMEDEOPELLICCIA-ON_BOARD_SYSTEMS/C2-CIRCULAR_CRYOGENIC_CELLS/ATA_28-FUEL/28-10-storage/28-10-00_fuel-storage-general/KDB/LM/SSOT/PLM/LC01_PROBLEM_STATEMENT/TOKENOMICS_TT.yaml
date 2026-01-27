@@ -1,0 +1,99 @@
+# ATA-28-10-00 Fuel Storage Tokenomics
+
+# Teknia Token allocation for KNOT closure
+# AMPEL360 Q100 100-PAX BWB Zero-Emission Aircraft
+
+tokenomics_version: "1.0.0"
+subject: "ATA28-10-00_fuel-storage-general"
+created_date: "2026-01-27"
+last_updated: "2026-01-27"
+author: "STK_PM"
+
+# Aggregate Token Pool
+aggregate_pool:
+  total_tt: 650
+  complexity_factor: "HIGH"
+  safety_factor: "CRITICAL"
+  lambda_spillover: 0.45  # Cross-KNOT contribution factor
+
+# KNOT-specific Allocations
+knot_pools:
+
+  - knot_id: "KNOT-ATA28-10-00-001"
+    title: "Cryogenic Tank Design Specification"
+    base_tt: 150
+    complexity_multiplier: 1.2
+    safety_multiplier: 1.3
+    effective_tt: 234
+    distribution:
+      LC02_REQ: 40
+      LC04_DES: 100
+      LC05_ANA: 50
+      LC06_TST: 44
+
+  - knot_id: "KNOT-ATA28-10-00-002"
+    title: "Tank Safety Case Development"
+    base_tt: 120
+    complexity_multiplier: 1.0
+    safety_multiplier: 1.5
+    effective_tt: 180
+    distribution:
+      LC03_SAF: 120
+      LC08_CRT: 60
+
+  - knot_id: "KNOT-ATA28-10-00-003"
+    title: "Insulation System Performance"
+    base_tt: 80
+    complexity_multiplier: 1.1
+    safety_multiplier: 1.0
+    effective_tt: 88
+    distribution:
+      LC05_ANA: 50
+      LC06_TST: 38
+
+  - knot_id: "KNOT-ATA28-10-00-004"
+    title: "Structural Qualification Plan"
+    base_tt: 100
+    complexity_multiplier: 1.0
+    safety_multiplier: 1.2
+    effective_tt: 120
+    distribution:
+      LC06_TST: 80
+      LC08_CRT: 40
+
+  - knot_id: "KNOT-ATA28-10-00-005"
+    title: "Certification Strategy"
+    base_tt: 80
+    complexity_multiplier: 1.0
+    safety_multiplier: 1.0
+    effective_tt: 80
+    distribution:
+      LC08_CRT: 80
+
+# Distribution Formula
+# w_i = α·Ê_i + (1-α)·Î_i
+# T_i = P_k · w_i
+formula:
+  alpha: 0.6  # Effort weight
+  one_minus_alpha: 0.4  # Impact weight
+  description: "Weighted combination of normalized effort and impact scores"
+
+# HITL Configuration (High criticality for LH₂)
+hitl_config:
+  auto_accept_threshold: 0.90
+  mandatory_review_threshold: 0.70
+  safety_critical: true
+  always_review:
+    - "Part numbers"
+    - "Torque specifications"
+    - "Pressure ratings"
+    - "Temperature limits"
+    - "Safety-critical procedures"
+
+# Summary
+summary:
+  total_knots: 5
+  total_base_tt: 530
+  total_effective_tt: 702
+  complexity_average: "HIGH"
+  safety_classification: "CRITICAL"

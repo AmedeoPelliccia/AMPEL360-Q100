@@ -1,0 +1,22 @@
+milestone_id,title,work_package,wbs_id,ata_section,target_date,status,dependencies,critical_path,budget_tt,progress_pct,owner
+MS-28-1.1,Tank PDR,Fuel Storage Systems,WBS-28-1.0,28-10,2026-09-30,PLANNED,,YES,50,0,STK_DE
+MS-28-1.2,Tank CDR,Fuel Storage Systems,WBS-28-1.0,28-10,2027-03-31,PLANNED,MS-28-1.1,YES,50,0,STK_DE
+MS-28-1.3,Tank Qualification,Fuel Storage Systems,WBS-28-1.0,28-10,2028-06-30,PLANNED,MS-28-1.2,YES,50,0,STK_TE
+MS-28-2.1,Distribution PDR,Fuel Distribution Systems,WBS-28-2.0,28-20,2026-09-30,PLANNED,,NO,33,0,STK_DE
+MS-28-2.2,Distribution CDR,Fuel Distribution Systems,WBS-28-2.0,28-20,2027-03-31,PLANNED,MS-28-2.1,NO,33,0,STK_DE
+MS-28-2.3,Distribution Qualification,Fuel Distribution Systems,WBS-28-2.0,28-20,2028-06-30,PLANNED,MS-28-2.2,NO,34,0,STK_TE
+MS-28-3.1,Delivery PDR,Fuel Delivery Systems,WBS-28-3.0,28-30,2026-12-31,PLANNED,MS-28-1.1,NO,27,0,STK_DE
+MS-28-3.2,Delivery CDR,Fuel Delivery Systems,WBS-28-3.0,28-30,2027-06-30,PLANNED,MS-28-3.1,NO,27,0,STK_DE
+MS-28-3.3,Delivery Qualification,Fuel Delivery Systems,WBS-28-3.0,28-30,2028-09-30,PLANNED,MS-28-3.2,NO,26,0,STK_TE
+MS-28-4.1,Indicating PDR,Fuel Indicating Systems,WBS-28-4.0,28-40,2026-12-31,PLANNED,,NO,20,0,STK_DE
+MS-28-4.2,Indicating CDR,Fuel Indicating Systems,WBS-28-4.0,28-40,2027-06-30,PLANNED,MS-28-4.1,NO,20,0,STK_DE
+MS-28-4.3,Indicating Qualification,Fuel Indicating Systems,WBS-28-4.0,28-40,2028-06-30,PLANNED,MS-28-4.2,NO,20,0,STK_TE
+MS-28-5.1,Management PDR,Fuel Management Systems,WBS-28-5.0,28-50,2027-03-31,PLANNED,MS-28-4.1,NO,23,0,STK_DE
+MS-28-5.2,Management CDR,Fuel Management Systems,WBS-28-5.0,28-50,2027-09-30,PLANNED,MS-28-5.1,NO,23,0,STK_DE
+MS-28-5.3,Management Qualification,Fuel Management Systems,WBS-28-5.0,28-50,2028-09-30,PLANNED,MS-28-5.2,NO,24,0,STK_TE
+MS-28-6.1,Safety PDR,Safety and Monitoring Systems,WBS-28-6.0,28-60,2026-09-30,PLANNED,,YES,30,0,STK_SF
+MS-28-6.2,Safety CDR,Safety and Monitoring Systems,WBS-28-6.0,28-60,2027-03-31,PLANNED,MS-28-6.1,YES,30,0,STK_SF
+MS-28-6.3,Safety Qualification,Safety and Monitoring Systems,WBS-28-6.0,28-60,2028-03-31,PLANNED,MS-28-6.2,YES,30,0,STK_TE
+MS-28-7.1,System Integration Test,System Integration and Certification,WBS-28-7.0,28-00,2028-06-30,PLANNED,"MS-28-1.3|MS-28-6.3",YES,33,0,STK_SE
+MS-28-7.2,Ground Test Complete,System Integration and Certification,WBS-28-7.0,28-00,2028-12-31,PLANNED,MS-28-7.1,YES,33,0,STK_TE
+MS-28-7.3,Type Certification,System Integration and Certification,WBS-28-7.0,28-00,2029-12-31,PLANNED,MS-28-7.2,YES,34,0,STK_CT

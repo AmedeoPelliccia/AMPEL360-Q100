@@ -1,10 +1,122 @@
-ssot:
-  chapter: "28"
-  title: "FUEL"
-  sources:
-    - type: "Requirements"
-      location: "KDB/LM/SSOT/PLM/LC02"
-    - type: "Design"
-      location: "KDB/LM/SSOT/PLM/LC04"
-    - type: "Test"
-      location: "KDB/LM/SSOT/PLM/LC06"
+# ATA-28 SSOT Index
+
+# Single Source of Truth registry for ATA-28 Fuel Systems
+# AMPEL360 Q100 100-PAX BWB Zero-Emission Aircraft
+
+ssot_version: "1.0.0"
+ata_chapter: 28
+system_name: "Fuel Systems (LH₂)"
+created_date: "2026-01-27"
+last_updated: "2026-01-27"
+author: "STK_CM"
+
+# Registry of all authoritative source locations
+authoritative_sources:
+
+  # GENESIS Layer - Uncertainty Space
+  genesis:
+    - id: "GENESIS-28-10"
+      location: "28-10-storage/GENESIS/"
+      description: "Fuel storage uncertainty discovery"
+      authority: "STK_SE"
+      baseline_status: "NOT_BASELINED"
+
+  # KDB/SSOT/PLM - Product Lifecycle Management
+  kdb_plm:
+    - id: "KDB-28-LC01"
+      location: "28-10-storage/28-10-00_fuel-storage-general/KDB/LM/SSOT/PLM/LC01_PROBLEM_STATEMENT/"
+      description: "Problem statement and KNOT orchestration"
+      authority: "STK_SE"
+      baseline_status: "BASELINED"
+      
+    - id: "KDB-28-LC02"
+      location: "28-10-storage/28-10-00_fuel-storage-general/KDB/LM/SSOT/PLM/LC02_SYSTEM_REQUIREMENTS/"
+      description: "System requirements for LH₂ storage"
+      authority: "STK_SE"
+      baseline_status: "BASELINED"
+      
+    - id: "KDB-28-LC03"
+      location: "28-10-storage/28-10-00_fuel-storage-general/KDB/LM/SSOT/PLM/LC03_SAFETY_RELIABILITY/"
+      description: "Safety and reliability analysis"
+      authority: "STK_SF"
+      baseline_status: "BASELINED"
+      
+    - id: "KDB-28-LC04"
+      location: "28-10-storage/28-10-00_fuel-storage-general/KDB/LM/SSOT/PLM/LC04_DESIGN_DEFINITION_DMU/"
+      description: "Design definition and DMU"
+      authority: "STK_DE"
+      baseline_status: "BASELINED"
+      
+    - id: "KDB-28-LC05"
+      location: "28-10-storage/28-10-00_fuel-storage-general/KDB/LM/SSOT/PLM/LC05_ANALYSIS_MODELS_CAE/"
+      description: "Analysis models and CAE"
+      authority: "STK_AN"
+      baseline_status: "BASELINED"
+      
+    - id: "KDB-28-LC06"
+      location: "28-10-storage/28-10-00_fuel-storage-general/KDB/LM/SSOT/PLM/LC06_INTEGRATION_TEST_PMU/"
+      description: "Integration test and PMU"
+      authority: "STK_TE"
+      baseline_status: "BASELINED"
+      
+    - id: "KDB-28-LC08"
+      location: "28-10-storage/28-10-00_fuel-storage-general/KDB/LM/SSOT/PLM/LC08_FLIGHT_TEST_CERTIFICATION/"
+      description: "Certification and flight test"
+      authority: "STK_CT"
+      baseline_status: "BASELINED"
+
+  # IDB/OPS/LM - Service Lifecycle Management
+  idb_ops:
+    - id: "IDB-28-LC11"
+      location: "28-10-storage/28-10-00_fuel-storage-general/IDB/OPS/LM/LC11_OPERATIONS_CUSTOMIZATION/"
+      description: "Operator customization"
+      authority: "STK_OP"
+      baseline_status: "BASELINED"
+      
+    - id: "IDB-28-LC12"
+      location: "28-10-storage/28-10-00_fuel-storage-general/IDB/OPS/LM/LC12_SUPPORT_SERVICES/"
+      description: "Support services"
+      authority: "STK_SS"
+      baseline_status: "BASELINED"
+      
+    - id: "IDB-28-LC13"
+      location: "28-10-storage/28-10-00_fuel-storage-general/IDB/OPS/LM/LC13_MRO_SUSTAINMENT/"
+      description: "MRO and sustainment"
+      authority: "STK_MR"
+      baseline_status: "BASELINED"
+      
+    - id: "IDB-28-LC14"
+      location: "28-10-storage/28-10-00_fuel-storage-general/IDB/OPS/LM/LC14_RETIREMENT_CIRCULARITY/"
+      description: "Retirement and circularity"
+      authority: "STK_ES"
+      baseline_status: "BASELINED"
+
+  # IDB/PUB - Publications
+  idb_pub:
+    - id: "PUB-28-AMM"
+      location: "28-10-storage/28-10-00_fuel-storage-general/IDB/PUB/AMM/CSDB/"
+      description: "Aircraft Maintenance Manual CSDB"
+      authority: "STK_PB"
+      baseline_status: "BASELINED"
+      s1000d_compliant: true
+      
+    - id: "PUB-28-IPC"
+      location: "28-10-storage/28-10-00_fuel-storage-general/IDB/PUB/IPC/CSDB/"
+      description: "Illustrated Parts Catalog CSDB"
+      authority: "STK_PB"
+      baseline_status: "BASELINED"
+      s1000d_compliant: true
+      
+    - id: "PUB-28-SRM"
+      location: "28-10-storage/28-10-00_fuel-storage-general/IDB/PUB/SRM/CSDB/"
+      description: "Structural Repair Manual CSDB"
+      authority: "STK_PB"
+      baseline_status: "BASELINED"
+      s1000d_compliant: true
+
+# Traceability chain summary
+traceability_chain:
+  genesis_to_kdb: "O-KNOT/Y-KNOT → KNOT → KNU"
+  kdb_to_idb: "CONTRACTS/KITDM-CTR-* → ASIT pipeline"
+  pub_standard: "S1000D Issue 5.0"
+  brex_reference: "DMC-AMPEL360-00-00-00-00A-022A-A"

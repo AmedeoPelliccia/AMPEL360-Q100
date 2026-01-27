@@ -1,0 +1,119 @@
+# IDB Publication Manifest
+# ATA-28-10-00 Fuel Storage General
+
+manifest_version: "1.0.0"
+subject: "ATA28-10-00_fuel-storage-general"
+created_date: "2026-01-27"
+last_updated: "2026-01-27"
+baseline_ref: "DBL-28-10-001"
+
+# Publication Status Summary
+summary:
+  total_publications: 4
+  total_data_modules: 12
+  s1000d_issue: "5.0"
+  brex_version: "DMC-AMPEL360-00-00-00-00A-022A-A"
+
+# Publications
+publications:
+
+  - publication_id: "PUB-28-AMM"
+    title: "Aircraft Maintenance Manual - ATA 28 Fuel Storage"
+    type: "AMM"
+    status: "IN_DEVELOPMENT"
+    version: "0.1.0"
+    data_modules:
+      - dmc: "DMC-AMPEL360-28-10-00-00A-001A-A"
+        title: "LH₂ Fuel Storage System Description"
+        info_code: "001A"
+        status: "DRAFT"
+        
+      - dmc: "DMC-AMPEL360-28-10-00-00A-040A-A"
+        title: "LH₂ Fuel Storage Detailed Description"
+        info_code: "040A"
+        status: "PLANNED"
+        
+      - dmc: "DMC-AMPEL360-28-10-00-00A-200A-A"
+        title: "LH₂ Tank Servicing Procedure"
+        info_code: "200A"
+        status: "DRAFT"
+        
+      - dmc: "DMC-AMPEL360-28-10-00-00A-300A-A"
+        title: "LH₂ Tank Fault Isolation"
+        info_code: "300A"
+        status: "PLANNED"
+        
+      - dmc: "DMC-AMPEL360-28-10-00-00A-500A-A"
+        title: "LH₂ Tank Inspection"
+        info_code: "500A"
+        status: "PLANNED"
+        
+      - dmc: "DMC-AMPEL360-28-10-00-00A-600A-A"
+        title: "LH₂ Tank Removal/Installation"
+        info_code: "600A"
+        status: "PLANNED"
+
+  - publication_id: "PUB-28-IPC"
+    title: "Illustrated Parts Catalog - ATA 28 Fuel Storage"
+    type: "IPC"
+    status: "PLANNED"
+    version: "0.0.0"
+    data_modules:
+      - dmc: "DMC-AMPEL360-28-10-00-00A-941A-A"
+        title: "LH₂ Tank Parts List"
+        info_code: "941A"
+        status: "PLANNED"
+
+  - publication_id: "PUB-28-SRM"
+    title: "Structural Repair Manual - ATA 28 Fuel Storage"
+    type: "SRM"
+    status: "PLANNED"
+    version: "0.0.0"
+    data_modules:
+      - dmc: "DMC-AMPEL360-28-10-00-00A-720A-A"
+        title: "LH₂ Tank Structural Repair"
+        info_code: "720A"
+        status: "PLANNED"
+
+  - publication_id: "PUB-28-CMM"
+    title: "Component Maintenance Manual - ATA 28 Fuel Storage"
+    type: "CMM"
+    status: "PLANNED"
+    version: "0.0.0"
+    data_modules:
+      - dmc: "DMC-AMPEL360-28-10-00-00A-800A-A"
+        title: "LH₂ Tank Overhaul"
+        info_code: "800A"
+        status: "PLANNED"
+
+# Applicability Configuration
+applicability:
+  aircraft_models:
+    - model: "Q100"
+      serial_range: "Q100-001:Q100-999"
+      configurations: ["BASELINE", "OPTION_A", "OPTION_B"]
+  
+  effectivity_scheme: "serial_number"
+  act_ref: "ACT-AMPEL360-Q100"
+  pct_ref: "PCT-AMPEL360-Q100"
+
+# Export Formats Available
+exports:
+  - format: "PDF"
+    status: "CONFIGURED"
+    output_path: "EXPORT/PDF/"
+    
+  - format: "HTML"
+    status: "CONFIGURED"
+    output_path: "EXPORT/HTML/"
+    
+  - format: "IETP"
+    status: "CONFIGURED"
+    output_path: "IETP_RUNTIME/"
+
+# Quality Metrics
+quality:
+  schema_validation: "PASSING"
+  brex_validation: "PASSING"
+  completeness: 25  # % of planned DMs complete
+  review_status: "IN_PROGRESS"

@@ -1,13 +1,141 @@
-wbs:
-  chapter: "28"
-  title: "FUEL"
-  level: 1
-  packages:
-    - id: WP-28-1000
-      title: "Requirements Definition"
-    - id: WP-28-2000
-      title: "Design Definition"
-    - id: WP-28-3000
-      title: "Verification & Validation"
-    - id: WP-28-4000
-      title: "Certification"
+# ATA-28 Work Breakdown Structure — Level 1
+
+# Top-level work packages for ATA-28 Fuel Systems
+# AMPEL360 Q100 100-PAX BWB Zero-Emission Aircraft
+
+wbs_version: "1.0.0"
+ata_chapter: 28
+system_name: "Fuel Systems (LH₂)"
+created_date: "2026-01-27"
+last_updated: "2026-01-27"
+author: "STK_SE"
+
+work_packages:
+
+  - wbs_id: "WBS-28-1.0"
+    title: "Fuel Storage Systems"
+    description: "LH₂ cryogenic storage tank design, development, and qualification"
+    ata_section: "28-10"
+    deliverables:
+      - "Cryogenic tank design specification"
+      - "Tank structural analysis"
+      - "MLI insulation system design"
+      - "Boil-off management system"
+      - "Fill/drain interface design"
+    milestones:
+      - { id: "MS-28-1.1", name: "Tank PDR", target: "2026-Q3" }
+      - { id: "MS-28-1.2", name: "Tank CDR", target: "2027-Q1" }
+      - { id: "MS-28-1.3", name: "Tank Qualification", target: "2028-Q2" }
+    budget_tt: 150
+    complexity: "HIGH"
+    safety_critical: true
+
+  - wbs_id: "WBS-28-2.0"
+    title: "Fuel Distribution Systems"
+    description: "LH₂ distribution network including lines, valves, and heat exchangers"
+    ata_section: "28-20"
+    deliverables:
+      - "Distribution line design"
+      - "Cryogenic valve specifications"
+      - "Heat exchanger design"
+      - "Pump system design"
+    milestones:
+      - { id: "MS-28-2.1", name: "Distribution PDR", target: "2026-Q3" }
+      - { id: "MS-28-2.2", name: "Distribution CDR", target: "2027-Q1" }
+      - { id: "MS-28-2.3", name: "Distribution Qualification", target: "2028-Q2" }
+    budget_tt: 100
+    complexity: "HIGH"
+    safety_critical: true
+
+  - wbs_id: "WBS-28-3.0"
+    title: "Fuel Delivery Systems"
+    description: "Fuel cell interface and flow control systems"
+    ata_section: "28-30"
+    deliverables:
+      - "Fuel cell interface design"
+      - "Flow control system"
+      - "Emergency shutoff system"
+      - "Venting system design"
+    milestones:
+      - { id: "MS-28-3.1", name: "Delivery PDR", target: "2026-Q4" }
+      - { id: "MS-28-3.2", name: "Delivery CDR", target: "2027-Q2" }
+      - { id: "MS-28-3.3", name: "Delivery Qualification", target: "2028-Q3" }
+    budget_tt: 80
+    complexity: "HIGH"
+    safety_critical: true
+
+  - wbs_id: "WBS-28-4.0"
+    title: "Fuel Indicating Systems"
+    description: "Instrumentation for quantity, temperature, and pressure measurement"
+    ata_section: "28-40"
+    deliverables:
+      - "Quantity measurement system"
+      - "Temperature sensing system"
+      - "Pressure measurement system"
+      - "Flight deck display integration"
+    milestones:
+      - { id: "MS-28-4.1", name: "Indicating PDR", target: "2026-Q4" }
+      - { id: "MS-28-4.2", name: "Indicating CDR", target: "2027-Q2" }
+      - { id: "MS-28-4.3", name: "Indicating Qualification", target: "2028-Q2" }
+    budget_tt: 60
+    complexity: "MEDIUM"
+    safety_critical: false
+
+  - wbs_id: "WBS-28-5.0"
+    title: "Fuel Management Systems"
+    description: "CG management, fuel planning, and transfer control"
+    ata_section: "28-50"
+    deliverables:
+      - "CG management system"
+      - "Fuel planning algorithms"
+      - "Transfer control logic"
+      - "FMS integration"
+    milestones:
+      - { id: "MS-28-5.1", name: "Management PDR", target: "2027-Q1" }
+      - { id: "MS-28-5.2", name: "Management CDR", target: "2027-Q3" }
+      - { id: "MS-28-5.3", name: "Management Qualification", target: "2028-Q3" }
+    budget_tt: 70
+    complexity: "MEDIUM"
+    safety_critical: false
+
+  - wbs_id: "WBS-28-6.0"
+    title: "Safety and Monitoring Systems"
+    description: "H₂ leak detection, fire protection integration, and health monitoring"
+    ata_section: "28-60"
+    deliverables:
+      - "H₂ leak detection system"
+      - "Fire detection integration"
+      - "Automatic isolation system"
+      - "Health monitoring system"
+    milestones:
+      - { id: "MS-28-6.1", name: "Safety PDR", target: "2026-Q3" }
+      - { id: "MS-28-6.2", name: "Safety CDR", target: "2027-Q1" }
+      - { id: "MS-28-6.3", name: "Safety Qualification", target: "2028-Q1" }
+    budget_tt: 90
+    complexity: "HIGH"
+    safety_critical: true
+
+  - wbs_id: "WBS-28-7.0"
+    title: "System Integration and Certification"
+    description: "System-level integration, certification activities, and flight test support"
+    ata_section: "28-00"
+    deliverables:
+      - "System integration test plan"
+      - "Certification plan"
+      - "Means of compliance"
+      - "Flight test support"
+    milestones:
+      - { id: "MS-28-7.1", name: "System Integration Test", target: "2028-Q2" }
+      - { id: "MS-28-7.2", name: "Ground Test Complete", target: "2028-Q4" }
+      - { id: "MS-28-7.3", name: "Type Certification", target: "2029-Q4" }
+    budget_tt: 100
+    complexity: "HIGH"
+    safety_critical: true
+
+# Summary Totals
+summary:
+  total_work_packages: 7
+  total_budget_tt: 650
+  safety_critical_packages: 5
+  high_complexity_packages: 5
+  medium_complexity_packages: 2
