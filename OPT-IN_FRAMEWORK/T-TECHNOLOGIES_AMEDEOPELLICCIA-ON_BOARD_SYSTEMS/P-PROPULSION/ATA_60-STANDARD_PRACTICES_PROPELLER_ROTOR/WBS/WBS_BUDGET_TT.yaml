@@ -1,0 +1,13 @@
+budget:
+  chapter: "60"
+  title: "STANDARD PRACTICES PROPELLER ROTOR"
+  total_tt: 500
+  allocation:
+    - wbs_id: WP-60-1000
+      tt_budget: 150
+    - wbs_id: WP-60-2000
+      tt_budget: 150
+    - wbs_id: WP-60-3000
+      tt_budget: 125
+    - wbs_id: WP-60-4000
+      tt_budget: 75

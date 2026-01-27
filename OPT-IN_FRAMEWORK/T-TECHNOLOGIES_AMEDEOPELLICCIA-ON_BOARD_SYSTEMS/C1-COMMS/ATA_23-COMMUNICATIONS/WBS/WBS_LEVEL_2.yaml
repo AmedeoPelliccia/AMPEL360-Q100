@@ -1,0 +1,11 @@
+wbs:
+  chapter: "23"
+  title: "COMMUNICATIONS"
+  level: 2
+  packages:
+    - parent: WP-23-1000
+      children:
+        - id: WP-23-1100
+          title: "System Requirements"
+        - id: WP-23-1200
+          title: "Interface Requirements"

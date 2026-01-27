@@ -1,0 +1,11 @@
+wbs:
+  chapter: "27"
+  title: "FLIGHT CONTROLS"
+  level: 2
+  packages:
+    - parent: WP-27-1000
+      children:
+        - id: WP-27-1100
+          title: "System Requirements"
+        - id: WP-27-1200
+          title: "Interface Requirements"

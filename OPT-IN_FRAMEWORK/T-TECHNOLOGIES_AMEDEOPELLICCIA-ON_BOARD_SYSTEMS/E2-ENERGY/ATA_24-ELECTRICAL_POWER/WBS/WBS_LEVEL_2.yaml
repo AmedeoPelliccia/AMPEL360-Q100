@@ -1,0 +1,11 @@
+wbs:
+  chapter: "24"
+  title: "ELECTRICAL POWER"
+  level: 2
+  packages:
+    - parent: WP-24-1000
+      children:
+        - id: WP-24-1100
+          title: "System Requirements"
+        - id: WP-24-1200
+          title: "Interface Requirements"

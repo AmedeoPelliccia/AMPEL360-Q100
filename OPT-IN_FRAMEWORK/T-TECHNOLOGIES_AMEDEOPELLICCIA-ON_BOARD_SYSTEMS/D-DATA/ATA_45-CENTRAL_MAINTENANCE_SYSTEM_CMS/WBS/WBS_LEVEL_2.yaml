@@ -1,0 +1,11 @@
+wbs:
+  chapter: "45"
+  title: "CENTRAL MAINTENANCE SYSTEM CMS"
+  level: 2
+  packages:
+    - parent: WP-45-1000
+      children:
+        - id: WP-45-1100
+          title: "System Requirements"
+        - id: WP-45-1200
+          title: "Interface Requirements"

@@ -1,0 +1,27 @@
+# WBS Level 1 — ATA 07 (LIFTING AND SHORING)
+# Top-level work packages (major deliverables)
+
+wbs:
+  chapter: "07"
+  title: "LIFTING AND SHORING"
+  level: 1
+  packages:
+    - id: WP-07-1000
+      title: "Requirements Definition"
+      description: "System requirements specification"
+      owner: TBD
+      
+    - id: WP-07-2000
+      title: "Design Definition"
+      description: "System design documentation"
+      owner: TBD
+      
+    - id: WP-07-3000
+      title: "Verification & Validation"
+      description: "Test procedures and evidence"
+      owner: TBD
+      
+    - id: WP-07-4000
+      title: "Certification"
+      description: "Compliance demonstration"
+      owner: TBD

@@ -1,0 +1,13 @@
+wbs:
+  chapter: "74"
+  title: "IGNITION"
+  level: 1
+  packages:
+    - id: WP-74-1000
+      title: "Requirements Definition"
+    - id: WP-74-2000
+      title: "Design Definition"
+    - id: WP-74-3000
+      title: "Verification & Validation"
+    - id: WP-74-4000
+      title: "Certification"

@@ -1,0 +1,23 @@
+# WBS Budget (Teknia Tokens) — ATA 07 (LIFTING AND SHORING)
+# Token budget allocation per WBS element (informational)
+
+budget:
+  chapter: "07"
+  title: "LIFTING AND SHORING"
+  total_tt: 500
+  allocation:
+    - wbs_id: WP-07-1000
+      tt_budget: 150
+      description: "Requirements Definition"
+      
+    - wbs_id: WP-07-2000
+      tt_budget: 150
+      description: "Design Definition"
+      
+    - wbs_id: WP-07-3000
+      tt_budget: 125
+      description: "Verification & Validation"
+      
+    - wbs_id: WP-07-4000
+      tt_budget: 75
+      description: "Certification"

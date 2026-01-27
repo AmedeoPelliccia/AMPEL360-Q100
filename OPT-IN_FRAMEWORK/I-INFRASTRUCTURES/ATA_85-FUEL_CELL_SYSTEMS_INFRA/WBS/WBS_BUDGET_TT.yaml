@@ -1,0 +1,13 @@
+budget:
+  chapter: "85"
+  title: "FUEL CELL SYSTEMS INFRA"
+  total_tt: 500
+  allocation:
+    - wbs_id: WP-85-1000
+      tt_budget: 150
+    - wbs_id: WP-85-2000
+      tt_budget: 150
+    - wbs_id: WP-85-3000
+      tt_budget: 125
+    - wbs_id: WP-85-4000
+      tt_budget: 75

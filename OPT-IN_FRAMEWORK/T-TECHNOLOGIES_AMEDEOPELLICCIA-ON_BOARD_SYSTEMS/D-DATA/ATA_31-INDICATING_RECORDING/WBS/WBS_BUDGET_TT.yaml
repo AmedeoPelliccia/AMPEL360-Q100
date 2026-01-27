@@ -1,0 +1,13 @@
+budget:
+  chapter: "31"
+  title: "INDICATING RECORDING"
+  total_tt: 500
+  allocation:
+    - wbs_id: WP-31-1000
+      tt_budget: 150
+    - wbs_id: WP-31-2000
+      tt_budget: 150
+    - wbs_id: WP-31-3000
+      tt_budget: 125
+    - wbs_id: WP-31-4000
+      tt_budget: 75

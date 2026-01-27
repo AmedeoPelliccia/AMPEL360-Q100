@@ -1,0 +1,13 @@
+budget:
+  chapter: "39"
+  title: "ELECTRICAL ELECTRONIC PANELS MULTIPURPOSE COMPONENTS"
+  total_tt: 500
+  allocation:
+    - wbs_id: WP-39-1000
+      tt_budget: 150
+    - wbs_id: WP-39-2000
+      tt_budget: 150
+    - wbs_id: WP-39-3000
+      tt_budget: 125
+    - wbs_id: WP-39-4000
+      tt_budget: 75

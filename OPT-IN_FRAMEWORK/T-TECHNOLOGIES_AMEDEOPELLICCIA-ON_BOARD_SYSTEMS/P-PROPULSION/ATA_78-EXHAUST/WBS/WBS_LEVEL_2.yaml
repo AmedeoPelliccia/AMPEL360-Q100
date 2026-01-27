@@ -1,0 +1,11 @@
+wbs:
+  chapter: "78"
+  title: "EXHAUST"
+  level: 2
+  packages:
+    - parent: WP-78-1000
+      children:
+        - id: WP-78-1100
+          title: "System Requirements"
+        - id: WP-78-1200
+          title: "Interface Requirements"

@@ -1,0 +1,11 @@
+wbs:
+  chapter: "95"
+  title: "AI ML MODELS"
+  level: 2
+  packages:
+    - parent: WP-95-1000
+      children:
+        - id: WP-95-1100
+          title: "System Requirements"
+        - id: WP-95-1200
+          title: "Interface Requirements"

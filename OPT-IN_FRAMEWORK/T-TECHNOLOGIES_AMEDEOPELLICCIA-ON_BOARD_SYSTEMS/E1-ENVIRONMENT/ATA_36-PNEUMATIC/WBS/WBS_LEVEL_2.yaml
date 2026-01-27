@@ -1,0 +1,11 @@
+wbs:
+  chapter: "36"
+  title: "PNEUMATIC"
+  level: 2
+  packages:
+    - parent: WP-36-1000
+      children:
+        - id: WP-36-1100
+          title: "System Requirements"
+        - id: WP-36-1200
+          title: "Interface Requirements"

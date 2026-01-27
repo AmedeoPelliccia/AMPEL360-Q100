@@ -1,0 +1,13 @@
+budget:
+  chapter: "33"
+  title: "LIGHTS"
+  total_tt: 500
+  allocation:
+    - wbs_id: WP-33-1000
+      tt_budget: 150
+    - wbs_id: WP-33-2000
+      tt_budget: 150
+    - wbs_id: WP-33-3000
+      tt_budget: 125
+    - wbs_id: WP-33-4000
+      tt_budget: 75

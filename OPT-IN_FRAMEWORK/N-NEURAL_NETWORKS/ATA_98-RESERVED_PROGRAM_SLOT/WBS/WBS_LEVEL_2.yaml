@@ -1,0 +1,9 @@
+wbs:
+  chapter: "98"
+  title: "RESERVED PROGRAM SLOT"
+  level: 2
+  packages:
+    - parent: WP-98-1000
+      children:
+        - id: WP-98-1100
+          title: "System Requirements"

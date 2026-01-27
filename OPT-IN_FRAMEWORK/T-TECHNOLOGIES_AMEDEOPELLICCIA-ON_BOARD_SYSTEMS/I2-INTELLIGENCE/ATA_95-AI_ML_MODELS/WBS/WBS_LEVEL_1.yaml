@@ -1,0 +1,13 @@
+wbs:
+  chapter: "95"
+  title: "AI ML MODELS"
+  level: 1
+  packages:
+    - id: WP-95-1000
+      title: "Requirements Definition"
+    - id: WP-95-2000
+      title: "Design Definition"
+    - id: WP-95-3000
+      title: "Verification & Validation"
+    - id: WP-95-4000
+      title: "Certification"

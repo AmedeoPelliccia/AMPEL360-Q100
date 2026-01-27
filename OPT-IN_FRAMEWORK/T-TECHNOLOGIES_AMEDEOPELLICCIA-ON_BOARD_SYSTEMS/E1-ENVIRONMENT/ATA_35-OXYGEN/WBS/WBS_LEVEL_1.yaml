@@ -1,0 +1,13 @@
+wbs:
+  chapter: "35"
+  title: "OXYGEN"
+  level: 1
+  packages:
+    - id: WP-35-1000
+      title: "Requirements Definition"
+    - id: WP-35-2000
+      title: "Design Definition"
+    - id: WP-35-3000
+      title: "Verification & Validation"
+    - id: WP-35-4000
+      title: "Certification"

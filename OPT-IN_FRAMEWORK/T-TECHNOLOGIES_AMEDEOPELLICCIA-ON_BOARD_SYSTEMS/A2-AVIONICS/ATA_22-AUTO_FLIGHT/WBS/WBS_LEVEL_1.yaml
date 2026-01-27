@@ -1,0 +1,13 @@
+wbs:
+  chapter: "22"
+  title: "AUTO FLIGHT"
+  level: 1
+  packages:
+    - id: WP-22-1000
+      title: "Requirements Definition"
+    - id: WP-22-2000
+      title: "Design Definition"
+    - id: WP-22-3000
+      title: "Verification & Validation"
+    - id: WP-22-4000
+      title: "Certification"

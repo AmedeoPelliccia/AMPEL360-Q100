@@ -1,0 +1,13 @@
+wbs:
+  chapter: "71"
+  title: "POWER PLANT"
+  level: 1
+  packages:
+    - id: WP-71-1000
+      title: "Requirements Definition"
+    - id: WP-71-2000
+      title: "Design Definition"
+    - id: WP-71-3000
+      title: "Verification & Validation"
+    - id: WP-71-4000
+      title: "Certification"

@@ -1,0 +1,11 @@
+wbs:
+  chapter: "73"
+  title: "ENGINE FUEL AND CONTROL"
+  level: 2
+  packages:
+    - parent: WP-73-1000
+      children:
+        - id: WP-73-1100
+          title: "System Requirements"
+        - id: WP-73-1200
+          title: "Interface Requirements"

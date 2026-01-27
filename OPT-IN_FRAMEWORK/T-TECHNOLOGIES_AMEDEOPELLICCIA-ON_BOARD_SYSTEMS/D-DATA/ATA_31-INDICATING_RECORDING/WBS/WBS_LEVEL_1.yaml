@@ -1,0 +1,13 @@
+wbs:
+  chapter: "31"
+  title: "INDICATING RECORDING"
+  level: 1
+  packages:
+    - id: WP-31-1000
+      title: "Requirements Definition"
+    - id: WP-31-2000
+      title: "Design Definition"
+    - id: WP-31-3000
+      title: "Verification & Validation"
+    - id: WP-31-4000
+      title: "Certification"

@@ -1,0 +1,35 @@
+# WBS Level 2 — ATA 02 (OPERATIONS ORG)
+# Second-level decomposition (sub-deliverables)
+
+wbs:
+  chapter: "02"
+  title: "OPERATIONS ORG"
+  level: 2
+  packages:
+    - parent: WP-02-1000
+      children:
+        - id: WP-02-1100
+          title: "System Requirements"
+        - id: WP-02-1200
+          title: "Interface Requirements"
+          
+    - parent: WP-02-2000
+      children:
+        - id: WP-02-2100
+          title: "Architecture Design"
+        - id: WP-02-2200
+          title: "Detailed Design"
+          
+    - parent: WP-02-3000
+      children:
+        - id: WP-02-3100
+          title: "Unit Testing"
+        - id: WP-02-3200
+          title: "Integration Testing"
+          
+    - parent: WP-02-4000
+      children:
+        - id: WP-02-4100
+          title: "Compliance Matrix"
+        - id: WP-02-4200
+          title: "Certification Package"

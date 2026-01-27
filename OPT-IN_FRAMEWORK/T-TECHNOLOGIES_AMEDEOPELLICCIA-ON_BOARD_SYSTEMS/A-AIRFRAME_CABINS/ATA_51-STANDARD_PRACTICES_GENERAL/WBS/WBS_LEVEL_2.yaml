@@ -1,0 +1,11 @@
+wbs:
+  chapter: "51"
+  title: "STANDARD PRACTICES GENERAL"
+  level: 2
+  packages:
+    - parent: WP-51-1000
+      children:
+        - id: WP-51-1100
+          title: "System Requirements"
+        - id: WP-51-1200
+          title: "Interface Requirements"

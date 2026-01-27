@@ -1,0 +1,13 @@
+budget:
+  chapter: "IN"
+  title: "ATA IN H2 GSE AND SUPPLY CHAIN"
+  total_tt: 500
+  allocation:
+    - wbs_id: WP-IN-1000
+      tt_budget: 150
+    - wbs_id: WP-IN-2000
+      tt_budget: 150
+    - wbs_id: WP-IN-3000
+      tt_budget: 125
+    - wbs_id: WP-IN-4000
+      tt_budget: 75

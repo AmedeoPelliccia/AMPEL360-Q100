@@ -1,0 +1,13 @@
+budget:
+  chapter: "25"
+  title: "EQUIPMENT FURNISHINGS"
+  total_tt: 500
+  allocation:
+    - wbs_id: WP-25-1000
+      tt_budget: 150
+    - wbs_id: WP-25-2000
+      tt_budget: 150
+    - wbs_id: WP-25-3000
+      tt_budget: 125
+    - wbs_id: WP-25-4000
+      tt_budget: 75

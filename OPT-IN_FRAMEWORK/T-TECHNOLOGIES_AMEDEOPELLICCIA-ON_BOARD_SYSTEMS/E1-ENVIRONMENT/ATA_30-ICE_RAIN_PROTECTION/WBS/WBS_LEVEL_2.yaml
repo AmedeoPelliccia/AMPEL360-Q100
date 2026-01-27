@@ -1,0 +1,11 @@
+wbs:
+  chapter: "30"
+  title: "ICE RAIN PROTECTION"
+  level: 2
+  packages:
+    - parent: WP-30-1000
+      children:
+        - id: WP-30-1100
+          title: "System Requirements"
+        - id: WP-30-1200
+          title: "Interface Requirements"

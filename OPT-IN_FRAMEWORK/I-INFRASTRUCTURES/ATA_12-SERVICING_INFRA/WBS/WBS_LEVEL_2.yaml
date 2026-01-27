@@ -1,0 +1,9 @@
+wbs:
+  chapter: "12"
+  title: "SERVICING INFRA"
+  level: 2
+  packages:
+    - parent: WP-12-1000
+      children:
+        - id: WP-12-1100
+          title: "System Requirements"

@@ -1,0 +1,11 @@
+wbs:
+  chapter: "28"
+  title: "FUEL"
+  level: 2
+  packages:
+    - parent: WP-28-1000
+      children:
+        - id: WP-28-1100
+          title: "System Requirements"
+        - id: WP-28-1200
+          title: "Interface Requirements"

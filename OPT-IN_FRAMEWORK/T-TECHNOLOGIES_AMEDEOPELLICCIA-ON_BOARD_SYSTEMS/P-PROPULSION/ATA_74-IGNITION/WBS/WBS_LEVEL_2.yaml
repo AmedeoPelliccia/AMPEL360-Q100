@@ -1,0 +1,11 @@
+wbs:
+  chapter: "74"
+  title: "IGNITION"
+  level: 2
+  packages:
+    - parent: WP-74-1000
+      children:
+        - id: WP-74-1100
+          title: "System Requirements"
+        - id: WP-74-1200
+          title: "Interface Requirements"

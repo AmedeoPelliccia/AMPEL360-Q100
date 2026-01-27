@@ -1,0 +1,13 @@
+wbs:
+  chapter: "23"
+  title: "COMMUNICATIONS"
+  level: 1
+  packages:
+    - id: WP-23-1000
+      title: "Requirements Definition"
+    - id: WP-23-2000
+      title: "Design Definition"
+    - id: WP-23-3000
+      title: "Verification & Validation"
+    - id: WP-23-4000
+      title: "Certification"

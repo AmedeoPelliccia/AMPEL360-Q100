@@ -1,0 +1,23 @@
+# WBS Budget (Teknia Tokens) — ATA 02 (OPERATIONS ORG)
+# Token budget allocation per WBS element (informational)
+
+budget:
+  chapter: "02"
+  title: "OPERATIONS ORG"
+  total_tt: 500
+  allocation:
+    - wbs_id: WP-02-1000
+      tt_budget: 150
+      description: "Requirements Definition"
+      
+    - wbs_id: WP-02-2000
+      tt_budget: 150
+      description: "Design Definition"
+      
+    - wbs_id: WP-02-3000
+      tt_budget: 125
+      description: "Verification & Validation"
+      
+    - wbs_id: WP-02-4000
+      tt_budget: 75
+      description: "Certification"

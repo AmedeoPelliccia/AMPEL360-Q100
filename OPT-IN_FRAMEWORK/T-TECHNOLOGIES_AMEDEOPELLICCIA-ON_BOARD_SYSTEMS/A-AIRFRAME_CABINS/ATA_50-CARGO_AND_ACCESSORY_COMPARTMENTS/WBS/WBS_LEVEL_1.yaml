@@ -1,0 +1,13 @@
+wbs:
+  chapter: "50"
+  title: "CARGO AND ACCESSORY COMPARTMENTS"
+  level: 1
+  packages:
+    - id: WP-50-1000
+      title: "Requirements Definition"
+    - id: WP-50-2000
+      title: "Design Definition"
+    - id: WP-50-3000
+      title: "Verification & Validation"
+    - id: WP-50-4000
+      title: "Certification"

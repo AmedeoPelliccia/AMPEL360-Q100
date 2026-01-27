@@ -1,0 +1,13 @@
+wbs:
+  chapter: "73"
+  title: "ENGINE FUEL AND CONTROL"
+  level: 1
+  packages:
+    - id: WP-73-1000
+      title: "Requirements Definition"
+    - id: WP-73-2000
+      title: "Design Definition"
+    - id: WP-73-3000
+      title: "Verification & Validation"
+    - id: WP-73-4000
+      title: "Certification"

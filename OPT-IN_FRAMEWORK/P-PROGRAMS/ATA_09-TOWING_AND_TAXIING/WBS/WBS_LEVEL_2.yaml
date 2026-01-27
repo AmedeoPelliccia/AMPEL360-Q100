@@ -1,0 +1,35 @@
+# WBS Level 2 — ATA 09 (TOWING AND TAXIING)
+# Second-level decomposition (sub-deliverables)
+
+wbs:
+  chapter: "09"
+  title: "TOWING AND TAXIING"
+  level: 2
+  packages:
+    - parent: WP-09-1000
+      children:
+        - id: WP-09-1100
+          title: "System Requirements"
+        - id: WP-09-1200
+          title: "Interface Requirements"
+          
+    - parent: WP-09-2000
+      children:
+        - id: WP-09-2100
+          title: "Architecture Design"
+        - id: WP-09-2200
+          title: "Detailed Design"
+          
+    - parent: WP-09-3000
+      children:
+        - id: WP-09-3100
+          title: "Unit Testing"
+        - id: WP-09-3200
+          title: "Integration Testing"
+          
+    - parent: WP-09-4000
+      children:
+        - id: WP-09-4100
+          title: "Compliance Matrix"
+        - id: WP-09-4200
+          title: "Certification Package"

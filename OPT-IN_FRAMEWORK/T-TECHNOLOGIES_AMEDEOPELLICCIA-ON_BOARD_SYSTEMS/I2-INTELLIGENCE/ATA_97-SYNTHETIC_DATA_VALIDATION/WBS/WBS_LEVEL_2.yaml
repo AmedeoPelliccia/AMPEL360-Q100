@@ -1,0 +1,11 @@
+wbs:
+  chapter: "97"
+  title: "SYNTHETIC DATA VALIDATION"
+  level: 2
+  packages:
+    - parent: WP-97-1000
+      children:
+        - id: WP-97-1100
+          title: "System Requirements"
+        - id: WP-97-1200
+          title: "Interface Requirements"

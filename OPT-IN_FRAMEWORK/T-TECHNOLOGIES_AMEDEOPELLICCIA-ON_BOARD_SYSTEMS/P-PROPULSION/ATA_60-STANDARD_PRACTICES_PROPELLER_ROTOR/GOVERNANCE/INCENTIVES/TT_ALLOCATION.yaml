@@ -1,0 +1,10 @@
+allocation:
+  chapter: "60"
+  total_tt: 500
+  pools:
+    - type: "KNOT Closure"
+      tt: 200
+    - type: "Quality Review"
+      tt: 150
+    - type: "Documentation"
+      tt: 150

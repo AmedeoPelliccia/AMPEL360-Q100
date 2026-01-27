@@ -1,0 +1,13 @@
+budget:
+  chapter: "78"
+  title: "EXHAUST"
+  total_tt: 500
+  allocation:
+    - wbs_id: WP-78-1000
+      tt_budget: 150
+    - wbs_id: WP-78-2000
+      tt_budget: 150
+    - wbs_id: WP-78-3000
+      tt_budget: 125
+    - wbs_id: WP-78-4000
+      tt_budget: 75

@@ -1,0 +1,13 @@
+wbs:
+  chapter: "24"
+  title: "ELECTRICAL POWER"
+  level: 1
+  packages:
+    - id: WP-24-1000
+      title: "Requirements Definition"
+    - id: WP-24-2000
+      title: "Design Definition"
+    - id: WP-24-3000
+      title: "Verification & Validation"
+    - id: WP-24-4000
+      title: "Certification"

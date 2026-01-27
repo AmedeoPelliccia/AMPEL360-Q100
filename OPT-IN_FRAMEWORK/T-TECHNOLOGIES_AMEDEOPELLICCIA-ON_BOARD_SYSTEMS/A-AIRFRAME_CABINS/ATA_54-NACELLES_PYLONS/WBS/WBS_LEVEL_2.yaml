@@ -1,0 +1,11 @@
+wbs:
+  chapter: "54"
+  title: "NACELLES PYLONS"
+  level: 2
+  packages:
+    - parent: WP-54-1000
+      children:
+        - id: WP-54-1100
+          title: "System Requirements"
+        - id: WP-54-1200
+          title: "Interface Requirements"

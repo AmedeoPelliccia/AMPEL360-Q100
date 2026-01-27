@@ -1,0 +1,23 @@
+# WBS Budget (Teknia Tokens) — ATA 06 (DIMENSIONS AND AREAS)
+# Token budget allocation per WBS element (informational)
+
+budget:
+  chapter: "06"
+  title: "DIMENSIONS AND AREAS"
+  total_tt: 500
+  allocation:
+    - wbs_id: WP-06-1000
+      tt_budget: 150
+      description: "Requirements Definition"
+      
+    - wbs_id: WP-06-2000
+      tt_budget: 150
+      description: "Design Definition"
+      
+    - wbs_id: WP-06-3000
+      tt_budget: 125
+      description: "Verification & Validation"
+      
+    - wbs_id: WP-06-4000
+      tt_budget: 75
+      description: "Certification"

@@ -1,0 +1,11 @@
+wbs:
+  chapter: "76"
+  title: "ENGINE CONTROLS"
+  level: 2
+  packages:
+    - parent: WP-76-1000
+      children:
+        - id: WP-76-1100
+          title: "System Requirements"
+        - id: WP-76-1200
+          title: "Interface Requirements"

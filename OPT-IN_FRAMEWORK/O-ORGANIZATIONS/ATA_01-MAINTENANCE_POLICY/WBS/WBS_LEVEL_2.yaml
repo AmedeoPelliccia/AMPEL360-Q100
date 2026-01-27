@@ -1,0 +1,35 @@
+# WBS Level 2 — ATA 01 (MAINTENANCE POLICY)
+# Second-level decomposition (sub-deliverables)
+
+wbs:
+  chapter: "01"
+  title: "MAINTENANCE POLICY"
+  level: 2
+  packages:
+    - parent: WP-01-1000
+      children:
+        - id: WP-01-1100
+          title: "System Requirements"
+        - id: WP-01-1200
+          title: "Interface Requirements"
+          
+    - parent: WP-01-2000
+      children:
+        - id: WP-01-2100
+          title: "Architecture Design"
+        - id: WP-01-2200
+          title: "Detailed Design"
+          
+    - parent: WP-01-3000
+      children:
+        - id: WP-01-3100
+          title: "Unit Testing"
+        - id: WP-01-3200
+          title: "Integration Testing"
+          
+    - parent: WP-01-4000
+      children:
+        - id: WP-01-4100
+          title: "Compliance Matrix"
+        - id: WP-01-4200
+          title: "Certification Package"

@@ -1,0 +1,11 @@
+wbs:
+  chapter: "35"
+  title: "OXYGEN"
+  level: 2
+  packages:
+    - parent: WP-35-1000
+      children:
+        - id: WP-35-1100
+          title: "System Requirements"
+        - id: WP-35-1200
+          title: "Interface Requirements"

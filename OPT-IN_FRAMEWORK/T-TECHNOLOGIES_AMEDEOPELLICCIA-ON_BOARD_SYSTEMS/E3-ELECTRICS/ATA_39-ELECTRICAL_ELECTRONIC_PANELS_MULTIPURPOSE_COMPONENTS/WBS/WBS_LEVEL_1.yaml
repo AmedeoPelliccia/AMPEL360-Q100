@@ -1,0 +1,13 @@
+wbs:
+  chapter: "39"
+  title: "ELECTRICAL ELECTRONIC PANELS MULTIPURPOSE COMPONENTS"
+  level: 1
+  packages:
+    - id: WP-39-1000
+      title: "Requirements Definition"
+    - id: WP-39-2000
+      title: "Design Definition"
+    - id: WP-39-3000
+      title: "Verification & Validation"
+    - id: WP-39-4000
+      title: "Certification"

@@ -1,0 +1,11 @@
+wbs:
+  chapter: "22"
+  title: "AUTO FLIGHT"
+  level: 2
+  packages:
+    - parent: WP-22-1000
+      children:
+        - id: WP-22-1100
+          title: "System Requirements"
+        - id: WP-22-1200
+          title: "Interface Requirements"

@@ -1,0 +1,13 @@
+wbs:
+  chapter: "60"
+  title: "STANDARD PRACTICES PROPELLER ROTOR"
+  level: 1
+  packages:
+    - id: WP-60-1000
+      title: "Requirements Definition"
+    - id: WP-60-2000
+      title: "Design Definition"
+    - id: WP-60-3000
+      title: "Verification & Validation"
+    - id: WP-60-4000
+      title: "Certification"
