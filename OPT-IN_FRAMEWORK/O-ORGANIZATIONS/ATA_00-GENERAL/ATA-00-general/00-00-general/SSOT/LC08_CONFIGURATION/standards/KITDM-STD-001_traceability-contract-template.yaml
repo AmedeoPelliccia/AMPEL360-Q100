@@ -1,0 +1,293 @@
+# KITDM-STD-001 Traceability Contract Template
+# This template defines the structure for KDB → IDB traceability contracts
+# Version: I01-R01
+# Date: 2026-01-19
+
+# ============================================================================
+# SECTION 1: CONTRACT IDENTIFICATION
+# ============================================================================
+contract_id: "CTR-{ATA}-{SUB}-{SEQ}"  # Example: CTR-28-10-001
+version: "v1.0"  # Semantic versioning (v{major}.{minor})
+status: "draft"  # Values: draft | approved | active | retired
+created_date: "YYYY-MM-DDTHH:MM:SSZ"  # ISO 8601 UTC timestamp
+last_updated: "YYYY-MM-DDTHH:MM:SSZ"  # ISO 8601 UTC timestamp
+effective_date: "YYYY-MM-DDTHH:MM:SSZ"  # When contract becomes active
+expiration_date: null  # Optional: YYYY-MM-DDTHH:MM:SSZ or null for indefinite
+
+# ============================================================================
+# SECTION 2: OWNERSHIP
+# ============================================================================
+ownership:
+  owner_aor: "STK_XX"  # Area of Responsibility (e.g., STK_CM, STK_SE)
+  technical_owner: "FirstName LastName"  # Primary technical contact
+  technical_owner_email: "name@organization.com"
+  approvers:
+    - role: "STK_CM"  # Configuration Management
+      name: "[Pending]"
+      status: "pending"  # Values: pending | approved | rejected
+      approval_date: null
+    - role: "STK_DATA"  # Data Management
+      name: "[Pending]"
+      status: "pending"
+      approval_date: null
+    - role: "STK_SE"  # Systems Engineering (if applicable)
+      name: "[Pending]"
+      status: "pending"
+      approval_date: null
+
+# ============================================================================
+# SECTION 3: SCOPE
+# ============================================================================
+scope:
+  description: "Brief description of what this contract covers"
+  
+  # KDB Sources (authoritative knowledge inputs)
+  kdb_sources:
+    - knu_id: "KNU-{ATA}-{SUB}-{SEQ}-LC{NN}-{DESC}"  # Example: KNU-28-10-005-LC02-FUEL_SYS_REQ
+      version: "v1.0"  # Specific version or "latest" (not recommended for production)
+      lc_category: "LC02"  # Lifecycle category (LC01-LC14)
+      description: "Brief description of this KNU"
+      path: "SSOT/LC02_SYSTEM_REQUIREMENTS/KNU-28-10-005-LC02-FUEL_SYS_REQ/"
+      maturity: "mature"  # Values: draft | review | approved | mature
+    # Add additional KDB sources as needed
+  
+  # IDB Targets (derived publication outputs)
+  idb_targets:
+    - type: "CSDB"  # Values: CSDB | EXPORT | IETP
+      dmc_pattern: "DMC-AMPEL360-{ATA}-{SUB}-{SEQ}-*"  # S1000D Data Module Code pattern
+      description: "Brief description of this IDB target"
+      path: "PUB/CSDB/DM/"
+      audience: "maintenance_technician"  # Intended consumer role
+      process: "scheduled_maintenance"  # Operational context
+    # Add additional IDB targets as needed
+
+# ============================================================================
+# SECTION 4: TRANSFORMATION RULES
+# ============================================================================
+transformation_rules:
+  
+  # ASIT Rules (Aggregation, Selection, Interpretation, Transformation)
+  asit_rules:
+    aggregation:
+      enabled: true
+      description: "Combine multiple KNUs into single publication module"
+      logic: "Aggregate LC02 requirements + LC04 design + LC06 verification"
+    
+    selection:
+      enabled: true
+      description: "Filter content based on audience and effectivity"
+      filters:
+        - type: "audience"
+          value: "maintenance_technician"
+          action: "include_procedural_steps"
+        - type: "effectivity"
+          value: "aircraft_serial_range"
+          action: "filter_by_applicability"
+    
+    interpretation:
+      enabled: false
+      description: "Transform technical language for target audience"
+      rules: []
+    
+    transformation:
+      enabled: true
+      description: "Convert SSOT artifacts to S1000D data modules"
+      rules:
+        - from: "markdown"
+          to: "S1000D_XML"
+          tool: "md2s1000d_converter"
+  
+  # Mapping Specifications
+  mapping:
+    - kdb_field: "requirement_id"
+      idb_field: "dmRef/@dmRefIdent"
+      transformation: "prefix_with_DMC_pattern"
+    - kdb_field: "execution_timestamp"
+      idb_field: "issueInfo/@issueDate"
+      transformation: "format_as_S1000D_date"
+  
+  # Filtering Criteria
+  filtering:
+    - criterion: "maturity_level"
+      operator: ">="
+      value: "approved"
+      action: "include"
+    - criterion: "classification"
+      operator: "=="
+      value: "unclassified"
+      action: "include"
+  
+  # Aggregation Logic
+  aggregation_logic:
+    method: "hierarchical"  # Values: hierarchical | flat | modular
+    grouping_key: "ata_chapter"
+    sort_order: "ascending"
+
+# ============================================================================
+# SECTION 5: RESTRICTIONS
+# ============================================================================
+restrictions:
+  
+  # Audience Constraints
+  audience:
+    allowed_roles:
+      - "maintenance_technician"
+      - "system_engineer"
+      - "certification_authority"
+    restricted_roles:
+      - "unauthorized_user"
+  
+  # Export Control
+  export_control:
+    marking: "none"  # Values: none | EAR | ITAR | CUI
+    jurisdiction: "none"  # Country codes or "none"
+    notes: "Unclassified technical data"
+  
+  # Classification
+  classification:
+    level: "unclassified"  # Values: unclassified | restricted | confidential | secret
+    handling_instructions: "No special handling required"
+  
+  # Geographic Restrictions
+  geographic:
+    allowed_regions:
+      - "worldwide"
+    restricted_regions: []
+
+# ============================================================================
+# SECTION 6: ACCEPTANCE CRITERIA
+# ============================================================================
+acceptance_criteria:
+  
+  criteria:
+    - id: "AC-001"
+      description: "All KDB sources referenced are at approved maturity level"
+      verification_method: "automated_check"
+      pass_criteria: "maturity >= approved"
+      evidence_required: "maturity_audit_report.csv"
+    
+    - id: "AC-002"
+      description: "Generated IDB artifacts validate against S1000D schema"
+      verification_method: "schema_validation"
+      pass_criteria: "zero validation errors"
+      evidence_required: "validation_report.xml"
+    
+    - id: "AC-003"
+      description: "Traceability matrix is complete and accurate"
+      verification_method: "manual_review"
+      pass_criteria: "100% coverage of IDB artifacts"
+      evidence_required: "traceability_matrix.csv"
+    
+    - id: "AC-004"
+      description: "Audit trail is complete for all transformations"
+      verification_method: "automated_check"
+      pass_criteria: "all transformations logged"
+      evidence_required: "audit_log.json"
+  
+  # Verification Methods
+  verification_methods:
+    - method: "automated_check"
+      tool: "kitdm_validator"
+      frequency: "every_generation"
+    - method: "schema_validation"
+      tool: "s1000d_validator"
+      frequency: "every_generation"
+    - method: "manual_review"
+      tool: "human_inspection"
+      frequency: "quarterly"
+  
+  # Evidence Requirements
+  evidence_requirements:
+    retention_period: "7_years"  # Regulatory requirement
+    storage_location: "SSOT/LC08_CONFIGURATION/audit_evidence/"
+    format: "CSV, XML, JSON, PDF"
+
+# ============================================================================
+# SECTION 7: BASELINE & RELEASE
+# ============================================================================
+baseline:
+  
+  # KDB Baseline (frozen snapshot of authoritative sources)
+  kdb_baseline_id: "BL-YYYY-QN-NNN"  # Example: BL-2026-Q1-001
+  kdb_baseline_date: "YYYY-MM-DDTHH:MM:SSZ"
+  kdb_baseline_tag: "git_tag_or_commit_sha"
+  kdb_baseline_path: "SSOT/LC08_CONFIGURATION/baselines/BL-2026-Q1-001/"
+  
+  # IDB Release (generated output package)
+  idb_release_id: "REL-YYYY-QN-NNN"  # Example: REL-2026-Q1-001
+  idb_release_date: "YYYY-MM-DDTHH:MM:SSZ"
+  idb_release_tag: "git_tag_or_commit_sha"
+  idb_release_path: "PUB/releases/REL-2026-Q1-001/"
+  
+  # Freeze Requirements
+  freeze:
+    required: true  # Must baseline be frozen before IDB generation?
+    notification_period: "7_days"  # Advance notice before freeze
+    change_control: "CCB_approval_required"  # Change Control Board
+
+# ============================================================================
+# SECTION 8: EFFECTIVITY
+# ============================================================================
+effectivity:
+  
+  # Aircraft Applicability
+  aircraft:
+    - serial_number_range: "001-050"
+      included: true
+    - serial_number_range: "051-100"
+      included: false
+      reason: "Modified configuration not applicable"
+  
+  # Modification Applicability
+  modifications:
+    - mod_number: "MOD-28-001"
+      included: true
+      description: "Fuel system upgrade"
+    - mod_number: "MOD-28-002"
+      included: false
+      reason: "Superseded by MOD-28-003"
+
+# ============================================================================
+# SECTION 9: AUDIT TRAIL
+# ============================================================================
+audit_trail:
+  
+  # Change Log
+  change_log:
+    - version: "v1.0"
+      date: "2026-01-19T10:00:00Z"
+      author: "FirstName LastName"
+      approver: "Approver Name"
+      change_summary: "Initial contract creation"
+      affected_sections: ["all"]
+    
+    # Add entries for each version change
+    # - version: "v1.1"
+    #   date: "YYYY-MM-DDTHH:MM:SSZ"
+    #   author: "FirstName LastName"
+    #   approver: "Approver Name"
+    #   change_summary: "Description of changes"
+    #   affected_sections: ["scope", "transformation_rules"]
+  
+  # Generation History (populated by automation)
+  generation_history:
+    - generation_id: "GEN-YYYY-MM-DD-HH-MM-SS"
+      timestamp: "YYYY-MM-DDTHH:MM:SSZ"
+      kdb_baseline: "BL-YYYY-QN-NNN"
+      idb_release: "REL-YYYY-QN-NNN"
+      status: "success"  # Values: success | failed | partial
+      artifacts_generated: 0  # Count
+      validation_status: "passed"  # Values: passed | failed | waived
+      notes: "Generation notes"
+
+# ============================================================================
+# NOTES FOR IMPLEMENTERS
+# ============================================================================
+# 1. Replace all placeholder values (e.g., {ATA}, YYYY-MM-DD) with actual data
+# 2. Remove sections not applicable to your contract
+# 3. Validate against KITDM-STD-001 requirements (KDB-R*, IDB-R*, CTR-R*)
+# 4. Obtain required approvals before setting status to "approved"
+# 5. Update change_log and generation_history as contract evolves
+# 6. Store approved contracts in version control
+# 7. Reference this contract in IDB artifact metadata
+# ============================================================================
