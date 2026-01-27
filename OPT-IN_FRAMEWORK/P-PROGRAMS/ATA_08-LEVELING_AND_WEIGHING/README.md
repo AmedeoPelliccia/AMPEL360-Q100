@@ -1,0 +1,38 @@
+# ATA 08 — LEVELING AND WEIGHING
+
+**Axis:** P-PROGRAMS  
+**Status:** Scaffold Ready  
+**Last Updated:** 2026-01-27
+
+---
+
+## Overview
+
+This chapter covers LEVELING AND WEIGHING documentation for the AMPEL360 Q100 program.
+
+---
+
+## Directory Structure
+
+```
+ATA_08-LEVELING_AND_WEIGHING/
+├── README.md                 # This file
+└── (chapter content TBD)
+```
+
+---
+
+## Related Documentation
+
+- [P-PROGRAMS Overview](../README.md)
+- [OPT-IN Framework Index](../../00_INDEX.md)
+- [ATA Chapter Scaling Framework](../../../docs/ATA_CHAPTER_SCALING_FRAMEWORK.md)
+
+---
+
+## Next Steps
+
+1. Follow the [ATA Chapter Onboarding Guide](../../../docs/ATA_CHAPTER_ONBOARDING.md)
+2. Configure GENESIS uncertainty discovery
+3. Establish KDB/IDB structure
+4. Define ASIT transformation contracts
