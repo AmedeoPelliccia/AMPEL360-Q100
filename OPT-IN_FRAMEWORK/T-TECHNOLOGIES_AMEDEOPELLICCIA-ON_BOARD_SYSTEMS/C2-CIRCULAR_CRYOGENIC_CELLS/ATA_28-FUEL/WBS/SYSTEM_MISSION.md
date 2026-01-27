@@ -34,7 +34,7 @@
 | **Gravimetric Efficiency** | ≥ 6% (fuel mass / total tank mass) | Competitive with current LH₂ automotive targets |
 | **Boil-off Rate** | ≤ 0.5% / day | Minimize fuel loss during ground operations |
 | **Refueling Time** | ≤ 30 minutes (0-100%) | Meet airline turnaround requirements |
-| **System Reliability** | ≥ 10⁻⁷ failures/flight hour (LOTC) | Meet CS-25 safety objectives |
+| **System Reliability** | ≥ 10⁻⁷ failures/flight hour (Loss of Tank Containment, LOTC) | Meet CS-25 safety objectives |
 | **Lifecycle** | ≥ 30,000 flight cycles | Match aircraft service life |
 
 ---
