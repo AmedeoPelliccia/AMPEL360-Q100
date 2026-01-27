@@ -1,7 +1,7 @@
-# ATA 71-00 — Power Plant
+# ATA 95-00 — AI/ML
 
-**ATA Address:** ATA-71-00-00-00  
-**Chapter:** ATA 71 — Power Plant  
+**ATA Address:** ATA-95-00-00-00  
+**Chapter:** ATA 95 — AI/ML  
 **Axis:** [T-TECHNOLOGIES](../../)  
 **Status:** INITIALIZED  
 **Created:** 2026-01-27
@@ -10,7 +10,7 @@
 
 ## Overview
 
-This chapter implements the canonical **triple knowledge-base spine** for ATA 71 (Power Plant) following the OPT-IN Framework:
+This chapter implements the canonical **triple knowledge-base spine** for ATA 95 (AI/ML) following the OPT-IN Framework:
 
 | Knowledge Base | Purpose | Primary Artifacts |
 |----------------|---------|-------------------|
@@ -23,14 +23,14 @@ This chapter implements the canonical **triple knowledge-base spine** for ATA 71
 ## Directory Structure
 
 ```
-71-00-general/
+95-00-general/
 ├── GENESIS/                          # Uncertainty space
 │   ├── KNOT/                         # Knowledge nodes
-│   │   └── KNOT-71-00-001/
+│   │   └── KNOT-95-00-001/
 │   ├── O-KNOT/                       # Origin knowledge discovery
-│   │   └── O-KNOT-71-00-001/
+│   │   └── O-KNOT-95-00-001/
 │   ├── Y-KNOT/                       # Justification records
-│   │   └── Y-KNOT-71-00-001-001/
+│   │   └── Y-KNOT-95-00-001-001/
 │   ├── DECISIONS/                    # Engineering decisions
 │   ├── TRADE_STUDIES/                # Trade study records
 │   └── _registry/                    # KNOT registries
@@ -65,9 +65,9 @@ This chapter implements the canonical **triple knowledge-base spine** for ATA 71
 
 Start by understanding and documenting the knowledge gaps:
 
-1. **O-KNOT Discovery**: Review `GENESIS/O-KNOT/O-KNOT-71-00-001/discovery.yaml`
+1. **O-KNOT Discovery**: Review `GENESIS/O-KNOT/O-KNOT-95-00-001/discovery.yaml`
 2. **Y-KNOT Justification**: Document decisions in `GENESIS/Y-KNOT/`
-3. **KNOT Framing**: Define scope in `GENESIS/KNOT/KNOT-71-00-001/framing.yaml`
+3. **KNOT Framing**: Define scope in `GENESIS/KNOT/KNOT-95-00-001/framing.yaml`
 
 ### 2. Configure SSOT Baseline
 

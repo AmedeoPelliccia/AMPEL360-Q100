@@ -1,0 +1,46 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# DMC Index — ATA 96-00 DPP/Traceability
+# ═══════════════════════════════════════════════════════════════════════════════
+# Data Module Code index for S1000D publication management
+# Version: v1.0
+# Last Updated: 2026-01-27
+# ═══════════════════════════════════════════════════════════════════════════════
+
+dmc_index:
+  ata_chapter: "96"
+  ata_section: "00"
+  title: "DPP/Traceability Data Module Index"
+  created_date: 2026-01-27
+  last_updated: 2026-01-27
+
+# Data Module List
+data_modules:
+  - dmc: "DMC-AMPEL360-96-00-00-00A-001A-A"
+    title: "DPP/Traceability System Description"
+    info_code: "001"
+    status: PLANNED
+    publication_module: AMM
+    knu_reference: "KNU-96-00-001-PUB-001"
+    
+# Placeholder for additional DMs
+# Add new data modules as they are created
+# - dmc: "DMC-AMPEL360-96-00-XX-XXA-XXXA-A"
+#   title: "Module Title"
+#   info_code: "XXX"
+#   status: PLANNED
+#   publication_module: AMM
+#   knu_reference: "KNU-XX-XX-XXX-PUB-XXX"
+
+# DMC Naming Convention
+naming_convention:
+  format: "DMC-{MODEL}-{SYS}-{SUBSYS}-{SUBSUBSYS}-{ASSY}{DISASSY}{VARIANT}-{INFOCODE}{VARIANT}-{LOCATION}"
+  example: "DMC-AMPEL360-96-00-00-00A-001A-A"
+  
+# Status Definitions
+status_definitions:
+  PLANNED: "Data module planned but not yet created"
+  DRAFT: "Data module in development"
+  REVIEW: "Data module under review"
+  APPROVED: "Data module approved for publication"
+  PUBLISHED: "Data module published"
+  SUPERSEDED: "Data module replaced by newer version"

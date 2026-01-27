@@ -1,0 +1,127 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# TRADE STUDY — ATA 95-00 AI/ML
+# ═══════════════════════════════════════════════════════════════════════════════
+# Trade study record for systematic analysis of design alternatives
+# Version: v1.0
+# Last Updated: 2026-01-27
+# ═══════════════════════════════════════════════════════════════════════════════
+
+trade_study_id: TS-95-00-001
+title: "AI/ML System Architecture Trade Study"
+status: OPEN  # OPEN | IN_PROGRESS | COMPLETED | ARCHIVED
+created_date: 2026-01-27
+completion_date: null
+
+# Scope
+scope:
+  objective: |
+    Evaluate design alternatives for AI/ML system architecture
+    to identify optimal solution meeting program requirements.
+    
+  boundaries:
+    in_scope:
+      - AI/ML system requirements definition
+      - AI/ML interface specifications
+    out_of_scope:
+      - Detailed component design (LC04)
+      - Manufacturing processes (LC09)
+
+# Related KNOT
+knot_reference:
+  o_knot_ref: O-KNOT-95-00-001
+  uncertainty_area: "AI/ML system design alternatives"
+
+# Evaluation Criteria
+criteria:
+  - criterion_id: CRI-001
+    name: "Technical Performance"
+    weight: 0.30
+    description: "Meets technical requirements and performance targets"
+    
+  - criterion_id: CRI-002
+    name: "Regulatory Compliance"
+    weight: 0.25
+    description: "Satisfies FAA/EASA certification requirements"
+    
+  - criterion_id: CRI-003
+    name: "Schedule Risk"
+    weight: 0.20
+    description: "Achievable within program timeline"
+    
+  - criterion_id: CRI-004
+    name: "Cost"
+    weight: 0.15
+    description: "Development and lifecycle cost"
+    
+  - criterion_id: CRI-005
+    name: "Integration Complexity"
+    weight: 0.10
+    description: "Ease of integration with other systems"
+
+# Alternatives
+alternatives:
+  - alternative_id: ALT-001
+    name: "Baseline Architecture"
+    description: |
+      Standard ATA framework application
+    scores:
+      CRI-001: null
+      CRI-002: null
+      CRI-003: null
+      CRI-004: null
+      CRI-005: null
+    total_score: null
+    
+  - alternative_id: ALT-002
+    name: "AI/ML-specific approach"
+    description: |
+      Tailored approach for AI/ML
+    scores:
+      CRI-001: null
+      CRI-002: null
+      CRI-003: null
+      CRI-004: null
+      CRI-005: null
+    total_score: null
+
+# Assumptions
+assumptions:
+  - "Program requirements are stable"
+  - "Resources are available as planned"
+  - "Regulatory framework remains unchanged"
+
+# Risks and Mitigations
+risks:
+  - risk_id: RSK-001
+    description: "Incomplete data for evaluation"
+    impact: MEDIUM
+    mitigation: "Conduct additional analysis as needed"
+
+# Recommendation
+recommendation:
+  recommended_alternative: null
+  rationale: null
+  confidence_level: null
+
+# Stakeholders
+stakeholders:
+  study_lead: STK_SE
+  team:
+    - STK_SE
+    - STK_AI
+  reviewers:
+    - STK_CERT
+    - STK_PMO
+
+# Approval Record
+approval:
+  approved_by: null
+  approval_date: null
+  approval_notes: null
+
+# Change History
+change_history:
+  - version: "1.0"
+    date: 2026-01-27
+    author: "STK_SE"
+    changes: "Initial trade study creation"

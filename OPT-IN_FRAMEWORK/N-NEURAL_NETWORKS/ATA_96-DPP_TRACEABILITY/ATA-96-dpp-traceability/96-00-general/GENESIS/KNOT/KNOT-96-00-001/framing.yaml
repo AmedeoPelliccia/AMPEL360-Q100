@@ -1,0 +1,49 @@
+# KNOT Framing Record
+# Knowledge Node - Bounded Scope and Planning Intent
+
+knot_id: KNOT-96-00-001
+title: "DPP/Traceability System Baseline"
+o_knot_ref: O-KNOT-96-00-001
+y_knot_ref: Y-KNOT-96-00-001-001
+created_date: 2026-01-27
+status: planning
+
+# Bounded Scope
+scope_in:
+  - DPP/Traceability system requirements definition
+  - DPP/Traceability interface specifications
+  - Safety and certification requirements
+
+scope_out:
+  - Detailed component design (LC04)
+  - Manufacturing processes (LC09)
+
+# Acceptance Criteria (Intent Level)
+acceptance_intent:
+  - All DPP/Traceability requirements documented and approved
+  - CSDB data modules pass BREX validation
+  - Traceability to KNOT established
+
+# High-Level Dependencies
+dependencies:
+  upstream:
+    - KNOT-00-00-001: Program terminology standardization
+    - KNOT-00-00-002: Document architecture conventions
+  downstream:
+    - All dependent chapters and systems
+    - LC02 system requirements for DPP/Traceability
+
+# Owner and Stakeholders
+owner: STK_SE
+stakeholders:
+  - STK_CERT  # Regulatory compliance
+  - STK_SE
+  - STK_PUB
+
+# Target Residual
+residual_before: 100
+residual_target: 10
+
+# Notes
+notes: |
+  Chapter-specific implementation notes for DPP/Traceability

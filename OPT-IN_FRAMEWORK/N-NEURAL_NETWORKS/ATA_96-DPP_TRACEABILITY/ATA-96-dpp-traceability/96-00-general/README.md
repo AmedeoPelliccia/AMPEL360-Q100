@@ -1,8 +1,8 @@
-# ATA 71-00 — Power Plant
+# ATA 96-00 — DPP/Traceability
 
-**ATA Address:** ATA-71-00-00-00  
-**Chapter:** ATA 71 — Power Plant  
-**Axis:** [T-TECHNOLOGIES](../../)  
+**ATA Address:** ATA-96-00-00-00  
+**Chapter:** ATA 96 — DPP/Traceability  
+**Axis:** [N-NEURAL_NETWORKS](../../)  
 **Status:** INITIALIZED  
 **Created:** 2026-01-27
 
@@ -10,7 +10,7 @@
 
 ## Overview
 
-This chapter implements the canonical **triple knowledge-base spine** for ATA 71 (Power Plant) following the OPT-IN Framework:
+This chapter implements the canonical **triple knowledge-base spine** for ATA 96 (DPP/Traceability) following the OPT-IN Framework:
 
 | Knowledge Base | Purpose | Primary Artifacts |
 |----------------|---------|-------------------|
@@ -23,14 +23,14 @@ This chapter implements the canonical **triple knowledge-base spine** for ATA 71
 ## Directory Structure
 
 ```
-71-00-general/
+96-00-general/
 ├── GENESIS/                          # Uncertainty space
 │   ├── KNOT/                         # Knowledge nodes
-│   │   └── KNOT-71-00-001/
+│   │   └── KNOT-96-00-001/
 │   ├── O-KNOT/                       # Origin knowledge discovery
-│   │   └── O-KNOT-71-00-001/
+│   │   └── O-KNOT-96-00-001/
 │   ├── Y-KNOT/                       # Justification records
-│   │   └── Y-KNOT-71-00-001-001/
+│   │   └── Y-KNOT-96-00-001-001/
 │   ├── DECISIONS/                    # Engineering decisions
 │   ├── TRADE_STUDIES/                # Trade study records
 │   └── _registry/                    # KNOT registries
@@ -65,9 +65,9 @@ This chapter implements the canonical **triple knowledge-base spine** for ATA 71
 
 Start by understanding and documenting the knowledge gaps:
 
-1. **O-KNOT Discovery**: Review `GENESIS/O-KNOT/O-KNOT-71-00-001/discovery.yaml`
+1. **O-KNOT Discovery**: Review `GENESIS/O-KNOT/O-KNOT-96-00-001/discovery.yaml`
 2. **Y-KNOT Justification**: Document decisions in `GENESIS/Y-KNOT/`
-3. **KNOT Framing**: Define scope in `GENESIS/KNOT/KNOT-71-00-001/framing.yaml`
+3. **KNOT Framing**: Define scope in `GENESIS/KNOT/KNOT-96-00-001/framing.yaml`
 
 ### 2. Configure SSOT Baseline
 

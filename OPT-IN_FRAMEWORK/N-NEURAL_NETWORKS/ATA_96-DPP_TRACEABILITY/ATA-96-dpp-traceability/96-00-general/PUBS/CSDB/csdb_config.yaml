@@ -1,0 +1,69 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# CSDB Configuration — ATA 96-00 DPP/Traceability
+# ═══════════════════════════════════════════════════════════════════════════════
+# S1000D Common Source Database configuration
+# Version: v1.0
+# Last Updated: 2026-01-27
+# ═══════════════════════════════════════════════════════════════════════════════
+
+csdb_config:
+  ata_chapter: "96"
+  ata_section: "00"
+  title: "DPP/Traceability"
+  
+# S1000D Configuration
+s1000d:
+  schema_version: "5.0"
+  model_ident_code: "AMPEL360"
+  system_diff_code: "96"
+  
+  # BREX Reference
+  brex_dm: "DMC-AMPEL360-00-00-00-00A-022A-A"
+  
+  # Applicability
+  applicability:
+    aircraft_model: "Q100"
+    serial_range: "Q100-001:Q100-999"
+    configurations:
+      - BASELINE
+      - OPTION_A
+      - OPTION_B
+
+# Publication Types
+publication_types:
+  - type: AMM
+    description: "Aircraft Maintenance Manual"
+    dm_prefix: "DMC-AMPEL360-96-00"
+    
+  - type: TRN
+    description: "Training Materials"
+    dm_prefix: "DMC-AMPEL360-96-00-T"
+
+# Data Module Code Structure
+dmc_structure:
+  model_ident_code: "AMPEL360"
+  system_diff_code: "96"
+  system_code: "00"
+  sub_system_code: "00"
+  sub_sub_system_code: "00"
+  assy_code: "A"
+  info_code_range: "001-999"
+
+# Quality Assurance
+qa_config:
+  brex_validation: REQUIRED
+  dmrl_check: REQUIRED
+  dmc_uniqueness: REQUIRED
+  completeness_check: RECOMMENDED
+
+# Export Formats
+export_formats:
+  - format: PDF
+    enabled: true
+  - format: HTML
+    enabled: true
+  - format: IETP
+    enabled: true
+  - format: JSON-LD
+    enabled: false
+    notes: "For DPP integration"

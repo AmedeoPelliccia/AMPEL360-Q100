@@ -1,0 +1,34 @@
+# O-KNOT Discovery Record
+# Origin Knowledge Node - Problem Statement Awareness
+
+o_knot_id: O-KNOT-71-00-001
+title: "Power Plant Knowledge Gap"
+trigger_source: heritage
+created_date: 2026-01-27
+
+problem_statement: |
+  Initial knowledge gaps for ATA 71 (Power Plant) systems
+  require systematic discovery and documentation before resolution
+  planning can begin.
+  
+  Specific knowledge gaps for Power Plant
+
+impact_hypothesis:
+  safety: medium|high|critical
+  certification: medium|high|critical
+  cost: low|medium|high
+  schedule: low|medium|high
+  operations: low|medium|high
+
+heritage_sources:
+  - Prior program documentation gaps
+  - Legacy system assumptions for Power Plant
+  - Historical data transfer requirements
+  - Power Plant heritage documentation
+
+# Chapter-specific considerations
+domain_specific:
+  domain: "T-TECHNOLOGIES"
+  specialized_concerns:
+    - Fuel cell stack integration
+    - Electric motor control

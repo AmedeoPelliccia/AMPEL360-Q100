@@ -1,0 +1,2 @@
+knu_id,knot_id,title,lifecycle_category,artifact_type,status,owner,priority,effort_predicted
+KNU-95-00-001-REQ-001,KNOT-95-00-001,"AI/ML Requirements",LC02,REQ,PLANNED,STK_SE,HIGH,8

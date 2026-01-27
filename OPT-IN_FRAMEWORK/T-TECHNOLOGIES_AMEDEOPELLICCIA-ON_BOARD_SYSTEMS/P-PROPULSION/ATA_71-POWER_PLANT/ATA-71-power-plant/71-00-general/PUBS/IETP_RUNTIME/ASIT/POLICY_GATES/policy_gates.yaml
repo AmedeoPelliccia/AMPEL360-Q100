@@ -1,0 +1,134 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# ASIT POLICY GATES — ATA 71-00 Power Plant
+# ═══════════════════════════════════════════════════════════════════════════════
+# Aircraft Standard Information Transponder - Policy Gates Configuration
+# Category: PUBS/IETP_RUNTIME/ASIT
+# Type: POLICY_GATES
+# Issue-Rev: v1.0.0
+# Status: DRAFT
+# Last Updated: 2026-01-27
+# ═══════════════════════════════════════════════════════════════════════════════
+
+policy_gates:
+  chapter_id: "ATA-71-00"
+  title: "Power Plant Policy Gates"
+  created_date: 2026-01-27
+  version: "1.0.0"
+
+# Safety Gates
+safety_gates:
+  # Prevent display of uncertified content
+  - gate_id: "SAFETY-001"
+    name: "Certification Status Gate"
+    description: "Block uncertified content from production deployment"
+    enabled: true
+    severity: CRITICAL
+    condition:
+      field: "dm.certification_status"
+      operator: "NOT_IN"
+      values: ["APPROVED", "CERTIFIED"]
+    action: BLOCK
+    message: "Content not certified for production use"
+    
+  # Require safety-critical review
+  - gate_id: "SAFETY-002"
+    name: "Safety Critical Review Gate"
+    description: "Require additional review for safety-critical procedures"
+    enabled: true
+    severity: HIGH
+    condition:
+      field: "dm.safety_classification"
+      operator: "IN"
+      values: ["CRITICAL", "WARNING"]
+    action: FLAG_REVIEW
+    message: "Safety-critical content requires additional review"
+
+# Regulatory Gates
+regulatory_gates:
+  # Ensure regulatory compliance
+  - gate_id: "REG-001"
+    name: "Regulatory Approval Gate"
+    description: "Verify FAA/EASA approval status"
+    enabled: true
+    severity: HIGH
+    condition:
+      field: "dm.regulatory_status"
+      operator: "NOT_EQUALS"
+      values: ["APPROVED"]
+    action: BLOCK_PRODUCTION
+    message: "Content pending regulatory approval"
+    
+  # Export control
+  - gate_id: "REG-002"
+    name: "Export Control Gate"
+    description: "Check export control restrictions"
+    enabled: true
+    severity: HIGH
+    condition:
+      field: "dm.export_control"
+      operator: "IN"
+      values: ["ITAR", "EAR"]
+    action: RESTRICT_ACCESS
+    message: "Export-controlled content - restricted access"
+
+# Quality Gates
+quality_gates:
+  # BREX validation
+  - gate_id: "QA-001"
+    name: "BREX Validation Gate"
+    description: "Ensure BREX compliance"
+    enabled: true
+    severity: MEDIUM
+    condition:
+      field: "dm.brex_status"
+      operator: "NOT_EQUALS"
+      values: ["PASS"]
+    action: WARN
+    message: "Content has BREX validation issues"
+    
+  # Completeness check
+  - gate_id: "QA-002"
+    name: "Completeness Gate"
+    description: "Verify all required elements present"
+    enabled: true
+    severity: MEDIUM
+    condition:
+      field: "dm.completeness_score"
+      operator: "LESS_THAN"
+      values: [100]
+    action: WARN
+    message: "Content completeness below 100%"
+
+# Access Control Gates
+access_gates:
+  # Role-based access
+  - gate_id: "ACCESS-001"
+    name: "Engineering Data Gate"
+    description: "Restrict engineering notes to authorized roles"
+    enabled: true
+    severity: LOW
+    condition:
+      field: "content.type"
+      operator: "EQUALS"
+      values: ["ENGINEERING_NOTE"]
+    required_roles:
+      - ENGINEER
+      - MAINTENANCE_SUPERVISOR
+    action: HIDE
+    message: "Engineering data requires elevated access"
+
+# Gate Enforcement
+enforcement:
+  mode: "STRICT"  # STRICT | PERMISSIVE | AUDIT_ONLY
+  audit_all: true
+  notify_on_block: true
+  notification_channels:
+    - EMAIL
+    - SYSTEM_LOG
+
+# Change History
+change_history:
+  - version: "1.0.0"
+    date: 2026-01-27
+    author: "scaffold_chapter.py"
+    changes: "Initial policy gates configuration"

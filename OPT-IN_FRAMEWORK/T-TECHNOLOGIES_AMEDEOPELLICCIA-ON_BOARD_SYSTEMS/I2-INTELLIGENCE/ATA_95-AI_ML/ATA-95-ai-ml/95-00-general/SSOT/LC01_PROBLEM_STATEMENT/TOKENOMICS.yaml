@@ -1,0 +1,78 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# TOKENOMICS.yaml — ATA 95-00 AI/ML
+# ═══════════════════════════════════════════════════════════════════════════════
+# Teknia Token reward configuration for LC01 uncertainty resolution
+# Version: v0.1
+# Last Updated: 2026-01-27
+# ═══════════════════════════════════════════════════════════════════════════════
+
+tokenomics:
+  token_symbol: "TT"
+  unit: "deg"
+  deg_per_tt: 360
+  node_reference: "ATA-95-00-00-00"
+  # IMPORTANT: Teknia Tokens are non-monetary units of contribution recognition
+  # and governance signaling. They do not represent financial compensation.
+  nature: "non-monetary contribution recognition"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Aggregate Pool
+# ─────────────────────────────────────────────────────────────────────────────
+aggregate_pool:
+  total_tt: 600
+  total_deg: 216000
+  knot_count: 3
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Per-KNOT Allocation
+# ─────────────────────────────────────────────────────────────────────────────
+knot_pools:
+  - knot_id: "KNOT-95-00-001"
+    title: "AI/ML System Baseline"
+    pool_tt: 200
+    pool_deg: 72000
+    complexity_multiplier: 1.0
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Distribution Parameters
+# ─────────────────────────────────────────────────────────────────────────────
+allocation:
+  method: "effort_plus_impact"
+  formula: "w_i = α·Ê_i + (1-α)·Î_i; T_i = P_k · w_i"
+  params:
+    alpha_effort: 0.35          # 35% weight on effort
+    alpha_impact: 0.65          # 65% weight on impact
+    lambda_spillover: 0.40
+    rounding: "floor_deg"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Eligibility Requirements
+# ─────────────────────────────────────────────────────────────────────────────
+eligibility:
+  require_status:
+    - "COMPLETE"
+    - "ACCEPTED"
+  require_links_resolved: true
+  require_brex_pass_for_pub: true
+  require_owner_signoff: true
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Measurement Scales
+# ─────────────────────────────────────────────────────────────────────────────
+measurement:
+  residual_scale: "0..100"
+  required_fields_per_knu:
+    - effort_predicted
+    - effort_actual
+    - delta_residual_primary
+    - delta_residual_adjacent_sum
+    - verification_status
+    - linked_artifacts
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Governance
+# ─────────────────────────────────────────────────────────────────────────────
+governance:
+  approval_authority: "STK_PMO"
+  change_control: "LC08"
+  audit_frequency: "per_milestone"

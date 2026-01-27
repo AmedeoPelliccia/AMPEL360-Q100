@@ -1,0 +1,61 @@
+# Y-KNOT Justification Record
+# Justification Layer - Decision Logic
+
+y_knot_id: Y-KNOT-71-00-001-001
+title: "Power Plant Resolution Approach"
+o_knot_ref: O-KNOT-71-00-001
+created_date: 2026-01-27
+status: justified
+
+# Decision Context
+decision_context:
+  background: |
+    Decision on how to systematically address Power Plant
+    knowledge gaps and establish baseline for ATA 71.
+  
+  constraints:
+    - Regulatory compliance (FAA/EASA)
+    - Program schedule constraints
+    - Available resources and expertise
+    - Integration with other ATA chapters
+    - Thermal management requirements
+
+# Options Analysis (reference separate options_analysis.md)
+options_evaluated:
+  - option_id: "OPT-001"
+    title: "Baseline approach"
+    summary: "Standard ATA framework application"
+  - option_id: "OPT-002"
+    title: "Power Plant-specific approach"
+    summary: "Tailored approach for Power Plant"
+
+# Recommended Decision
+recommendation:
+  selected_option: "OPT-001"
+  rationale: |
+    Selected baseline approach with Power Plant-specific
+    adaptations for domain requirements.
+  
+  key_factors:
+    - Alignment with program architecture
+    - Hybrid propulsion architecture
+    - Regulatory compliance
+    - Technical feasibility
+
+# Stakeholders
+stakeholders:
+  decision_maker: "STK_SE"
+  consulted:
+    - STK_CERT
+    - STK_SAF
+    - STK_PROP
+  informed:
+    - STK_PMO
+    - STK_CM
+
+# Traceability
+upstream_refs:
+  - O-KNOT-71-00-001
+
+downstream_refs:
+  - KNOT-71-00-001

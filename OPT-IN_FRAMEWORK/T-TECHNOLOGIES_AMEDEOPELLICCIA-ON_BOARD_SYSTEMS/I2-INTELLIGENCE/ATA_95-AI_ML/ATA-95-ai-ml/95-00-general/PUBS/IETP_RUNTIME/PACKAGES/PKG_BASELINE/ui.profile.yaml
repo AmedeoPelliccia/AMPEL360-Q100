@@ -1,0 +1,143 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# UI PROFILE — ATA 95-00 AI/ML
+# ═══════════════════════════════════════════════════════════════════════════════
+# User interface configuration for IETP runtime delivery
+# Category: PUBS/IETP_RUNTIME/PACKAGES
+# Type: UI_PROFILE
+# Issue-Rev: v1.0.0
+# Status: DRAFT
+# Last Updated: 2026-01-27
+# ═══════════════════════════════════════════════════════════════════════════════
+
+ui_profile:
+  profile_id: "UI-95-00-STANDARD"
+  profile_name: "AI/ML Standard UI"
+  package_id: "PKG-95-00-BASELINE"
+  created_date: 2026-01-27
+
+# Theme Configuration
+theme:
+  name: "ampel360-standard"
+  color_scheme: "LIGHT"  # LIGHT | DARK | HIGH_CONTRAST
+  brand_colors:
+    primary: "#0066CC"
+    secondary: "#4D4D4D"
+    accent: "#FF6600"
+    safety_warning: "#FF0000"
+    safety_caution: "#FFCC00"
+  
+  typography:
+    font_family: "Roboto, Arial, sans-serif"
+    base_font_size: "14px"
+    heading_scale: 1.25
+
+# Layout Configuration
+layout:
+  navigation:
+    position: "LEFT"  # LEFT | TOP | BOTTOM
+    style: "TREE"     # TREE | BREADCRUMB | TABS
+    collapsible: true
+    default_expanded_levels: 2
+    
+  content_area:
+    max_width: "1200px"
+    padding: "16px"
+    
+  footer:
+    visible: true
+    show_revision_info: true
+    show_effectivity: true
+
+# Role-Based Views
+role_views:
+  - role_id: "OPERATOR"
+    name: "Operator View"
+    is_default: true
+    features:
+      show_procedures: true
+      show_illustrations: true
+      show_parts_data: false
+      show_engineering_notes: false
+      allow_annotations: false
+      
+  - role_id: "MAINTENANCE_TECH"
+    name: "Maintenance Technician View"
+    is_default: false
+    features:
+      show_procedures: true
+      show_illustrations: true
+      show_parts_data: true
+      show_engineering_notes: true
+      allow_annotations: true
+      
+  - role_id: "ENGINEER"
+    name: "Engineer View"
+    is_default: false
+    features:
+      show_procedures: true
+      show_illustrations: true
+      show_parts_data: true
+      show_engineering_notes: true
+      allow_annotations: true
+      show_traceability: true
+
+# Widget Configuration
+widgets:
+  search:
+    enabled: true
+    position: "TOP_RIGHT"
+    features:
+      - full_text
+      - dm_code
+      - part_number
+      
+  bookmarks:
+    enabled: true
+    max_bookmarks: 50
+    
+  annotations:
+    enabled: true
+    require_approval: false
+    
+  print:
+    enabled: true
+    formats:
+      - PDF
+      - HTML
+      
+  offline_sync:
+    enabled: true
+    auto_sync: true
+    sync_interval_hours: 24
+
+# Accessibility
+accessibility:
+  wcag_level: "AA"
+  features:
+    - keyboard_navigation
+    - screen_reader_support
+    - high_contrast_mode
+    - text_scaling
+    - focus_indicators
+
+# Responsive Breakpoints
+responsive:
+  mobile:
+    max_width: "768px"
+    navigation: "BOTTOM"
+    font_scale: 0.9
+  tablet:
+    max_width: "1024px"
+    navigation: "LEFT_COLLAPSED"
+    font_scale: 1.0
+  desktop:
+    min_width: "1025px"
+    navigation: "LEFT"
+    font_scale: 1.0
+
+# Change History
+change_history:
+  - version: "1.0.0"
+    date: 2026-01-27
+    author: "scaffold_chapter.py"
+    changes: "Initial UI profile creation"

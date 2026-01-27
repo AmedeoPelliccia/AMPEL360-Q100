@@ -1,0 +1,67 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXPORT Configuration — ATA 71-00 Power Plant
+# ═══════════════════════════════════════════════════════════════════════════════
+# Publication export configuration and manifest
+# Version: v1.0
+# Last Updated: 2026-01-27
+# ═══════════════════════════════════════════════════════════════════════════════
+
+export_config:
+  ata_chapter: "71"
+  ata_section: "00"
+  title: "Power Plant Export Configuration"
+  
+# Export Formats
+formats:
+  pdf:
+    enabled: true
+    output_dir: "pdf/"
+    template: "ampel360-amm-pdf.xsl"
+    options:
+      page_size: "A4"
+      color_mode: "full-color"
+      include_toc: true
+      include_index: true
+      
+  html:
+    enabled: true
+    output_dir: "html/"
+    template: "ampel360-amm-html.xsl"
+    options:
+      responsive: true
+      navigation: "sidebar"
+      search_enabled: true
+      
+  ietp:
+    enabled: true
+    output_dir: "ietp/"
+    viewer: "ampel360-ietp-viewer"
+    options:
+      interactive_graphics: true
+      hotspots_enabled: true
+      
+  json_ld:
+    enabled: false
+    output_dir: "json-ld/"
+    notes: "Reserved for Digital Product Passport integration"
+
+# Export Schedule
+schedule:
+  frequency: "per_milestone"
+  trigger: "manual"
+  approval_required: true
+
+# Quality Gates
+quality_gates:
+  pre_export:
+    - brex_validation: PASS
+    - completeness_check: PASS
+    - dmc_uniqueness: PASS
+  post_export:
+    - format_validation: PASS
+    - link_verification: PASS
+
+# Manifest
+manifest:
+  generated_on: null
+  artifacts: []

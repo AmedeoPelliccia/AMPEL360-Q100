@@ -1,0 +1,104 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# ASIT ORCHESTRATION CONFIG — ATA 71-00 Power Plant
+# ═══════════════════════════════════════════════════════════════════════════════
+# Aircraft Standard Information Transponder - Orchestration Configuration
+# Category: PUBS/IETP_RUNTIME/ASIT
+# Type: ORCHESTRATION
+# Issue-Rev: v1.0.0
+# Status: DRAFT
+# Last Updated: 2026-01-27
+# ═══════════════════════════════════════════════════════════════════════════════
+
+asit_orchestration:
+  chapter_id: "ATA-71-00"
+  title: "Power Plant ASIT Orchestration"
+  created_date: 2026-01-27
+  version: "1.0.0"
+
+# Content Assembly Rules
+content_assembly:
+  # Assembly strategy
+  strategy: "ROLE_BASED"  # ROLE_BASED | CONFIG_BASED | SERIAL_BASED
+  
+  # Module selection based on user role
+  role_mappings:
+    OPERATOR:
+      modules: ["PM_CORE", "PM_OPERATIONAL"]
+      content_level: "OVERVIEW"
+      show_technical_data: false
+      
+    MAINTENANCE_TECH:
+      modules: ["PM_CORE", "PM_MAINTENANCE", "PM_OPERATIONAL"]
+      content_level: "DETAILED"
+      show_technical_data: true
+      
+    ENGINEER:
+      modules: ["PM_CORE", "PM_MAINTENANCE", "PM_OPERATIONAL", "PM_TRAINING"]
+      content_level: "FULL"
+      show_technical_data: true
+      show_traceability: true
+
+# Aircraft Configuration Routing
+config_routing:
+  # Route content based on aircraft MSN configuration
+  rules:
+    - rule_id: "CONFIG-001"
+      name: "Baseline Configuration"
+      condition:
+        configuration: "BASELINE"
+        serial_range: "Q100-001:Q100-500"
+      content_variant: "A"
+      
+    - rule_id: "CONFIG-002"
+      name: "Hybrid Configuration"
+      condition:
+        configuration: "HYBRID"
+        serial_range: "Q100-501:Q100-999"
+      content_variant: "B"
+
+# Content Filtering
+content_filtering:
+  # Effectivity filtering
+  effectivity:
+    enabled: true
+    filter_type: "SERIAL_NUMBER"
+    
+  # Applicability filtering
+  applicability:
+    enabled: true
+    filter_by_config: true
+    filter_by_modification: true
+
+# Dynamic Content Routing
+dynamic_routing:
+  enabled: true
+  
+  # SSOT integration for real-time config
+  ssot_integration:
+    enabled: true
+    sync_interval_seconds: 300
+    endpoints:
+      config_status: "/api/ssot/config-status"
+      modification_status: "/api/ssot/mod-status"
+      
+  # Content personalization
+  personalization:
+    enabled: true
+    remember_preferences: true
+    suggest_related_content: true
+
+# App Builder Integration
+app_builder:
+  template: "ampel360-ietp-standard"
+  build_triggers:
+    - ON_CONTENT_UPDATE
+    - ON_CONFIG_CHANGE
+    - SCHEDULED
+  scheduled_build_cron: "0 2 * * *"  # 2 AM daily
+
+# Change History
+change_history:
+  - version: "1.0.0"
+    date: 2026-01-27
+    author: "scaffold_chapter.py"
+    changes: "Initial ASIT orchestration configuration"

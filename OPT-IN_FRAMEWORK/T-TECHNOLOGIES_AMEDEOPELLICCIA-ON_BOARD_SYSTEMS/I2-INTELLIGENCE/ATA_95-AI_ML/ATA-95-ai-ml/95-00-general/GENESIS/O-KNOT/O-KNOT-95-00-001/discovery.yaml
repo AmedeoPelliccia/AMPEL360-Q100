@@ -1,0 +1,34 @@
+# O-KNOT Discovery Record
+# Origin Knowledge Node - Problem Statement Awareness
+
+o_knot_id: O-KNOT-95-00-001
+title: "AI/ML Knowledge Gap"
+trigger_source: heritage
+created_date: 2026-01-27
+
+problem_statement: |
+  Initial knowledge gaps for ATA 95 (AI/ML) systems
+  require systematic discovery and documentation before resolution
+  planning can begin.
+  
+  Specific knowledge gaps for AI/ML
+
+impact_hypothesis:
+  safety: medium|high|critical
+  certification: medium|high|critical
+  cost: low|medium|high
+  schedule: low|medium|high
+  operations: low|medium|high
+
+heritage_sources:
+  - Prior program documentation gaps
+  - Legacy system assumptions for AI/ML
+  - Historical data transfer requirements
+  - AI/ML heritage documentation
+
+# Chapter-specific considerations
+domain_specific:
+  domain: "T-TECHNOLOGIES"
+  specialized_concerns:
+    - Learning assurance
+    - Model versioning and traceability

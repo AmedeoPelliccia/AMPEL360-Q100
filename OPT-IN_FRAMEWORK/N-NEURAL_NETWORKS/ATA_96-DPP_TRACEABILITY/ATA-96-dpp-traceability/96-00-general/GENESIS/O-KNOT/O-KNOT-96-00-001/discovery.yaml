@@ -1,0 +1,34 @@
+# O-KNOT Discovery Record
+# Origin Knowledge Node - Problem Statement Awareness
+
+o_knot_id: O-KNOT-96-00-001
+title: "DPP/Traceability Knowledge Gap"
+trigger_source: heritage
+created_date: 2026-01-27
+
+problem_statement: |
+  Initial knowledge gaps for ATA 96 (DPP/Traceability) systems
+  require systematic discovery and documentation before resolution
+  planning can begin.
+  
+  Specific knowledge gaps for DPP/Traceability
+
+impact_hypothesis:
+  safety: medium|high|critical
+  certification: medium|high|critical
+  cost: low|medium|high
+  schedule: low|medium|high
+  operations: low|medium|high
+
+heritage_sources:
+  - Prior program documentation gaps
+  - Legacy system assumptions for DPP/Traceability
+  - Historical data transfer requirements
+  - DPP/Traceability heritage documentation
+
+# Chapter-specific considerations
+domain_specific:
+  domain: "N-NEURAL_NETWORKS"
+  specialized_concerns:
+    - Digital Product Passport integration
+    - Blockchain traceability
