@@ -1,0 +1,7 @@
+dmc,title,info_code,type,status,version,issue_date,last_modified,author,reviewer,notes
+DMC-AMPEL360-XX-00-00-00A-001A-A,Chapter Title System Description,001,DESCRIPTIVE,PLANNED,0.1.0,YYYY-MM-DD,YYYY-MM-DD,STK_PUB,STK_SE,"Primary system description data module"
+DMC-AMPEL360-XX-00-00-00A-040A-A,Chapter Title Operation Procedures,040,PROCEDURAL,PLANNED,0.1.0,YYYY-MM-DD,YYYY-MM-DD,STK_PUB,STK_OPS,"Operational procedures"
+DMC-AMPEL360-XX-00-00-00A-520A-A,Chapter Title Servicing Procedures,520,PROCEDURAL,PLANNED,0.1.0,YYYY-MM-DD,YYYY-MM-DD,STK_PUB,STK_MRO,"Servicing and routine maintenance"
+DMC-AMPEL360-XX-00-00-00A-710A-A,Chapter Title Maintenance Procedures,710,PROCEDURAL,PLANNED,0.1.0,YYYY-MM-DD,YYYY-MM-DD,STK_PUB,STK_MRO,"Corrective maintenance procedures"
+DMC-AMPEL360-XX-00-00-00A-810A-A,Chapter Title Inspection Procedures,810,PROCEDURAL,PLANNED,0.1.0,YYYY-MM-DD,YYYY-MM-DD,STK_PUB,STK_QA,"Inspection and verification procedures"
+DMC-AMPEL360-XX-00-00-00A-900A-A,Chapter Title Troubleshooting,900,FAULT,PLANNED,0.1.0,YYYY-MM-DD,YYYY-MM-DD,STK_PUB,STK_MRO,"Fault isolation and troubleshooting"

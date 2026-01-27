@@ -1,0 +1,362 @@
+---
+# Export Configuration for ATA XX
+# Multi-format publication export settings
+#
+# Purpose: Configure export formats and transformation pipelines
+
+# ============================================================================
+# EXPORT METADATA
+# ============================================================================
+export:
+  chapter: XX
+  title: "Chapter Title Export Configuration"
+  version: 0.1.0
+  created_date: "YYYY-MM-DD"
+
+# ============================================================================
+# GLOBAL SETTINGS
+# ============================================================================
+global:
+  source_csdb: "../CSDB/"
+  output_base: "./EXPORTS/"
+  
+  validation:
+    validate_before_export: true
+    brex_check: true
+    schema_check: true
+  
+  metadata:
+    include_metadata: true
+    metadata_format: EMBEDDED  # EMBEDDED | SIDECAR | BOTH
+
+# ============================================================================
+# PDF EXPORT
+# ============================================================================
+pdf:
+  enabled: true
+  output_directory: "PDF/"
+  
+  settings:
+    page_size: A4
+    orientation: PORTRAIT
+    margins:
+      top: 25mm
+      bottom: 25mm
+      left: 20mm
+      right: 20mm
+    
+    fonts:
+      body: "Arial"
+      heading: "Arial Bold"
+      monospace: "Courier New"
+      size_body: 10pt
+      size_heading: 14pt
+    
+    colors:
+      text: "#000000"
+      headings: "#0066CC"
+      links: "#0066CC"
+      tables_header: "#EEEEEE"
+    
+    features:
+      table_of_contents: true
+      bookmarks: true
+      hyperlinks: true
+      page_numbers: true
+      headers_footers: true
+      watermark: false
+  
+  templates:
+    cover_page: "templates/cover_page_template.xml"
+    header: "templates/header_template.xml"
+    footer: "templates/footer_template.xml"
+  
+  outputs:
+    - output_name: "ATA-XX-Complete.pdf"
+      content: ALL_DMS
+      description: "Complete ATA XX documentation"
+    
+    - output_name: "ATA-XX-Maintenance.pdf"
+      content: MAINTENANCE_DMS
+      dm_filter:
+        info_codes: ["710", "810", "900"]
+      description: "Maintenance procedures only"
+    
+    - output_name: "ATA-XX-Operation.pdf"
+      content: OPERATIONAL_DMS
+      dm_filter:
+        info_codes: ["001", "040"]
+      description: "Operational documentation"
+
+# ============================================================================
+# HTML EXPORT
+# ============================================================================
+html:
+  enabled: true
+  output_directory: "HTML/"
+  
+  settings:
+    html_version: HTML5
+    responsive: true
+    css_framework: BOOTSTRAP  # BOOTSTRAP | FOUNDATION | CUSTOM
+    
+    navigation:
+      type: SIDEBAR  # SIDEBAR | TOPBAR | TREE
+      collapsible: true
+      search: true
+    
+    features:
+      syntax_highlighting: true
+      interactive_diagrams: true
+      embedded_videos: false
+      print_stylesheet: true
+  
+  templates:
+    layout: "templates/html_layout_template.html"
+    dm_template: "templates/html_dm_template.html"
+    toc_template: "templates/html_toc_template.html"
+  
+  assets:
+    css_files:
+      - "styles/main.css"
+      - "styles/responsive.css"
+    
+    js_files:
+      - "scripts/navigation.js"
+      - "scripts/search.js"
+      - "scripts/interactive.js"
+    
+    images_directory: "images/"
+    icons_directory: "icons/"
+  
+  outputs:
+    - output_name: "HTML_SITE"
+      content: ALL_DMS
+      structure: MULTI_PAGE
+      index_page: "index.html"
+      description: "Complete HTML website"
+
+# ============================================================================
+# IETP EXPORT
+# ============================================================================
+ietp:
+  enabled: true
+  output_directory: "IETP/"
+  
+  settings:
+    ietp_format: S1000D_IETP  # S1000D_IETP | CUSTOM
+    runtime: EMBEDDED  # EMBEDDED | CLOUD | HYBRID
+    
+    viewer_configuration:
+      default_view: TOC
+      zoom_level: 100
+      bookmarks_panel: true
+      search_panel: true
+      annotations_enabled: false
+  
+  packages:
+    - package_id: PKG_BASELINE
+      manifest: "../IETP_RUNTIME/PACKAGES/PKG_BASELINE/package.manifest.yaml"
+      output_name: "IETP_ATA-XX_Baseline.zip"
+      description: "Baseline IETP package"
+    
+    - package_id: PKG_MRO
+      manifest: "../IETP_RUNTIME/PACKAGES/PKG_MRO/package.manifest.yaml"
+      output_name: "IETP_ATA-XX_MRO.zip"
+      description: "MRO-specific IETP package"
+  
+  distribution:
+    format: ZIP
+    include_viewer: true
+    include_runtime: true
+    offline_capable: true
+
+# ============================================================================
+# DATA DROPS EXPORT
+# ============================================================================
+data_drops:
+  enabled: true
+  output_directory: "DATA_DROPS/"
+  
+  formats:
+    xml:
+      enabled: true
+      schema_version: S1000D_5.0
+      include_dtd: true
+      pretty_print: true
+    
+    json:
+      enabled: true
+      schema: "schemas/ata_xx_json_schema.json"
+      pretty_print: true
+    
+    csv:
+      enabled: true
+      delimiter: ","
+      encoding: UTF-8
+      include_headers: true
+  
+  extracts:
+    - extract_id: METADATA_EXTRACT
+      format: CSV
+      output_name: "ata_xx_metadata.csv"
+      content:
+        - dmc
+        - title
+        - info_code
+        - issue_date
+        - status
+      description: "Data module metadata extract"
+    
+    - extract_id: FULL_XML_DUMP
+      format: XML
+      output_name: "ata_xx_full_dump.xml"
+      content: ALL_DMS
+      description: "Complete XML dump of all data modules"
+    
+    - extract_id: JSON_API
+      format: JSON
+      output_name: "ata_xx_api_data.json"
+      content: STRUCTURED_DATA
+      description: "JSON format for API integration"
+
+# ============================================================================
+# TRANSFORMATION PIPELINES
+# ============================================================================
+transformations:
+  - pipeline_id: XML_TO_PDF
+    source_format: XML
+    target_format: PDF
+    transform_tool: FOP  # FOP | XSLT | PRINCE_XML
+    xslt_stylesheet: "transforms/s1000d_to_fo.xsl"
+    parameters:
+      include-cover: true
+      include-toc: true
+  
+  - pipeline_id: XML_TO_HTML
+    source_format: XML
+    target_format: HTML
+    transform_tool: XSLT
+    xslt_stylesheet: "transforms/s1000d_to_html.xsl"
+    parameters:
+      responsive: true
+      include-navigation: true
+  
+  - pipeline_id: XML_TO_JSON
+    source_format: XML
+    target_format: JSON
+    transform_tool: CUSTOM
+    script: "transforms/xml_to_json.py"
+    parameters:
+      schema-version: 1.0
+      include-metadata: true
+
+# ============================================================================
+# SCHEDULING & AUTOMATION
+# ============================================================================
+automation:
+  enabled: true
+  
+  scheduled_exports:
+    - schedule_id: NIGHTLY_BUILD
+      frequency: DAILY
+      time: "02:00"
+      timezone: UTC
+      formats:
+        - PDF
+        - HTML
+      notification: ADMIN_EMAIL
+    
+    - schedule_id: WEEKLY_FULL_EXPORT
+      frequency: WEEKLY
+      day: SUNDAY
+      time: "00:00"
+      timezone: UTC
+      formats:
+        - PDF
+        - HTML
+        - IETP
+        - DATA_DROPS
+      notification: STAKEHOLDER_EMAIL
+  
+  triggers:
+    - trigger_id: ON_DM_APPROVAL
+      event: DM_STATUS_CHANGED
+      condition: "status == 'APPROVED'"
+      action: EXPORT_INCREMENTAL
+      formats:
+        - HTML
+        - JSON
+    
+    - trigger_id: ON_RELEASE
+      event: RELEASE_PUBLISHED
+      condition: "release.type == 'MAJOR'"
+      action: EXPORT_ALL
+      formats: ALL
+
+# ============================================================================
+# QUALITY CHECKS
+# ============================================================================
+quality_checks:
+  pre_export:
+    - check: "BREX validation"
+      mandatory: true
+    - check: "Link integrity"
+      mandatory: true
+    - check: "Image references"
+      mandatory: true
+  
+  post_export:
+    - check: "File size validation"
+      max_size_mb: 500
+    - check: "Format compliance"
+      mandatory: true
+    - check: "Accessibility check"
+      standard: WCAG_2.1_AA
+
+# ============================================================================
+# DISTRIBUTION
+# ============================================================================
+distribution:
+  channels:
+    - channel: FILE_SERVER
+      path: "/exports/ata-xx/"
+      protocol: SFTP
+      credentials: ENCRYPTED
+    
+    - channel: DOCUMENT_PORTAL
+      api: "https://portal.ampel360.example/api/upload"
+      authentication: API_KEY
+    
+    - channel: EMAIL
+      recipients:
+        - group: STAKEHOLDERS
+        - group: PUBLICATIONS_TEAM
+      attachment_size_limit_mb: 25
+      use_compression: true
+
+# ============================================================================
+# ARCHIVAL
+# ============================================================================
+archival:
+  enabled: true
+  
+  retention:
+    exports:
+      current_version: PERMANENT
+      previous_versions: "2_YEARS"
+      superseded: "5_YEARS"
+  
+  storage:
+    location: "/archive/exports/ata-xx/"
+    format: ZIP
+    compression: true
+    encryption: false
+
+# ============================================================================
+# NOTES
+# ============================================================================
+notes: >
+  This export configuration supports multiple output formats from the S1000D
+  CSDB. All exports are validated before generation and can be automated
+  on schedule or triggered by events.

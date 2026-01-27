@@ -19,6 +19,11 @@ _templates/
 ├── README.md                          # This file
 ├── scaffold_chapter.py                # Scaffolding automation script (v1.2.0)
 │
+├── ATA_XX_TEMPLATE/                   # 🆕 Complete reference template
+│   └── ATA_XX-CHAPTER_TITLE/          # Fully populated example structure
+│       └── ATA-XX-chapter-title/      # with all GENESIS, SSOT, PUBS layers
+│           └── XX-00-general/         # Ready to copy and customize
+│
 ├── GENESIS_TEMPLATE/                  # Uncertainty space templates
 │   ├── KNOT/                          # Knowledge node framing
 │   ├── O-KNOT/                        # Origin knowledge discovery
@@ -96,6 +101,35 @@ _templates/
 └── PUB_TEMPLATE/                      # (Legacy) AMM/TRN structure
     └── AMM/                           # Retained for compatibility
 ```
+
+## ATA_XX_TEMPLATE - Complete Reference Template
+
+**New in this release:** The `ATA_XX_TEMPLATE/` directory provides a **fully populated reference template** showing a complete ATA chapter structure with all files and configurations.
+
+### What It Includes
+
+- **Complete directory structure** for GENESIS, SSOT, and PUBS layers
+- **Sample GENESIS files**: O-KNOT discovery, Y-KNOT justification, KNOT framing
+- **Sample SSOT files**: TOKENOMICS, KNU_PLAN, KNOTS registry, TBD_REGISTER
+- **Sample PUBS files**: CSDB config, DMC index, ASIT config, package manifest, export config
+- **Documentation**: README and 00_INDEX with complete examples
+- **Consistent placeholders**: All using "XX" for easy find-and-replace
+
+### How to Use
+
+**Option 1: Manual copy and customize**
+```bash
+cp -r ATA_XX_TEMPLATE/ATA_XX-CHAPTER_TITLE ../[AXIS]/ATA_[NUM]-[TITLE]/
+# Then find-replace XX → your chapter number
+```
+
+**Option 2: Use scaffold_chapter.py (recommended)**
+```bash
+python scaffold_chapter.py --chapter 28 --title "Fuel" --axis T-TECHNOLOGIES
+# Automatically substitutes all placeholders
+```
+
+See [ATA_XX_TEMPLATE/README.md](ATA_XX_TEMPLATE/README.md) for detailed usage instructions.
 
 ## PUBS Layer Evolution
 

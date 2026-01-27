@@ -1,0 +1,317 @@
+---
+# CSDB Configuration for ATA XX
+# S1000D Common Source Database Configuration
+#
+# Purpose: Configure S1000D data module structure and BREX validation rules
+
+# ============================================================================
+# CSDB METADATA
+# ============================================================================
+csdb:
+  chapter: XX
+  title: "Chapter Title"
+  version: 0.1.0
+  created_date: "YYYY-MM-DD"
+  model_id: AMPEL360
+
+# ============================================================================
+# S1000D SCHEMA
+# ============================================================================
+s1000d:
+  schema_version: "5.0"
+  issue_number: 5.0
+  namespace: "http://www.s1000d.org/S1000D_5-0"
+  
+  brex:
+    reference: "DMC-AMPEL360-00-00-00-00A-022A-A"
+    title: "AMPEL360 Business Rules Exchange"
+    validation: MANDATORY  # MANDATORY | OPTIONAL
+
+# ============================================================================
+# MODEL IDENTIFICATION
+# ============================================================================
+model_identification:
+  model_id_code: AMPEL360
+  system_code: XX  # ATA chapter
+  subsystem_code: "00"  # Section
+  assembly_code: "00"  # Assembly
+  
+  variant_codes:
+    - code: A
+      description: "Standard configuration"
+    
+    - code: B
+      description: "Enhanced configuration"
+
+# ============================================================================
+# DATA MODULE CODES (DMC) STRUCTURE
+# ============================================================================
+dmc_structure:
+  prefix: DMC
+  model_id: AMPEL360
+  
+  components:
+    - name: "System Code"
+      position: 1
+      format: "XX"  # 2 digits
+    
+    - name: "Subsystem Code"
+      position: 2
+      format: "XX"  # 2 digits
+    
+    - name: "Assembly Code"
+      position: 3
+      format: "XX"  # 2 digits
+    
+    - name: "Disassembly Code"
+      position: 4
+      format: "XX"  # 2 digits
+    
+    - name: "Variant Code"
+      position: 5
+      format: "A"  # 1 character
+    
+    - name: "Item Location Code"
+      position: 6
+      format: "XXX"  # 3 characters
+    
+    - name: "Information Code"
+      position: 7
+      format: "XXX"  # 3 characters
+    
+    - name: "Information Code Variant"
+      position: 8
+      format: "A"  # 1 character
+  
+  example_dmc: "DMC-AMPEL360-XX-00-00-00A-040A-A"
+
+# ============================================================================
+# INFORMATION CODES
+# ============================================================================
+information_codes:
+  description:
+    code: "001"
+    title: "Description"
+    usage: "System descriptions and overviews"
+  
+  operation:
+    code: "040"
+    title: "Operation"
+    usage: "Operational procedures"
+  
+  servicing:
+    code: "520"
+    title: "Servicing"
+    usage: "Servicing procedures"
+  
+  maintenance:
+    code: "710"
+    title: "Maintenance"
+    usage: "Maintenance procedures"
+  
+  inspection:
+    code: "810"
+    title: "Inspection"
+    usage: "Inspection procedures"
+  
+  troubleshooting:
+    code: "900"
+    title: "Troubleshooting"
+    usage: "Fault isolation and troubleshooting"
+
+# ============================================================================
+# DATA MODULE TYPES
+# ============================================================================
+data_module_types:
+  procedural:
+    info_codes:
+      - "040"  # Operation
+      - "520"  # Servicing
+      - "710"  # Maintenance
+      - "810"  # Inspection
+    schema: "proc.xsd"
+    template: "procedural_dm_template.xml"
+  
+  descriptive:
+    info_codes:
+      - "001"  # Description
+    schema: "desc.xsd"
+    template: "descriptive_dm_template.xml"
+  
+  fault:
+    info_codes:
+      - "900"  # Troubleshooting
+    schema: "fault.xsd"
+    template: "fault_dm_template.xml"
+
+# ============================================================================
+# PUBLICATION MODULES (PM)
+# ============================================================================
+publication_modules:
+  AMM:
+    pm_code: "PMC-AMPEL360-XX-00-00-00A-AMM-A"
+    title: "Aircraft Maintenance Manual - ATA XX"
+    type: AMM
+    included_dm_types:
+      - "001"  # Description
+      - "710"  # Maintenance
+      - "810"  # Inspection
+  
+  TRN:
+    pm_code: "PMC-AMPEL360-XX-00-00-00A-TRN-A"
+    title: "Training Materials - ATA XX"
+    type: TRN
+    included_dm_types:
+      - "001"  # Description
+      - "040"  # Operation
+
+# ============================================================================
+# ILLUSTRATIONS & GRAPHICS
+# ============================================================================
+illustrations:
+  icn_prefix: "ICN-AMPEL360-XX-"
+  
+  formats:
+    - format: CGM
+      mime_type: "image/cgm"
+      color_depth: 32
+    
+    - format: SVG
+      mime_type: "image/svg+xml"
+      color_depth: 24
+    
+    - format: PNG
+      mime_type: "image/png"
+      color_depth: 24
+  
+  resolution:
+    screen: 96  # DPI
+    print: 300  # DPI
+
+# ============================================================================
+# METADATA REQUIREMENTS
+# ============================================================================
+metadata_requirements:
+  required_fields:
+    - dmCode
+    - dmTitle
+    - issueInfo
+    - language
+    - issueDate
+    - responsiblePartnerCompany
+    - originator
+    - securityClassification
+    - dataRestrictions
+  
+  optional_fields:
+    - remarks
+    - qualityAssurance
+    - skillLevel
+    - estimatedDuration
+
+# ============================================================================
+# VALIDATION RULES
+# ============================================================================
+validation:
+  brex_validation: true
+  schema_validation: true
+  
+  checks:
+    - check: "DMC structure compliance"
+      severity: ERROR
+      enabled: true
+    
+    - check: "Information code validity"
+      severity: ERROR
+      enabled: true
+    
+    - check: "Cross-reference integrity"
+      severity: WARNING
+      enabled: true
+    
+    - check: "Illustration references"
+      severity: WARNING
+      enabled: true
+    
+    - check: "Terminology consistency"
+      severity: INFO
+      enabled: true
+
+# ============================================================================
+# WORKFLOW
+# ============================================================================
+workflow:
+  states:
+    - state: DRAFT
+      description: "Initial authoring"
+      next_states: [IN_REVIEW, CANCELLED]
+    
+    - state: IN_REVIEW
+      description: "Under technical review"
+      next_states: [APPROVED, REVISION_REQUIRED]
+    
+    - state: REVISION_REQUIRED
+      description: "Revisions needed"
+      next_states: [IN_REVIEW, CANCELLED]
+    
+    - state: APPROVED
+      description: "Approved for publication"
+      next_states: [PUBLISHED]
+    
+    - state: PUBLISHED
+      description: "Published and distributed"
+      next_states: [SUPERSEDED]
+    
+    - state: SUPERSEDED
+      description: "Replaced by newer version"
+      next_states: []
+    
+    - state: CANCELLED
+      description: "Cancelled before publication"
+      next_states: []
+
+# ============================================================================
+# OUTPUT FORMATS
+# ============================================================================
+output_formats:
+  - format: XML
+    description: "S1000D XML source"
+    validation: REQUIRED
+  
+  - format: PDF
+    description: "PDF for print and viewing"
+    generation: AUTOMATED
+  
+  - format: HTML
+    description: "HTML for web viewing"
+    generation: AUTOMATED
+  
+  - format: IETP
+    description: "Interactive Electronic Technical Publication"
+    generation: AUTOMATED
+
+# ============================================================================
+# REFERENCES
+# ============================================================================
+references:
+  standards:
+    - standard: "S1000D"
+      version: "5.0"
+      url: "http://www.s1000d.org"
+    
+    - standard: "ATA iSpec 2200"
+      version: "latest"
+      url: "https://www.ata.org/ispec2200"
+  
+  internal:
+    - doc_id: "KNOT-00-00-002"
+      title: "Document Architecture Standards"
+      relevance: "Defines CSDB structure"
+
+# ============================================================================
+# NOTES
+# ============================================================================
+notes: >
+  This CSDB configuration establishes the S1000D framework for ATA XX.
+  All data modules must comply with these standards and pass BREX validation
+  before publication.

@@ -1,0 +1,339 @@
+---
+# ASIT Configuration for ATA XX
+# Aircraft Standard Information Transponder - App Builder + Intelligence
+#
+# Purpose: Configure IETP runtime app generation and orchestration
+
+# ============================================================================
+# ASIT METADATA
+# ============================================================================
+asit:
+  chapter: XX
+  title: "Chapter Title IETP Configuration"
+  version: 0.1.0
+  created_date: "YYYY-MM-DD"
+
+# ============================================================================
+# APP BUILDER CONFIGURATION
+# ============================================================================
+app_builder:
+  enabled: true
+  
+  app_metadata:
+    app_name: "AMPEL360 ATA-XX IETP"
+    app_version: "1.0.0"
+    app_description: "Interactive Electronic Technical Publication for ATA XX"
+    app_icon: "icn_ata_xx.png"
+  
+  build_targets:
+    - platform: WEB
+      enabled: true
+      output_format: HTML5
+      responsive: true
+    
+    - platform: MOBILE
+      enabled: true
+      output_format: PWA
+      offline_capable: true
+    
+    - platform: DESKTOP
+      enabled: false
+      output_format: ELECTRON
+  
+  features:
+    search: true
+    bookmarks: true
+    annotations: true
+    offline_mode: true
+    multi_language: false
+    context_sensitive_help: true
+
+# ============================================================================
+# ORCHESTRATION
+# ============================================================================
+orchestration:
+  enabled: true
+  
+  content_assembly:
+    strategy: DYNAMIC  # STATIC | DYNAMIC | HYBRID
+    
+    rules:
+      - rule_id: ORCH-001
+        name: "Role-based content filtering"
+        condition: "user.role IN ['OPERATOR', 'MRO', 'ENGINEER']"
+        action: "FILTER_BY_ROLE"
+        priority: HIGH
+      
+      - rule_id: ORCH-002
+        name: "Aircraft configuration filtering"
+        condition: "aircraft.variant MATCHES dmc.applicability"
+        action: "FILTER_BY_APPLICABILITY"
+        priority: HIGH
+      
+      - rule_id: ORCH-003
+        name: "Task-based content routing"
+        condition: "user.task_context != null"
+        action: "ROUTE_TO_RELEVANT_DM"
+        priority: MEDIUM
+  
+  module_loading:
+    strategy: LAZY  # EAGER | LAZY | ON_DEMAND
+    cache_policy: LRU
+    preload_critical: true
+
+# ============================================================================
+# UI CONFIGURATION
+# ============================================================================
+ui_config:
+  enabled: true
+  
+  themes:
+    default:
+      name: "AMPEL360 Standard"
+      primary_color: "#0066CC"
+      secondary_color: "#00AA44"
+      font_family: "Arial, sans-serif"
+      dark_mode: false
+    
+    dark:
+      name: "Dark Mode"
+      primary_color: "#4488FF"
+      secondary_color: "#00DD66"
+      font_family: "Arial, sans-serif"
+      dark_mode: true
+  
+  layouts:
+    - role: OPERATOR
+      layout: TWO_COLUMN
+      navigation: SIDEBAR
+      tools: MINIMAL
+    
+    - role: MRO
+      layout: THREE_COLUMN
+      navigation: SIDEBAR
+      tools: FULL
+    
+    - role: ENGINEER
+      layout: FLEXIBLE
+      navigation: TABBED
+      tools: ADVANCED
+  
+  widgets:
+    - widget_id: TOC
+      name: "Table of Contents"
+      type: NAVIGATION
+      position: LEFT
+      collapsible: true
+    
+    - widget_id: SEARCH
+      name: "Search"
+      type: TOOL
+      position: TOP
+      prominent: true
+    
+    - widget_id: BOOKMARKS
+      name: "Bookmarks"
+      type: TOOL
+      position: RIGHT
+      collapsible: true
+    
+    - widget_id: NOTES
+      name: "Notes & Annotations"
+      type: TOOL
+      position: RIGHT
+      collapsible: true
+
+# ============================================================================
+# USER MODELS
+# ============================================================================
+user_models:
+  enabled: true
+  
+  personas:
+    - persona_id: OPERATOR
+      name: "Aircraft Operator"
+      description: "Flight crew and operational personnel"
+      access_level: BASIC
+      allowed_dm_types:
+        - "001"  # Description
+        - "040"  # Operation
+      features:
+        - VIEW
+        - SEARCH
+        - BOOKMARK
+    
+    - persona_id: LINE_MAINT
+      name: "Line Maintenance Technician"
+      description: "Line maintenance personnel"
+      access_level: STANDARD
+      allowed_dm_types:
+        - "001"  # Description
+        - "520"  # Servicing
+        - "710"  # Maintenance
+        - "900"  # Troubleshooting
+      features:
+        - VIEW
+        - SEARCH
+        - BOOKMARK
+        - ANNOTATE
+        - TASK_TRACKING
+    
+    - persona_id: HEAVY_MAINT
+      name: "Heavy Maintenance Technician"
+      description: "Heavy maintenance and overhaul personnel"
+      access_level: ADVANCED
+      allowed_dm_types: ALL
+      features:
+        - VIEW
+        - SEARCH
+        - BOOKMARK
+        - ANNOTATE
+        - TASK_TRACKING
+        - REPAIR_HISTORY
+    
+    - persona_id: ENGINEER
+      name: "Engineer"
+      description: "Engineering and design personnel"
+      access_level: FULL
+      allowed_dm_types: ALL
+      features: ALL
+
+# ============================================================================
+# CONTENT ROUTING
+# ============================================================================
+content_routing:
+  enabled: true
+  
+  routing_rules:
+    - rule_id: ROUTE-001
+      name: "Aircraft variant routing"
+      input: "aircraft.variant_code"
+      logic: "SELECT dm WHERE dm.applicability CONTAINS variant_code"
+      cache: true
+    
+    - rule_id: ROUTE-002
+      name: "Task-based routing"
+      input: "user.current_task"
+      logic: "SELECT dm WHERE dm.task_applicability MATCHES current_task"
+      cache: true
+    
+    - rule_id: ROUTE-003
+      name: "Fault code routing"
+      input: "fault.code"
+      logic: "SELECT dm WHERE dm.type = '900' AND dm.fault_codes CONTAINS fault.code"
+      cache: true
+
+# ============================================================================
+# POLICY GATES
+# ============================================================================
+policy_gates:
+  enabled: true
+  
+  gates:
+    - gate_id: GATE-001
+      name: "Safety-critical content access"
+      trigger: "content.category == 'SAFETY_CRITICAL'"
+      action: REQUIRE_ACKNOWLEDGEMENT
+      acknowledgement_text: "This is safety-critical content. Ensure you understand all procedures before proceeding."
+    
+    - gate_id: GATE-002
+      name: "Regulatory compliance check"
+      trigger: "content.regulatory_status == 'MANDATORY'"
+      action: LOG_ACCESS
+      log_level: AUDIT
+    
+    - gate_id: GATE-003
+      name: "Qualification verification"
+      trigger: "content.required_qualification != null"
+      action: CHECK_USER_QUALIFICATION
+      on_failure: DENY_ACCESS
+
+# ============================================================================
+# TELEMETRY
+# ============================================================================
+telemetry:
+  enabled: true
+  
+  tracked_events:
+    - event: PAGE_VIEW
+      data:
+        - dmc
+        - user_role
+        - timestamp
+        - duration
+    
+    - event: SEARCH_QUERY
+      data:
+        - query_text
+        - results_count
+        - user_role
+        - timestamp
+    
+    - event: BOOKMARK_CREATED
+      data:
+        - dmc
+        - user_role
+        - timestamp
+    
+    - event: ANNOTATION_CREATED
+      data:
+        - dmc
+        - annotation_type
+        - user_role
+        - timestamp
+  
+  analytics:
+    - metric: MOST_VIEWED_DMS
+      description: "Top 10 most frequently accessed data modules"
+      frequency: WEEKLY
+    
+    - metric: SEARCH_EFFECTIVENESS
+      description: "Search query success rate"
+      frequency: DAILY
+    
+    - metric: USER_ENGAGEMENT
+      description: "Average session duration and interaction metrics"
+      frequency: DAILY
+
+# ============================================================================
+# CONNECTORS
+# ============================================================================
+connectors:
+  enabled: true
+  
+  connections:
+    - connector_id: SSOT_LINK
+      name: "SSOT Traceability"
+      type: INTERNAL
+      endpoint: "../../../SSOT/"
+      purpose: "Link to source requirements and specifications"
+      authentication: NONE
+    
+    - connector_id: PARTS_CATALOG
+      name: "Parts Catalog Integration"
+      type: EXTERNAL
+      endpoint: "https://parts-catalog.ampel360.example/api"
+      purpose: "Real-time parts availability and ordering"
+      authentication: API_KEY
+    
+    - connector_id: MAINTENANCE_RECORDS
+      name: "Maintenance History"
+      type: EXTERNAL
+      endpoint: "https://maintenance-records.ampel360.example/api"
+      purpose: "Access aircraft maintenance history"
+      authentication: OAUTH2
+    
+    - connector_id: TRAINING_SYSTEM
+      name: "Training Completion Records"
+      type: EXTERNAL
+      endpoint: "https://training.ampel360.example/api"
+      purpose: "Verify user qualifications"
+      authentication: OAUTH2
+
+# ============================================================================
+# NOTES
+# ============================================================================
+notes: >
+  This ASIT configuration defines the app-builder intelligence layer for
+  ATA XX IETP runtime. It orchestrates dynamic content delivery based on
+  user roles, aircraft configuration, and task context.

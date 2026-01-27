@@ -1,0 +1,322 @@
+---
+# Package Manifest for PKG_BASELINE
+# Baseline IETP package configuration for ATA XX
+#
+# Purpose: Define the baseline package content, dependencies, and build recipe
+
+# ============================================================================
+# PACKAGE METADATA
+# ============================================================================
+package:
+  package_id: PKG_BASELINE_XX
+  name: "ATA XX Baseline Package"
+  version: 1.0.0
+  description: "Baseline IETP package containing core content for ATA XX"
+  created_date: "YYYY-MM-DD"
+  maintainer: STK_PUB
+
+# ============================================================================
+# PACKAGE TYPE & TARGET
+# ============================================================================
+type:
+  category: BASELINE  # BASELINE | OPERATOR | MRO | LINE_MAINT | HEAVY_MAINT | REGULATORY
+  target_audience:
+    - OPERATOR
+    - LINE_MAINT
+    - MRO
+  
+  deployment:
+    method: WEB  # WEB | MOBILE | DESKTOP | PORTABLE
+    platform: MULTI_PLATFORM
+    offline_capable: true
+
+# ============================================================================
+# CONTENT SELECTION
+# ============================================================================
+content_selection:
+  strategy: INCLUSIVE  # INCLUSIVE | EXCLUSIVE | CUSTOM
+  
+  included_dm_types:
+    - info_code: "001"
+      description: "System descriptions"
+      priority: CRITICAL
+    
+    - info_code: "040"
+      description: "Operation procedures"
+      priority: HIGH
+    
+    - info_code: "520"
+      description: "Servicing procedures"
+      priority: HIGH
+    
+    - info_code: "710"
+      description: "Maintenance procedures"
+      priority: HIGH
+    
+    - info_code: "810"
+      description: "Inspection procedures"
+      priority: MEDIUM
+    
+    - info_code: "900"
+      description: "Troubleshooting"
+      priority: HIGH
+  
+  included_dms:
+    - dmc: DMC-AMPEL360-XX-00-00-00A-001A-A
+      mandatory: true
+      reason: "Core system description"
+    
+    - dmc: DMC-AMPEL360-XX-00-00-00A-040A-A
+      mandatory: true
+      reason: "Essential operational procedures"
+    
+    - dmc: DMC-AMPEL360-XX-00-00-00A-520A-A
+      mandatory: true
+      reason: "Routine servicing procedures"
+    
+    - dmc: DMC-AMPEL360-XX-00-00-00A-710A-A
+      mandatory: true
+      reason: "Corrective maintenance procedures"
+    
+    - dmc: DMC-AMPEL360-XX-00-00-00A-810A-A
+      mandatory: false
+      reason: "Inspection procedures (optional in baseline)"
+    
+    - dmc: DMC-AMPEL360-XX-00-00-00A-900A-A
+      mandatory: true
+      reason: "Troubleshooting guidance"
+  
+  excluded_dms: []
+  
+  applicability_filter:
+    - variant: ALL
+      effectivity: ALL
+
+# ============================================================================
+# UI PROFILE
+# ============================================================================
+ui_profile:
+  theme: DEFAULT  # DEFAULT | DARK | HIGH_CONTRAST | CUSTOM
+  
+  layout:
+    navigation: SIDEBAR  # SIDEBAR | TABBED | TREE
+    content_area: TWO_COLUMN  # SINGLE_COLUMN | TWO_COLUMN | THREE_COLUMN
+    tools_panel: RIGHT  # LEFT | RIGHT | BOTTOM | HIDDEN
+  
+  enabled_features:
+    - SEARCH
+    - BOOKMARKS
+    - TOC
+    - CROSS_REFERENCE_NAVIGATION
+    - PRINT_PREVIEW
+    - EXPORT_TO_PDF
+  
+  disabled_features:
+    - ANNOTATIONS  # Not included in baseline
+    - TASK_TRACKING  # Advanced feature
+    - COLLABORATION  # Not in baseline
+
+# ============================================================================
+# FEATURE MODULES
+# ============================================================================
+feature_modules:
+  enabled:
+    - module_id: PM_CORE
+      name: "Core Publication Module"
+      version: 1.0.0
+      mandatory: true
+    
+    - module_id: PM_MAINTENANCE
+      name: "Maintenance Module"
+      version: 1.0.0
+      mandatory: true
+    
+    - module_id: PM_OPERATIONAL
+      name: "Operational Module"
+      version: 1.0.0
+      mandatory: true
+  
+  disabled:
+    - module_id: PM_TRAINING
+      reason: "Not included in baseline package"
+    
+    - module_id: PM_CUSTOM
+      reason: "No custom modules defined"
+
+# ============================================================================
+# DEPENDENCIES
+# ============================================================================
+dependencies:
+  internal:
+    - dependency: ASIT_CORE
+      version: ">= 1.0.0"
+      mandatory: true
+    
+    - dependency: RUNTIME_SCHEMA
+      version: "1.0.0"
+      mandatory: true
+  
+  external:
+    - dependency: "S1000D Viewer Library"
+      version: ">= 3.0.0"
+      url: "https://s1000d-viewer.example/v3"
+      license: "MIT"
+  
+  optional:
+    - dependency: "Advanced Search Plugin"
+      version: ">= 2.0.0"
+      enhances: "Search functionality"
+
+# ============================================================================
+# BUILD CONFIGURATION
+# ============================================================================
+build:
+  build_id: "BUILD-PKG-BASELINE-XX-001"
+  build_tool: IETP_BUILDER
+  build_version: 2.0.0
+  
+  steps:
+    - step: 1
+      name: "Validate CSDB content"
+      command: "validate_csdb --chapter XX --brex-check"
+      on_failure: ABORT
+    
+    - step: 2
+      name: "Assemble content"
+      command: "assemble_package --manifest package.manifest.yaml"
+      on_failure: ABORT
+    
+    - step: 3
+      name: "Apply UI profile"
+      command: "apply_ui_profile --profile ui.profile.yaml"
+      on_failure: ABORT
+    
+    - step: 4
+      name: "Generate navigation"
+      command: "generate_navigation --toc-depth 3"
+      on_failure: ABORT
+    
+    - step: 5
+      name: "Optimize assets"
+      command: "optimize_assets --images --compress"
+      on_failure: WARN
+    
+    - step: 6
+      name: "Package for distribution"
+      command: "package_dist --format zip --output PKG_BASELINE_XX.zip"
+      on_failure: ABORT
+  
+  output:
+    format: ZIP
+    filename: "PKG_BASELINE_XX_v1.0.0.zip"
+    checksum_algorithm: SHA256
+
+# ============================================================================
+# QUALITY ASSURANCE
+# ============================================================================
+quality_assurance:
+  validation_required: true
+  
+  checks:
+    - check: "BREX compliance"
+      tool: "brex_validator"
+      threshold: ZERO_ERRORS
+      blocking: true
+    
+    - check: "Link integrity"
+      tool: "link_checker"
+      threshold: ZERO_BROKEN_LINKS
+      blocking: true
+    
+    - check: "Content completeness"
+      tool: "content_auditor"
+      threshold: "100%"
+      blocking: true
+    
+    - check: "UI functionality"
+      tool: "ui_tester"
+      threshold: ZERO_CRITICAL_BUGS
+      blocking: true
+  
+  test_scenarios:
+    - scenario: "Navigation test"
+      description: "Verify all TOC links work"
+      automated: true
+    
+    - scenario: "Search test"
+      description: "Verify search returns relevant results"
+      automated: true
+    
+    - scenario: "Cross-reference test"
+      description: "Verify cross-references resolve correctly"
+      automated: true
+
+# ============================================================================
+# DISTRIBUTION
+# ============================================================================
+distribution:
+  channels:
+    - channel: WEB_PORTAL
+      url: "https://ietp.ampel360.example/ata-xx"
+      access: AUTHENTICATED
+    
+    - channel: DOWNLOAD_CENTER
+      url: "https://downloads.ampel360.example/ietp/ata-xx"
+      access: AUTHENTICATED
+    
+    - channel: MOBILE_APP_STORE
+      url: "https://mobile.ampel360.example/apps/ata-xx"
+      access: PUBLIC
+  
+  access_control:
+    authentication: REQUIRED
+    authorization:
+      - role: OPERATOR
+        access_level: READ
+      - role: MRO
+        access_level: READ
+      - role: ENGINEER
+        access_level: READ_WRITE
+
+# ============================================================================
+# VERSION CONTROL
+# ============================================================================
+version_control:
+  versioning_scheme: SEMANTIC  # SEMANTIC | DATE_BASED | BUILD_NUMBER
+  
+  release_notes: >
+    Version 1.0.0 - Baseline Release
+    
+    This is the initial baseline package for ATA XX, including core system
+    descriptions, operational procedures, maintenance procedures, and
+    troubleshooting guidance.
+  
+  changelog:
+    - version: 1.0.0
+      date: "YYYY-MM-DD"
+      changes:
+        - "Initial baseline release"
+        - "Includes DMC-AMPEL360-XX-00-00-00A-001A-A through 900A-A"
+        - "UI profile configured for multi-role access"
+
+# ============================================================================
+# MAINTENANCE & SUPPORT
+# ============================================================================
+support:
+  contact: ietp-support@ampel360.example
+  documentation: "https://docs.ampel360.example/ietp/packages"
+  issue_tracker: "https://issues.ampel360.example/ietp"
+  
+  update_policy:
+    frequency: QUARTERLY
+    security_patches: AS_NEEDED
+    feature_updates: SEMI_ANNUAL
+
+# ============================================================================
+# NOTES
+# ============================================================================
+notes: >
+  This baseline package provides essential content for ATA XX accessible
+  to operators, line maintenance, and MRO personnel. Advanced features
+  like annotations and task tracking are available in specialized packages
+  (PKG_MRO, PKG_HEAVY_MAINT).

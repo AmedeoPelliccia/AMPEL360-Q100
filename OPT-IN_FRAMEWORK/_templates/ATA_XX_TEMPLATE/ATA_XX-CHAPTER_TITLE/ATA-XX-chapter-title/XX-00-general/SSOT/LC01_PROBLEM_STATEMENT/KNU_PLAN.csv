@@ -1,0 +1,9 @@
+knu_id,knot_id,title,type,lifecycle,priority,owner,status,due_date,estimated_tt,estimated_deg,acceptance_criteria,notes
+KNU-XX-00-001-REQ-001,KNOT-XX-00-001,Chapter Title System Requirements,REQ,LC02_SYSTEM_REQUIREMENTS,CRITICAL,STK_SE,PLANNED,YYYY-MM-DD,120,43200,"All functional and performance requirements documented and approved",""
+KNU-XX-00-001-ICD-001,KNOT-XX-00-001,Chapter Title Interface Control Document,ICD,LC04_DESIGN_DEFINITION,HIGH,STK_SE,PLANNED,YYYY-MM-DD,40,14400,"All interfaces identified and specified",""
+KNU-XX-00-001-ANA-001,KNOT-XX-00-001,Chapter Title System Analysis,ANA,LC04_ANALYSIS_MODELS,HIGH,STK_SE,PLANNED,YYYY-MM-DD,40,14400,"Analysis models complete and validated",""
+KNU-XX-00-001-TST-001,KNOT-XX-00-001,Chapter Title Test Plan,TST,LC05_TESTING,MEDIUM,STK_TEST,PLANNED,YYYY-MM-DD,40,14400,"Test cases defined for all requirements",""
+KNU-XX-00-001-PUB-001,KNOT-XX-00-001,Chapter Title System Description Data Module,PUB,PUBS,MEDIUM,STK_PUB,PLANNED,YYYY-MM-DD,30,10800,"BREX validation passed and content complete",""
+KNU-XX-00-001-DES-001,KNOT-XX-00-001,Chapter Title Conceptual Design,DES,LC03_DESIGN_MODELS,MEDIUM,STK_SE,PLANNED,YYYY-MM-DD,40,14400,"Conceptual design documented and approved",""
+KNU-XX-00-001-SAF-001,KNOT-XX-00-001,Chapter Title Safety Assessment,SAF,LC07_SAFETY_AND_SECURITY,HIGH,STK_SAFETY,PLANNED,YYYY-MM-DD,20,7200,"Safety analysis complete with all hazards identified",""
+KNU-XX-00-001-CER-001,KNOT-XX-00-001,Chapter Title Certification Plan,CER,LC08_CERTIFICATION_FIRST_FLIGHT,HIGH,STK_CERT,PLANNED,YYYY-MM-DD,20,7200,"Certification strategy documented and approved",""

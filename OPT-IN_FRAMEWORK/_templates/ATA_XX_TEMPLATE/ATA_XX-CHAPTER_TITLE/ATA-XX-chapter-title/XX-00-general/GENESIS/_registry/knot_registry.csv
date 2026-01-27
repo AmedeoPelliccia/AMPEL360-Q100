@@ -1,0 +1,2 @@
+knot_id,title,status,owner,created_date,target_completion,residual_target,total_tt,total_deg,parent_o_knot,parent_y_knot
+KNOT-XX-00-001,Chapter Title System Baseline,PLANNING,STK_XX,YYYY-MM-DD,YYYY-MM-DD,10,400,144000,O-KNOT-XX-00-001,Y-KNOT-XX-00-001-001

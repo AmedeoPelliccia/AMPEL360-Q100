@@ -1,0 +1,2 @@
+o_knot_id,title,trigger,status,created_date,problem_statement,affected_systems,impact_level
+O-KNOT-XX-00-001,Chapter Title Knowledge Gap Discovery,heritage,ACTIVE,YYYY-MM-DD,Knowledge gap identified during chapter scoping and requirements analysis,SYS-XX-001|SYS-XX-002,HIGH

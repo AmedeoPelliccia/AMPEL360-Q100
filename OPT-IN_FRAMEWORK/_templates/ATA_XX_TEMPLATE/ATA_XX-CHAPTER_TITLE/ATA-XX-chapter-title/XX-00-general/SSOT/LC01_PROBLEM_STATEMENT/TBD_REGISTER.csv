@@ -1,0 +1,6 @@
+tbd_id,description,category,impact,resolution_target,assigned_to,status,related_knu,related_knot,notes
+TBD-XX-001,Specific parameter value pending analysis,TECHNICAL,MEDIUM,YYYY-MM-DD,STK_SE,OPEN,KNU-XX-00-001-REQ-001,KNOT-XX-00-001,"Requires completion of analysis model"
+TBD-XX-002,Interface protocol pending supplier input,EXTERNAL,HIGH,YYYY-MM-DD,STK_XX,OPEN,KNU-XX-00-001-ICD-001,KNOT-XX-00-001,"Awaiting supplier interface specification"
+TBD-XX-003,Test environment specification,ORGANIZATIONAL,LOW,YYYY-MM-DD,STK_TEST,OPEN,KNU-XX-00-001-TST-001,KNOT-XX-00-001,"Depends on facility availability"
+TBD-XX-004,Regulatory guidance clarification needed,REGULATORY,HIGH,YYYY-MM-DD,STK_CERT,OPEN,KNU-XX-00-001-CER-001,KNOT-XX-00-001,"Pending authority feedback"
+TBD-XX-005,Material selection for component Y,TECHNICAL,MEDIUM,YYYY-MM-DD,STK_SE,OPEN,KNU-XX-00-001-DES-001,KNOT-XX-00-001,"Trade study in progress"

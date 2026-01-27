@@ -1,0 +1,207 @@
+---
+# O-KNOT Discovery Template
+# Origin Knowledge Node - Problem Awareness
+#
+# Purpose: Document the initial discovery of a knowledge gap, uncertainty, 
+# or problem that requires resolution
+
+# ============================================================================
+# METADATA
+# ============================================================================
+o_knot_id: O-KNOT-XX-00-001
+title: "Chapter Title Knowledge Gap Discovery"
+version: 0.1.0
+created_date: "YYYY-MM-DD"
+created_by: STK_XX
+status: ACTIVE  # ACTIVE | RESOLVED | SUPERSEDED
+
+# ============================================================================
+# DISCOVERY CONTEXT
+# ============================================================================
+trigger:
+  type: heritage  # heritage | regulatory | stakeholder | technical | operational
+  description: "Knowledge gap identified during chapter scoping and requirements analysis"
+  source: "Chapter Title heritage documentation review"
+  date_identified: "YYYY-MM-DD"
+
+problem_statement: >
+  Describe the specific knowledge gap, uncertainty, or problem that has been 
+  discovered. Be clear and concise about what is unknown or unclear.
+  
+  Example: "Uncertainty exists regarding the integration approach for 
+  [system/component] within the AMPEL360 architecture. Heritage data is 
+  incomplete and current standards do not fully address [specific concern]."
+
+# ============================================================================
+# SCOPE & BOUNDARIES
+# ============================================================================
+scope:
+  in_scope:
+    - "Specific area 1 within Chapter Title domain"
+    - "Specific area 2 within Chapter Title domain"
+    - "Interface considerations with other ATA chapters"
+  
+  out_of_scope:
+    - "Detailed implementation (addressed in LC04+)"
+    - "Manufacturing processes (addressed in LC09+)"
+    - "Specific component-level details"
+
+affected_systems:
+  - system_id: "SYS-XX-001"
+    system_name: "Primary System Name"
+    impact_level: HIGH  # HIGH | MEDIUM | LOW
+  
+  - system_id: "SYS-XX-002"
+    system_name: "Secondary System Name"
+    impact_level: MEDIUM
+
+# ============================================================================
+# IMPACT ASSESSMENT
+# ============================================================================
+impact_hypothesis:
+  safety:
+    level: MEDIUM  # CRITICAL | HIGH | MEDIUM | LOW | NONE
+    description: "Potential safety implications if gap is not resolved"
+    affected_functions:
+      - "Safety-critical function 1"
+      - "Safety-critical function 2"
+  
+  certification:
+    level: HIGH
+    description: "May impact certification approach and timeline"
+    regulatory_refs:
+      - "EASA CS-XX"
+      - "FAA FAR Part XX"
+  
+  cost:
+    level: MEDIUM
+    description: "Potential cost impact on development and certification"
+    estimated_range: "TBD"
+  
+  schedule:
+    level: HIGH
+    description: "Could impact critical path items"
+    affected_milestones:
+      - "Milestone 1"
+      - "Milestone 2"
+  
+  operations:
+    level: LOW
+    description: "Minimal operational impact expected"
+
+# ============================================================================
+# HERITAGE & REFERENCES
+# ============================================================================
+heritage:
+  sources:
+    - name: "Heritage Program/Aircraft"
+      relevance: PARTIAL  # FULL | PARTIAL | LIMITED | NONE
+      notes: "Limited applicability due to [reason]"
+    
+    - name: "Industry Standard XYZ"
+      relevance: FULL
+      notes: "Directly applicable with minor adaptations"
+  
+  gaps_in_heritage:
+    - "Specific gap 1 in existing documentation"
+    - "Specific gap 2 requiring new analysis"
+    - "Novel technology considerations"
+
+# ============================================================================
+# STAKEHOLDER INPUT
+# ============================================================================
+stakeholders:
+  - role: STK_SE
+    concern: "Systems engineering concern"
+    input_required: true
+  
+  - role: STK_CERT
+    concern: "Certification approach uncertainty"
+    input_required: true
+  
+  - role: STK_XX
+    concern: "Domain-specific technical concern"
+    input_required: true
+
+# ============================================================================
+# RESOLUTION APPROACH (High-Level)
+# ============================================================================
+potential_approaches:
+  - approach: "Option 1: [Brief description]"
+    pros:
+      - "Advantage 1"
+      - "Advantage 2"
+    cons:
+      - "Disadvantage 1"
+      - "Disadvantage 2"
+    confidence: MEDIUM  # HIGH | MEDIUM | LOW
+  
+  - approach: "Option 2: [Brief description]"
+    pros:
+      - "Advantage 1"
+      - "Advantage 2"
+    cons:
+      - "Disadvantage 1"
+      - "Disadvantage 2"
+    confidence: LOW
+
+recommended_next_steps:
+  - "Conduct Y-KNOT analysis to evaluate options"
+  - "Engage stakeholders for decision input"
+  - "Develop trade study if needed"
+  - "Create KNOT framing document"
+
+# ============================================================================
+# LINKS & TRACEABILITY
+# ============================================================================
+related_artifacts:
+  upstream:
+    - artifact_id: "KNOT-00-00-001"
+      description: "Program terminology and conventions"
+  
+  downstream:
+    - artifact_id: "Y-KNOT-XX-00-001-001"
+      description: "Justification for selected approach"
+    
+    - artifact_id: "KNOT-XX-00-001"
+      description: "Framing of resolution scope"
+
+# ============================================================================
+# RISK & CONSTRAINTS
+# ============================================================================
+constraints:
+  technical:
+    - "Technical constraint 1"
+    - "Technical constraint 2"
+  
+  regulatory:
+    - "Regulatory constraint 1"
+    - "Regulatory constraint 2"
+  
+  schedule:
+    - "Schedule constraint 1"
+  
+  budget:
+    - "Budget constraint 1"
+
+residual_risk:
+  description: "High-level assessment of risk if not addressed"
+  level: HIGH  # CRITICAL | HIGH | MEDIUM | LOW
+  mitigation_strategy: "Proposed mitigation approach"
+
+# ============================================================================
+# NOTES
+# ============================================================================
+notes: >
+  Additional context, background information, or considerations that don't 
+  fit in other sections. This can include historical context, informal 
+  discussions, or preliminary thoughts.
+
+# ============================================================================
+# REVISION HISTORY
+# ============================================================================
+revision_history:
+  - date: "YYYY-MM-DD"
+    version: 0.1.0
+    author: STK_XX
+    change: "Initial O-KNOT discovery"

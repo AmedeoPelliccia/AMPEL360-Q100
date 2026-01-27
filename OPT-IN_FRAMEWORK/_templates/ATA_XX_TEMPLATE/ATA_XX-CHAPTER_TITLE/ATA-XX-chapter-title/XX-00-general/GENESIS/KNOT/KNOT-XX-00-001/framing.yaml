@@ -1,0 +1,536 @@
+---
+# KNOT Framing Template
+# Knowledge Node - Scope and Planning
+#
+# Purpose: Frame the resolution scope, define deliverables, allocate resources,
+# and plan the work needed to resolve the identified knowledge gap
+
+# ============================================================================
+# METADATA
+# ============================================================================
+knot_id: KNOT-XX-00-001
+title: "Chapter Title System Baseline"
+version: 0.1.0
+created_date: "YYYY-MM-DD"
+created_by: STK_XX
+status: PLANNING  # PLANNING | ACTIVE | RESOLVED | CLOSED
+
+# Parent O-KNOT
+parent_o_knot: O-KNOT-XX-00-001
+parent_title: "Chapter Title Knowledge Gap Discovery"
+
+# Parent Y-KNOT
+parent_y_knot: Y-KNOT-XX-00-001-001
+parent_y_knot_title: "Chapter Title Resolution Approach Justification"
+
+# ============================================================================
+# KNOT OVERVIEW
+# ============================================================================
+executive_summary: >
+  Brief executive summary of this KNOT. Describe what will be accomplished,
+  why it matters, and what the expected outcome is.
+  
+  Example: "This KNOT establishes the baseline technical definition for 
+  [system/component] within ATA XX. It resolves the knowledge gap identified 
+  in O-KNOT-XX-00-001 by implementing the approach justified in 
+  Y-KNOT-XX-00-001-001, delivering complete requirements, interface 
+  specifications, and validation artifacts."
+
+# ============================================================================
+# SCOPE DEFINITION
+# ============================================================================
+scope:
+  objectives:
+    - objective_id: OBJ-001
+      description: "Define complete system requirements for Chapter Title"
+      priority: HIGH  # CRITICAL | HIGH | MEDIUM | LOW
+      success_metric: "All functional and performance requirements documented"
+    
+    - objective_id: OBJ-002
+      description: "Develop interface specifications for key system boundaries"
+      priority: HIGH
+      success_metric: "ICD documents complete and approved"
+    
+    - objective_id: OBJ-003
+      description: "Establish traceability to parent requirements"
+      priority: MEDIUM
+      success_metric: "Requirements Traceability Matrix complete"
+  
+  in_scope:
+    deliverables:
+      - "System Requirements Document (KNU-XX-00-001-REQ-001)"
+      - "Interface Control Documents (KNU-XX-00-001-ICD-001)"
+      - "Analysis Reports (KNU-XX-00-001-ANA-001)"
+      - "Test Plans (KNU-XX-00-001-TST-001)"
+      - "S1000D Data Modules for publication"
+    
+    activities:
+      - "Requirements analysis and definition"
+      - "Interface design and specification"
+      - "Trade studies for key decisions"
+      - "Stakeholder reviews and approvals"
+      - "Traceability establishment"
+    
+    systems:
+      - system_id: SYS-XX-001
+        name: "Primary System"
+        coverage: FULL  # FULL | PARTIAL | INTERFACE_ONLY
+      
+      - system_id: SYS-XX-002
+        name: "Related System"
+        coverage: INTERFACE_ONLY
+  
+  out_of_scope:
+    - "Detailed component-level design (addressed in subsequent KNOTs)"
+    - "Manufacturing process definition (LC09)"
+    - "Maintenance procedures (addressed in PUBS/AMM)"
+    - "Training materials (addressed in PUBS/TRN)"
+
+# ============================================================================
+# DELIVERABLES & ARTIFACTS
+# ============================================================================
+deliverables:
+  # LC02 - System Requirements
+  - knu_id: KNU-XX-00-001-REQ-001
+    title: "Chapter Title System Requirements"
+    type: REQ
+    lifecycle: LC02_SYSTEM_REQUIREMENTS
+    priority: CRITICAL
+    due_date: "YYYY-MM-DD"
+    owner: STK_SE
+    status: PLANNED
+    description: "Complete system-level requirements for Chapter Title"
+    acceptance_criteria:
+      - "All functional requirements defined"
+      - "Performance requirements specified"
+      - "Interface requirements documented"
+      - "Stakeholder approval received"
+  
+  # LC04 - Interface Definition
+  - knu_id: KNU-XX-00-001-ICD-001
+    title: "Chapter Title Interface Control Document"
+    type: ICD
+    lifecycle: LC04_DESIGN_DEFINITION
+    priority: HIGH
+    due_date: "YYYY-MM-DD"
+    owner: STK_SE
+    status: PLANNED
+    description: "Interface specifications for system boundaries"
+    acceptance_criteria:
+      - "All interfaces identified and documented"
+      - "Data formats and protocols specified"
+      - "Interface requirements agreed with stakeholders"
+  
+  # LC04 - Analysis
+  - knu_id: KNU-XX-00-001-ANA-001
+    title: "Chapter Title System Analysis"
+    type: ANA
+    lifecycle: LC04_ANALYSIS_MODELS
+    priority: HIGH
+    due_date: "YYYY-MM-DD"
+    owner: STK_SE
+    status: PLANNED
+    description: "Technical analysis supporting requirements"
+    acceptance_criteria:
+      - "Analysis models developed and validated"
+      - "Performance predictions documented"
+      - "Trade studies completed"
+  
+  # LC05 - Testing
+  - knu_id: KNU-XX-00-001-TST-001
+    title: "Chapter Title Test Plan"
+    type: TST
+    lifecycle: LC05_TESTING
+    priority: MEDIUM
+    due_date: "YYYY-MM-DD"
+    owner: STK_TEST
+    status: PLANNED
+    description: "Verification and validation test plan"
+    acceptance_criteria:
+      - "Test cases defined for all requirements"
+      - "Test procedures documented"
+      - "Success criteria established"
+  
+  # PUBS - Publications
+  - knu_id: KNU-XX-00-001-PUB-001
+    title: "Chapter Title System Description Data Module"
+    type: PUB
+    lifecycle: PUBS
+    priority: MEDIUM
+    due_date: "YYYY-MM-DD"
+    owner: STK_PUB
+    status: PLANNED
+    description: "S1000D data module for system description"
+    acceptance_criteria:
+      - "BREX validation passed"
+      - "Content complete and accurate"
+      - "Illustrations and tables included"
+
+# ============================================================================
+# RESOURCE ALLOCATION (TOKENOMICS)
+# ============================================================================
+tokenomics:
+  total_allocated_tt: 400  # Total Truth Tokens allocated
+  total_allocated_deg: 144000  # Total DEG (400 TT * 360 DEG/TT)
+  
+  complexity_factor: 1.0  # Complexity multiplier
+  spillover_allowance: 0.40  # 40% spillover to adjacent lifecycles
+  
+  allocation_by_lifecycle:
+    LC01_PROBLEM_STATEMENT:
+      allocated_tt: 40
+      allocated_deg: 14400
+      percentage: 10
+      rationale: "Problem framing and planning"
+    
+    LC02_SYSTEM_REQUIREMENTS:
+      allocated_tt: 120
+      allocated_deg: 43200
+      percentage: 30
+      rationale: "Core requirements definition work"
+    
+    LC04_DESIGN_DEFINITION:
+      allocated_tt: 80
+      allocated_deg: 28800
+      percentage: 20
+      rationale: "Interface and design specifications"
+    
+    LC04_ANALYSIS_MODELS:
+      allocated_tt: 80
+      allocated_deg: 28800
+      percentage: 20
+      rationale: "Technical analysis and modeling"
+    
+    LC05_TESTING:
+      allocated_tt: 40
+      allocated_deg: 14400
+      percentage: 10
+      rationale: "Test planning and preparation"
+    
+    PUBS:
+      allocated_tt: 40
+      allocated_deg: 14400
+      percentage: 10
+      rationale: "Documentation and publication"
+  
+  allocation_by_role:
+    STK_SE:
+      allocated_tt: 240
+      allocated_deg: 86400
+      percentage: 60
+      responsibilities: "Requirements, analysis, technical leadership"
+    
+    STK_XX:
+      allocated_tt: 80
+      allocated_deg: 28800
+      percentage: 20
+      responsibilities: "Domain expertise and validation"
+    
+    STK_CERT:
+      allocated_tt: 40
+      allocated_deg: 14400
+      percentage: 10
+      responsibilities: "Certification guidance and review"
+    
+    STK_PUB:
+      allocated_tt: 40
+      allocated_deg: 14400
+      percentage: 10
+      responsibilities: "Documentation and publication"
+
+# ============================================================================
+# SCHEDULE & MILESTONES
+# ============================================================================
+schedule:
+  start_date: "YYYY-MM-DD"
+  target_completion_date: "YYYY-MM-DD"
+  duration_months: 6
+  
+  milestones:
+    - milestone_id: M1
+      name: "Requirements Definition Complete"
+      target_date: "YYYY-MM-DD"
+      deliverables:
+        - KNU-XX-00-001-REQ-001
+      dependencies: []
+      status: PLANNED
+    
+    - milestone_id: M2
+      name: "Interface Specifications Complete"
+      target_date: "YYYY-MM-DD"
+      deliverables:
+        - KNU-XX-00-001-ICD-001
+      dependencies:
+        - M1
+      status: PLANNED
+    
+    - milestone_id: M3
+      name: "Analysis and Test Planning Complete"
+      target_date: "YYYY-MM-DD"
+      deliverables:
+        - KNU-XX-00-001-ANA-001
+        - KNU-XX-00-001-TST-001
+      dependencies:
+        - M1
+        - M2
+      status: PLANNED
+    
+    - milestone_id: M4
+      name: "Publications Complete"
+      target_date: "YYYY-MM-DD"
+      deliverables:
+        - KNU-XX-00-001-PUB-001
+      dependencies:
+        - M1
+        - M2
+        - M3
+      status: PLANNED
+
+# ============================================================================
+# DEPENDENCIES & INTERFACES
+# ============================================================================
+dependencies:
+  upstream:
+    - knot_id: KNOT-00-00-001
+      title: "Program Terminology and Conventions"
+      type: PREREQUISITE  # PREREQUISITE | PARALLEL | INFORMATIONAL
+      status: COMPLETE
+      description: "Provides standard terminology and document structure"
+    
+    - knot_id: KNOT-00-00-002
+      title: "Document Architecture Standards"
+      type: PREREQUISITE
+      status: COMPLETE
+      description: "Defines CSDB structure and BREX rules"
+  
+  downstream:
+    - knot_id: KNOT-XX-00-002
+      title: "Detailed Component Design"
+      type: SUCCESSOR
+      status: PLANNED
+      description: "Will use requirements from this KNOT"
+    
+    - knot_id: KNOT-YY-00-001
+      title: "Related System Integration"
+      type: PARALLEL
+      status: PLANNED
+      description: "Interfaces must be coordinated"
+  
+  external_dependencies:
+    - dependency: "Supplier interface specifications"
+      required_by: "YYYY-MM-DD"
+      status: PENDING
+      risk_level: MEDIUM
+    
+    - dependency: "Regulatory guidance clarification"
+      required_by: "YYYY-MM-DD"
+      status: PENDING
+      risk_level: HIGH
+
+# ============================================================================
+# ACCEPTANCE CRITERIA
+# ============================================================================
+acceptance_criteria:
+  completeness:
+    - criterion: "All planned deliverables completed"
+      verification_method: "Document review"
+      responsibility: STK_SE
+    
+    - criterion: "All requirements traced to parent requirements"
+      verification_method: "RTM audit"
+      responsibility: STK_CM
+    
+    - criterion: "All interfaces specified and agreed"
+      verification_method: "ICD signatures"
+      responsibility: STK_SE
+  
+  quality:
+    - criterion: "Documents pass peer review"
+      verification_method: "Review records"
+      responsibility: STK_SE
+    
+    - criterion: "CSDB artifacts pass BREX validation"
+      verification_method: "Automated BREX check"
+      responsibility: STK_PUB
+    
+    - criterion: "No critical TBDs remaining"
+      verification_method: "TBD register review"
+      responsibility: STK_CM
+  
+  stakeholder_acceptance:
+    - criterion: "Systems Engineering approval"
+      verification_method: "Formal sign-off"
+      responsibility: STK_SE
+    
+    - criterion: "Certification concurrence"
+      verification_method: "Certification review"
+      responsibility: STK_CERT
+    
+    - criterion: "Domain expert validation"
+      verification_method: "Technical review"
+      responsibility: STK_XX
+
+# ============================================================================
+# RESIDUAL UNCERTAINTY
+# ============================================================================
+residual_uncertainty:
+  target_residual: 10  # Target percentage (10% = 90% confidence)
+  
+  tracked_uncertainties:
+    - tbd_id: TBD-XX-001
+      description: "Specific parameter value pending analysis"
+      impact: MEDIUM  # CRITICAL | HIGH | MEDIUM | LOW
+      resolution_target: "YYYY-MM-DD"
+      assigned_to: STK_SE
+      status: OPEN
+    
+    - tbd_id: TBD-XX-002
+      description: "Interface protocol pending supplier input"
+      impact: HIGH
+      resolution_target: "YYYY-MM-DD"
+      assigned_to: STK_XX
+      status: OPEN
+  
+  confidence_assessment:
+    current_confidence: 70  # Percentage
+    target_confidence: 90
+    gap_closure_plan: >
+      Plan to close confidence gap through analysis, testing, and 
+      stakeholder validation activities.
+
+# ============================================================================
+# RISK MANAGEMENT
+# ============================================================================
+risks:
+  - risk_id: RISK-XX-001
+    description: "Schedule risk due to supplier delays"
+    probability: MEDIUM  # HIGH | MEDIUM | LOW
+    impact: HIGH  # CRITICAL | HIGH | MEDIUM | LOW
+    mitigation: "Early engagement and alternative sourcing"
+    owner: STK_CM
+    status: OPEN
+  
+  - risk_id: RISK-XX-002
+    description: "Technical risk in novel technology application"
+    probability: LOW
+    impact: MEDIUM
+    mitigation: "Proof of concept and early testing"
+    owner: STK_SE
+    status: OPEN
+  
+  - risk_id: RISK-XX-003
+    description: "Regulatory interpretation uncertainty"
+    probability: MEDIUM
+    impact: HIGH
+    mitigation: "Early engagement with certification authority"
+    owner: STK_CERT
+    status: OPEN
+
+# ============================================================================
+# GOVERNANCE & REVIEWS
+# ============================================================================
+governance:
+  review_cadence: BIWEEKLY  # WEEKLY | BIWEEKLY | MONTHLY
+  review_forum: "Chapter XX Working Group"
+  decision_authority: STK_XX
+  
+  scheduled_reviews:
+    - review_id: REV-001
+      review_type: KICKOFF  # KICKOFF | PROGRESS | GATE | FINAL
+      scheduled_date: "YYYY-MM-DD"
+      attendees:
+        - STK_SE
+        - STK_XX
+        - STK_CERT
+      objectives:
+        - "Align on scope and approach"
+        - "Review resource allocation"
+        - "Confirm schedule"
+    
+    - review_id: REV-002
+      review_type: PROGRESS
+      scheduled_date: "YYYY-MM-DD"
+      attendees:
+        - STK_SE
+        - STK_XX
+      objectives:
+        - "Review progress on deliverables"
+        - "Address emerging issues"
+        - "Update risk register"
+    
+    - review_id: REV-003
+      review_type: GATE
+      scheduled_date: "YYYY-MM-DD"
+      attendees:
+        - STK_SE
+        - STK_XX
+        - STK_CERT
+        - STK_CM
+      objectives:
+        - "Confirm readiness to proceed"
+        - "Review acceptance criteria"
+        - "Authorize next phase"
+    
+    - review_id: REV-004
+      review_type: FINAL
+      scheduled_date: "YYYY-MM-DD"
+      attendees:
+        - STK_SE
+        - STK_XX
+        - STK_CERT
+        - STK_PUB
+        - STK_CM
+      objectives:
+        - "Confirm all deliverables complete"
+        - "Review lessons learned"
+        - "Close out KNOT"
+
+# ============================================================================
+# TRACEABILITY
+# ============================================================================
+traceability:
+  upstream_requirements:
+    - req_id: SYS-REQ-001
+      source: "System Specification"
+      description: "Parent system requirement 1"
+    
+    - req_id: SYS-REQ-002
+      source: "System Specification"
+      description: "Parent system requirement 2"
+  
+  downstream_artifacts:
+    - artifact_id: KNU-XX-00-001-REQ-001
+      description: "Derived system requirements"
+    
+    - artifact_id: KNU-XX-00-001-ICD-001
+      description: "Interface specifications"
+  
+  related_knots:
+    - knot_id: O-KNOT-XX-00-001
+      relationship: RESOLVES
+      description: "This KNOT resolves the uncertainty identified"
+    
+    - knot_id: Y-KNOT-XX-00-001-001
+      relationship: IMPLEMENTS
+      description: "This KNOT implements the justified approach"
+
+# ============================================================================
+# LESSONS LEARNED & NOTES
+# ============================================================================
+lessons_learned:
+  - lesson: "Placeholder for lessons learned during KNOT execution"
+    category: PROCESS  # PROCESS | TECHNICAL | ORGANIZATIONAL
+    recommendation: "Placeholder for recommendations for future KNOTs"
+
+notes: >
+  Additional context, background information, or observations that don't 
+  fit in other sections. This can be updated throughout the KNOT lifecycle.
+
+# ============================================================================
+# REVISION HISTORY
+# ============================================================================
+revision_history:
+  - date: "YYYY-MM-DD"
+    version: 0.1.0
+    author: STK_XX
+    change: "Initial KNOT framing"
