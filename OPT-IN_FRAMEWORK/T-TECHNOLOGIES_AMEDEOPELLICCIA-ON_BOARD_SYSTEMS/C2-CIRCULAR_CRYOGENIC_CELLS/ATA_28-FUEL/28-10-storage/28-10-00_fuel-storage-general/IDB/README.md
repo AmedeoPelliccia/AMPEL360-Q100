@@ -58,17 +58,25 @@ IDB/
 
 ## Data Flow
 
-```
-KDB/LM/SSOT/PLM/LC13/Maintenance_Source/AMM_TASKS/
-        │
-        ▼ (via CONTRACTS + ASIT pipeline)
-        │
-IDB/PUB/AMM/CSDB/DM/
-        │
-        ▼ (via S1000D transformation)
-        │
-IDB/PUB/AMM/EXPORT/PDF/
-IDB/PUB/AMM/IETP_RUNTIME/
+```mermaid
+flowchart TB
+  %% ===========================
+  %% KDB/ASIT/S1000D publication pipeline
+  %% ===========================
+
+  KDB["KDB/LM/SSOT/PLM/LC13/Maintenance_Source/AMM_TASKS/"]
+
+  CSDB["IDB/PUB/AMM/CSDB/DM/"]
+
+  PDF["IDB/PUB/AMM/EXPORT/PDF/"]
+  IETP["IDB/PUB/AMM/IETP_RUNTIME/"]
+  KDB -- "via CONTRACTS + ASIT pipeline" --> CSDB
+  CSDB -- "via S1000D transformation" --> PDF
+  CSDB -- "via S1000D transformation" --> IETP
+
+  %% Optional styling
+  classDef box fill:#0c1626,stroke:#3884ff,stroke-width:1px,color:#e6ebf2,rx:6,ry:6;
+  class KDB,CSDB,PDF,IETP box;
 ```
 
 ---
