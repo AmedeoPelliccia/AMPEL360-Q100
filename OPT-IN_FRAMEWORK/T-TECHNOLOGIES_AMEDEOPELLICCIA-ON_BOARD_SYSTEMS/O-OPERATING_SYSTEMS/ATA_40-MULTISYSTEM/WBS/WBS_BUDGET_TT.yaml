@@ -1,0 +1,13 @@
+budget:
+  chapter: "40"
+  title: "MULTISYSTEM"
+  total_tt: 500
+  allocation:
+    - wbs_id: WP-40-1000
+      tt_budget: 150
+    - wbs_id: WP-40-2000
+      tt_budget: 150
+    - wbs_id: WP-40-3000
+      tt_budget: 125
+    - wbs_id: WP-40-4000
+      tt_budget: 75

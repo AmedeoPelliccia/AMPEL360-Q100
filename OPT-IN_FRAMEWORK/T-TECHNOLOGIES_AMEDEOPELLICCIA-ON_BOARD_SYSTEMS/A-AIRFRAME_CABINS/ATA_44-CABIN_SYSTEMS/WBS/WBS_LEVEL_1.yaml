@@ -1,0 +1,13 @@
+wbs:
+  chapter: "44"
+  title: "CABIN SYSTEMS"
+  level: 1
+  packages:
+    - id: WP-44-1000
+      title: "Requirements Definition"
+    - id: WP-44-2000
+      title: "Design Definition"
+    - id: WP-44-3000
+      title: "Verification & Validation"
+    - id: WP-44-4000
+      title: "Certification"

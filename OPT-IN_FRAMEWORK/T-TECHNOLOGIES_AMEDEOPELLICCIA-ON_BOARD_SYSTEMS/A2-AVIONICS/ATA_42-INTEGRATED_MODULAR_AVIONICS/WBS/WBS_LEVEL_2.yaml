@@ -1,0 +1,11 @@
+wbs:
+  chapter: "42"
+  title: "INTEGRATED MODULAR AVIONICS"
+  level: 2
+  packages:
+    - parent: WP-42-1000
+      children:
+        - id: WP-42-1100
+          title: "System Requirements"
+        - id: WP-42-1200
+          title: "Interface Requirements"

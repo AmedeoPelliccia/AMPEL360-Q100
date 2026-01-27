@@ -1,0 +1,13 @@
+wbs:
+  chapter: "25"
+  title: "EQUIPMENT FURNISHINGS"
+  level: 1
+  packages:
+    - id: WP-25-1000
+      title: "Requirements Definition"
+    - id: WP-25-2000
+      title: "Design Definition"
+    - id: WP-25-3000
+      title: "Verification & Validation"
+    - id: WP-25-4000
+      title: "Certification"

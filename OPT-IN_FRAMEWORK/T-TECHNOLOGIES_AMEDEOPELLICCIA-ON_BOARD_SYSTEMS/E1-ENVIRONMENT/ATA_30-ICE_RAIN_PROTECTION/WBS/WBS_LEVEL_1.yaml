@@ -1,0 +1,13 @@
+wbs:
+  chapter: "30"
+  title: "ICE RAIN PROTECTION"
+  level: 1
+  packages:
+    - id: WP-30-1000
+      title: "Requirements Definition"
+    - id: WP-30-2000
+      title: "Design Definition"
+    - id: WP-30-3000
+      title: "Verification & Validation"
+    - id: WP-30-4000
+      title: "Certification"

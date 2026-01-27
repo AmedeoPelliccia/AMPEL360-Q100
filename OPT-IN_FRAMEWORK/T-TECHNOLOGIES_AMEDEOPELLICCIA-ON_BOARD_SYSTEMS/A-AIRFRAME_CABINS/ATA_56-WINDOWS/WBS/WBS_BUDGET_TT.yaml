@@ -1,0 +1,13 @@
+budget:
+  chapter: "56"
+  title: "WINDOWS"
+  total_tt: 500
+  allocation:
+    - wbs_id: WP-56-1000
+      tt_budget: 150
+    - wbs_id: WP-56-2000
+      tt_budget: 150
+    - wbs_id: WP-56-3000
+      tt_budget: 125
+    - wbs_id: WP-56-4000
+      tt_budget: 75

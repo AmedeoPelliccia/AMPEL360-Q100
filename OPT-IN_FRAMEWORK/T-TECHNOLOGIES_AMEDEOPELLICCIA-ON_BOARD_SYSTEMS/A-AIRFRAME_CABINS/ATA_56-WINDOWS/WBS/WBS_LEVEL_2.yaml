@@ -1,0 +1,11 @@
+wbs:
+  chapter: "56"
+  title: "WINDOWS"
+  level: 2
+  packages:
+    - parent: WP-56-1000
+      children:
+        - id: WP-56-1100
+          title: "System Requirements"
+        - id: WP-56-1200
+          title: "Interface Requirements"

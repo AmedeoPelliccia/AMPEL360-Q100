@@ -1,0 +1,11 @@
+wbs:
+  chapter: "50"
+  title: "CARGO AND ACCESSORY COMPARTMENTS"
+  level: 2
+  packages:
+    - parent: WP-50-1000
+      children:
+        - id: WP-50-1100
+          title: "System Requirements"
+        - id: WP-50-1200
+          title: "Interface Requirements"

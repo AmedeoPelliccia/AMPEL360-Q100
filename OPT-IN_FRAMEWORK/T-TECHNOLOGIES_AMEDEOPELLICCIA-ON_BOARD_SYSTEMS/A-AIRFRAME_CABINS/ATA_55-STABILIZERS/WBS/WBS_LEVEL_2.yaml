@@ -1,0 +1,11 @@
+wbs:
+  chapter: "55"
+  title: "STABILIZERS"
+  level: 2
+  packages:
+    - parent: WP-55-1000
+      children:
+        - id: WP-55-1100
+          title: "System Requirements"
+        - id: WP-55-1200
+          title: "Interface Requirements"

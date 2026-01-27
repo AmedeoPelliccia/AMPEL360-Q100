@@ -1,0 +1,11 @@
+wbs:
+  chapter: "34"
+  title: "NAVIGATION"
+  level: 2
+  packages:
+    - parent: WP-34-1000
+      children:
+        - id: WP-34-1100
+          title: "System Requirements"
+        - id: WP-34-1200
+          title: "Interface Requirements"

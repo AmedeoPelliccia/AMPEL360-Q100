@@ -1,0 +1,11 @@
+wbs:
+  chapter: "77"
+  title: "ENGINE INDICATING"
+  level: 2
+  packages:
+    - parent: WP-77-1000
+      children:
+        - id: WP-77-1100
+          title: "System Requirements"
+        - id: WP-77-1200
+          title: "Interface Requirements"

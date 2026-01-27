@@ -1,0 +1,13 @@
+wbs:
+  chapter: "08"
+  title: "LEVELING AND WEIGHING INFRA"
+  level: 1
+  packages:
+    - id: WP-08-1000
+      title: "Requirements Definition"
+    - id: WP-08-2000
+      title: "Design Definition"
+    - id: WP-08-3000
+      title: "Verification & Validation"
+    - id: WP-08-4000
+      title: "Certification"

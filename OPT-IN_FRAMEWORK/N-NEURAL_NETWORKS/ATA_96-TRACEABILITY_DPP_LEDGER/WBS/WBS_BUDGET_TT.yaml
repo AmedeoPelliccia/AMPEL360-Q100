@@ -1,0 +1,13 @@
+budget:
+  chapter: "96"
+  title: "TRACEABILITY DPP LEDGER"
+  total_tt: 500
+  allocation:
+    - wbs_id: WP-96-1000
+      tt_budget: 150
+    - wbs_id: WP-96-2000
+      tt_budget: 150
+    - wbs_id: WP-96-3000
+      tt_budget: 125
+    - wbs_id: WP-96-4000
+      tt_budget: 75

@@ -1,0 +1,13 @@
+budget:
+  chapter: "52"
+  title: "DOORS"
+  total_tt: 500
+  allocation:
+    - wbs_id: WP-52-1000
+      tt_budget: 150
+    - wbs_id: WP-52-2000
+      tt_budget: 150
+    - wbs_id: WP-52-3000
+      tt_budget: 125
+    - wbs_id: WP-52-4000
+      tt_budget: 75

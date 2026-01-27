@@ -1,0 +1,13 @@
+wbs:
+  chapter: "47"
+  title: "NITROGEN GENERATION SYSTEM"
+  level: 1
+  packages:
+    - id: WP-47-1000
+      title: "Requirements Definition"
+    - id: WP-47-2000
+      title: "Design Definition"
+    - id: WP-47-3000
+      title: "Verification & Validation"
+    - id: WP-47-4000
+      title: "Certification"

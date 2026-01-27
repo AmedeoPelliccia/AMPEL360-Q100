@@ -1,0 +1,23 @@
+# WBS Budget (Teknia Tokens) — ATA 03 (SUPPORT INFORMATION)
+# Token budget allocation per WBS element (informational)
+
+budget:
+  chapter: "03"
+  title: "SUPPORT INFORMATION"
+  total_tt: 500
+  allocation:
+    - wbs_id: WP-03-1000
+      tt_budget: 150
+      description: "Requirements Definition"
+      
+    - wbs_id: WP-03-2000
+      tt_budget: 150
+      description: "Design Definition"
+      
+    - wbs_id: WP-03-3000
+      tt_budget: 125
+      description: "Verification & Validation"
+      
+    - wbs_id: WP-03-4000
+      tt_budget: 75
+      description: "Certification"

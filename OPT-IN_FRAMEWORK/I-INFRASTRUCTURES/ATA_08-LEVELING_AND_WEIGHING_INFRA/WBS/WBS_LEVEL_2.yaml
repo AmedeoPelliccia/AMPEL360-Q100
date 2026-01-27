@@ -1,0 +1,9 @@
+wbs:
+  chapter: "08"
+  title: "LEVELING AND WEIGHING INFRA"
+  level: 2
+  packages:
+    - parent: WP-08-1000
+      children:
+        - id: WP-08-1100
+          title: "System Requirements"

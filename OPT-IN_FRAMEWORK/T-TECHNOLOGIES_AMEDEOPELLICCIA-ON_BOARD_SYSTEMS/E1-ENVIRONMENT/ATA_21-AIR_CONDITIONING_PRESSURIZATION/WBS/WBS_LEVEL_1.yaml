@@ -1,0 +1,13 @@
+wbs:
+  chapter: "21"
+  title: "AIR CONDITIONING PRESSURIZATION"
+  level: 1
+  packages:
+    - id: WP-21-1000
+      title: "Requirements Definition"
+    - id: WP-21-2000
+      title: "Design Definition"
+    - id: WP-21-3000
+      title: "Verification & Validation"
+    - id: WP-21-4000
+      title: "Certification"

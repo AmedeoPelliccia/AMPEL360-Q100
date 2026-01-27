@@ -1,0 +1,13 @@
+wbs:
+  chapter: "38"
+  title: "WATER WASTE"
+  level: 1
+  packages:
+    - id: WP-38-1000
+      title: "Requirements Definition"
+    - id: WP-38-2000
+      title: "Design Definition"
+    - id: WP-38-3000
+      title: "Verification & Validation"
+    - id: WP-38-4000
+      title: "Certification"

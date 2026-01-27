@@ -1,0 +1,13 @@
+wbs:
+  chapter: "10"
+  title: "PARKING MOORING STORAGE RTS INFRA"
+  level: 1
+  packages:
+    - id: WP-10-1000
+      title: "Requirements Definition"
+    - id: WP-10-2000
+      title: "Design Definition"
+    - id: WP-10-3000
+      title: "Verification & Validation"
+    - id: WP-10-4000
+      title: "Certification"

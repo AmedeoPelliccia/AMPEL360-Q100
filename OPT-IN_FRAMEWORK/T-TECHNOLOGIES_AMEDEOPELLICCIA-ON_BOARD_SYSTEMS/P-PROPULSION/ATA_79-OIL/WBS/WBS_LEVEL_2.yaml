@@ -1,0 +1,11 @@
+wbs:
+  chapter: "79"
+  title: "OIL"
+  level: 2
+  packages:
+    - parent: WP-79-1000
+      children:
+        - id: WP-79-1100
+          title: "System Requirements"
+        - id: WP-79-1200
+          title: "Interface Requirements"

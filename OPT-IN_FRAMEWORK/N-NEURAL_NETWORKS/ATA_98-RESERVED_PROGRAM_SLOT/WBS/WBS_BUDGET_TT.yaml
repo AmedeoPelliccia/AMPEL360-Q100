@@ -1,0 +1,13 @@
+budget:
+  chapter: "98"
+  title: "RESERVED PROGRAM SLOT"
+  total_tt: 500
+  allocation:
+    - wbs_id: WP-98-1000
+      tt_budget: 150
+    - wbs_id: WP-98-2000
+      tt_budget: 150
+    - wbs_id: WP-98-3000
+      tt_budget: 125
+    - wbs_id: WP-98-4000
+      tt_budget: 75

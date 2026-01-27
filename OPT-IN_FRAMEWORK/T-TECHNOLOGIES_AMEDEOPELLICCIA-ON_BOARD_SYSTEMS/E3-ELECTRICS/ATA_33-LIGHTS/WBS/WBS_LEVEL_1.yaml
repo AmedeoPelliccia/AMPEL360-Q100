@@ -1,0 +1,13 @@
+wbs:
+  chapter: "33"
+  title: "LIGHTS"
+  level: 1
+  packages:
+    - id: WP-33-1000
+      title: "Requirements Definition"
+    - id: WP-33-2000
+      title: "Design Definition"
+    - id: WP-33-3000
+      title: "Verification & Validation"
+    - id: WP-33-4000
+      title: "Certification"

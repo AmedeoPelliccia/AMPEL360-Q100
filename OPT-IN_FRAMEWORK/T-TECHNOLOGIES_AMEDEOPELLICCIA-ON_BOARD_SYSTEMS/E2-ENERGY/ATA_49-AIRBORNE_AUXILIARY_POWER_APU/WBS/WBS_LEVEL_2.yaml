@@ -1,0 +1,11 @@
+wbs:
+  chapter: "49"
+  title: "AIRBORNE AUXILIARY POWER APU"
+  level: 2
+  packages:
+    - parent: WP-49-1000
+      children:
+        - id: WP-49-1100
+          title: "System Requirements"
+        - id: WP-49-1200
+          title: "Interface Requirements"

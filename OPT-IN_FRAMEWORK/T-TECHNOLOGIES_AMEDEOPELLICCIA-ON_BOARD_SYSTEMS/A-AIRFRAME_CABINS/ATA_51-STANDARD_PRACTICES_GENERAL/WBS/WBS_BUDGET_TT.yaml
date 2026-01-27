@@ -1,0 +1,13 @@
+budget:
+  chapter: "51"
+  title: "STANDARD PRACTICES GENERAL"
+  total_tt: 500
+  allocation:
+    - wbs_id: WP-51-1000
+      tt_budget: 150
+    - wbs_id: WP-51-2000
+      tt_budget: 150
+    - wbs_id: WP-51-3000
+      tt_budget: 125
+    - wbs_id: WP-51-4000
+      tt_budget: 75

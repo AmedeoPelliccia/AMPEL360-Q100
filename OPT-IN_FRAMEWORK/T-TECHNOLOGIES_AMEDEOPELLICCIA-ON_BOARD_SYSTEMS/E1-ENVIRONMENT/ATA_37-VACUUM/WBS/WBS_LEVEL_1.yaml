@@ -1,0 +1,13 @@
+wbs:
+  chapter: "37"
+  title: "VACUUM"
+  level: 1
+  packages:
+    - id: WP-37-1000
+      title: "Requirements Definition"
+    - id: WP-37-2000
+      title: "Design Definition"
+    - id: WP-37-3000
+      title: "Verification & Validation"
+    - id: WP-37-4000
+      title: "Certification"

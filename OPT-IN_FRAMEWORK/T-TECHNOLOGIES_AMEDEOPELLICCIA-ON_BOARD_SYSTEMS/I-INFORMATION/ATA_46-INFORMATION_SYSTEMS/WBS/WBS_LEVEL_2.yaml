@@ -1,0 +1,11 @@
+wbs:
+  chapter: "46"
+  title: "INFORMATION SYSTEMS"
+  level: 2
+  packages:
+    - parent: WP-46-1000
+      children:
+        - id: WP-46-1100
+          title: "System Requirements"
+        - id: WP-46-1200
+          title: "Interface Requirements"

@@ -1,0 +1,13 @@
+wbs:
+  chapter: "53"
+  title: "FUSELAGE"
+  level: 1
+  packages:
+    - id: WP-53-1000
+      title: "Requirements Definition"
+    - id: WP-53-2000
+      title: "Design Definition"
+    - id: WP-53-3000
+      title: "Verification & Validation"
+    - id: WP-53-4000
+      title: "Certification"

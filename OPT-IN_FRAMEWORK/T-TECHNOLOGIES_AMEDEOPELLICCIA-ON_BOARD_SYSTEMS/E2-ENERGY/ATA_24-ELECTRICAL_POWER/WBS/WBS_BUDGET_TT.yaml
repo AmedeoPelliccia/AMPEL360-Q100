@@ -1,0 +1,13 @@
+budget:
+  chapter: "24"
+  title: "ELECTRICAL POWER"
+  total_tt: 500
+  allocation:
+    - wbs_id: WP-24-1000
+      tt_budget: 150
+    - wbs_id: WP-24-2000
+      tt_budget: 150
+    - wbs_id: WP-24-3000
+      tt_budget: 125
+    - wbs_id: WP-24-4000
+      tt_budget: 75

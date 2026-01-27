@@ -1,0 +1,13 @@
+wbs:
+  chapter: "46"
+  title: "INFORMATION SYSTEMS"
+  level: 1
+  packages:
+    - id: WP-46-1000
+      title: "Requirements Definition"
+    - id: WP-46-2000
+      title: "Design Definition"
+    - id: WP-46-3000
+      title: "Verification & Validation"
+    - id: WP-46-4000
+      title: "Certification"

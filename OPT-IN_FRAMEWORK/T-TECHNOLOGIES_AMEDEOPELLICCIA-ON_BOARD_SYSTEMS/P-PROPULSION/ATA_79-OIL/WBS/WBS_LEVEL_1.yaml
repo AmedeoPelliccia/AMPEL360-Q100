@@ -1,0 +1,13 @@
+wbs:
+  chapter: "79"
+  title: "OIL"
+  level: 1
+  packages:
+    - id: WP-79-1000
+      title: "Requirements Definition"
+    - id: WP-79-2000
+      title: "Design Definition"
+    - id: WP-79-3000
+      title: "Verification & Validation"
+    - id: WP-79-4000
+      title: "Certification"

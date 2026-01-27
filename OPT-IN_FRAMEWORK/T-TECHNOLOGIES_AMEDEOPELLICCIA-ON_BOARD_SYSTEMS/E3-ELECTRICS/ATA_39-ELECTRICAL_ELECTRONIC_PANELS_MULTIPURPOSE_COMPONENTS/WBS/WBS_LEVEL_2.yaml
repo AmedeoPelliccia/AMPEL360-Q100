@@ -1,0 +1,11 @@
+wbs:
+  chapter: "39"
+  title: "ELECTRICAL ELECTRONIC PANELS MULTIPURPOSE COMPONENTS"
+  level: 2
+  packages:
+    - parent: WP-39-1000
+      children:
+        - id: WP-39-1100
+          title: "System Requirements"
+        - id: WP-39-1200
+          title: "Interface Requirements"

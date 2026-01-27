@@ -1,0 +1,13 @@
+wbs:
+  chapter: "IN"
+  title: "ATA IN H2 GSE AND SUPPLY CHAIN"
+  level: 1
+  packages:
+    - id: WP-IN-1000
+      title: "Requirements Definition"
+    - id: WP-IN-2000
+      title: "Design Definition"
+    - id: WP-IN-3000
+      title: "Verification & Validation"
+    - id: WP-IN-4000
+      title: "Certification"

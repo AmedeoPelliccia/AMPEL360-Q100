@@ -1,0 +1,13 @@
+wbs:
+  chapter: "76"
+  title: "ENGINE CONTROLS"
+  level: 1
+  packages:
+    - id: WP-76-1000
+      title: "Requirements Definition"
+    - id: WP-76-2000
+      title: "Design Definition"
+    - id: WP-76-3000
+      title: "Verification & Validation"
+    - id: WP-76-4000
+      title: "Certification"

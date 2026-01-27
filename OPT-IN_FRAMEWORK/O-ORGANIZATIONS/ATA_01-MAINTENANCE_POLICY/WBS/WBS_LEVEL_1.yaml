@@ -1,0 +1,27 @@
+# WBS Level 1 — ATA 01 (MAINTENANCE POLICY)
+# Top-level work packages (major deliverables)
+
+wbs:
+  chapter: "01"
+  title: "MAINTENANCE POLICY"
+  level: 1
+  packages:
+    - id: WP-01-1000
+      title: "Requirements Definition"
+      description: "System requirements specification"
+      owner: TBD
+      
+    - id: WP-01-2000
+      title: "Design Definition"
+      description: "System design documentation"
+      owner: TBD
+      
+    - id: WP-01-3000
+      title: "Verification & Validation"
+      description: "Test procedures and evidence"
+      owner: TBD
+      
+    - id: WP-01-4000
+      title: "Certification"
+      description: "Compliance demonstration"
+      owner: TBD

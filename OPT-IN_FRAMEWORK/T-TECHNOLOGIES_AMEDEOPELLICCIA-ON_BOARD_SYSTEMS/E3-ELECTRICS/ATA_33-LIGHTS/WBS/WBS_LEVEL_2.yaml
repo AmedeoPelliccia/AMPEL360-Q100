@@ -1,0 +1,11 @@
+wbs:
+  chapter: "33"
+  title: "LIGHTS"
+  level: 2
+  packages:
+    - parent: WP-33-1000
+      children:
+        - id: WP-33-1100
+          title: "System Requirements"
+        - id: WP-33-1200
+          title: "Interface Requirements"

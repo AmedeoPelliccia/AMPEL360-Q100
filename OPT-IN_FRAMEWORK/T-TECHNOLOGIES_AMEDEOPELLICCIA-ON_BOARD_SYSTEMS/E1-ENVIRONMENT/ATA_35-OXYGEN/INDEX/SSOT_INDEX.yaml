@@ -1,0 +1,10 @@
+ssot:
+  chapter: "35"
+  title: "OXYGEN"
+  sources:
+    - type: "Requirements"
+      location: "KDB/LM/SSOT/PLM/LC02"
+    - type: "Design"
+      location: "KDB/LM/SSOT/PLM/LC04"
+    - type: "Test"
+      location: "KDB/LM/SSOT/PLM/LC06"

@@ -1,0 +1,13 @@
+wbs:
+  chapter: "96"
+  title: "TRACEABILITY DPP LEDGER"
+  level: 1
+  packages:
+    - id: WP-96-1000
+      title: "Requirements Definition"
+    - id: WP-96-2000
+      title: "Design Definition"
+    - id: WP-96-3000
+      title: "Verification & Validation"
+    - id: WP-96-4000
+      title: "Certification"

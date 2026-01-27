@@ -1,0 +1,13 @@
+budget:
+  chapter: "47"
+  title: "NITROGEN GENERATION SYSTEM"
+  total_tt: 500
+  allocation:
+    - wbs_id: WP-47-1000
+      tt_budget: 150
+    - wbs_id: WP-47-2000
+      tt_budget: 150
+    - wbs_id: WP-47-3000
+      tt_budget: 125
+    - wbs_id: WP-47-4000
+      tt_budget: 75

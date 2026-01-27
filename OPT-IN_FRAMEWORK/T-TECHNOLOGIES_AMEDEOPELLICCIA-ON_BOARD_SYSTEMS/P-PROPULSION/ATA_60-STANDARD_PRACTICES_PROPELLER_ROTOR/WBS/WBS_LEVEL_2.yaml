@@ -1,0 +1,11 @@
+wbs:
+  chapter: "60"
+  title: "STANDARD PRACTICES PROPELLER ROTOR"
+  level: 2
+  packages:
+    - parent: WP-60-1000
+      children:
+        - id: WP-60-1100
+          title: "System Requirements"
+        - id: WP-60-1200
+          title: "Interface Requirements"

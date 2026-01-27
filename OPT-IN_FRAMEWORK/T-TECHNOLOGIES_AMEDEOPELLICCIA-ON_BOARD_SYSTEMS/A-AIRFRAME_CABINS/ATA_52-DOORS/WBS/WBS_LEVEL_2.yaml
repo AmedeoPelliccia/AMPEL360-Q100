@@ -1,0 +1,11 @@
+wbs:
+  chapter: "52"
+  title: "DOORS"
+  level: 2
+  packages:
+    - parent: WP-52-1000
+      children:
+        - id: WP-52-1100
+          title: "System Requirements"
+        - id: WP-52-1200
+          title: "Interface Requirements"

@@ -1,0 +1,13 @@
+budget:
+  chapter: "30"
+  title: "ICE RAIN PROTECTION"
+  total_tt: 500
+  allocation:
+    - wbs_id: WP-30-1000
+      tt_budget: 150
+    - wbs_id: WP-30-2000
+      tt_budget: 150
+    - wbs_id: WP-30-3000
+      tt_budget: 125
+    - wbs_id: WP-30-4000
+      tt_budget: 75

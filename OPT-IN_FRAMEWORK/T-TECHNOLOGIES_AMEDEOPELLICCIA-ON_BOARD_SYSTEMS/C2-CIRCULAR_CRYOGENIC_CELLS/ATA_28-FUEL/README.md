@@ -28,32 +28,37 @@ The ATA 28 Fuel Systems chapter provides comprehensive documentation for the **L
 
 ### Fuel System Architecture
 
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                    AMPEL360 Q100 LH₂ FUEL SYSTEM                            │
-├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                              │
-│  ┌──────────────────┐     ┌──────────────────┐     ┌──────────────────┐    │
-│  │   STORAGE        │     │   DISTRIBUTION   │     │   DELIVERY       │    │
-│  │   (28-10)        │────▶│   (28-20)        │────▶│   (28-30)        │    │
-│  │                  │     │                  │     │                  │    │
-│  │ • Cryogenic Tanks│     │ • Fuel Lines     │     │ • Fuel Cells     │    │
-│  │ • MLI Insulation │     │ • Valves         │     │ • Flow Control   │    │
-│  │ • Boil-off Mgmt  │     │ • Heat Exchangers│     │ • Safety Systems │    │
-│  │ • Fill/Drain     │     │ • Pumps          │     │ • Venting        │    │
-│  └──────────────────┘     └──────────────────┘     └──────────────────┘    │
-│                                                                              │
-│  ┌──────────────────┐     ┌──────────────────┐     ┌──────────────────┐    │
-│  │   INDICATING     │     │   MANAGEMENT     │     │   MONITORING     │    │
-│  │   (28-40)        │     │   (28-50)        │     │   (28-60)        │    │
-│  │                  │     │                  │     │                  │    │
-│  │ • Quantity       │     │ • CG Management  │     │ • Leak Detection │    │
-│  │ • Temperature    │     │ • Fuel Planning  │     │ • H₂ Sensors     │    │
-│  │ • Pressure       │     │ • Transfer Ctrl  │     │ • Health Mgmt    │    │
-│  │ • Flow Rate      │     │ • Emergency Proc │     │ • Predictive     │    │
-│  └──────────────────┘     └──────────────────┘     └──────────────────┘    │
-│                                                                              │
-└─────────────────────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart TB
+  %% ===========================
+  %% AMPEL360 Q100 LH₂ FUEL SYSTEM
+  %% ===========================
+
+  subgraph SYS[AMPEL360 Q100 LH₂ FUEL SYSTEM]
+    direction TB
+
+    %% ---------- Row 1: Flow ----------
+    subgraph ROW1[ ]
+      direction LR
+      ST["**STORAGE** (28-10)<br/>• Cryogenic Tanks<br/>• MLI Insulation<br/>• Boil‑off Mgmt<br/>• Fill/Drain"]
+      DI["**DISTRIBUTION** (28-20)<br/>• Fuel Lines<br/>• Valves<br/>• Heat Exchangers<br/>• Pumps"]
+      DE["**DELIVERY** (28-30)<br/>• Fuel Cells<br/>• Flow Control<br/>• Safety Systems<br/>• Venting"]
+      ST --> DI --> DE
+    end
+
+    %% ---------- Row 2: Support ----------
+    subgraph ROW2[ ]
+      direction LR
+      IN["**INDICATING** (28-40)<br/>• Quantity<br/>• Temperature<br/>• Pressure<br/>• Flow Rate"]
+      MG["**MANAGEMENT** (28-50)<br/>• CG Management<br/>• Fuel Planning<br/>• Transfer Ctrl<br/>• Emergency Proc"]
+      MO["**MONITORING** (28-60)<br/>• Leak Detection<br/>• H₂ Sensors<br/>• Health Mgmt<br/>• Predictive"]
+    end
+
+  end
+
+  %% ---------- Styling (optional) ----------
+  classDef box fill:#0c1626,stroke:#3884ff,stroke-width:1px,color:#e6ebf2,rx:6,ry:6;
+  class ST,DI,DE,IN,MG,MO box;
 ```
 
 ---
