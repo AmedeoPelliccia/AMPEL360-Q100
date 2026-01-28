@@ -105,7 +105,7 @@ Defines individual jobs that run in the workflow.
 | Property | Details |
 |----------|---------|
 | **Available Contexts** | `github`, `needs`, `strategy`, `matrix`, `secrets`, `inputs`, `vars` |
-| **Special Functions** | `hashFiles()`, `format()`, `toJSON()`, `fromJSON()` |
+| **Special Functions** | `hashFiles()`, `format()`, `toJSON()`, `fromJSON()`, `contains()`, `startsWith()`, `endsWith()`, `join()` |
 | **Description** | Configures a job within the workflow |
 
 **Available Context Properties:**
