@@ -37,9 +37,9 @@ A fully integrated, blockchain-anchored Digital Product Passport and traceabilit
 
 ## Success Criteria
 
-1. **Traceability**: 100% component tracking from design to retirement
-2. **Immutability**: Zero unauthorized modifications to historical records
-3. **Performance**: Real-time updates with <1 second latency
-4. **Availability**: 99.9% system uptime
-5. **Compliance**: Full regulatory approval and certification
-6. **Adoption**: 100% stakeholder participation and data contribution
+- [ ] 100% component tracking from design to retirement (Traceability)
+- [ ] Zero unauthorized modifications to historical records (Immutability)
+- [ ] Real-time updates with <1 second latency (Performance)
+- [ ] 99.9% system uptime (Availability)
+- [ ] Full regulatory approval and certification (Compliance)
+- [ ] 100% stakeholder participation and data contribution (Adoption)
