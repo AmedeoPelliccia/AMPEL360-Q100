@@ -1,0 +1,3 @@
+knot_id,title,description,source,priority,status,discovered_date,assigned_to,graduation_candidate
+# Format: O-KNOT-96-XX-###
+# Example: O-KNOT-96-10-001,Legacy ID collision risk,Risk of ID collisions with legacy systems,Prior project analysis,HIGH,OPEN,2026-01-28,TBD,false
