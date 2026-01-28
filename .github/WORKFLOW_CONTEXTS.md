@@ -79,7 +79,7 @@ Defines environment variables available to all jobs and steps in the workflow.
 | **Available Contexts** | `github`, `secrets`, `inputs`, `vars` |
 | **Special Functions** | None |
 | **Description** | Sets environment variables for the entire workflow |
-| **Example** | `env: NODE_ENV: production` |
+| **Example** | `env: { NODE_ENV: production }` |
 
 **Available Context Properties:**
 - `github.*` - All GitHub context properties
