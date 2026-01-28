@@ -1,0 +1,489 @@
+# TOKEN_TRANSACTION_SCHEMA.yaml
+# Teknia Token (TT) transaction schema for ATA 96 traceability system
+# Tracks incentive distribution for knowledge work and KNOT resolution
+
+schema_metadata:
+  name: "TOKEN_TRANSACTION_SCHEMA"
+  version: "1.0.0"
+  description: "Schema for Teknia Token transactions tracking knowledge work incentives"
+  created: "2026-01-28"
+  authority: "ATA-96-TRACEABILITY_DPP_LEDGER"
+  references:
+    - "OBJ-008: Token Tracking Accuracy"
+    - "WP-96-1200: Interface Requirements"
+    - "TEKNIA_MANIFESTO.md"
+    - "GOVERNANCE/INCENTIVES/TT_POLICY.md"
+
+table_name: "token_transactions"
+description: "Immutable record of all Teknia Token transactions"
+
+columns:
+  # Primary Identifier
+  - name: "tx_id"
+    type: "UUID"
+    required: true
+    primary_key: true
+    description: "Unique transaction identifier"
+    format: "urn:ampel360:ata96:token:tx:{uuid}"
+    
+  - name: "timestamp"
+    type: "TIMESTAMP WITH TIME ZONE"
+    required: true
+    description: "Transaction timestamp (ISO 8601)"
+    default: "CURRENT_TIMESTAMP"
+    index: true
+    
+  - name: "tx_type"
+    type: "VARCHAR(50)"
+    required: true
+    description: "Type of token transaction"
+    enum:
+      - "ALLOCATION"      # Initial allocation to budget
+      - "GRANT"           # Grant to individual for activity
+      - "TRANSFER"        # Transfer between accounts
+      - "VESTING"         # Vesting event (tokens become available)
+      - "REDEMPTION"      # Token redemption for rewards
+      - "BURN"            # Token removal from circulation
+      - "CORRECTION"      # Administrative correction
+    index: true
+
+  # Transaction Parties
+  - name: "from_account"
+    type: "VARCHAR(255)"
+    required: true
+    description: "Source account URN"
+    format: "urn:ampel360:actor:{type}:{id}"
+    index: true
+    notes: "System account for ALLOCATION, user/budget for others"
+    
+  - name: "to_account"
+    type: "VARCHAR(255)"
+    required: true
+    description: "Destination account URN"
+    format: "urn:ampel360:actor:{type}:{id}"
+    index: true
+    
+  - name: "amount"
+    type: "DECIMAL(18,2)"
+    required: true
+    description: "Token amount (positive number)"
+    constraint: "CHECK (amount > 0)"
+    notes: "Precision: 2 decimal places for fractional tokens"
+
+  # Activity Context (what earned the tokens)
+  activity:
+    - name: "activity_type"
+      type: "VARCHAR(50)"
+      required: true
+      description: "Type of knowledge work activity"
+      enum:
+        - "KNOT_CREATION"         # Creating a new KNOT
+        - "KNOT_RESOLUTION"       # Resolving a KNOT
+        - "KNOT_REVIEW"           # Reviewing KNOT resolution
+        - "REQUIREMENT_AUTHORING" # Creating requirements
+        - "DESIGN_CONTRIBUTION"   # Design work
+        - "TEST_EXECUTION"        # Test execution
+        - "DOCUMENTATION"         # Documentation work
+        - "CODE_REVIEW"           # Code/design review
+        - "APPROVAL"              # Formal approval signoff
+        - "MILESTONE_COMPLETION"  # Milestone achievement
+        - "BUDGET_ALLOCATION"     # Budget distribution
+        - "OTHER"                 # Other qualifying activity
+      index: true
+      
+    - name: "knot_id"
+      type: "VARCHAR(50)"
+      required: false
+      description: "KNOT identifier if activity relates to KNOT"
+      format: "KNOT-96-XX-YY-###"
+      example: "KNOT-96-10-00-001"
+      index: true
+      
+    - name: "artifact_id"
+      type: "VARCHAR(255)"
+      required: false
+      description: "URN of artifact produced/reviewed"
+      format: "urn:ampel360:ata96:{type}:{id}"
+      example: "urn:ampel360:ata96:req:REQ-96-10-00-F001"
+      
+    - name: "complexity"
+      type: "VARCHAR(20)"
+      required: false
+      description: "Complexity rating for activity"
+      enum:
+        - "SIMPLE"
+        - "MODERATE"
+        - "COMPLEX"
+        - "CRITICAL"
+      notes: "Affects token allocation multiplier"
+      
+    - name: "effort_hours"
+      type: "DECIMAL(8,2)"
+      required: false
+      description: "Estimated or actual effort in hours"
+      constraint: "CHECK (effort_hours > 0)"
+
+  # Traceability
+  - name: "ata_reference"
+    type: "VARCHAR(50)"
+    required: false
+    description: "ATA chapter and section reference"
+    pattern: "^ATA-[0-9]{2}(-[0-9]{2})?$"
+    example: "ATA-96-10"
+    
+  - name: "work_package"
+    type: "VARCHAR(50)"
+    required: false
+    description: "WBS work package reference"
+    pattern: "^WP-[0-9]{2}-[0-9]{4}$"
+    example: "WP-96-1100"
+    
+  - name: "eco_reference"
+    type: "VARCHAR(50)"
+    required: false
+    description: "Engineering Change Order reference"
+    pattern: "^ECO-[0-9]{4}-[0-9]{3}$"
+    example: "ECO-2026-001"
+
+  # Vesting & Availability
+  vesting:
+    - name: "vesting_schedule"
+      type: "VARCHAR(20)"
+      required: true
+      description: "Vesting schedule type"
+      enum:
+        - "IMMEDIATE"     # Available immediately
+        - "MILESTONE"     # Vests at milestone
+        - "TIME_BASED"    # Vests over time
+        - "APPROVAL"      # Vests upon approval
+      default: "IMMEDIATE"
+      
+    - name: "vesting_date"
+      type: "TIMESTAMP WITH TIME ZONE"
+      required: false
+      description: "Date when tokens become available"
+      notes: "NULL for IMMEDIATE, future date for others"
+      
+    - name: "is_vested"
+      type: "BOOLEAN"
+      required: true
+      description: "Whether tokens have vested"
+      default: false
+      index: true
+      
+    - name: "vesting_condition"
+      type: "TEXT"
+      required: false
+      description: "Condition for vesting (e.g., 'PDR_APPROVED')"
+
+  # Approvals & Governance
+  approvals:
+    - name: "approval_required"
+      type: "BOOLEAN"
+      required: true
+      description: "Whether transaction requires approval"
+      default: false
+      
+    - name: "approval_status"
+      type: "VARCHAR(20)"
+      required: true
+      description: "Approval status"
+      enum:
+        - "PENDING"
+        - "APPROVED"
+        - "REJECTED"
+        - "NOT_REQUIRED"
+      default: "NOT_REQUIRED"
+      index: true
+      
+    - name: "approved_by"
+      type: "VARCHAR(255)"
+      required: false
+      description: "Approver account URN"
+      format: "urn:ampel360:actor:user:{id}"
+      
+    - name: "approved_at"
+      type: "TIMESTAMP WITH TIME ZONE"
+      required: false
+      description: "Approval timestamp"
+      
+    - name: "rejection_reason"
+      type: "TEXT"
+      required: false
+      description: "Reason for rejection if applicable"
+
+  # Integrity & Chain
+  integrity:
+    - name: "tx_hash"
+      type: "VARCHAR(64)"
+      required: true
+      description: "SHA-256 hash of transaction content"
+      pattern: "^[a-f0-9]{64}$"
+      unique: true
+      index: true
+      
+    - name: "previous_tx_hash"
+      type: "VARCHAR(64)"
+      required: true
+      description: "Hash of previous transaction (chain linking)"
+      pattern: "^[a-f0-9]{64}$|^GENESIS$"
+      notes: "Forms token transaction chain"
+      
+    - name: "signature"
+      type: "TEXT"
+      required: true
+      description: "Digital signature of tx_hash"
+      notes: "Signed by transaction initiator"
+
+  # Account Balances (denormalized for performance)
+  balances:
+    - name: "from_balance_before"
+      type: "DECIMAL(18,2)"
+      required: true
+      description: "From account balance before transaction"
+      
+    - name: "from_balance_after"
+      type: "DECIMAL(18,2)"
+      required: true
+      description: "From account balance after transaction"
+      
+    - name: "to_balance_before"
+      type: "DECIMAL(18,2)"
+      required: true
+      description: "To account balance before transaction"
+      
+    - name: "to_balance_after"
+      type: "DECIMAL(18,2)"
+      required: true
+      description: "To account balance after transaction"
+
+  # Ledger Integration
+  - name: "ledger_entry_id"
+    type: "UUID"
+    required: false
+    description: "Related ledger entry UUID"
+    foreign_key: "ledger_entries.entry_id"
+    notes: "Links to main ledger if applicable"
+
+  # Metadata
+  - name: "description"
+    type: "TEXT"
+    required: false
+    description: "Human-readable transaction description"
+    
+  - name: "notes"
+    type: "TEXT"
+    required: false
+    description: "Additional notes or justification"
+    
+  - name: "metadata"
+    type: "JSONB"
+    required: false
+    description: "Additional metadata"
+
+# Indexes
+indexes:
+  - name: "idx_token_timestamp"
+    columns: ["timestamp"]
+    type: "BTREE"
+    description: "Chronological ordering"
+    
+  - name: "idx_token_from_account"
+    columns: ["from_account"]
+    type: "BTREE"
+    description: "Query by sender"
+    
+  - name: "idx_token_to_account"
+    columns: ["to_account"]
+    type: "BTREE"
+    description: "Query by recipient"
+    
+  - name: "idx_token_tx_type"
+    columns: ["tx_type"]
+    type: "BTREE"
+    description: "Filter by transaction type"
+    
+  - name: "idx_token_activity_type"
+    columns: ["activity_type"]
+    type: "BTREE"
+    description: "Filter by activity type"
+    
+  - name: "idx_token_knot"
+    columns: ["knot_id"]
+    type: "BTREE"
+    description: "Find transactions for specific KNOT"
+    
+  - name: "idx_token_approval_status"
+    columns: ["approval_status"]
+    type: "BTREE"
+    description: "Find pending approvals"
+    
+  - name: "idx_token_is_vested"
+    columns: ["is_vested"]
+    type: "BTREE"
+    description: "Find unvested tokens"
+    
+  - name: "idx_token_tx_hash"
+    columns: ["tx_hash"]
+    type: "BTREE"
+    unique: true
+    description: "Hash uniqueness and verification"
+
+# Constraints
+constraints:
+  - name: "pk_token_tx_id"
+    type: "PRIMARY KEY"
+    columns: ["tx_id"]
+    
+  - name: "uq_token_tx_hash"
+    type: "UNIQUE"
+    columns: ["tx_hash"]
+    
+  - name: "chk_token_amount_positive"
+    type: "CHECK"
+    condition: "amount > 0"
+    
+  - name: "chk_token_balance_consistency"
+    type: "CHECK"
+    condition: "from_balance_after = from_balance_before - amount AND to_balance_after = to_balance_before + amount"
+    description: "Ensure balance changes match transaction amount"
+    
+  - name: "fk_token_ledger_entry"
+    type: "FOREIGN KEY"
+    columns: ["ledger_entry_id"]
+    references: "ledger_entries(entry_id)"
+    on_delete: "SET NULL"
+
+# Triggers
+triggers:
+  - name: "trg_token_calculate_hash"
+    event: "BEFORE INSERT"
+    action: "Calculate and set tx_hash from transaction content"
+    
+  - name: "trg_token_validate_balances"
+    event: "BEFORE INSERT"
+    action: "Verify from_account has sufficient balance"
+
+# Views
+views:
+  - name: "v_account_balances"
+    description: "Current balance for each account"
+    definition: |
+      SELECT 
+        account_id,
+        SUM(CASE WHEN to_account = account_id THEN amount ELSE 0 END) -
+        SUM(CASE WHEN from_account = account_id THEN amount ELSE 0 END) as current_balance,
+        SUM(CASE WHEN to_account = account_id AND NOT is_vested THEN amount ELSE 0 END) as unvested_balance
+      FROM (
+        SELECT DISTINCT from_account as account_id FROM token_transactions
+        UNION
+        SELECT DISTINCT to_account as account_id FROM token_transactions
+      ) accounts
+      LEFT JOIN token_transactions ON 
+        to_account = account_id OR from_account = account_id
+      WHERE approval_status IN ('APPROVED', 'NOT_REQUIRED')
+      GROUP BY account_id;
+      
+  - name: "v_pending_approvals"
+    description: "Transactions awaiting approval"
+    definition: |
+      SELECT tx_id, timestamp, from_account, to_account, amount, 
+             activity_type, knot_id, description
+      FROM token_transactions
+      WHERE approval_status = 'PENDING'
+      ORDER BY timestamp;
+      
+  - name: "v_knot_incentives"
+    description: "Token distribution by KNOT"
+    definition: |
+      SELECT knot_id, activity_type, 
+             COUNT(*) as transaction_count,
+             SUM(amount) as total_tokens,
+             AVG(amount) as avg_tokens
+      FROM token_transactions
+      WHERE knot_id IS NOT NULL
+        AND approval_status IN ('APPROVED', 'NOT_REQUIRED')
+      GROUP BY knot_id, activity_type
+      ORDER BY total_tokens DESC;
+
+# Related schemas
+related_schemas:
+  - "LEDGER_ENTRY_SCHEMA.yaml"
+  - "AUDIT_TRAIL_SCHEMA.yaml"
+
+# Token Economics
+token_economics:
+  allocation_rates:
+    KNOT_CREATION:
+      SIMPLE: 10
+      MODERATE: 25
+      COMPLEX: 50
+      CRITICAL: 100
+    KNOT_RESOLUTION:
+      SIMPLE: 50
+      MODERATE: 100
+      COMPLEX: 200
+      CRITICAL: 500
+    KNOT_REVIEW:
+      SIMPLE: 5
+      MODERATE: 10
+      COMPLEX: 20
+      CRITICAL: 50
+  notes: "Rates are baseline tokens before multipliers"
+
+# Usage examples
+usage_examples:
+  - description: "Grant tokens for KNOT resolution"
+    query: |
+      INSERT INTO token_transactions (
+        tx_id, timestamp, tx_type, from_account, to_account, amount,
+        activity_type, knot_id, complexity, vesting_schedule,
+        tx_hash, previous_tx_hash, signature,
+        from_balance_before, from_balance_after,
+        to_balance_before, to_balance_after
+      ) VALUES (
+        '550e8400-e29b-41d4-a716-446655440000',
+        CURRENT_TIMESTAMP,
+        'GRANT',
+        'urn:ampel360:actor:budget:WP-96-1100',
+        'urn:ampel360:actor:user:U001',
+        100.00,
+        'KNOT_RESOLUTION',
+        'KNOT-96-10-00-001',
+        'MODERATE',
+        'IMMEDIATE',
+        'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3',
+        'b83b3fe4ddb28ca72d3c0962d481f986893ebbc4',
+        'MEUCIQDx...',
+        10000.00, 9900.00,
+        150.00, 250.00
+      );
+      
+  - description: "Query account balance"
+    query: |
+      SELECT * FROM v_account_balances
+      WHERE account_id = 'urn:ampel360:actor:user:U001';
+      
+  - description: "Find all transactions for a KNOT"
+    query: |
+      SELECT tx_id, timestamp, to_account, amount, activity_type
+      FROM token_transactions
+      WHERE knot_id = 'KNOT-96-10-00-001'
+      ORDER BY timestamp;
+      
+  - description: "List pending approvals"
+    query: |
+      SELECT * FROM v_pending_approvals;
+      
+  - description: "Verify transaction chain integrity"
+    query: |
+      SELECT 
+        t1.tx_id,
+        t1.tx_hash,
+        t1.previous_tx_hash,
+        t2.tx_hash as previous_hash_actual,
+        t1.previous_tx_hash = t2.tx_hash as chain_valid
+      FROM token_transactions t1
+      LEFT JOIN token_transactions t2 ON t1.previous_tx_hash = t2.tx_hash
+      WHERE t1.previous_tx_hash != 'GENESIS'
+      ORDER BY t1.timestamp;

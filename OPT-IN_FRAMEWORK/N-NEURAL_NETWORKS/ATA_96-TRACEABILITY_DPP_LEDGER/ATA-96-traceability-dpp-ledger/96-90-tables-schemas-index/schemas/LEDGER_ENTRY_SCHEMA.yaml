@@ -1,0 +1,385 @@
+# LEDGER_ENTRY_SCHEMA.yaml
+# Immutable ledger entry schema for ATA 96 traceability system
+# Supports cryptographic integrity, traceability, and blockchain anchoring
+
+schema_metadata:
+  name: "LEDGER_ENTRY_SCHEMA"
+  version: "1.0.0"
+  description: "Schema for immutable ledger entries in the ATA 96 traceability system"
+  created: "2026-01-28"
+  authority: "ATA-96-TRACEABILITY_DPP_LEDGER"
+  references:
+    - "OBJ-002: Data Immutability"
+    - "OBJ-005: Data Integrity Verification"
+    - "WP-96-2200: Ledger Design"
+
+table_name: "ledger_entries"
+description: "Immutable record of all traceability events and state changes"
+
+columns:
+  # Primary Identifier
+  - name: "entry_id"
+    type: "UUID"
+    required: true
+    primary_key: true
+    description: "Unique identifier for this ledger entry"
+    format: "urn:ampel360:ata96:ledger:entry:{uuid}"
+    
+  - name: "timestamp"
+    type: "TIMESTAMP WITH TIME ZONE"
+    required: true
+    description: "UTC timestamp when entry was created (ISO 8601)"
+    index: true
+    
+  - name: "entry_type"
+    type: "VARCHAR(50)"
+    required: true
+    description: "Type of ledger entry"
+    enum:
+      - "COMPONENT_CREATED"
+      - "COMPONENT_MODIFIED"
+      - "COMPONENT_INSTALLED"
+      - "COMPONENT_REMOVED"
+      - "MAINTENANCE_PERFORMED"
+      - "INSPECTION_COMPLETED"
+      - "CERTIFICATION_ISSUED"
+      - "DPP_GENERATED"
+      - "SUPPLY_CHAIN_EVENT"
+      - "TOKEN_TRANSACTION"
+      - "APPROVAL_RECORDED"
+      - "REQUIREMENT_CHANGED"
+    index: true
+
+  # Subject Information (what this entry is about)
+  subject:
+    - name: "subject_type"
+      type: "VARCHAR(50)"
+      required: true
+      description: "Type of subject entity"
+      enum:
+        - "COMPONENT"
+        - "ASSEMBLY"
+        - "DOCUMENT"
+        - "REQUIREMENT"
+        - "TEST_RESULT"
+        - "CERTIFICATION"
+        - "TOKEN_ACCOUNT"
+      index: true
+      
+    - name: "subject_id"
+      type: "VARCHAR(255)"
+      required: true
+      description: "URN identifier of the subject"
+      format: "urn:ampel360:ata96:{namespace}:{entity}:{id}"
+      index: true
+      
+    - name: "ata_chapter"
+      type: "VARCHAR(10)"
+      required: false
+      description: "ATA chapter reference (e.g., '96', '11', '32')"
+      pattern: "^[0-9]{2}(-[0-9]{2})?$"
+      
+    - name: "subject_path"
+      type: "TEXT"
+      required: false
+      description: "File system path or logical location of subject"
+
+  # Actor Information (who performed this action)
+  actor:
+    - name: "actor_id"
+      type: "VARCHAR(255)"
+      required: true
+      description: "URN identifier of the actor (user, system, service)"
+      format: "urn:ampel360:actor:{type}:{id}"
+      index: true
+      
+    - name: "actor_type"
+      type: "VARCHAR(50)"
+      required: true
+      description: "Type of actor"
+      enum:
+        - "USER"
+        - "SYSTEM"
+        - "SERVICE"
+        - "API_CLIENT"
+        - "AUTOMATION"
+      
+    - name: "actor_name"
+      type: "VARCHAR(255)"
+      required: false
+      description: "Human-readable name of actor"
+      
+    - name: "authentication"
+      type: "JSONB"
+      required: false
+      description: "Authentication metadata (method, session, IP)"
+      schema:
+        method: "string"  # MFA, SSO, CERTIFICATE, API_KEY
+        session_id: "string"
+        ip_address: "string"
+        certificate_fingerprint: "string"
+
+  # Payload (entry-specific data)
+  - name: "payload"
+    type: "JSONB"
+    required: true
+    description: "Entry-specific data structure (varies by entry_type)"
+    notes: "Structure validated against entry_type-specific schemas"
+    examples:
+      COMPONENT_CREATED:
+        component_id: "urn:ampel360:ata96:component:part:P123456"
+        manufacturer: "ACME Aerospace"
+        part_number: "P123456-001"
+        serial_number: "SN789012"
+        batch_number: "BATCH-2026-01"
+      MAINTENANCE_PERFORMED:
+        component_id: "urn:ampel360:ata96:component:part:P123456"
+        maintenance_type: "SCHEDULED_INSPECTION"
+        procedure_reference: "AMM-32-10-00-001"
+        findings: "No anomalies detected"
+        next_due_date: "2027-01-28"
+      TOKEN_TRANSACTION:
+        from_account: "urn:ampel360:actor:user:U001"
+        to_account: "urn:ampel360:actor:user:U002"
+        amount: 100
+        activity_type: "KNOT_RESOLUTION"
+        knot_id: "KNOT-96-10-00-001"
+
+  # Integrity & Verification
+  integrity:
+    - name: "content_hash"
+      type: "VARCHAR(64)"
+      required: true
+      description: "SHA-256 hash of entry content (entry_id + timestamp + subject + actor + payload)"
+      pattern: "^[a-f0-9]{64}$"
+      index: true
+      
+    - name: "previous_hash"
+      type: "VARCHAR(64)"
+      required: true
+      description: "Hash of previous entry to form chain (NULL for genesis block)"
+      pattern: "^[a-f0-9]{64}$|^NULL$"
+      notes: "Links entries into cryptographic chain"
+      
+    - name: "signature"
+      type: "TEXT"
+      required: true
+      description: "Digital signature of content_hash (base64-encoded)"
+      notes: "Created with private key of signing authority"
+      
+    - name: "signature_algorithm"
+      type: "VARCHAR(50)"
+      required: true
+      description: "Signature algorithm used"
+      enum:
+        - "RSA-SHA256"
+        - "ECDSA-SHA256"
+        - "Ed25519"
+      default: "ECDSA-SHA256"
+
+  # Traceability Links
+  traceability:
+    - name: "source_ids"
+      type: "JSONB"
+      required: false
+      description: "Array of source entry IDs that led to this entry"
+      example: ["urn:ampel360:ata96:ledger:entry:uuid1", "urn:ampel360:ata96:ledger:entry:uuid2"]
+      
+    - name: "derived_from"
+      type: "VARCHAR(255)"
+      required: false
+      description: "Parent or originating entity URN"
+      
+    - name: "related_entries"
+      type: "JSONB"
+      required: false
+      description: "Array of related ledger entry IDs"
+      
+    - name: "eco_reference"
+      type: "VARCHAR(50)"
+      required: false
+      description: "Engineering Change Order reference (if applicable)"
+      pattern: "^ECO-[0-9]{4}-[0-9]{3}$"
+      example: "ECO-2026-001"
+
+  # Blockchain Anchoring
+  anchoring:
+    - name: "anchor_status"
+      type: "VARCHAR(20)"
+      required: true
+      description: "Status of blockchain anchoring"
+      enum:
+        - "PENDING"
+        - "ANCHORED"
+        - "FAILED"
+        - "NOT_REQUIRED"
+      default: "PENDING"
+      index: true
+      
+    - name: "blockchain_tx_id"
+      type: "VARCHAR(255)"
+      required: false
+      description: "Blockchain transaction ID (if anchored)"
+      
+    - name: "merkle_root"
+      type: "VARCHAR(64)"
+      required: false
+      description: "Merkle root if part of batched anchoring"
+      pattern: "^[a-f0-9]{64}$"
+      
+    - name: "anchor_timestamp"
+      type: "TIMESTAMP WITH TIME ZONE"
+      required: false
+      description: "UTC timestamp when anchored to blockchain"
+
+  # Metadata
+  - name: "version"
+    type: "INTEGER"
+    required: true
+    description: "Schema version used for this entry"
+    default: 1
+    
+  - name: "metadata"
+    type: "JSONB"
+    required: false
+    description: "Additional metadata (tags, labels, custom fields)"
+
+# Indexes for efficient querying
+indexes:
+  - name: "idx_ledger_timestamp"
+    columns: ["timestamp"]
+    type: "BTREE"
+    description: "Chronological ordering and time-range queries"
+    
+  - name: "idx_ledger_entry_type"
+    columns: ["entry_type"]
+    type: "BTREE"
+    description: "Filter by entry type"
+    
+  - name: "idx_ledger_subject"
+    columns: ["subject_type", "subject_id"]
+    type: "BTREE"
+    description: "Find all entries for a specific subject"
+    
+  - name: "idx_ledger_actor"
+    columns: ["actor_id"]
+    type: "BTREE"
+    description: "Find all entries by a specific actor"
+    
+  - name: "idx_ledger_content_hash"
+    columns: ["content_hash"]
+    type: "BTREE"
+    unique: true
+    description: "Ensure content hash uniqueness and enable verification"
+    
+  - name: "idx_ledger_anchor_status"
+    columns: ["anchor_status"]
+    type: "BTREE"
+    description: "Find entries pending anchoring"
+    
+  - name: "idx_ledger_full_text"
+    columns: ["payload"]
+    type: "GIN"
+    description: "Full-text search on payload content (PostgreSQL-specific)"
+
+# Constraints
+constraints:
+  - name: "pk_ledger_entry_id"
+    type: "PRIMARY KEY"
+    columns: ["entry_id"]
+    
+  - name: "uq_ledger_content_hash"
+    type: "UNIQUE"
+    columns: ["content_hash"]
+    
+  - name: "chk_ledger_timestamp_future"
+    type: "CHECK"
+    condition: "timestamp <= NOW()"
+    description: "Prevent future timestamps"
+    
+  - name: "chk_ledger_hash_format"
+    type: "CHECK"
+    condition: "content_hash ~ '^[a-f0-9]{64}$'"
+    description: "Validate SHA-256 hash format"
+
+# Partitioning strategy (for large-scale deployments)
+partitioning:
+  strategy: "RANGE"
+  column: "timestamp"
+  interval: "MONTHLY"
+  description: "Partition by month for efficient archival and query performance"
+
+# Retention policy
+retention:
+  policy: "PERMANENT"
+  description: "Ledger entries are immutable and retained indefinitely"
+  notes: "Archival to cold storage after 7 years, but never deleted"
+
+# Access control
+access_control:
+  read: "AUTHENTICATED_USERS"
+  write: "LEDGER_SERVICE_ONLY"
+  notes: "Only the ledger service can insert entries. Users can read based on authorization."
+
+# Related schemas
+related_schemas:
+  - "DPP_COMPONENT_SCHEMA.yaml"
+  - "TOKEN_TRANSACTION_SCHEMA.yaml"
+  - "AUDIT_TRAIL_SCHEMA.yaml"
+  - "ID_GRAMMAR_SCHEMA.yaml"
+
+# Validation rules
+validation:
+  - rule: "Entry ID must be unique and follow URN format"
+  - rule: "Timestamp must be within 5 minutes of server time"
+  - rule: "Content hash must match calculated hash of content"
+  - rule: "Previous hash must reference existing entry (except genesis)"
+  - rule: "Signature must be verifiable with authority public key"
+  - rule: "Payload must conform to entry_type-specific schema"
+
+# Usage examples
+usage_examples:
+  - description: "Insert a component creation entry"
+    query: |
+      INSERT INTO ledger_entries (
+        entry_id, timestamp, entry_type, subject_type, subject_id,
+        actor_id, actor_type, payload, content_hash, previous_hash, signature
+      ) VALUES (
+        'urn:ampel360:ata96:ledger:entry:550e8400-e29b-41d4-a716-446655440000',
+        '2026-01-28T10:30:00Z',
+        'COMPONENT_CREATED',
+        'COMPONENT',
+        'urn:ampel360:ata96:component:part:P123456',
+        'urn:ampel360:actor:user:U001',
+        'USER',
+        '{"component_id": "urn:ampel360:ata96:component:part:P123456", "manufacturer": "ACME Aerospace"}',
+        'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3',
+        'b83b3fe4ddb28ca72d3c0962d481f986893ebbc4',
+        'MEUCIQDx...'
+      );
+      
+  - description: "Query all entries for a specific component"
+    query: |
+      SELECT * FROM ledger_entries
+      WHERE subject_id = 'urn:ampel360:ata96:component:part:P123456'
+      ORDER BY timestamp DESC;
+      
+  - description: "Verify hash chain integrity"
+    query: |
+      SELECT 
+        e1.entry_id,
+        e1.content_hash,
+        e1.previous_hash,
+        e2.content_hash as previous_entry_hash,
+        e1.previous_hash = e2.content_hash as chain_valid
+      FROM ledger_entries e1
+      LEFT JOIN ledger_entries e2 ON e1.previous_hash = e2.content_hash
+      ORDER BY e1.timestamp;
+      
+  - description: "Find entries pending blockchain anchoring"
+    query: |
+      SELECT entry_id, timestamp, subject_id, content_hash
+      FROM ledger_entries
+      WHERE anchor_status = 'PENDING'
+      ORDER BY timestamp
+      LIMIT 100;

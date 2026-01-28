@@ -1,0 +1,528 @@
+# ID_GRAMMAR_SCHEMA.yaml
+# Identifier grammar and namespace schema for ATA 96 traceability system
+# Defines URN structure, namespace registry, and ID validation rules
+
+schema_metadata:
+  name: "ID_GRAMMAR_SCHEMA"
+  version: "1.0.0"
+  description: "Schema for identifier grammar, namespaces, and cross-system mapping"
+  created: "2026-01-28"
+  authority: "ATA-96-TRACEABILITY_DPP_LEDGER"
+  references:
+    - "OBJ-001: Component Traceability Coverage"
+    - "WP-96-1100: System Requirements"
+    - "96-10: Identifier Grammar & Namespaces"
+
+# Namespace Registry Table
+namespace_registry:
+  table_name: "id_namespaces"
+  description: "Authoritative registry of URN namespaces"
+  
+  columns:
+    - name: "namespace_id"
+      type: "VARCHAR(50)"
+      required: true
+      primary_key: true
+      description: "Namespace identifier"
+      pattern: "^[a-z][a-z0-9-]*$"
+      example: "component", "ledger", "actor"
+      
+    - name: "namespace_urn"
+      type: "VARCHAR(255)"
+      required: true
+      unique: true
+      description: "Full URN namespace"
+      format: "urn:ampel360:ata96:{namespace_id}"
+      example: "urn:ampel360:ata96:component"
+      
+    - name: "description"
+      type: "TEXT"
+      required: true
+      description: "Purpose and scope of namespace"
+      
+    - name: "authority"
+      type: "VARCHAR(255)"
+      required: true
+      description: "Organization/role responsible for namespace"
+      
+    - name: "status"
+      type: "VARCHAR(20)"
+      required: true
+      description: "Namespace lifecycle status"
+      enum:
+        - "ACTIVE"
+        - "DEPRECATED"
+        - "ARCHIVED"
+      default: "ACTIVE"
+      
+    - name: "created_at"
+      type: "TIMESTAMP WITH TIME ZONE"
+      required: true
+      default: "CURRENT_TIMESTAMP"
+      
+    - name: "deprecated_at"
+      type: "TIMESTAMP WITH TIME ZONE"
+      required: false
+      description: "When namespace was deprecated"
+      
+    - name: "replacement_namespace"
+      type: "VARCHAR(50)"
+      required: false
+      description: "Replacement namespace if deprecated"
+      foreign_key: "id_namespaces.namespace_id"
+      
+    - name: "id_pattern"
+      type: "VARCHAR(255)"
+      required: true
+      description: "Regular expression for valid IDs in this namespace"
+      example: "^[A-Z0-9-]{6,50}$"
+      
+    - name: "generation_method"
+      type: "VARCHAR(50)"
+      required: true
+      description: "ID generation algorithm"
+      enum:
+        - "UUID"
+        - "SEQUENTIAL"
+        - "SEMANTIC"
+        - "EXTERNAL"
+      
+    - name: "validation_rules"
+      type: "JSONB"
+      required: false
+      description: "Additional validation rules"
+      schema:
+        min_length: "integer"
+        max_length: "integer"
+        required_prefix: "string"
+        checksum_algorithm: "string"
+        
+    - name: "metadata"
+      type: "JSONB"
+      required: false
+      description: "Additional namespace metadata"
+
+  indexes:
+    - name: "idx_namespace_status"
+      columns: ["status"]
+      type: "BTREE"
+      
+    - name: "idx_namespace_urn"
+      columns: ["namespace_urn"]
+      type: "BTREE"
+      unique: true
+
+# Entity Type Registry Table
+entity_type_registry:
+  table_name: "id_entity_types"
+  description: "Registry of entity types within namespaces"
+  
+  columns:
+    - name: "entity_type_id"
+      type: "VARCHAR(100)"
+      required: true
+      primary_key: true
+      description: "Composite key: namespace:type"
+      format: "{namespace_id}:{entity_type}"
+      example: "component:part", "ledger:entry"
+      
+    - name: "namespace_id"
+      type: "VARCHAR(50)"
+      required: true
+      foreign_key: "id_namespaces.namespace_id"
+      index: true
+      
+    - name: "entity_type"
+      type: "VARCHAR(50)"
+      required: true
+      description: "Entity type within namespace"
+      pattern: "^[a-z][a-z0-9-]*$"
+      example: "part", "assembly", "entry"
+      
+    - name: "description"
+      type: "TEXT"
+      required: true
+      description: "Entity type definition"
+      
+    - name: "urn_template"
+      type: "VARCHAR(255)"
+      required: true
+      description: "URN template for this entity type"
+      format: "urn:ampel360:ata96:{namespace}:{entity_type}:{id}"
+      example: "urn:ampel360:ata96:component:part:{id}"
+      
+    - name: "id_format"
+      type: "VARCHAR(255)"
+      required: true
+      description: "ID format specification"
+      example: "P######-###"
+      
+    - name: "validation_schema"
+      type: "JSONB"
+      required: false
+      description: "JSON Schema for validating entity data"
+      
+    - name: "examples"
+      type: "JSONB"
+      required: false
+      description: "Example valid URNs"
+
+# ID Allocation Table
+id_allocation:
+  table_name: "id_allocations"
+  description: "Track allocated ID ranges and sequences"
+  
+  columns:
+    - name: "allocation_id"
+      type: "UUID"
+      required: true
+      primary_key: true
+      
+    - name: "entity_type_id"
+      type: "VARCHAR(100)"
+      required: true
+      foreign_key: "id_entity_types.entity_type_id"
+      index: true
+      
+    - name: "range_start"
+      type: "BIGINT"
+      required: true
+      description: "Start of allocated range (for sequential IDs)"
+      
+    - name: "range_end"
+      type: "BIGINT"
+      required: true
+      description: "End of allocated range"
+      
+    - name: "current_value"
+      type: "BIGINT"
+      required: true
+      description: "Next available ID in range"
+      
+    - name: "allocated_to"
+      type: "VARCHAR(255)"
+      required: true
+      description: "Organization/system allocated to"
+      
+    - name: "allocated_at"
+      type: "TIMESTAMP WITH TIME ZONE"
+      required: true
+      default: "CURRENT_TIMESTAMP"
+      
+    - name: "expiry_date"
+      type: "TIMESTAMP WITH TIME ZONE"
+      required: false
+      description: "When allocation expires"
+      
+    - name: "status"
+      type: "VARCHAR(20)"
+      required: true
+      enum:
+        - "ACTIVE"
+        - "EXHAUSTED"
+        - "EXPIRED"
+        - "REVOKED"
+      default: "ACTIVE"
+
+# Cross-System ID Mapping Table
+cross_system_mapping:
+  table_name: "id_cross_system_mappings"
+  description: "Bidirectional mappings between internal and external IDs"
+  
+  columns:
+    - name: "mapping_id"
+      type: "UUID"
+      required: true
+      primary_key: true
+      
+    - name: "internal_id"
+      type: "VARCHAR(255)"
+      required: true
+      description: "Internal AMPEL360 URN"
+      format: "urn:ampel360:ata96:{namespace}:{type}:{id}"
+      index: true
+      
+    - name: "external_system"
+      type: "VARCHAR(100)"
+      required: true
+      description: "External system name"
+      enum:
+        - "ERP"
+        - "PLM"
+        - "MES"
+        - "CMMS"
+        - "LEGACY"
+        - "CUSTOMER"
+        - "SUPPLIER"
+      index: true
+      
+    - name: "external_id"
+      type: "VARCHAR(255)"
+      required: true
+      description: "External system identifier"
+      index: true
+      
+    - name: "external_id_type"
+      type: "VARCHAR(100)"
+      required: false
+      description: "Type of external ID (e.g., 'SAP_MATERIAL_NUMBER')"
+      
+    - name: "mapping_confidence"
+      type: "VARCHAR(20)"
+      required: true
+      description: "Confidence level of mapping"
+      enum:
+        - "EXACT"
+        - "HIGH"
+        - "MEDIUM"
+        - "LOW"
+      default: "EXACT"
+      
+    - name: "bidirectional"
+      type: "BOOLEAN"
+      required: true
+      description: "Whether mapping works both ways"
+      default: true
+      
+    - name: "created_at"
+      type: "TIMESTAMP WITH TIME ZONE"
+      required: true
+      default: "CURRENT_TIMESTAMP"
+      
+    - name: "created_by"
+      type: "VARCHAR(255)"
+      required: true
+      description: "User/system that created mapping"
+      
+    - name: "validated_at"
+      type: "TIMESTAMP WITH TIME ZONE"
+      required: false
+      description: "When mapping was last validated"
+      
+    - name: "validation_method"
+      type: "VARCHAR(50)"
+      required: false
+      description: "How mapping was validated"
+      enum:
+        - "MANUAL"
+        - "API_LOOKUP"
+        - "BATCH_IMPORT"
+        - "AI_INFERENCE"
+      
+    - name: "notes"
+      type: "TEXT"
+      required: false
+      description: "Additional mapping notes"
+      
+    - name: "metadata"
+      type: "JSONB"
+      required: false
+      description: "Additional metadata about mapping"
+
+  indexes:
+    - name: "idx_mapping_internal"
+      columns: ["internal_id"]
+      type: "BTREE"
+      
+    - name: "idx_mapping_external"
+      columns: ["external_system", "external_id"]
+      type: "BTREE"
+      
+    - name: "idx_mapping_composite"
+      columns: ["internal_id", "external_system"]
+      type: "BTREE"
+      unique: true
+
+  constraints:
+    - name: "uq_mapping_internal_external"
+      type: "UNIQUE"
+      columns: ["internal_id", "external_system"]
+      description: "One mapping per internal ID per external system"
+
+# ID Version History Table
+id_version_history:
+  table_name: "id_version_history"
+  description: "Track ID evolution and versioning"
+  
+  columns:
+    - name: "version_id"
+      type: "UUID"
+      required: true
+      primary_key: true
+      
+    - name: "id_urn"
+      type: "VARCHAR(255)"
+      required: true
+      description: "URN being versioned"
+      index: true
+      
+    - name: "version"
+      type: "INTEGER"
+      required: true
+      description: "Version number"
+      constraint: "CHECK (version > 0)"
+      
+    - name: "previous_id"
+      type: "VARCHAR(255)"
+      required: false
+      description: "Previous version of ID (if changed)"
+      
+    - name: "change_type"
+      type: "VARCHAR(50)"
+      required: true
+      enum:
+        - "CREATED"
+        - "RENAMED"
+        - "MIGRATED"
+        - "MERGED"
+        - "SPLIT"
+        - "DEPRECATED"
+      
+    - name: "change_reason"
+      type: "TEXT"
+      required: true
+      description: "Reason for ID change"
+      
+    - name: "changed_at"
+      type: "TIMESTAMP WITH TIME ZONE"
+      required: true
+      default: "CURRENT_TIMESTAMP"
+      
+    - name: "changed_by"
+      type: "VARCHAR(255)"
+      required: true
+      description: "User/system that made change"
+      
+    - name: "eco_reference"
+      type: "VARCHAR(50)"
+      required: false
+      description: "ECO authorizing change"
+      pattern: "^ECO-[0-9]{4}-[0-9]{3}$"
+
+# URN Grammar Definition
+urn_grammar:
+  base_format: "urn:ampel360:ata96:{namespace}:{entity_type}:{id}"
+  
+  components:
+    scheme: "urn"
+    nid: "ampel360"
+    chapter: "ata96"
+    namespace: "Namespace identifier (e.g., component, ledger, actor)"
+    entity_type: "Entity type within namespace (e.g., part, entry, user)"
+    id: "Unique identifier (format depends on entity type)"
+  
+  examples:
+    - urn: "urn:ampel360:ata96:component:part:P123456"
+      description: "Component part"
+    - urn: "urn:ampel360:ata96:ledger:entry:550e8400-e29b-41d4-a716-446655440000"
+      description: "Ledger entry"
+    - urn: "urn:ampel360:ata96:actor:user:U001"
+      description: "User actor"
+    - urn: "urn:ampel360:ata96:req:REQ-96-10-00-F001"
+      description: "Requirement"
+    - urn: "urn:ampel360:ata96:dpp:550e8400-e29b-41d4-a716-446655440000"
+      description: "Digital Product Passport"
+  
+  validation_regex: "^urn:ampel360:ata96:[a-z][a-z0-9-]*:[a-z][a-z0-9-]*:.+$"
+  
+  reserved_keywords:
+    - "system"
+    - "admin"
+    - "root"
+    - "null"
+    - "undefined"
+
+# Collision Prevention
+collision_prevention:
+  strategies:
+    UUID:
+      description: "Use UUID v4 for globally unique IDs"
+      collision_probability: "<0.0000000001%"
+      format: "550e8400-e29b-41d4-a716-446655440000"
+      
+    SEQUENTIAL_WITH_CHECKSUM:
+      description: "Sequential numbers with Luhn checksum"
+      collision_probability: "0% within allocated range"
+      format: "P123456-7"
+      checksum_algorithm: "Luhn (mod 10)"
+      
+    SEMANTIC_WITH_NAMESPACE:
+      description: "Hierarchical semantic IDs with namespace isolation"
+      collision_probability: "0% with proper namespace allocation"
+      format: "REQ-96-10-00-F001"
+      
+    EXTERNAL_VALIDATED:
+      description: "External IDs validated against authoritative source"
+      collision_probability: "Depends on external system"
+
+# Related schemas
+related_schemas:
+  - "LEDGER_ENTRY_SCHEMA.yaml"
+  - "DPP_COMPONENT_SCHEMA.yaml"
+  - "AUDIT_TRAIL_SCHEMA.yaml"
+
+# Usage examples
+usage_examples:
+  - description: "Register a new namespace"
+    query: |
+      INSERT INTO id_namespaces (
+        namespace_id, namespace_urn, description, authority, 
+        id_pattern, generation_method
+      ) VALUES (
+        'component',
+        'urn:ampel360:ata96:component',
+        'Physical and logical components tracked in DPP',
+        'ATA-96-10 ID Grammar Team',
+        '^[A-Z0-9-]{6,50}$',
+        'SEMANTIC'
+      );
+      
+  - description: "Add entity type to namespace"
+    query: |
+      INSERT INTO id_entity_types (
+        entity_type_id, namespace_id, entity_type, description,
+        urn_template, id_format
+      ) VALUES (
+        'component:part',
+        'component',
+        'part',
+        'Individual parts and components',
+        'urn:ampel360:ata96:component:part:{id}',
+        'P######-###'
+      );
+      
+  - description: "Create cross-system mapping"
+    query: |
+      INSERT INTO id_cross_system_mappings (
+        mapping_id, internal_id, external_system, external_id,
+        mapping_confidence, created_by
+      ) VALUES (
+        '550e8400-e29b-41d4-a716-446655440000',
+        'urn:ampel360:ata96:component:part:P123456',
+        'ERP',
+        'MAT-789012',
+        'EXACT',
+        'urn:ampel360:actor:system:migration-service'
+      );
+      
+  - description: "Look up external ID"
+    query: |
+      SELECT internal_id 
+      FROM id_cross_system_mappings
+      WHERE external_system = 'ERP'
+        AND external_id = 'MAT-789012';
+      
+  - description: "Validate URN format"
+    function: |
+      CREATE OR REPLACE FUNCTION validate_urn(urn TEXT) RETURNS BOOLEAN AS $$
+      BEGIN
+        RETURN urn ~ '^urn:ampel360:ata96:[a-z][a-z0-9-]*:[a-z][a-z0-9-]*:.+$';
+      END;
+      $$ LANGUAGE plpgsql;
+      
+  - description: "Get ID history"
+    query: |
+      SELECT version, change_type, change_reason, changed_at, changed_by
+      FROM id_version_history
+      WHERE id_urn = 'urn:ampel360:ata96:component:part:P123456'
+      ORDER BY version;

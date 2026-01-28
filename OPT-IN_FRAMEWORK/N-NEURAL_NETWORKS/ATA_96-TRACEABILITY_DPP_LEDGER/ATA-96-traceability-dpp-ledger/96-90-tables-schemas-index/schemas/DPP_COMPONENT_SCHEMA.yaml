@@ -1,0 +1,535 @@
+# DPP_COMPONENT_SCHEMA.yaml
+# Digital Product Passport component schema for ATA 96 traceability system
+# Compliant with EU Battery Regulation (2023/1542) and proposed ESPR
+
+schema_metadata:
+  name: "DPP_COMPONENT_SCHEMA"
+  version: "1.0.0"
+  description: "Schema for Digital Product Passport of aerospace components"
+  created: "2026-01-28"
+  authority: "ATA-96-TRACEABILITY_DPP_LEDGER"
+  references:
+    - "OBJ-001: Component Traceability Coverage"
+    - "OBJ-006: Material Provenance"
+    - "WP-96-2300: DPP Schema Design"
+    - "EU Battery Regulation 2023/1542"
+    - "Proposed ESPR (Ecodesign for Sustainable Products Regulation)"
+
+table_name: "dpp_components"
+description: "Digital Product Passport for all traceable components"
+
+columns:
+  # Primary Identifier
+  - name: "dpp_id"
+    type: "UUID"
+    required: true
+    primary_key: true
+    description: "Unique DPP identifier"
+    format: "urn:ampel360:ata96:dpp:{uuid}"
+    
+  - name: "created_at"
+    type: "TIMESTAMP WITH TIME ZONE"
+    required: true
+    description: "DPP creation timestamp (ISO 8601)"
+    default: "CURRENT_TIMESTAMP"
+    
+  - name: "updated_at"
+    type: "TIMESTAMP WITH TIME ZONE"
+    required: true
+    description: "Last update timestamp"
+    default: "CURRENT_TIMESTAMP"
+    
+  - name: "version"
+    type: "INTEGER"
+    required: true
+    description: "DPP version number (incremented on updates)"
+    default: 1
+
+  # Component Identification
+  identification:
+    - name: "component_id"
+      type: "VARCHAR(255)"
+      required: true
+      unique: true
+      description: "Component URN identifier"
+      format: "urn:ampel360:ata96:component:{type}:{id}"
+      index: true
+      
+    - name: "part_number"
+      type: "VARCHAR(100)"
+      required: true
+      description: "Manufacturer part number"
+      index: true
+      
+    - name: "serial_number"
+      type: "VARCHAR(100)"
+      required: false
+      description: "Unique serial number (if serialized)"
+      index: true
+      unique: true
+      
+    - name: "batch_number"
+      type: "VARCHAR(100)"
+      required: false
+      description: "Manufacturing batch/lot number"
+      index: true
+      
+    - name: "component_type"
+      type: "VARCHAR(50)"
+      required: true
+      description: "Type of component"
+      enum:
+        - "PART"
+        - "ASSEMBLY"
+        - "SUB_ASSEMBLY"
+        - "RAW_MATERIAL"
+        - "CONSUMABLE"
+        - "TOOL"
+        - "SOFTWARE"
+      index: true
+      
+    - name: "component_name"
+      type: "VARCHAR(255)"
+      required: true
+      description: "Human-readable component name"
+      
+    - name: "ata_chapter"
+      type: "VARCHAR(10)"
+      required: false
+      description: "Primary ATA chapter (e.g., '32' for landing gear)"
+      pattern: "^[0-9]{2}$"
+
+  # Configuration States
+  configuration:
+    - name: "as_designed"
+      type: "JSONB"
+      required: true
+      description: "Engineering design configuration"
+      schema:
+        design_id: "string"
+        drawing_number: "string"
+        revision: "string"
+        cad_file_reference: "string"
+        design_date: "ISO 8601 date"
+        designer: "string"
+        
+    - name: "as_built"
+      type: "JSONB"
+      required: false
+      description: "Actual manufacturing configuration"
+      schema:
+        build_date: "ISO 8601 date"
+        manufacturing_site: "string"
+        manufacturing_process: "string"
+        operator: "string"
+        deviations_from_design: "array of strings"
+        
+    - name: "as_maintained"
+      type: "JSONB"
+      required: false
+      description: "Current operational configuration"
+      schema:
+        current_status: "string"  # IN_SERVICE, MAINTENANCE, STORAGE, RETIRED
+        installation_date: "ISO 8601 date"
+        removal_date: "ISO 8601 date"
+        operating_hours: "number"
+        operating_cycles: "number"
+        modifications: "array of modification records"
+
+  # Provenance & Supply Chain
+  provenance:
+    - name: "manufacturer"
+      type: "JSONB"
+      required: true
+      description: "Manufacturer information"
+      schema:
+        name: "string"
+        address: "string"
+        country: "string"
+        facility_id: "string"
+        contact: "string"
+        certifications: "array of certification IDs"
+        
+    - name: "materials"
+      type: "JSONB"
+      required: false
+      description: "Material composition and sourcing"
+      schema:
+        primary_material: "string"
+        material_grade: "string"
+        material_specifications: "array of spec references"
+        material_certificates: "array of cert references"
+        conflict_minerals_declaration: "string"
+        rohs_compliant: "boolean"
+        
+    - name: "supply_chain"
+      type: "JSONB"
+      required: false
+      description: "Complete supply chain transparency"
+      schema:
+        tier1_suppliers: "array of supplier records"
+        tier2_suppliers: "array of supplier records"
+        raw_material_origin: "array of origin records"
+        traceability_documents: "array of document references"
+
+  # Sustainability & Environmental
+  sustainability:
+    - name: "carbon_footprint"
+      type: "JSONB"
+      required: false
+      description: "Carbon footprint and environmental impact"
+      schema:
+        total_co2_kg: "number"
+        manufacturing_co2_kg: "number"
+        transport_co2_kg: "number"
+        calculation_method: "string"
+        calculation_date: "ISO 8601 date"
+        pcr_reference: "string"  # Product Category Rules
+        
+    - name: "recyclability"
+      type: "JSONB"
+      required: false
+      description: "Recyclability and end-of-life information"
+      schema:
+        recyclability_score: "number (0-100)"
+        recyclable_materials_percentage: "number (0-100)"
+        disassembly_instructions: "string or URL"
+        hazardous_substances: "array of substance records"
+        disposal_instructions: "string"
+        
+    - name: "circularity_score"
+      type: "DECIMAL(5,2)"
+      required: false
+      description: "Circularity index (0-100)"
+      constraint: "CHECK (circularity_score >= 0 AND circularity_score <= 100)"
+      
+    - name: "energy_consumption"
+      type: "JSONB"
+      required: false
+      description: "Manufacturing energy consumption"
+      schema:
+        total_kwh: "number"
+        renewable_percentage: "number (0-100)"
+        energy_sources: "array of source records"
+
+  # Certifications & Compliance
+  certification:
+    - name: "type_certificate"
+      type: "VARCHAR(100)"
+      required: false
+      description: "Type certificate number (EASA/FAA)"
+      
+    - name: "airworthiness_approval"
+      type: "JSONB"
+      required: false
+      description: "Airworthiness approvals"
+      schema:
+        form_1_reference: "string"  # EASA Form 1
+        faa_8130_reference: "string"  # FAA Form 8130-3
+        approval_date: "ISO 8601 date"
+        approved_by: "string"
+        
+    - name: "conformity_statements"
+      type: "JSONB"
+      required: false
+      description: "Declarations of conformity"
+      schema:
+        ce_marking: "boolean"
+        reach_declaration: "string or URL"
+        rohs_declaration: "string or URL"
+        other_declarations: "array of declaration records"
+        
+    - name: "test_reports"
+      type: "JSONB"
+      required: false
+      description: "Quality assurance and test results"
+      schema:
+        first_article_inspection: "string or URL"
+        material_test_reports: "array of report references"
+        functional_tests: "array of test records"
+        non_destructive_testing: "array of NDT records"
+
+  # Lifecycle Tracking
+  lifecycle:
+    - name: "current_status"
+      type: "VARCHAR(50)"
+      required: true
+      description: "Current lifecycle status"
+      enum:
+        - "DESIGNED"
+        - "MANUFACTURED"
+        - "IN_TRANSIT"
+        - "IN_STOCK"
+        - "INSTALLED"
+        - "IN_SERVICE"
+        - "MAINTENANCE"
+        - "RETIRED"
+        - "SCRAPPED"
+        - "RECYCLED"
+      default: "DESIGNED"
+      index: true
+      
+    - name: "installation_history"
+      type: "JSONB"
+      required: false
+      description: "Installation and removal history"
+      schema:
+        installations: "array of installation records"
+        # Each record: {aircraft_id, position, install_date, remove_date, reason}
+        
+    - name: "maintenance_history"
+      type: "JSONB"
+      required: false
+      description: "Maintenance, inspection, repair history"
+      schema:
+        scheduled_maintenance: "array of maintenance records"
+        unscheduled_maintenance: "array of maintenance records"
+        inspections: "array of inspection records"
+        repairs: "array of repair records"
+        modifications: "array of modification records"
+        
+    - name: "operational_data"
+      type: "JSONB"
+      required: false
+      description: "Operational usage data"
+      schema:
+        total_flight_hours: "number"
+        total_flight_cycles: "number"
+        last_maintenance_date: "ISO 8601 date"
+        next_maintenance_due: "ISO 8601 date"
+        remaining_life_percentage: "number (0-100)"
+
+  # Digital Twin & IoT
+  digital_twin:
+    - name: "sensor_data_endpoint"
+      type: "VARCHAR(255)"
+      required: false
+      description: "API endpoint for real-time sensor data"
+      
+    - name: "digital_twin_model"
+      type: "JSONB"
+      required: false
+      description: "Digital twin model reference"
+      schema:
+        model_id: "string"
+        model_type: "string"  # CAD, FEM, CFD, etc.
+        last_updated: "ISO 8601 date"
+        simulation_results: "array of result references"
+
+  # Ledger & Traceability
+  ledger_references:
+    - name: "genesis_entry_id"
+      type: "UUID"
+      required: true
+      description: "First ledger entry for this component"
+      foreign_key: "ledger_entries.entry_id"
+      
+    - name: "latest_entry_id"
+      type: "UUID"
+      required: true
+      description: "Most recent ledger entry"
+      foreign_key: "ledger_entries.entry_id"
+      
+    - name: "ledger_entry_count"
+      type: "INTEGER"
+      required: true
+      description: "Total number of ledger entries"
+      default: 0
+      
+    - name: "blockchain_anchor_id"
+      type: "VARCHAR(255)"
+      required: false
+      description: "Blockchain transaction ID where DPP is anchored"
+
+  # Access Control & Privacy
+  access_control:
+    - name: "visibility"
+      type: "VARCHAR(20)"
+      required: true
+      description: "Visibility level"
+      enum:
+        - "PUBLIC"
+        - "SUPPLY_CHAIN"
+        - "CUSTOMER"
+        - "INTERNAL"
+        - "CONFIDENTIAL"
+      default: "INTERNAL"
+      
+    - name: "data_controller"
+      type: "VARCHAR(255)"
+      required: true
+      description: "Organization responsible for this data"
+      
+    - name: "data_subjects"
+      type: "JSONB"
+      required: false
+      description: "Personal data subjects (GDPR compliance)"
+      notes: "For components involving personal data"
+
+  # Metadata
+  - name: "tags"
+    type: "JSONB"
+    required: false
+    description: "Search tags and labels"
+    example: '["critical", "flight-safety", "supplier-X"]'
+    
+  - name: "custom_fields"
+    type: "JSONB"
+    required: false
+    description: "Organization-specific custom fields"
+    
+  - name: "external_references"
+    type: "JSONB"
+    required: false
+    description: "References to external systems"
+    schema:
+      erp_id: "string"
+      plm_id: "string"
+      mes_id: "string"
+      cmms_id: "string"
+
+# Indexes
+indexes:
+  - name: "idx_dpp_component_id"
+    columns: ["component_id"]
+    type: "BTREE"
+    unique: true
+    
+  - name: "idx_dpp_part_number"
+    columns: ["part_number"]
+    type: "BTREE"
+    
+  - name: "idx_dpp_serial_number"
+    columns: ["serial_number"]
+    type: "BTREE"
+    unique: true
+    where: "serial_number IS NOT NULL"
+    
+  - name: "idx_dpp_status"
+    columns: ["current_status"]
+    type: "BTREE"
+    
+  - name: "idx_dpp_type"
+    columns: ["component_type"]
+    type: "BTREE"
+    
+  - name: "idx_dpp_manufacturer"
+    columns: ["(provenance->'manufacturer'->>'name')"]
+    type: "BTREE"
+    description: "Index on manufacturer name (JSONB field)"
+    
+  - name: "idx_dpp_full_text"
+    columns: ["component_name", "tags"]
+    type: "GIN"
+    description: "Full-text search"
+
+# Constraints
+constraints:
+  - name: "pk_dpp_id"
+    type: "PRIMARY KEY"
+    columns: ["dpp_id"]
+    
+  - name: "uq_dpp_component_id"
+    type: "UNIQUE"
+    columns: ["component_id"]
+    
+  - name: "chk_dpp_version_positive"
+    type: "CHECK"
+    condition: "version > 0"
+    
+  - name: "fk_dpp_genesis_entry"
+    type: "FOREIGN KEY"
+    columns: ["genesis_entry_id"]
+    references: "ledger_entries(entry_id)"
+    
+  - name: "fk_dpp_latest_entry"
+    type: "FOREIGN KEY"
+    columns: ["latest_entry_id"]
+    references: "ledger_entries(entry_id)"
+
+# Triggers
+triggers:
+  - name: "trg_dpp_update_timestamp"
+    event: "BEFORE UPDATE"
+    action: "SET updated_at = CURRENT_TIMESTAMP"
+    
+  - name: "trg_dpp_increment_version"
+    event: "BEFORE UPDATE"
+    action: "SET version = version + 1"
+
+# Related schemas
+related_schemas:
+  - "LEDGER_ENTRY_SCHEMA.yaml"
+  - "TOKEN_TRANSACTION_SCHEMA.yaml"
+  - "AUDIT_TRAIL_SCHEMA.yaml"
+
+# Regulatory compliance mapping
+regulatory_compliance:
+  EU_Battery_Regulation:
+    - field: "carbon_footprint"
+      requirement: "Article 7 - Carbon footprint declaration"
+    - field: "recyclability"
+      requirement: "Article 10 - Recycled content"
+    - field: "materials.conflict_minerals_declaration"
+      requirement: "Annex VII - Due diligence"
+      
+  ESPR:
+    - field: "sustainability.circularity_score"
+      requirement: "Article 6 - Product requirements"
+    - field: "as_maintained"
+      requirement: "Article 8 - Product information requirements"
+      
+  REACH:
+    - field: "materials.material_certificates"
+      requirement: "Article 33 - SVHC communication"
+      
+  RoHS:
+    - field: "materials.rohs_compliant"
+      requirement: "Directive 2011/65/EU"
+
+# Usage examples
+usage_examples:
+  - description: "Create a new DPP for a component"
+    query: |
+      INSERT INTO dpp_components (
+        dpp_id, component_id, part_number, component_type, component_name,
+        as_designed, provenance, genesis_entry_id, latest_entry_id, data_controller
+      ) VALUES (
+        '550e8400-e29b-41d4-a716-446655440000',
+        'urn:ampel360:ata96:component:part:P123456',
+        'P123456-001',
+        'PART',
+        'Hydraulic Pump Assembly',
+        '{"design_id": "DES-32-001", "drawing_number": "DWG-32-001-A", "revision": "C"}',
+        '{"manufacturer": {"name": "ACME Aerospace", "country": "USA"}}',
+        'urn:ampel360:ata96:ledger:entry:genesis-001',
+        'urn:ampel360:ata96:ledger:entry:genesis-001',
+        'AMPEL360 GmbH'
+      );
+      
+  - description: "Query all components by manufacturer"
+    query: |
+      SELECT dpp_id, component_id, part_number, component_name
+      FROM dpp_components
+      WHERE provenance->'manufacturer'->>'name' = 'ACME Aerospace';
+      
+  - description: "Find components nearing end of life"
+    query: |
+      SELECT component_id, component_name, 
+             operational_data->>'remaining_life_percentage' as remaining_life
+      FROM dpp_components
+      WHERE current_status = 'IN_SERVICE'
+        AND (operational_data->>'remaining_life_percentage')::numeric < 20
+      ORDER BY remaining_life;
+      
+  - description: "Update component status and maintenance history"
+    query: |
+      UPDATE dpp_components
+      SET current_status = 'MAINTENANCE',
+          maintenance_history = jsonb_set(
+            COALESCE(maintenance_history, '{"scheduled_maintenance": []}'),
+            '{scheduled_maintenance}',
+            (maintenance_history->'scheduled_maintenance' || 
+             '[{"date": "2026-01-28", "type": "A-Check", "findings": "OK"}]')
+          )
+      WHERE component_id = 'urn:ampel360:ata96:component:part:P123456';

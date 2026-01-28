@@ -1,0 +1,639 @@
+# AUDIT_TRAIL_SCHEMA.yaml
+# Audit trail and evidence schema for ATA 96 traceability system
+# Comprehensive logging of all system activities and compliance evidence
+
+schema_metadata:
+  name: "AUDIT_TRAIL_SCHEMA"
+  version: "1.0.0"
+  description: "Schema for audit trails, evidence packs, and compliance documentation"
+  created: "2026-01-28"
+  authority: "ATA-96-TRACEABILITY_DPP_LEDGER"
+  references:
+    - "OBJ-007: Regulatory Compliance - Audit Trail Completeness"
+    - "WP-96-4300: Audit Trail Documentation"
+    - "96-50: Audit Evidence Packs & Digital Signoffs"
+
+# Audit Event Table
+audit_events:
+  table_name: "audit_events"
+  description: "Comprehensive log of all auditable events"
+  
+  columns:
+    - name: "event_id"
+      type: "UUID"
+      required: true
+      primary_key: true
+      description: "Unique event identifier"
+      
+    - name: "timestamp"
+      type: "TIMESTAMP WITH TIME ZONE"
+      required: true
+      description: "Event occurrence timestamp (ISO 8601)"
+      default: "CURRENT_TIMESTAMP"
+      index: true
+      
+    - name: "event_type"
+      type: "VARCHAR(50)"
+      required: true
+      description: "Type of auditable event"
+      enum:
+        - "DATA_ACCESS"
+        - "DATA_MODIFICATION"
+        - "DATA_DELETION"
+        - "USER_LOGIN"
+        - "USER_LOGOUT"
+        - "PERMISSION_CHANGE"
+        - "APPROVAL"
+        - "REJECTION"
+        - "EXPORT"
+        - "IMPORT"
+        - "SIGNATURE"
+        - "POLICY_CHANGE"
+        - "SYSTEM_CONFIG"
+        - "ERROR"
+        - "SECURITY_EVENT"
+      index: true
+      
+    - name: "severity"
+      type: "VARCHAR(20)"
+      required: true
+      description: "Event severity level"
+      enum:
+        - "INFO"
+        - "WARNING"
+        - "ERROR"
+        - "CRITICAL"
+      default: "INFO"
+      index: true
+
+    # Actor Information
+    - name: "actor_id"
+      type: "VARCHAR(255)"
+      required: true
+      description: "Actor performing the action"
+      format: "urn:ampel360:actor:{type}:{id}"
+      index: true
+      
+    - name: "actor_type"
+      type: "VARCHAR(50)"
+      required: true
+      enum:
+        - "USER"
+        - "SYSTEM"
+        - "SERVICE"
+        - "API_CLIENT"
+        
+    - name: "actor_ip"
+      type: "INET"
+      required: false
+      description: "IP address of actor"
+      
+    - name: "actor_location"
+      type: "VARCHAR(100)"
+      required: false
+      description: "Geographic location"
+
+    # Target Information
+    - name: "target_type"
+      type: "VARCHAR(50)"
+      required: false
+      description: "Type of target entity"
+      
+    - name: "target_id"
+      type: "VARCHAR(255)"
+      required: false
+      description: "Target entity identifier"
+      format: "urn:ampel360:ata96:{namespace}:{type}:{id}"
+      index: true
+      
+    - name: "target_name"
+      type: "VARCHAR(255)"
+      required: false
+      description: "Human-readable target name"
+
+    # Action Details
+    - name: "action"
+      type: "VARCHAR(100)"
+      required: true
+      description: "Action performed"
+      example: "READ", "CREATE", "UPDATE", "DELETE", "APPROVE"
+      
+    - name: "action_result"
+      type: "VARCHAR(20)"
+      required: true
+      enum:
+        - "SUCCESS"
+        - "FAILURE"
+        - "PARTIAL"
+      default: "SUCCESS"
+      
+    - name: "before_value"
+      type: "JSONB"
+      required: false
+      description: "State before action (for modifications)"
+      
+    - name: "after_value"
+      type: "JSONB"
+      required: false
+      description: "State after action (for modifications)"
+      
+    - name: "changes"
+      type: "JSONB"
+      required: false
+      description: "Summary of changes made"
+
+    # Context
+    - name: "session_id"
+      type: "VARCHAR(255)"
+      required: false
+      description: "User/system session identifier"
+      index: true
+      
+    - name: "transaction_id"
+      type: "VARCHAR(255)"
+      required: false
+      description: "Business transaction identifier"
+      
+    - name: "request_id"
+      type: "VARCHAR(255)"
+      required: false
+      description: "API request identifier"
+      
+    - name: "correlation_id"
+      type: "VARCHAR(255)"
+      required: false
+      description: "Correlation ID for distributed tracing"
+      index: true
+
+    # Compliance
+    - name: "regulatory_context"
+      type: "JSONB"
+      required: false
+      description: "Regulatory context for audit"
+      schema:
+        regulation: "string"  # e.g., "GDPR", "EASA Part 21"
+        requirement: "string"
+        evidence_type: "string"
+        
+    - name: "retention_period"
+      type: "INTERVAL"
+      required: true
+      description: "How long to retain this event"
+      default: "7 years"
+
+    # Technical Details
+    - name: "user_agent"
+      type: "TEXT"
+      required: false
+      description: "User agent string (for API/web requests)"
+      
+    - name: "error_message"
+      type: "TEXT"
+      required: false
+      description: "Error message if action failed"
+      
+    - name: "stack_trace"
+      type: "TEXT"
+      required: false
+      description: "Stack trace for errors"
+      
+    - name: "metadata"
+      type: "JSONB"
+      required: false
+      description: "Additional event metadata"
+
+  indexes:
+    - name: "idx_audit_timestamp"
+      columns: ["timestamp"]
+      type: "BTREE"
+      
+    - name: "idx_audit_event_type"
+      columns: ["event_type"]
+      type: "BTREE"
+      
+    - name: "idx_audit_actor"
+      columns: ["actor_id"]
+      type: "BTREE"
+      
+    - name: "idx_audit_target"
+      columns: ["target_id"]
+      type: "BTREE"
+      
+    - name: "idx_audit_severity"
+      columns: ["severity"]
+      type: "BTREE"
+      
+    - name: "idx_audit_session"
+      columns: ["session_id"]
+      type: "BTREE"
+      
+    - name: "idx_audit_correlation"
+      columns: ["correlation_id"]
+      type: "BTREE"
+
+  partitioning:
+    strategy: "RANGE"
+    column: "timestamp"
+    interval: "MONTHLY"
+    description: "Partition by month for performance and archival"
+
+# Evidence Pack Table
+evidence_packs:
+  table_name: "evidence_packs"
+  description: "Structured collections of compliance artifacts"
+  
+  columns:
+    - name: "pack_id"
+      type: "UUID"
+      required: true
+      primary_key: true
+      description: "Unique evidence pack identifier"
+      
+    - name: "pack_name"
+      type: "VARCHAR(255)"
+      required: true
+      description: "Human-readable pack name"
+      
+    - name: "pack_type"
+      type: "VARCHAR(50)"
+      required: true
+      description: "Type of evidence pack"
+      enum:
+        - "CERTIFICATION"
+        - "COMPLIANCE"
+        - "AUDIT"
+        - "MILESTONE"
+        - "APPROVAL"
+        - "RELEASE"
+      index: true
+      
+    - name: "created_at"
+      type: "TIMESTAMP WITH TIME ZONE"
+      required: true
+      default: "CURRENT_TIMESTAMP"
+      
+    - name: "created_by"
+      type: "VARCHAR(255)"
+      required: true
+      description: "Creator actor URN"
+      
+    - name: "status"
+      type: "VARCHAR(20)"
+      required: true
+      enum:
+        - "DRAFT"
+        - "REVIEW"
+        - "APPROVED"
+        - "REJECTED"
+        - "ARCHIVED"
+      default: "DRAFT"
+      index: true
+
+    # Content
+    - name: "manifest"
+      type: "JSONB"
+      required: true
+      description: "List of included artifacts"
+      schema:
+        artifacts:
+          - artifact_id: "string"
+            artifact_type: "string"
+            description: "string"
+            location: "string"
+            hash: "string"
+            
+    - name: "traceability_links"
+      type: "JSONB"
+      required: false
+      description: "Links to requirements, designs, tests"
+      schema:
+        requirements: "array of requirement IDs"
+        designs: "array of design IDs"
+        tests: "array of test IDs"
+        approvals: "array of approval IDs"
+
+    # Regulatory Context
+    - name: "regulatory_framework"
+      type: "VARCHAR(100)"
+      required: false
+      description: "Applicable regulatory framework"
+      example: "EASA Part 21", "FAA 14 CFR Part 21", "ISO 9001"
+      
+    - name: "compliance_requirements"
+      type: "JSONB"
+      required: false
+      description: "Specific compliance requirements addressed"
+      
+    - name: "evidence_completeness"
+      type: "DECIMAL(5,2)"
+      required: false
+      description: "Completeness percentage (0-100)"
+      constraint: "CHECK (evidence_completeness >= 0 AND evidence_completeness <= 100)"
+
+    # Integrity
+    - name: "pack_hash"
+      type: "VARCHAR(64)"
+      required: true
+      description: "SHA-256 hash of entire pack"
+      unique: true
+      
+    - name: "signature"
+      type: "TEXT"
+      required: false
+      description: "Digital signature of pack_hash"
+      
+    - name: "signed_by"
+      type: "VARCHAR(255)"
+      required: false
+      description: "Signer actor URN"
+      
+    - name: "signed_at"
+      type: "TIMESTAMP WITH TIME ZONE"
+      required: false
+
+    # Ledger Integration
+    - name: "ledger_entry_id"
+      type: "UUID"
+      required: false
+      foreign_key: "ledger_entries.entry_id"
+      description: "Ledger entry anchoring this pack"
+
+    # Metadata
+    - name: "tags"
+      type: "JSONB"
+      required: false
+      description: "Search tags"
+      
+    - name: "notes"
+      type: "TEXT"
+      required: false
+
+# Digital Signature Table
+digital_signatures:
+  table_name: "digital_signatures"
+  description: "Registry of digital signatures on artifacts"
+  
+  columns:
+    - name: "signature_id"
+      type: "UUID"
+      required: true
+      primary_key: true
+      
+    - name: "signed_at"
+      type: "TIMESTAMP WITH TIME ZONE"
+      required: true
+      default: "CURRENT_TIMESTAMP"
+      index: true
+      
+    - name: "signer_id"
+      type: "VARCHAR(255)"
+      required: true
+      description: "Signer actor URN"
+      index: true
+      
+    - name: "signer_name"
+      type: "VARCHAR(255)"
+      required: true
+      
+    - name: "signer_role"
+      type: "VARCHAR(100)"
+      required: false
+      description: "Organizational role"
+      
+    - name: "artifact_id"
+      type: "VARCHAR(255)"
+      required: true
+      description: "Signed artifact URN"
+      index: true
+      
+    - name: "artifact_type"
+      type: "VARCHAR(50)"
+      required: true
+      
+    - name: "artifact_hash"
+      type: "VARCHAR(64)"
+      required: true
+      description: "Hash of signed artifact"
+      
+    - name: "signature"
+      type: "TEXT"
+      required: true
+      description: "Base64-encoded signature"
+      
+    - name: "signature_algorithm"
+      type: "VARCHAR(50)"
+      required: true
+      enum:
+        - "RSA-SHA256"
+        - "ECDSA-SHA256"
+        - "Ed25519"
+      default: "ECDSA-SHA256"
+      
+    - name: "certificate_fingerprint"
+      type: "VARCHAR(64)"
+      required: true
+      description: "X.509 certificate fingerprint"
+      
+    - name: "certificate_chain"
+      type: "JSONB"
+      required: false
+      description: "X.509 certificate chain"
+      
+    - name: "eidas_qualified"
+      type: "BOOLEAN"
+      required: false
+      description: "Whether signature is eIDAS qualified"
+      default: false
+      
+    - name: "timestamp_authority"
+      type: "VARCHAR(255)"
+      required: false
+      description: "Timestamp authority URL (RFC 3161)"
+      
+    - name: "verification_status"
+      type: "VARCHAR(20)"
+      required: true
+      enum:
+        - "VALID"
+        - "INVALID"
+        - "EXPIRED"
+        - "REVOKED"
+        - "UNKNOWN"
+      default: "VALID"
+      index: true
+      
+    - name: "verified_at"
+      type: "TIMESTAMP WITH TIME ZONE"
+      required: false
+      description: "Last verification timestamp"
+
+# Approval Record Table
+approval_records:
+  table_name: "approval_records"
+  description: "Formal approval and signoff records"
+  
+  columns:
+    - name: "approval_id"
+      type: "UUID"
+      required: true
+      primary_key: true
+      
+    - name: "approval_type"
+      type: "VARCHAR(50)"
+      required: true
+      enum:
+        - "DESIGN_REVIEW"
+        - "PDR"
+        - "CDR"
+        - "TEST_APPROVAL"
+        - "RELEASE_APPROVAL"
+        - "CHANGE_APPROVAL"
+        - "CERTIFICATION"
+      index: true
+      
+    - name: "artifact_id"
+      type: "VARCHAR(255)"
+      required: true
+      description: "Approved artifact URN"
+      index: true
+      
+    - name: "artifact_version"
+      type: "VARCHAR(50)"
+      required: true
+      
+    - name: "approver_id"
+      type: "VARCHAR(255)"
+      required: true
+      description: "Approver actor URN"
+      index: true
+      
+    - name: "approver_role"
+      type: "VARCHAR(100)"
+      required: true
+      description: "Organizational role with approval authority"
+      
+    - name: "approval_status"
+      type: "VARCHAR(20)"
+      required: true
+      enum:
+        - "PENDING"
+        - "APPROVED"
+        - "APPROVED_WITH_COMMENTS"
+        - "REJECTED"
+        - "WITHDRAWN"
+      default: "PENDING"
+      index: true
+      
+    - name: "approved_at"
+      type: "TIMESTAMP WITH TIME ZONE"
+      required: false
+      
+    - name: "decision_rationale"
+      type: "TEXT"
+      required: false
+      description: "Reason for approval/rejection"
+      
+    - name: "conditions"
+      type: "JSONB"
+      required: false
+      description: "Conditions attached to approval"
+      
+    - name: "signature_id"
+      type: "UUID"
+      required: false
+      foreign_key: "digital_signatures.signature_id"
+      description: "Digital signature on approval"
+      
+    - name: "evidence_pack_id"
+      type: "UUID"
+      required: false
+      foreign_key: "evidence_packs.pack_id"
+      description: "Associated evidence pack"
+      
+    - name: "ledger_entry_id"
+      type: "UUID"
+      required: false
+      foreign_key: "ledger_entries.entry_id"
+
+# Related schemas
+related_schemas:
+  - "LEDGER_ENTRY_SCHEMA.yaml"
+  - "DPP_COMPONENT_SCHEMA.yaml"
+  - "TOKEN_TRANSACTION_SCHEMA.yaml"
+
+# Retention policies
+retention_policies:
+  audit_events:
+    default: "7 years"
+    critical_safety: "Aircraft lifetime + 10 years"
+    gdpr_personal_data: "Delete upon request (with anonymization for safety events)"
+  evidence_packs:
+    default: "Permanent (critical compliance evidence)"
+  digital_signatures:
+    default: "Signature validity period + 7 years"
+  approval_records:
+    default: "Permanent (regulatory requirement)"
+
+# Usage examples
+usage_examples:
+  - description: "Log a data access event"
+    query: |
+      INSERT INTO audit_events (
+        event_id, timestamp, event_type, severity,
+        actor_id, actor_type, target_id, action, action_result
+      ) VALUES (
+        '550e8400-e29b-41d4-a716-446655440000',
+        CURRENT_TIMESTAMP,
+        'DATA_ACCESS',
+        'INFO',
+        'urn:ampel360:actor:user:U001',
+        'USER',
+        'urn:ampel360:ata96:dpp:550e8400-1234',
+        'READ',
+        'SUCCESS'
+      );
+      
+  - description: "Create evidence pack"
+    query: |
+      INSERT INTO evidence_packs (
+        pack_id, pack_name, pack_type, created_by,
+        manifest, pack_hash
+      ) VALUES (
+        '550e8400-e29b-41d4-a716-446655440000',
+        'PDR Approval Package - WP-96-1100',
+        'MILESTONE',
+        'urn:ampel360:actor:user:U001',
+        '{"artifacts": [{"artifact_id": "REQ-96-10-00-F001", "artifact_type": "REQUIREMENT"}]}',
+        'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3'
+      );
+      
+  - description: "Record digital signature"
+    query: |
+      INSERT INTO digital_signatures (
+        signature_id, signer_id, signer_name, artifact_id, artifact_type,
+        artifact_hash, signature, signature_algorithm, certificate_fingerprint
+      ) VALUES (
+        '550e8400-e29b-41d4-a716-446655440000',
+        'urn:ampel360:actor:user:U001',
+        'Jane Engineer',
+        'urn:ampel360:ata96:dpp:550e8400-1234',
+        'DPP',
+        'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3',
+        'MEUCIQDx...',
+        'ECDSA-SHA256',
+        'b83b3fe4ddb28ca72d3c0962d481f986893ebbc4'
+      );
+      
+  - description: "Query audit trail for artifact"
+    query: |
+      SELECT event_id, timestamp, event_type, actor_id, action
+      FROM audit_events
+      WHERE target_id = 'urn:ampel360:ata96:dpp:550e8400-1234'
+      ORDER BY timestamp DESC;
+      
+  - description: "Find pending approvals"
+    query: |
+      SELECT approval_id, artifact_id, approver_id, approval_type
+      FROM approval_records
+      WHERE approval_status = 'PENDING'
+      ORDER BY approved_at NULLS FIRST;
