@@ -18,7 +18,7 @@ GitHub Actions workflows can access different contexts at various levels. This r
 | jobs.<job_id>.environment | github, needs, strategy, matrix, inputs, vars | None |
 | jobs.<job_id>.concurrency | github, needs, strategy, matrix, inputs, vars | None |
 | jobs.<job_id>.env | github, needs, strategy, matrix, secrets, inputs, vars | hashFiles() |
-| jobs.<job_id>.if | github, needs, strategy, matrix, inputs, vars | always(), success(), failure(), cancelled(), contains(), startsWith(), endsWith() |
+| jobs.<job_id>.if | github, needs, strategy, matrix, inputs, vars | always(), success(), failure(), cancelled(), contains(), startsWith(), endsWith(), hashFiles() |
 | jobs.<job_id>.steps[*].if | github, needs, strategy, matrix, steps, job, runner, env, secrets, inputs, vars | always(), success(), failure(), cancelled(), hashFiles() |
 | jobs.<job_id>.steps[*].env | github, needs, strategy, matrix, job, runner, env, steps, secrets, inputs, vars | hashFiles(), toJSON(), fromJSON() |
 | jobs.<job_id>.steps[*].with | github, needs, strategy, matrix, job, runner, env, steps, secrets, inputs, vars | hashFiles(), toJSON(), fromJSON() |
@@ -168,6 +168,9 @@ environment:
 
 **Note:** The `url` field is evaluated at job definition time and cannot reference step outputs. Use contexts available at job level (github, needs, strategy, matrix, inputs, vars).
 
+**Environment Protection Rules:**
+When a job targets an environment, **deployment protection rules** are enforced before the job starts. Only after passing do **environment secrets and variables** become accessible within that job.
+
 ### jobs.<job_id>.concurrency
 
 Controls concurrency at the job level.
@@ -293,6 +296,8 @@ Defines outputs that can be used by dependent jobs.
 
 ## Special Functions Reference
 
+**All functions below are available anywhere expressions are evaluated** (for example in `if`, `env`, `with`, and many job/step keys), provided the referenced **context** exists at that point in evaluation.
+
 ### Status Check Functions
 
 | Function | Description | Returns | Example |
@@ -311,6 +316,8 @@ Defines outputs that can be used by dependent jobs.
 | `endsWith(search, suffix)` | Returns true if search ends with suffix | `endsWith(github.ref, '/main')` |
 | `format(string, replaceValue0, ...)` | Formats string with placeholders | `format('Hello {0} {1}', 'World', '!')` |
 | `join(array, separator)` | Joins array elements | `join(matrix.os, ', ')` |
+| `split(string, separator)` | Splits string into array | `split(github.ref, '/')` |
+| `length(value)` | Returns length of string or array | `length(github.event.commits)` |
 
 ### Data Manipulation Functions
 
