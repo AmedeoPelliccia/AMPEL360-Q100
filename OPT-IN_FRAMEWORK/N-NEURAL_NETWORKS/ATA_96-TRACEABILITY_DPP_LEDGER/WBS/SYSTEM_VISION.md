@@ -14,7 +14,7 @@ A fully operational, blockchain-anchored Digital Product Passport and traceabili
 
 ## Success Criteria
 
-- [x] Requirements defined and baselined (WP-96-1000)
+- [ ] Requirements defined and baselined (WP-96-1000)
 - [ ] Design approved at CDR (WP-96-2000)
 - [ ] Blockchain infrastructure deployed and operational
 - [ ] DPP schema and API specifications finalized
