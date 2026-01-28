@@ -250,7 +250,7 @@ Provides input parameters to an action.
 | **Available Contexts** | `github`, `needs`, `strategy`, `matrix`, `job`, `runner`, `env`, `steps`, `secrets`, `inputs`, `vars` |
 | **Special Functions** | `hashFiles()`, `toJSON()`, `fromJSON()` |
 | **Description** | Action input parameters |
-| **Example** | `with: node-version: ${{ matrix.node }}` |
+| **Example** | `with: { node-version: ${{ matrix.node }} }` |
 
 ### jobs.<job_id>.strategy.matrix
 
