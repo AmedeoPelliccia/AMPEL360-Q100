@@ -6,6 +6,25 @@ This document provides a comprehensive reference for available contexts and spec
 
 GitHub Actions workflows can access different contexts at various levels. This reference maps each workflow key to its available contexts and special functions.
 
+## Quick Reference Table
+
+| Workflow Key | Context | Special Functions |
+|-------------|---------|------------------|
+| run-name | github, inputs, vars | None |
+| concurrency | github, inputs, vars | None |
+| env | github, secrets, inputs, vars | None |
+| jobs.<job_id> | github, needs, strategy, matrix, secrets, inputs, vars | hashFiles(), format(), toJSON(), fromJSON() |
+| jobs.<job_id>.runs-on | github, needs, strategy, matrix, inputs, vars | None |
+| jobs.<job_id>.environment | github, needs, strategy, matrix, inputs, vars | None |
+| jobs.<job_id>.concurrency | github, needs, strategy, matrix, inputs, vars | None |
+| jobs.<job_id>.env | github, needs, strategy, matrix, secrets, inputs, vars | hashFiles() |
+| jobs.<job_id>.if | github, needs, inputs, vars | always(), success(), failure(), cancelled(), contains(), startsWith(), endsWith() |
+| jobs.<job_id>.steps[*].if | github, needs, strategy, matrix, steps, job, runner, env, secrets, inputs, vars | always(), success(), failure(), cancelled(), hashFiles() |
+| jobs.<job_id>.steps[*].env | github, needs, strategy, matrix, job, runner, env, steps, secrets, inputs, vars | hashFiles(), toJSON(), fromJSON() |
+| jobs.<job_id>.steps[*].with | github, needs, strategy, matrix, job, runner, env, steps, secrets, inputs, vars | hashFiles(), toJSON(), fromJSON() |
+| jobs.<job_id>.strategy.matrix | github, needs, inputs, vars | fromJSON() |
+| jobs.<job_id>.outputs | steps | None |
+
 ## Workflow-Level Keys
 
 ### run-name
