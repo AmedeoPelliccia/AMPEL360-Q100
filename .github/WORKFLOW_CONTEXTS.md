@@ -199,8 +199,8 @@ Controls whether the job runs based on a condition.
 
 | Property | Details |
 |----------|---------|
-| **Available Contexts** | `github`, `needs`, `inputs`, `vars` |
-| **Special Functions** | `always()`, `success()`, `failure()`, `cancelled()`, `contains()`, `startsWith()`, `endsWith()` |
+| **Available Contexts** | `github`, `needs`, `strategy`, `matrix`, `inputs`, `vars` |
+| **Special Functions** | `always()`, `success()`, `failure()`, `cancelled()`, `contains()`, `startsWith()`, `endsWith()`, `hashFiles()` |
 | **Description** | Conditional job execution |
 | **Example** | `if: github.event_name == 'push' && success()` |
 
