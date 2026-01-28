@@ -13,7 +13,7 @@ wbs:
       
     - id: WP-96-2000
       title: "Design Definition"
-      description: "DPP and ledger system architecture and detailed design documentation"
+      description: "System design documentation for blockchain and DPP architecture"
       owner: TBD
       
     - id: WP-96-3000

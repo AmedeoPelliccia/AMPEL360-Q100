@@ -14,7 +14,7 @@ This system provides comprehensive traceability and digital product passport cap
 
 ## Mission Statement
 
-To establish an immutable, blockchain-anchored ledger system that tracks all components, materials, and configurations throughout the aircraft lifecycle—from design through manufacturing, operations, maintenance, and end-of-life—ensuring complete transparency, regulatory compliance, and sustainable circularity.
+Establish and maintain a comprehensive Digital Product Passport (DPP) and traceability ledger system that ensures complete lifecycle visibility, regulatory compliance, and circular economy enablement for all AMPEL360 Q100 components and systems.
 
 ---
 
@@ -22,11 +22,11 @@ To establish an immutable, blockchain-anchored ledger system that tracks all com
 
 | Stakeholder | Interest |
 |-------------|----------|
-| Design Authority | Component specifications and configuration control |
-| Manufacturing | As-built records and material provenance |
-| Operations | Configuration state and maintenance history |
-| Maintenance | Repair tracking and component lifecycle |
+| Design Authority | System definition and architecture |
+| Operations | Operational traceability and monitoring |
+| Manufacturing | As-built records and material provenance tracking |
+| Maintenance | Component history and maintenance records |
 | Certification | Compliance evidence and audit trails |
-| Regulators | Traceability and safety documentation |
-| Supply Chain | Material sourcing and circularity data |
+| Supply Chain | Material provenance and sourcing |
 | Finance | Token tracking and incentive distribution |
+| Regulatory Bodies | Compliance with DPP regulations |
