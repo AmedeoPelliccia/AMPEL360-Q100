@@ -315,7 +315,7 @@ Defines outputs that can be used by dependent jobs.
 | `startsWith(search, prefix)` | Returns true if search starts with prefix | `startsWith(github.ref, 'refs/tags/')` |
 | `endsWith(search, suffix)` | Returns true if search ends with suffix | `endsWith(github.ref, '/main')` |
 | `format(string, replaceValue0, ...)` | Formats string with placeholders | `format('Hello {0} {1}', 'World', '!')` |
-| `join(array, separator)` | Joins array elements | `join(matrix.os, ', ')` |
+| `join(array, separator)` | Joins array elements | `join(fromJSON(needs.setup.outputs.os_list), ', ')` |
 | `split(string, separator)` | Splits string into array | `split(github.ref, '/')` |
 | `length(value)` | Returns length of string or array | `length(github.event.commits)` |
 
