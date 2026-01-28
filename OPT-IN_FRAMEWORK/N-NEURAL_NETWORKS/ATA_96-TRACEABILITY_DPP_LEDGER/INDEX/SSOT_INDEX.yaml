@@ -4,7 +4,136 @@ ssot:
   sources:
     - type: "Requirements"
       location: "KDB/LM/SSOT/PLM/LC02"
+      authority: "Requirements Team"
+      status: "Active"
+      
     - type: "Design"
       location: "KDB/LM/SSOT/PLM/LC04"
+      authority: "Architecture Team"
+      status: "Active"
+      
     - type: "Test"
       location: "KDB/LM/SSOT/PLM/LC06"
+      authority: "V&V Team"
+      status: "Active"
+      
+    - type: "Database Schemas"
+      location: "96-90-tables-schemas-index/schemas/"
+      authority: "Data Architecture Team"
+      status: "Active"
+      description: "Authoritative database schema definitions"
+      
+    - type: "WBS"
+      location: "WBS/"
+      authority: "Program Management"
+      status: "Active"
+      description: "Work Breakdown Structure (Levels 1-3)"
+      
+    - type: "GENESIS Discovery"
+      location: "*/GENESIS/"
+      authority: "Section Leads"
+      status: "Active"
+      description: "Uncertainty discovery across all sections"
+      
+    - type: "Section READMEs"
+      location: "96-*/README.md"
+      authority: "Section Leads"
+      status: "Active"
+      description: "Section purpose and content descriptions"
+      
+    - type: "Governance"
+      location: "GOVERNANCE/"
+      authority: "Governance Board"
+      status: "Active"
+      description: "Change control, approvals, incentives, releases"
+      
+    - type: "System Objectives"
+      location: "WBS/SYSTEM_OBJECTIVES.md"
+      authority: "Program Management"
+      status: "Baseline"
+      description: "Measurable goals for ATA 96 system"
+
+  schemas:
+    - name: "LEDGER_ENTRY_SCHEMA"
+      location: "96-90-tables-schemas-index/schemas/LEDGER_ENTRY_SCHEMA.yaml"
+      version: "1.0.0"
+      authority: "Data Architecture Team"
+      purpose: "Immutable ledger entries with cryptographic integrity"
+      
+    - name: "DPP_COMPONENT_SCHEMA"
+      location: "96-90-tables-schemas-index/schemas/DPP_COMPONENT_SCHEMA.yaml"
+      version: "1.0.0"
+      authority: "Data Architecture Team"
+      purpose: "Digital Product Passport for aerospace components"
+      
+    - name: "TOKEN_TRANSACTION_SCHEMA"
+      location: "96-90-tables-schemas-index/schemas/TOKEN_TRANSACTION_SCHEMA.yaml"
+      version: "1.0.0"
+      authority: "Data Architecture Team"
+      purpose: "Teknia Token transaction tracking"
+      
+    - name: "ID_GRAMMAR_SCHEMA"
+      location: "96-90-tables-schemas-index/schemas/ID_GRAMMAR_SCHEMA.yaml"
+      version: "1.0.0"
+      authority: "Data Architecture Team"
+      purpose: "Identifier grammar, namespaces, cross-system mapping"
+      
+    - name: "AUDIT_TRAIL_SCHEMA"
+      location: "96-90-tables-schemas-index/schemas/AUDIT_TRAIL_SCHEMA.yaml"
+      version: "1.0.0"
+      authority: "Data Architecture Team"
+      purpose: "Comprehensive audit trails and compliance evidence"
+
+  sections:
+    - id: "96-00"
+      name: "general"
+      path: "ATA-96-traceability-dpp-ledger/96-00-general"
+      status: "Active"
+      
+    - id: "96-10"
+      name: "identifier-grammar-namespaces"
+      path: "ATA-96-traceability-dpp-ledger/96-10-identifier-grammar-namespaces"
+      status: "Active"
+      
+    - id: "96-20"
+      name: "schema-registry-and-canonical-models"
+      path: "ATA-96-traceability-dpp-ledger/96-20-schema-registry-and-canonical-models"
+      status: "Active"
+      
+    - id: "96-30"
+      name: "ledger-anchoring-hash-chain"
+      path: "ATA-96-traceability-dpp-ledger/96-30-ledger-anchoring-hash-chain"
+      status: "Active"
+      
+    - id: "96-40"
+      name: "dpp-sbom-and-config-effectivity"
+      path: "ATA-96-traceability-dpp-ledger/96-40-dpp-sbom-and-config-effectivity"
+      status: "Active"
+      
+    - id: "96-50"
+      name: "audit-evidence-packs-and-signoffs"
+      path: "ATA-96-traceability-dpp-ledger/96-50-audit-evidence-packs-and-signoffs"
+      status: "Active"
+      
+    - id: "96-60"
+      name: "export-publishing-contracts"
+      path: "ATA-96-traceability-dpp-ledger/96-60-export-publishing-contracts"
+      status: "Active"
+      
+    - id: "96-70"
+      name: "governance-policies-and-rules"
+      path: "ATA-96-traceability-dpp-ledger/96-70-governance-policies-and-rules"
+      status: "Active"
+      
+    - id: "96-80"
+      name: "security-privacy-and-access-control"
+      path: "ATA-96-traceability-dpp-ledger/96-80-security-privacy-and-access-control"
+      status: "Active"
+      
+    - id: "96-90"
+      name: "tables-schemas-index"
+      path: "ATA-96-traceability-dpp-ledger/96-90-tables-schemas-index"
+      status: "Active"
+
+  last_updated: "2026-01-28"
+  update_notes: "Phase 1-8 scaffold implementation complete"

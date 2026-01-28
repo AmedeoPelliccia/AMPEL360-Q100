@@ -1,1 +1,45 @@
 ID,Type,Title,Location,Status,Last_Updated
+# ID Format: {PREFIX}-{CHAPTER}-{SECTION}-{SEQUENCE}
+# Types: KNOT, REQ, SCHEMA, WP, MS, ART, SEC
+Y-KNOT-96-10-001,KNOT,Define URN namespace hierarchy,96-10-identifier-grammar-namespaces/GENESIS/Y-KNOTS.csv,OPEN,2026-01-28
+Y-KNOT-96-10-002,KNOT,Establish collision-free ID generation,96-10-identifier-grammar-namespaces/GENESIS/Y-KNOTS.csv,OPEN,2026-01-28
+Y-KNOT-96-10-003,KNOT,Define ID versioning scheme,96-10-identifier-grammar-namespaces/GENESIS/Y-KNOTS.csv,OPEN,2026-01-28
+Y-KNOT-96-10-004,KNOT,Establish cross-system ID mapping,96-10-identifier-grammar-namespaces/GENESIS/Y-KNOTS.csv,OPEN,2026-01-28
+Y-KNOT-96-10-005,KNOT,ISO/IEC URN compliance,96-10-identifier-grammar-namespaces/GENESIS/Y-KNOTS.csv,OPEN,2026-01-28
+O-KNOT-96-10-001,KNOT,Legacy ID migration complexity,96-10-identifier-grammar-namespaces/GENESIS/O-KNOTS.csv,OPEN,2026-01-28
+O-KNOT-96-10-002,KNOT,Manual ID entry errors,96-10-identifier-grammar-namespaces/GENESIS/O-KNOTS.csv,OPEN,2026-01-28
+Y-KNOT-96-30-001,KNOT,Select hash algorithm,96-30-ledger-anchoring-hash-chain/GENESIS/Y-KNOTS.csv,OPEN,2026-01-28
+Y-KNOT-96-30-002,KNOT,Define anchoring frequency,96-30-ledger-anchoring-hash-chain/GENESIS/Y-KNOTS.csv,OPEN,2026-01-28
+Y-KNOT-96-30-003,KNOT,Select blockchain/DLT platform,96-30-ledger-anchoring-hash-chain/GENESIS/Y-KNOTS.csv,OPEN,2026-01-28
+Y-KNOT-96-30-004,KNOT,Define consensus requirements,96-30-ledger-anchoring-hash-chain/GENESIS/Y-KNOTS.csv,OPEN,2026-01-28
+Y-KNOT-96-30-005,KNOT,Genesis block initialization,96-30-ledger-anchoring-hash-chain/GENESIS/Y-KNOTS.csv,OPEN,2026-01-28
+Y-KNOT-96-30-006,KNOT,Merkle tree batching strategy,96-30-ledger-anchoring-hash-chain/GENESIS/Y-KNOTS.csv,OPEN,2026-01-28
+O-KNOT-96-30-001,KNOT,Blockchain performance at scale,96-30-ledger-anchoring-hash-chain/GENESIS/O-KNOTS.csv,OPEN,2026-01-28
+O-KNOT-96-30-002,KNOT,Smart contract gas cost volatility,96-30-ledger-anchoring-hash-chain/GENESIS/O-KNOTS.csv,OPEN,2026-01-28
+O-KNOT-96-30-003,KNOT,Chain reorganization risk,96-30-ledger-anchoring-hash-chain/GENESIS/O-KNOTS.csv,OPEN,2026-01-28
+Y-KNOT-96-40-001,KNOT,Define DPP data model EU compliance,96-40-dpp-sbom-and-config-effectivity/GENESIS/Y-KNOTS.csv,OPEN,2026-01-28
+Y-KNOT-96-40-002,KNOT,Establish SBOM format,96-40-dpp-sbom-and-config-effectivity/GENESIS/Y-KNOTS.csv,OPEN,2026-01-28
+Y-KNOT-96-40-003,KNOT,Define effectivity representation,96-40-dpp-sbom-and-config-effectivity/GENESIS/Y-KNOTS.csv,OPEN,2026-01-28
+Y-KNOT-96-40-004,KNOT,Carbon footprint calculation method,96-40-dpp-sbom-and-config-effectivity/GENESIS/Y-KNOTS.csv,OPEN,2026-01-28
+Y-KNOT-96-40-005,KNOT,Material provenance tier depth,96-40-dpp-sbom-and-config-effectivity/GENESIS/Y-KNOTS.csv,OPEN,2026-01-28
+Y-KNOT-96-40-006,KNOT,Circularity score algorithm,96-40-dpp-sbom-and-config-effectivity/GENESIS/Y-KNOTS.csv,OPEN,2026-01-28
+O-KNOT-96-40-001,KNOT,Supply chain data quality,96-40-dpp-sbom-and-config-effectivity/GENESIS/O-KNOTS.csv,OPEN,2026-01-28
+O-KNOT-96-40-002,KNOT,Material certificate digitization,96-40-dpp-sbom-and-config-effectivity/GENESIS/O-KNOTS.csv,OPEN,2026-01-28
+O-KNOT-96-40-003,KNOT,Maintenance data integration,96-40-dpp-sbom-and-config-effectivity/GENESIS/O-KNOTS.csv,OPEN,2026-01-28
+SCHEMA-96-90-001,SCHEMA,Ledger Entry Schema,96-90-tables-schemas-index/schemas/LEDGER_ENTRY_SCHEMA.yaml,ACTIVE,2026-01-28
+SCHEMA-96-90-002,SCHEMA,DPP Component Schema,96-90-tables-schemas-index/schemas/DPP_COMPONENT_SCHEMA.yaml,ACTIVE,2026-01-28
+SCHEMA-96-90-003,SCHEMA,Token Transaction Schema,96-90-tables-schemas-index/schemas/TOKEN_TRANSACTION_SCHEMA.yaml,ACTIVE,2026-01-28
+SCHEMA-96-90-004,SCHEMA,ID Grammar Schema,96-90-tables-schemas-index/schemas/ID_GRAMMAR_SCHEMA.yaml,ACTIVE,2026-01-28
+SCHEMA-96-90-005,SCHEMA,Audit Trail Schema,96-90-tables-schemas-index/schemas/AUDIT_TRAIL_SCHEMA.yaml,ACTIVE,2026-01-28
+WP-96-1000,WP,Requirements Definition,WBS/WBS_LEVEL_1.yaml,ACTIVE,2026-01-27
+WP-96-2000,WP,Design Definition,WBS/WBS_LEVEL_1.yaml,ACTIVE,2026-01-27
+WP-96-3000,WP,Verification & Validation,WBS/WBS_LEVEL_1.yaml,ACTIVE,2026-01-27
+WP-96-4000,WP,Certification,WBS/WBS_LEVEL_1.yaml,ACTIVE,2026-01-27
+SEC-96-10,SECTION,Identifier Grammar & Namespaces,96-10-identifier-grammar-namespaces/,ACTIVE,2026-01-28
+SEC-96-20,SECTION,Schema Registry & Canonical Models,96-20-schema-registry-and-canonical-models/,ACTIVE,2026-01-28
+SEC-96-30,SECTION,Ledger Anchoring & Hash Chain,96-30-ledger-anchoring-hash-chain/,ACTIVE,2026-01-28
+SEC-96-40,SECTION,DPP SBOM & Config Effectivity,96-40-dpp-sbom-and-config-effectivity/,ACTIVE,2026-01-28
+SEC-96-50,SECTION,Audit Evidence & Signoffs,96-50-audit-evidence-packs-and-signoffs/,ACTIVE,2026-01-28
+SEC-96-60,SECTION,Export & Publishing Contracts,96-60-export-publishing-contracts/,ACTIVE,2026-01-28
+SEC-96-70,SECTION,Governance Policies & Rules,96-70-governance-policies-and-rules/,ACTIVE,2026-01-28
+SEC-96-80,SECTION,Security Privacy & Access Control,96-80-security-privacy-and-access-control/,ACTIVE,2026-01-28

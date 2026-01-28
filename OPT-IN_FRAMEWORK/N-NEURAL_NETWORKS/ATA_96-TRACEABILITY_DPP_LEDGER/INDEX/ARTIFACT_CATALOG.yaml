@@ -1,5 +1,196 @@
 catalog:
   chapter: "96"
   title: "TRACEABILITY DPP LEDGER"
-  artifacts: []
-  last_updated: "2026-01-27"
+  artifacts:
+    # WBS Artifacts
+    - id: "ART-96-WBS-001"
+      type: "WBS"
+      title: "WBS Level 1"
+      location: "WBS/WBS_LEVEL_1.yaml"
+      status: "Baseline"
+      created: "2026-01-27"
+      updated: "2026-01-27"
+      
+    - id: "ART-96-WBS-002"
+      type: "WBS"
+      title: "WBS Level 2"
+      location: "WBS/WBS_LEVEL_2.yaml"
+      status: "Baseline"
+      created: "2026-01-27"
+      updated: "2026-01-27"
+      
+    - id: "ART-96-WBS-003"
+      type: "WBS"
+      title: "WBS Level 3"
+      location: "WBS/WBS_LEVEL_3.yaml"
+      status: "Active"
+      created: "2026-01-28"
+      updated: "2026-01-28"
+      description: "48 detailed work packages with dependencies and milestones"
+      
+    # System Documents
+    - id: "ART-96-SYS-001"
+      type: "System Definition"
+      title: "System Mission"
+      location: "WBS/SYSTEM_MISSION.md"
+      status: "Baseline"
+      created: "2026-01-27"
+      
+    - id: "ART-96-SYS-002"
+      type: "System Definition"
+      title: "System Vision"
+      location: "WBS/SYSTEM_VISION.md"
+      status: "Baseline"
+      created: "2026-01-27"
+      
+    - id: "ART-96-SYS-003"
+      type: "System Definition"
+      title: "System Objectives"
+      location: "WBS/SYSTEM_OBJECTIVES.md"
+      status: "Baseline"
+      created: "2026-01-28"
+      description: "10 measurable objectives with targets and metrics"
+      
+    # Database Schemas
+    - id: "ART-96-SCH-001"
+      type: "Schema"
+      title: "Ledger Entry Schema"
+      location: "96-90-tables-schemas-index/schemas/LEDGER_ENTRY_SCHEMA.yaml"
+      status: "Active"
+      version: "1.0.0"
+      created: "2026-01-28"
+      description: "Immutable ledger with hash chain and blockchain anchoring"
+      
+    - id: "ART-96-SCH-002"
+      type: "Schema"
+      title: "DPP Component Schema"
+      location: "96-90-tables-schemas-index/schemas/DPP_COMPONENT_SCHEMA.yaml"
+      status: "Active"
+      version: "1.0.0"
+      created: "2026-01-28"
+      description: "EU regulation compliant Digital Product Passport"
+      
+    - id: "ART-96-SCH-003"
+      type: "Schema"
+      title: "Token Transaction Schema"
+      location: "96-90-tables-schemas-index/schemas/TOKEN_TRANSACTION_SCHEMA.yaml"
+      status: "Active"
+      version: "1.0.0"
+      created: "2026-01-28"
+      description: "Teknia Token incentive tracking"
+      
+    - id: "ART-96-SCH-004"
+      type: "Schema"
+      title: "ID Grammar Schema"
+      location: "96-90-tables-schemas-index/schemas/ID_GRAMMAR_SCHEMA.yaml"
+      status: "Active"
+      version: "1.0.0"
+      created: "2026-01-28"
+      description: "URN namespace registry and cross-system mapping"
+      
+    - id: "ART-96-SCH-005"
+      type: "Schema"
+      title: "Audit Trail Schema"
+      location: "96-90-tables-schemas-index/schemas/AUDIT_TRAIL_SCHEMA.yaml"
+      status: "Active"
+      version: "1.0.0"
+      created: "2026-01-28"
+      description: "Comprehensive audit and compliance evidence"
+      
+    # Section READMEs
+    - id: "ART-96-SEC-010"
+      type: "Section Documentation"
+      title: "96-10 Identifier Grammar & Namespaces"
+      location: "96-10-identifier-grammar-namespaces/README.md"
+      status: "Active"
+      created: "2026-01-28"
+      
+    - id: "ART-96-SEC-020"
+      type: "Section Documentation"
+      title: "96-20 Schema Registry & Canonical Models"
+      location: "96-20-schema-registry-and-canonical-models/README.md"
+      status: "Active"
+      created: "2026-01-28"
+      
+    - id: "ART-96-SEC-030"
+      type: "Section Documentation"
+      title: "96-30 Ledger Anchoring & Hash Chain"
+      location: "96-30-ledger-anchoring-hash-chain/README.md"
+      status: "Active"
+      created: "2026-01-28"
+      
+    - id: "ART-96-SEC-040"
+      type: "Section Documentation"
+      title: "96-40 DPP, SBOM & Config Effectivity"
+      location: "96-40-dpp-sbom-and-config-effectivity/README.md"
+      status: "Active"
+      created: "2026-01-28"
+      
+    - id: "ART-96-SEC-050"
+      type: "Section Documentation"
+      title: "96-50 Audit Evidence & Digital Signoffs"
+      location: "96-50-audit-evidence-packs-and-signoffs/README.md"
+      status: "Active"
+      created: "2026-01-28"
+      
+    - id: "ART-96-SEC-060"
+      type: "Section Documentation"
+      title: "96-60 Export & Publishing Contracts"
+      location: "96-60-export-publishing-contracts/README.md"
+      status: "Active"
+      created: "2026-01-28"
+      
+    - id: "ART-96-SEC-070"
+      type: "Section Documentation"
+      title: "96-70 Governance Policies & Rules"
+      location: "96-70-governance-policies-and-rules/README.md"
+      status: "Active"
+      created: "2026-01-28"
+      
+    - id: "ART-96-SEC-080"
+      type: "Section Documentation"
+      title: "96-80 Security, Privacy & Access Control"
+      location: "96-80-security-privacy-and-access-control/README.md"
+      status: "Active"
+      created: "2026-01-28"
+      
+    # GENESIS Folders (summary)
+    - id: "ART-96-GEN-000"
+      type: "GENESIS"
+      title: "GENESIS Uncertainty Discovery Framework"
+      location: "*/GENESIS/"
+      status: "Active"
+      created: "2026-01-28"
+      description: "10 GENESIS folders across all sections, 25 KNOTs identified"
+      
+    # Conventions
+    - id: "ART-96-CONV-001"
+      type: "Convention"
+      title: "Naming Conventions"
+      location: "NAMING_CONVENTIONS.md"
+      status: "Active"
+      
+    - id: "ART-96-CONV-002"
+      type: "Convention"
+      title: "Traceability Conventions"
+      location: "TRACEABILITY_CONVENTIONS.md"
+      status: "Active"
+      
+    # Governance
+    - id: "ART-96-GOV-001"
+      type: "Governance"
+      title: "Governance Framework"
+      location: "GOVERNANCE/"
+      status: "Active"
+      description: "Change control, approvals, incentives, releases"
+
+  statistics:
+    total_artifacts: 27
+    schemas: 5
+    wbs_levels: 3
+    sections: 10
+    genesis_folders: 10
+    knots_identified: 25
+    
+  last_updated: "2026-01-28"
+  update_notes: "Phase 1-8 scaffold implementation complete"
