@@ -1,3 +1,6 @@
+# WBS Level 2 — ATA 96 (TRACEABILITY DPP LEDGER)
+# Second-level decomposition (sub-deliverables)
+
 wbs:
   chapter: "96"
   title: "TRACEABILITY DPP LEDGER"
@@ -7,3 +10,40 @@ wbs:
       children:
         - id: WP-96-1100
           title: "System Requirements"
+        - id: WP-96-1200
+          title: "Interface Requirements"
+        - id: WP-96-1300
+          title: "Data Requirements"
+        - id: WP-96-1400
+          title: "Security Requirements"
+          
+    - parent: WP-96-2000
+      children:
+        - id: WP-96-2100
+          title: "Architecture Design"
+        - id: WP-96-2200
+          title: "Ledger Design"
+        - id: WP-96-2300
+          title: "DPP Schema Design"
+        - id: WP-96-2400
+          title: "Integration Design"
+          
+    - parent: WP-96-3000
+      children:
+        - id: WP-96-3100
+          title: "Unit Testing"
+        - id: WP-96-3200
+          title: "Integration Testing"
+        - id: WP-96-3300
+          title: "Traceability Validation"
+        - id: WP-96-3400
+          title: "Security Testing"
+          
+    - parent: WP-96-4000
+      children:
+        - id: WP-96-4100
+          title: "Compliance Matrix"
+        - id: WP-96-4200
+          title: "Certification Package"
+        - id: WP-96-4300
+          title: "Audit Trail Documentation"

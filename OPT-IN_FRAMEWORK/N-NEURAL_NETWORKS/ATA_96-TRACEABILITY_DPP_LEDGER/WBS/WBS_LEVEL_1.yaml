@@ -1,3 +1,6 @@
+# WBS Level 1 — ATA 96 (TRACEABILITY DPP LEDGER)
+# Top-level work packages (major deliverables)
+
 wbs:
   chapter: "96"
   title: "TRACEABILITY DPP LEDGER"
@@ -5,9 +8,20 @@ wbs:
   packages:
     - id: WP-96-1000
       title: "Requirements Definition"
+      description: "Digital Product Passport and traceability ledger system requirements specification"
+      owner: TBD
+      
     - id: WP-96-2000
       title: "Design Definition"
+      description: "DPP and ledger system architecture and detailed design documentation"
+      owner: TBD
+      
     - id: WP-96-3000
       title: "Verification & Validation"
+      description: "Test procedures, traceability validation, and compliance evidence"
+      owner: TBD
+      
     - id: WP-96-4000
       title: "Certification"
+      description: "Regulatory compliance demonstration and certification package"
+      owner: TBD
