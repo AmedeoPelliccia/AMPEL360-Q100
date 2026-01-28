@@ -24,7 +24,9 @@ Establish and maintain a comprehensive Digital Product Passport (DPP) and tracea
 |-------------|----------|
 | Design Authority | System definition and architecture |
 | Operations | Operational traceability and monitoring |
+| Manufacturing | As-built records and material provenance tracking |
 | Maintenance | Component history and maintenance records |
 | Certification | Compliance evidence and audit trails |
 | Supply Chain | Material provenance and sourcing |
+| Finance | Token tracking and incentive distribution |
 | Regulatory Bodies | Compliance with DPP regulations |

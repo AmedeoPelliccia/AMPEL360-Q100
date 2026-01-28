@@ -22,7 +22,6 @@ wbs:
         - id: WP-96-2100
           title: "Architecture Design"
         - id: WP-96-2200
-        
           title: "Ledger Design"
         - id: WP-96-2300
           title: "DPP Schema Design"

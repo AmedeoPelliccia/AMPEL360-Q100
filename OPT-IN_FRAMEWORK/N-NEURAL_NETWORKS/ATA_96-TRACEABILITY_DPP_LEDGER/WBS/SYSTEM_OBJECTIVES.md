@@ -8,7 +8,7 @@
 
 ## Measurable Goals
 
-q| Objective | Metric | Target | Rationale |
+| Objective | Metric | Target | Rationale |
 |-----------|--------|--------|-----------|
 | OBJ-001 | Component Traceability Coverage | 100% | Every component must be tracked throughout lifecycle |
 | OBJ-002 | Data Immutability | 100% | No unauthorized modifications to historical records |

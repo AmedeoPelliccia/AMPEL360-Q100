@@ -18,7 +18,7 @@ wbs:
       
     - id: WP-96-3000
       title: "Verification & Validation"
-      description: "Test procedures and evidence for traceability system"
+      description: "Test procedures, traceability validation, and compliance evidence"
       owner: TBD
       
     - id: WP-96-4000
