@@ -8,6 +8,8 @@ GitHub Actions workflows can access different contexts at various levels. This r
 
 ## Quick Reference Table
 
+**Note:** The "Special Functions" column lists commonly used functions for each key. All expression functions are available wherever expressions are evaluated (see [Special Functions Reference](#special-functions-reference) for details).
+
 | Workflow Key | Context | Special Functions |
 |-------------|---------|------------------|
 | run-name | github, inputs, vars | None |
@@ -191,7 +193,7 @@ Sets environment variables for all steps in the job.
 | **Available Contexts** | `github`, `needs`, `strategy`, `matrix`, `secrets`, `inputs`, `vars` |
 | **Special Functions** | `hashFiles()` |
 | **Description** | Job-level environment variables |
-| **Example** | `env: BUILD_CONFIG: ${{ matrix.config }}` |
+| **Example** | `env:`<br>`  BUILD_CONFIG: ${{ matrix.config }}` |
 
 ### jobs.<job_id>.if
 
@@ -239,7 +241,7 @@ Sets environment variables for a specific step.
 | **Available Contexts** | `github`, `needs`, `strategy`, `matrix`, `job`, `runner`, `env`, `steps`, `secrets`, `inputs`, `vars` |
 | **Special Functions** | `hashFiles()`, `toJSON()`, `fromJSON()` |
 | **Description** | Step-level environment variables |
-| **Example** | `env: RESULT: ${{ steps.test.outputs.result }}` |
+| **Example** | `env:`<br>`  RESULT: ${{ steps.test.outputs.result }}` |
 
 ### jobs.<job_id>.steps[*].with
 
@@ -292,7 +294,7 @@ Defines outputs that can be used by dependent jobs.
 | **Available Contexts** | `steps` |
 | **Special Functions** | None |
 | **Description** | Makes step outputs available to other jobs |
-| **Example** | `outputs: version: ${{ steps.get-version.outputs.version }}` |
+| **Example** | `outputs:`<br>`  version: ${{ steps.get-version.outputs.version }}` |
 
 ## Special Functions Reference
 
