@@ -13,12 +13,12 @@ GitHub Actions workflows can access different contexts at various levels. This r
 | run-name | github, inputs, vars | None |
 | concurrency | github, inputs, vars | None |
 | env | github, secrets, inputs, vars | None |
-| jobs.<job_id> | github, needs, strategy, matrix, secrets, inputs, vars | hashFiles(), format(), toJSON(), fromJSON() |
+| jobs.<job_id> | github, needs, strategy, matrix, secrets, inputs, vars | hashFiles(), format(), toJSON(), fromJSON(), contains(), startsWith(), endsWith(), join() |
 | jobs.<job_id>.runs-on | github, needs, strategy, matrix, inputs, vars | None |
 | jobs.<job_id>.environment | github, needs, strategy, matrix, inputs, vars | None |
 | jobs.<job_id>.concurrency | github, needs, strategy, matrix, inputs, vars | None |
 | jobs.<job_id>.env | github, needs, strategy, matrix, secrets, inputs, vars | hashFiles() |
-| jobs.<job_id>.if | github, needs, inputs, vars | always(), success(), failure(), cancelled(), contains(), startsWith(), endsWith() |
+| jobs.<job_id>.if | github, needs, strategy, matrix, inputs, vars | always(), success(), failure(), cancelled(), contains(), startsWith(), endsWith() |
 | jobs.<job_id>.steps[*].if | github, needs, strategy, matrix, steps, job, runner, env, secrets, inputs, vars | always(), success(), failure(), cancelled(), hashFiles() |
 | jobs.<job_id>.steps[*].env | github, needs, strategy, matrix, job, runner, env, steps, secrets, inputs, vars | hashFiles(), toJSON(), fromJSON() |
 | jobs.<job_id>.steps[*].with | github, needs, strategy, matrix, job, runner, env, steps, secrets, inputs, vars | hashFiles(), toJSON(), fromJSON() |
@@ -124,12 +124,15 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
     env:
-      CACHE_KEY: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+      BUILD_ENV: production
+      BRANCH_NAME: ${{ github.ref_name }}
 ```
+
+**Note:** The `runner` context is not available at job level. Use step-level env to access `runner.os` and similar properties.
 
 ### jobs.<job_id>.runs-on
 
-Specifies the type of runner that the job will execute on.
+Specifies the type of runner that executes the job.
 
 | Property | Details |
 |----------|---------|
@@ -160,8 +163,10 @@ Specifies the environment that the job references.
 ```yaml
 environment:
   name: ${{ inputs.environment }}
-  url: https://${{ steps.deploy.outputs.url }}
+  url: https://app-${{ github.ref_name }}.example.com
 ```
+
+**Note:** The `url` field is evaluated at job definition time and cannot reference step outputs. Use contexts available at job level (github, needs, strategy, matrix, inputs, vars).
 
 ### jobs.<job_id>.concurrency
 
@@ -558,7 +563,7 @@ jobs:
   deploy:
     environment:
       name: ${{ github.ref_name == 'main' && 'production' || 'staging' }}
-      url: ${{ steps.deploy.outputs.url }}
+      url: https://app-${{ github.ref_name }}.example.com
 ```
 
 ### Conditional Step Execution
