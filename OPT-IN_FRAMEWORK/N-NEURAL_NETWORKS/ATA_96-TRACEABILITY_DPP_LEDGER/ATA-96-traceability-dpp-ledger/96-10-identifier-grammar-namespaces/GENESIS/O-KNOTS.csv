@@ -1,3 +1,5 @@
 knot_id,title,description,source,priority,status,discovered_date,assigned_to,graduation_candidate
 # Format: O-KNOT-96-XX-###
 # Example: O-KNOT-96-10-001,Legacy ID collision risk,Risk of ID collisions with legacy systems,Prior project analysis,HIGH,OPEN,2026-01-28,TBD,false
+O-KNOT-96-10-001,Legacy ID migration complexity,Complex mapping from legacy part numbering systems with inconsistent formats,Prior ERP migration experience,HIGH,OPEN,2026-01-28,TBD,false
+O-KNOT-96-10-002,Manual ID entry errors,Historical data shows 2-3% error rate in manual ID entry,Quality audit findings,MEDIUM,OPEN,2026-01-28,TBD,false

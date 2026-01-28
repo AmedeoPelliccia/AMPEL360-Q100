@@ -1,3 +1,9 @@
 knot_id,title,description,source,priority,status,discovered_date,assigned_to,graduation_candidate
 # Format: Y-KNOT-96-XX-###
 # Example: Y-KNOT-96-10-001,Namespace compliance with ISO standard,Need to verify namespace design complies with ISO/IEC standards,Requirements analysis,MEDIUM,OPEN,2026-01-28,TBD,false
+Y-KNOT-96-40-001,Define DPP data model EU compliance,Ensure DPP data model complies with EU Battery Regulation (2023/1542) and proposed ESPR requirements,EU Battery Regulation 2023/1542,CRITICAL,OPEN,2026-01-28,TBD,true
+Y-KNOT-96-40-002,Establish SBOM format,Select SBOM format standard (SPDX vs CycloneDX) with rationale and tool compatibility,WP-96-2320 SBOM Integration,HIGH,OPEN,2026-01-28,TBD,true
+Y-KNOT-96-40-003,Define effectivity representation,Design data structure for configuration effectivity (as-designed as-built as-maintained),WP-96-2330 Configuration Effectivity,HIGH,OPEN,2026-01-28,TBD,true
+Y-KNOT-96-40-004,Carbon footprint calculation method,Select methodology for carbon footprint calculation (ISO 14067 vs PAS 2050 vs GHG Protocol),OBJ-006 Material Provenance,MEDIUM,OPEN,2026-01-28,TBD,false
+Y-KNOT-96-40-005,Material provenance tier depth,Determine supply chain tracking depth (tier 1 only vs tier 2+ vs raw material origin),OBJ-006 Material Provenance,MEDIUM,OPEN,2026-01-28,TBD,false
+Y-KNOT-96-40-006,Circularity score algorithm,Define algorithm for calculating circularity score (0-100 scale),Sustainability requirements,LOW,OPEN,2026-01-28,TBD,false

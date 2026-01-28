@@ -1,3 +1,6 @@
 knot_id,title,description,source,priority,status,discovered_date,assigned_to,graduation_candidate
 # Format: O-KNOT-96-XX-###
 # Example: O-KNOT-96-10-001,Legacy ID collision risk,Risk of ID collisions with legacy systems,Prior project analysis,HIGH,OPEN,2026-01-28,TBD,false
+O-KNOT-96-30-001,Blockchain performance at scale,Prior blockchain POCs showed performance degradation at >10000 TPS,Previous blockchain project,HIGH,OPEN,2026-01-28,TBD,false
+O-KNOT-96-30-002,Smart contract gas cost volatility,Ethereum gas costs highly variable impacting anchoring cost predictability,Industry experience,MEDIUM,OPEN,2026-01-28,TBD,false
+O-KNOT-96-30-003,Chain reorganization risk,Public blockchains susceptible to chain reorgs invalidating recent anchors,Blockchain fundamentals,MEDIUM,OPEN,2026-01-28,TBD,false

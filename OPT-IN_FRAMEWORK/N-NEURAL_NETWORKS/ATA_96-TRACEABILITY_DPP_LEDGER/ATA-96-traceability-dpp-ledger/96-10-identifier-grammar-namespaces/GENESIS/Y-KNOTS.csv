@@ -1,3 +1,8 @@
 knot_id,title,description,source,priority,status,discovered_date,assigned_to,graduation_candidate
 # Format: Y-KNOT-96-XX-###
 # Example: Y-KNOT-96-10-001,Namespace compliance with ISO standard,Need to verify namespace design complies with ISO/IEC standards,Requirements analysis,MEDIUM,OPEN,2026-01-28,TBD,false
+Y-KNOT-96-10-001,Define URN namespace hierarchy,Establish complete URN namespace hierarchy for all entity types in ATA 96 system,OBJ-001 Component Traceability Coverage,HIGH,OPEN,2026-01-28,TBD,true
+Y-KNOT-96-10-002,Establish collision-free ID generation,Select and implement ID generation algorithm ensuring zero collision probability,OBJ-001 Component Traceability Coverage,HIGH,OPEN,2026-01-28,TBD,true
+Y-KNOT-96-10-003,Define ID versioning scheme,Create versioning scheme for evolving identifiers with backward compatibility,Requirements analysis,MEDIUM,OPEN,2026-01-28,TBD,true
+Y-KNOT-96-10-004,Establish cross-system ID mapping,Define bidirectional mapping strategy for external system IDs (ERP PLM MES),WP-96-1220 Interface Requirements,HIGH,OPEN,2026-01-28,TBD,true
+Y-KNOT-96-10-005,ISO/IEC URN compliance,Verify URN design complies with ISO/IEC 21778 (URN namespace definition),Standards review,MEDIUM,OPEN,2026-01-28,TBD,false

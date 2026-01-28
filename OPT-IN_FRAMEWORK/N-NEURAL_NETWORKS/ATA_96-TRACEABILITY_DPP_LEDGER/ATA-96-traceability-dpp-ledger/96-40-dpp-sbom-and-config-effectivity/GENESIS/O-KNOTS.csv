@@ -1,3 +1,6 @@
 knot_id,title,description,source,priority,status,discovered_date,assigned_to,graduation_candidate
 # Format: O-KNOT-96-XX-###
 # Example: O-KNOT-96-10-001,Legacy ID collision risk,Risk of ID collisions with legacy systems,Prior project analysis,HIGH,OPEN,2026-01-28,TBD,false
+O-KNOT-96-40-001,Supply chain data quality,Historical supply chain data often incomplete or inconsistent across tiers,Industry experience,HIGH,OPEN,2026-01-28,TBD,false
+O-KNOT-96-40-002,Material certificate digitization,Many material certificates still paper-based requiring manual digitization,Current state analysis,MEDIUM,OPEN,2026-01-28,TBD,false
+O-KNOT-96-40-003,Maintenance data integration,Maintenance history scattered across multiple legacy CMMS systems,Prior integration experience,MEDIUM,OPEN,2026-01-28,TBD,false

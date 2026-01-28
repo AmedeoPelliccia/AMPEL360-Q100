@@ -1,3 +1,9 @@
 knot_id,title,description,source,priority,status,discovered_date,assigned_to,graduation_candidate
 # Format: Y-KNOT-96-XX-###
 # Example: Y-KNOT-96-10-001,Namespace compliance with ISO standard,Need to verify namespace design complies with ISO/IEC standards,Requirements analysis,MEDIUM,OPEN,2026-01-28,TBD,false
+Y-KNOT-96-30-001,Select hash algorithm,Choose cryptographic hash algorithm (SHA-256 vs SHA-3 vs BLAKE3) with security and performance analysis,OBJ-005 Data Integrity Verification,CRITICAL,OPEN,2026-01-28,TBD,true
+Y-KNOT-96-30-002,Define anchoring frequency,Determine optimal frequency for blockchain anchoring (real-time batch daily),WP-96-2220 Blockchain Anchoring,HIGH,OPEN,2026-01-28,TBD,true
+Y-KNOT-96-30-003,Select blockchain/DLT platform,Evaluate and select DLT platform (Hyperledger Fabric Ethereum Polygon private blockchain),WP-96-1230 Blockchain Interface,CRITICAL,OPEN,2026-01-28,TBD,true
+Y-KNOT-96-30-004,Define consensus requirements,Establish consensus mechanism and multi-party approval requirements,OBJ-002 Data Immutability,HIGH,OPEN,2026-01-28,TBD,true
+Y-KNOT-96-30-005,Genesis block initialization,Define genesis block structure and initialization procedure,WP-96-2210 Hash Chain Implementation,MEDIUM,OPEN,2026-01-28,TBD,false
+Y-KNOT-96-30-006,Merkle tree batching strategy,Design Merkle tree batching for efficient anchoring of multiple entries,OBJ-010 Blockchain Synchronization,MEDIUM,OPEN,2026-01-28,TBD,false

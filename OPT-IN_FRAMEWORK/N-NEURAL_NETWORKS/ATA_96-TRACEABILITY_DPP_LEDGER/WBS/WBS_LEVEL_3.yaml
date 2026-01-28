@@ -1,0 +1,507 @@
+# WBS Level 3 — ATA 96 (TRACEABILITY DPP LEDGER)
+# Third-level decomposition (detailed work packages)
+
+wbs:
+  chapter: "96"
+  title: "TRACEABILITY DPP LEDGER"
+  level: 3
+  packages:
+    # Requirements Definition (WP-96-1000)
+    - parent: WP-96-1100
+      title: "System Requirements"
+      children:
+        - id: WP-96-1110
+          title: "Functional Requirements Definition"
+          description: "Define functional requirements for ledger, DPP, and traceability"
+          deliverables:
+            - "Functional Requirements Specification (FRS)"
+            - "Use Case Documentation"
+            - "User Stories"
+          
+        - id: WP-96-1120
+          title: "Non-Functional Requirements"
+          description: "Performance, scalability, availability requirements"
+          deliverables:
+            - "Non-Functional Requirements Document"
+            - "SLA Definitions"
+            - "Capacity Planning"
+          
+        - id: WP-96-1130
+          title: "Requirements Traceability"
+          description: "Establish requirements traceability matrix"
+          deliverables:
+            - "Requirements Traceability Matrix (RTM)"
+            - "Requirements to Objectives Mapping"
+            
+    - parent: WP-96-1200
+      title: "Interface Requirements"
+      children:
+        - id: WP-96-1210
+          title: "API Specifications"
+          description: "RESTful API and GraphQL interface definitions"
+          deliverables:
+            - "OpenAPI/Swagger Specifications"
+            - "GraphQL Schema Definitions"
+            - "API Design Guidelines"
+          
+        - id: WP-96-1220
+          title: "External System Integration"
+          description: "Integration requirements for ERP, PLM, MES, CMMS"
+          deliverables:
+            - "Integration Requirements Document"
+            - "Interface Control Documents (ICDs)"
+            - "Data Exchange Formats"
+          
+        - id: WP-96-1230
+          title: "Blockchain Interface"
+          description: "DLT/blockchain integration specifications"
+          deliverables:
+            - "Smart Contract Requirements"
+            - "Anchoring Protocol Specification"
+            - "Consensus Mechanism Selection"
+            
+    - parent: WP-96-1300
+      title: "Data Requirements"
+      children:
+        - id: WP-96-1310
+          title: "Data Model Definition"
+          description: "Conceptual and logical data models"
+          deliverables:
+            - "Entity-Relationship Diagrams"
+            - "Logical Data Model"
+            - "Data Dictionary"
+          
+        - id: WP-96-1320
+          title: "Data Quality Requirements"
+          description: "Data validation, accuracy, completeness rules"
+          deliverables:
+            - "Data Quality Standards"
+            - "Validation Rule Catalog"
+            - "Data Governance Policies"
+          
+        - id: WP-96-1330
+          title: "Data Retention and Archival"
+          description: "Retention policies, archival strategies"
+          deliverables:
+            - "Data Retention Policy"
+            - "Archival Strategy Document"
+            - "GDPR Compliance Plan"
+            
+    - parent: WP-96-1400
+      title: "Security Requirements"
+      children:
+        - id: WP-96-1410
+          title: "Authentication and Authorization"
+          description: "User authentication, role-based access control"
+          deliverables:
+            - "Authentication Specification"
+            - "Authorization Model (RBAC/ABAC)"
+            - "IAM Integration Plan"
+          
+        - id: WP-96-1420
+          title: "Encryption Requirements"
+          description: "Data encryption at rest and in transit"
+          deliverables:
+            - "Encryption Standards Document"
+            - "Key Management Specification"
+            - "TLS Configuration Guide"
+          
+        - id: WP-96-1430
+          title: "Security Monitoring"
+          description: "SIEM integration, threat detection"
+          deliverables:
+            - "Security Monitoring Requirements"
+            - "SIEM Integration Specification"
+            - "Incident Response Plan"
+
+    # Design Definition (WP-96-2000)
+    - parent: WP-96-2100
+      title: "Architecture Design"
+      children:
+        - id: WP-96-2110
+          title: "System Architecture"
+          description: "Overall system architecture and component design"
+          deliverables:
+            - "System Architecture Document (SAD)"
+            - "Component Diagrams"
+            - "Deployment Architecture"
+          
+        - id: WP-96-2120
+          title: "Microservices Design"
+          description: "Microservices decomposition and communication"
+          deliverables:
+            - "Service Catalog"
+            - "Service Communication Patterns"
+            - "Service Mesh Design"
+          
+        - id: WP-96-2130
+          title: "Data Architecture"
+          description: "Database design, data flow, data lake/warehouse"
+          deliverables:
+            - "Physical Data Model"
+            - "Database Design Document"
+            - "Data Flow Diagrams"
+            
+    - parent: WP-96-2200
+      title: "Ledger Design"
+      children:
+        - id: WP-96-2210
+          title: "Hash Chain Implementation"
+          description: "Cryptographic hash chain design"
+          deliverables:
+            - "Hash Chain Algorithm Specification"
+            - "Genesis Block Definition"
+            - "Chain Validation Logic"
+          
+        - id: WP-96-2220
+          title: "Blockchain Anchoring"
+          description: "DLT anchoring mechanism design"
+          deliverables:
+            - "Anchoring Service Design"
+            - "Smart Contract Design"
+            - "Merkle Tree Batching Logic"
+          
+        - id: WP-96-2230
+          title: "Ledger Query and Indexing"
+          description: "Efficient ledger querying and indexing"
+          deliverables:
+            - "Query Optimization Design"
+            - "Indexing Strategy"
+            - "Search API Design"
+            
+    - parent: WP-96-2300
+      title: "DPP Schema Design"
+      children:
+        - id: WP-96-2310
+          title: "DPP Data Model"
+          description: "Digital Product Passport data structure"
+          deliverables:
+            - "DPP JSON Schema"
+            - "DPP XML Schema (XSD)"
+            - "DPP Validation Rules"
+          
+        - id: WP-96-2320
+          title: "SBOM Integration"
+          description: "Software Bill of Materials format and integration"
+          deliverables:
+            - "SBOM Format Selection (SPDX/CycloneDX)"
+            - "SBOM Generation Logic"
+            - "Vulnerability Tracking Design"
+          
+        - id: WP-96-2330
+          title: "Configuration Effectivity"
+          description: "As-designed, as-built, as-maintained tracking"
+          deliverables:
+            - "Effectivity Rules Engine Design"
+            - "Configuration Change Management"
+            - "Version Control Strategy"
+            
+    - parent: WP-96-2400
+      title: "Integration Design"
+      children:
+        - id: WP-96-2410
+          title: "API Gateway Design"
+          description: "API gateway for external access"
+          deliverables:
+            - "API Gateway Architecture"
+            - "Rate Limiting and Throttling"
+            - "API Security Design"
+          
+        - id: WP-96-2420
+          title: "Event Streaming"
+          description: "Event-driven architecture and streaming"
+          deliverables:
+            - "Event Schema Definitions"
+            - "Kafka/Pulsar Topic Design"
+            - "Event Sourcing Pattern"
+          
+        - id: WP-96-2430
+          title: "Legacy System Adapters"
+          description: "Adapters for legacy systems integration"
+          deliverables:
+            - "Adapter Design Specifications"
+            - "Data Transformation Logic"
+            - "Error Handling and Retry"
+
+    # Verification & Validation (WP-96-3000)
+    - parent: WP-96-3100
+      title: "Unit Testing"
+      children:
+        - id: WP-96-3110
+          title: "Service Unit Tests"
+          description: "Unit testing for microservices"
+          deliverables:
+            - "Unit Test Suite"
+            - "Test Coverage Report (>80%)"
+            - "Mocking Framework Setup"
+          
+        - id: WP-96-3120
+          title: "Database Unit Tests"
+          description: "Schema validation, constraint testing"
+          deliverables:
+            - "Database Test Scripts"
+            - "Data Validation Tests"
+            - "Migration Testing"
+          
+        - id: WP-96-3130
+          title: "Smart Contract Tests"
+          description: "Blockchain smart contract unit tests"
+          deliverables:
+            - "Smart Contract Test Suite"
+            - "Gas Optimization Tests"
+            - "Security Vulnerability Tests"
+            
+    - parent: WP-96-3200
+      title: "Integration Testing"
+      children:
+        - id: WP-96-3210
+          title: "API Integration Tests"
+          description: "End-to-end API testing"
+          deliverables:
+            - "API Integration Test Suite"
+            - "Postman/Newman Collections"
+            - "Contract Testing (Pact)"
+          
+        - id: WP-96-3220
+          title: "System Integration Tests"
+          description: "Cross-service integration testing"
+          deliverables:
+            - "Integration Test Scenarios"
+            - "Test Data Management"
+            - "Environment Configuration"
+          
+        - id: WP-96-3230
+          title: "External System Integration"
+          description: "Testing with ERP, PLM, blockchain"
+          deliverables:
+            - "External Integration Test Plan"
+            - "Mock External Services"
+            - "Integration Validation Report"
+            
+    - parent: WP-96-3300
+      title: "Traceability Validation"
+      children:
+        - id: WP-96-3310
+          title: "Hash Chain Verification"
+          description: "Validate cryptographic integrity"
+          deliverables:
+            - "Chain Validation Tests"
+            - "Tamper Detection Tests"
+            - "Performance Benchmarks"
+          
+        - id: WP-96-3320
+          title: "End-to-End Traceability"
+          description: "Validate complete traceability chains"
+          deliverables:
+            - "Traceability Test Scenarios"
+            - "Provenance Verification Tests"
+            - "Audit Trail Completeness Tests"
+          
+        - id: WP-96-3330
+          title: "DPP Compliance Validation"
+          description: "Validate DPP against regulations"
+          deliverables:
+            - "EU Regulation Compliance Tests"
+            - "Data Completeness Validation"
+            - "Format Validation Tests"
+            
+    - parent: WP-96-3400
+      title: "Security Testing"
+      children:
+        - id: WP-96-3410
+          title: "Penetration Testing"
+          description: "Ethical hacking and vulnerability assessment"
+          deliverables:
+            - "Penetration Test Report"
+            - "Vulnerability Remediation Plan"
+            - "Re-test Verification"
+          
+        - id: WP-96-3420
+          title: "Authentication and Authorization Tests"
+          description: "IAM security validation"
+          deliverables:
+            - "Access Control Test Cases"
+            - "Privilege Escalation Tests"
+            - "Session Management Tests"
+          
+        - id: WP-96-3430
+          title: "Encryption Validation"
+          description: "Verify encryption implementation"
+          deliverables:
+            - "Encryption Test Report"
+            - "Key Management Validation"
+            - "TLS Configuration Audit"
+
+    # Certification (WP-96-4000)
+    - parent: WP-96-4100
+      title: "Compliance Matrix"
+      children:
+        - id: WP-96-4110
+          title: "Requirements Compliance Matrix"
+          description: "Map requirements to verification evidence"
+          deliverables:
+            - "Compliance Traceability Matrix"
+            - "Verification Status Report"
+            - "Gap Analysis"
+          
+        - id: WP-96-4120
+          title: "Regulatory Compliance Mapping"
+          description: "Map to EASA, FAA, EU regulations"
+          deliverables:
+            - "Regulatory Compliance Matrix"
+            - "Standards Compliance Report (ISO, AS)"
+            - "Compliance Evidence Index"
+          
+        - id: WP-96-4130
+          title: "Security Compliance"
+          description: "ISO 27001, SOC 2, GDPR compliance"
+          deliverables:
+            - "Security Compliance Report"
+            - "Privacy Impact Assessment (PIA)"
+            - "GDPR Compliance Documentation"
+            
+    - parent: WP-96-4200
+      title: "Certification Package"
+      children:
+        - id: WP-96-4210
+          title: "Technical Documentation"
+          description: "Complete technical documentation set"
+          deliverables:
+            - "System Design Document"
+            - "Operations Manual"
+            - "Maintenance Manual"
+          
+        - id: WP-96-4220
+          title: "Test Evidence"
+          description: "Test reports and validation evidence"
+          deliverables:
+            - "Test Summary Report"
+            - "Verification Results"
+            - "Validation Report"
+          
+        - id: WP-96-4230
+          title: "Approval Documents"
+          description: "Formal approvals and signoffs"
+          deliverables:
+            - "PDR Approval Package"
+            - "CDR Approval Package"
+            - "TRR Sign-off Documentation"
+            
+    - parent: WP-96-4300
+      title: "Audit Trail Documentation"
+      children:
+        - id: WP-96-4310
+          title: "Audit Trail Specification"
+          description: "Define audit trail requirements and implementation"
+          deliverables:
+            - "Audit Trail Design Document"
+            - "Event Logging Standards"
+            - "Retention Policy Documentation"
+          
+        - id: WP-96-4320
+          title: "Evidence Pack Assembly"
+          description: "Assemble certification evidence packs"
+          deliverables:
+            - "Evidence Pack Template"
+            - "Compiled Evidence Packs"
+            - "Evidence Verification Report"
+          
+        - id: WP-96-4330
+          title: "Authority Submission Package"
+          description: "Prepare submission packages for authorities"
+          deliverables:
+            - "EASA Submission Package"
+            - "FAA Submission Package"
+            - "Audit Readiness Report"
+
+# Work Package Attributes
+work_package_metadata:
+  estimation_basis: "Story points and expert judgment"
+  complexity_scale: "T-shirt sizing (XS, S, M, L, XL)"
+  resource_allocation: "Per WBS_BUDGET_TT.yaml"
+  
+  typical_durations:
+    WP-96-11XX: "2-4 weeks each"
+    WP-96-12XX: "3-5 weeks each"
+    WP-96-13XX: "2-3 weeks each"
+    WP-96-14XX: "3-4 weeks each"
+    WP-96-21XX: "4-6 weeks each"
+    WP-96-22XX: "5-8 weeks each"
+    WP-96-23XX: "4-6 weeks each"
+    WP-96-24XX: "3-5 weeks each"
+    WP-96-31XX: "2-4 weeks each"
+    WP-96-32XX: "3-5 weeks each"
+    WP-96-33XX: "4-6 weeks each"
+    WP-96-34XX: "3-5 weeks each"
+    WP-96-41XX: "3-4 weeks each"
+    WP-96-42XX: "4-5 weeks each"
+    WP-96-43XX: "3-4 weeks each"
+
+# Dependencies (simplified)
+dependencies:
+  critical_path:
+    - "WP-96-1110 → WP-96-2110 → WP-96-3210 → WP-96-4110"
+    - "WP-96-1310 → WP-96-2210 → WP-96-3310 → WP-96-4210"
+  
+  parallel_streams:
+    - name: "Requirements Track"
+      packages: ["WP-96-11XX", "WP-96-12XX", "WP-96-13XX", "WP-96-14XX"]
+    - name: "Design Track"
+      packages: ["WP-96-21XX", "WP-96-22XX", "WP-96-23XX", "WP-96-24XX"]
+    - name: "Testing Track"
+      packages: ["WP-96-31XX", "WP-96-32XX", "WP-96-33XX", "WP-96-34XX"]
+    - name: "Certification Track"
+      packages: ["WP-96-41XX", "WP-96-42XX", "WP-96-43XX"]
+
+# Milestones
+milestones:
+  - id: MS-96-1
+    name: "Requirements Baseline"
+    trigger: "All WP-96-11XX, 12XX, 13XX, 14XX complete"
+    gate: "Requirements Review"
+    
+  - id: MS-96-2
+    name: "Preliminary Design Review (PDR)"
+    trigger: "All WP-96-21XX complete"
+    gate: "PDR Approval"
+    
+  - id: MS-96-3
+    name: "Critical Design Review (CDR)"
+    trigger: "All WP-96-2XXX complete"
+    gate: "CDR Approval"
+    
+  - id: MS-96-4
+    name: "Test Readiness Review (TRR)"
+    trigger: "All WP-96-3XXX complete, test environment ready"
+    gate: "TRR Approval"
+    
+  - id: MS-96-5
+    name: "Certification Ready"
+    trigger: "All WP-96-4XXX complete"
+    gate: "System Acceptance"
+
+# Risk Considerations
+risk_areas:
+  - area: "Blockchain Platform Selection (WP-96-1230, WP-96-2220)"
+    risk: "Platform maturity, vendor lock-in"
+    mitigation: "Early POC, abstraction layer, multi-platform design"
+    
+  - area: "External System Integration (WP-96-1220, WP-96-2430, WP-96-3230)"
+    risk: "Legacy system compatibility, data quality"
+    mitigation: "Early integration testing, adapter pattern, data cleansing"
+    
+  - area: "Performance at Scale (WP-96-1120, WP-96-2230)"
+    risk: "Query performance with millions of ledger entries"
+    mitigation: "Partitioning strategy, caching, load testing"
+    
+  - area: "Regulatory Compliance (WP-96-4120)"
+    risk: "Evolving regulations (EU DPP, ESPR)"
+    mitigation: "Flexible data model, regular compliance reviews"
+
+# Related Documentation
+related_docs:
+  - "WBS_LEVEL_1.yaml"
+  - "WBS_LEVEL_2.yaml"
+  - "WBS_BUDGET_TT.yaml"
+  - "SYSTEM_OBJECTIVES.md"
+  - "GOVERNANCE/CHANGE_CONTROL/README.md"
