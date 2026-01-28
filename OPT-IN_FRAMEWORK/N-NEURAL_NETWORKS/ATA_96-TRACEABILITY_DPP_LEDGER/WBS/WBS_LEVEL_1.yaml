@@ -8,7 +8,7 @@ wbs:
   packages:
     - id: WP-96-1000
       title: "Requirements Definition"
-      description: "System requirements specification for DPP and traceability ledger"
+      description: "Digital Product Passport and traceability ledger system requirements specification"
       owner: TBD
       
     - id: WP-96-2000
@@ -23,5 +23,5 @@ wbs:
       
     - id: WP-96-4000
       title: "Certification"
-      description: "Compliance demonstration for regulatory requirements"
+      description: "Regulatory compliance demonstration and certification package"
       owner: TBD

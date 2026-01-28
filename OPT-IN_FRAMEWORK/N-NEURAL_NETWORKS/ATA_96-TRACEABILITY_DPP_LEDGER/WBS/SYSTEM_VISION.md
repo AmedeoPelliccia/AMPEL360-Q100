@@ -1,24 +1,45 @@
-# System Vision — ATA 96
+# System Vision — ATA 96 (TRACEABILITY DPP LEDGER)
 
 **Chapter:** TRACEABILITY DPP LEDGER  
-**Status:** Scaffold Ready  
+**Status:** Requirements Definition  
 **Last Updated:** 2026-01-28
 
 ---
 
 ## Target End-State
 
-A fully operational, blockchain-anchored Digital Product Passport and traceability ledger system that provides real-time visibility into the complete lifecycle of every AMPEL360 Q100 component, from initial design through manufacturing, operation, maintenance, and end-of-life recycling or disposal.
+A fully integrated, blockchain-anchored Digital Product Passport and traceability ledger system that provides:
+
+### Complete Lifecycle Transparency
+- Real-time visibility of all components from design through retirement
+- Immutable records of all configuration changes and modifications
+- Full audit trail with cryptographic verification
+
+### Digital Product Passport (DPP) Capabilities
+- **Material Provenance**: Source tracking for all materials and components
+- **Configuration State**: As-designed, as-built, as-maintained tracking
+- **Sustainability Metrics**: Carbon footprint, recyclability, and circularity data
+- **Compliance Records**: Regulatory approvals, certifications, and inspections
+
+### Blockchain-Anchored Ledger
+- **Immutable Records**: SHA-256 hash chain with distributed verification
+- **Token Integration**: Teknia Token (TT) distribution tracking
+- **Smart Contracts**: Automated compliance and incentive mechanisms
+- **Audit Trail**: Complete change history with timestamps and digital signatures
+
+### Integration and Accessibility
+- Seamless integration with PLM, MES, and ERP systems
+- API access for authorized stakeholders
+- Real-time dashboard and reporting capabilities
+- Mobile access for field operations
 
 ---
 
 ## Success Criteria
 
-- [ ] Requirements defined and baselined (WP-96-1000)
-- [ ] Design approved at CDR (WP-96-2000)
-- [ ] Blockchain infrastructure deployed and operational
-- [ ] DPP schema and API specifications finalized
-- [ ] Integration with finance/blockchain/ledger.json complete
-- [ ] Verification and validation complete (WP-96-3000)
-- [ ] Certification evidence submitted (WP-96-4000)
-- [ ] Full compliance with EU DPP regulations demonstrated
+- [ ] 100% component tracking from design to retirement (Traceability)
+- [ ] Zero unauthorized modifications to historical records (Immutability)
+- [ ] Real-time updates with <1 second latency (Performance)
+- [ ] 99.9% system uptime (Availability)
+- [ ] Full regulatory approval and certification (Compliance)
+- [ ] 100% stakeholder participation and data contribution (Adoption)

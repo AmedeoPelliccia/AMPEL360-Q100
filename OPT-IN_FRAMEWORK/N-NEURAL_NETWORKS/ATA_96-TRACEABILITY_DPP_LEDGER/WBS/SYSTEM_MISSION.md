@@ -1,14 +1,14 @@
-# System Mission — ATA 96
+# System Mission — ATA 96 (TRACEABILITY DPP LEDGER)
 
 **Chapter:** TRACEABILITY DPP LEDGER  
-**Status:** Scaffold Ready  
+**Status:** Requirements Definition  
 **Last Updated:** 2026-01-28
 
 ---
 
 ## Strategic Purpose
 
-This section defines the strategic purpose of the TRACEABILITY DPP LEDGER system within the AMPEL360 Q100 aircraft program.
+This system provides comprehensive traceability and digital product passport capabilities for the AMPEL360 Q100 aircraft program, enabling lifecycle transparency, regulatory compliance, and circular economy principles.
 
 ---
 

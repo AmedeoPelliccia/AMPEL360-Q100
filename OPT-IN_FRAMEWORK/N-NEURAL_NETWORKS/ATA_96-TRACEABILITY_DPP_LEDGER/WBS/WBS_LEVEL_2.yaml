@@ -12,15 +12,22 @@ wbs:
           title: "System Requirements"
         - id: WP-96-1200
           title: "Interface Requirements"
+        - id: WP-96-1300
+          title: "Data Requirements"
+        - id: WP-96-1400
+          title: "Security Requirements"
           
     - parent: WP-96-2000
       children:
         - id: WP-96-2100
           title: "Architecture Design"
         - id: WP-96-2200
-          title: "Detailed Design"
+        
+          title: "Ledger Design"
         - id: WP-96-2300
-          title: "Blockchain Integration"
+          title: "DPP Schema Design"
+        - id: WP-96-2400
+          title: "Integration Design"
           
     - parent: WP-96-3000
       children:
@@ -29,6 +36,8 @@ wbs:
         - id: WP-96-3200
           title: "Integration Testing"
         - id: WP-96-3300
+          title: "Traceability Validation"
+        - id: WP-96-3400
           title: "Security Testing"
           
     - parent: WP-96-4000
@@ -37,3 +46,5 @@ wbs:
           title: "Compliance Matrix"
         - id: WP-96-4200
           title: "Certification Package"
+        - id: WP-96-4300
+          title: "Audit Trail Documentation"
