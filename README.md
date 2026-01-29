@@ -66,14 +66,20 @@
 
 ### Mission Statement
 
-**AMPEL360 Q100** delivers a **Full Digital Information Twin Architecture (FIDITA)** for certification-grade hydrogen-electric aviation, where *knowledge* and *information* are governed as distinct domains with explicit transformation contracts.
+**AMPEL360 Q100** is a model case delivering a **Full Digital Information Twin Architecture (FIDITA)** for certification-grade hydrogen-electric aviation. It governs *knowledge* and *information* as distinct domains with explicit transformation contracts, forming a **digital intelligence layer** built on a **Digital Twin (DT)-native documentation management** paradigm:
 
-The platform implements a **Digital Twin (DT)-native documentation management** paradigm:
-- **Product DT** — Real-time synchronization between physical aircraft systems and their digital representations
-- **Documentation DT** — Living technical publications that evolve with the product lifecycle
-- **Knowledge DT** — Uncertainty-aware knowledge artifacts with full traceability to engineering truth
+| DT Domain | Scope |
+|-----------|-------|
+| **Product DT** | Continuous synchronization between physical aircraft systems and their authoritative digital representations |
+| **Documentation DT** | Living technical publications that evolve bidirectionally with the product lifecycle |
+| **Knowledge DT** | Uncertainty-aware engineering artifacts with full traceability from discovery to certification evidence |
 
-This repository contains synthetic but structurally realistic program data demonstrating the **Knowledge and Information Data Model (KI-DM)** applied to a next-generation ~100 passenger regional aircraft concept, supporting **EU Clean Aviation** and **Net-Zero objectives** through end-to-end lifecycle management with governed GENESIS transitions from exploration to execution.
+This repository provides synthetic but structurally realistic program data demonstrating the **Knowledge and Information Data Model (KI-DM)** applied to a next-generation ~100-passenger regional aircraft concept. It supports **EU Clean Aviation** and **Net-Zero objectives** through:
+
+- End-to-end lifecycle management (LC01–LC14)
+- Governed **GENESIS** transitions from exploration to execution
+- Incentive-aligned contribution via **Teknia Tokens (TT)**
+- Certification-grade auditability and traceability
 
 ### The Aircraft Concept
 
