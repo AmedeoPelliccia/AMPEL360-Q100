@@ -186,7 +186,7 @@ renderer.addOverlay(temperatureOverlay);
 ### 6.1 Gauge Components
 
 ```typescript
-import { RadialGauge, LinearGauge, ArcGauge } from 'widgets/gauges';
+import { RadialGauge, LinearGauge, ArcGauge } from './widgets/gauges';
 
 // Radial gauge for battery SOC
 <RadialGauge
@@ -206,7 +206,7 @@ import { RadialGauge, LinearGauge, ArcGauge } from 'widgets/gauges';
 ### 6.2 Chart Components
 
 ```typescript
-import { TimeSeriesChart, SparklineChart } from 'widgets/charts';
+import { TimeSeriesChart, SparklineChart } from './widgets/charts';
 
 // Time series chart for temperature history
 <TimeSeriesChart
@@ -222,7 +222,7 @@ import { TimeSeriesChart, SparklineChart } from 'widgets/charts';
 ### 6.3 Status Indicators
 
 ```typescript
-import { StatusLight, StatusBadge, AlertBanner } from 'widgets/indicators';
+import { StatusLight, StatusBadge, AlertBanner } from './widgets/indicators';
 
 // Status light for system health
 <StatusLight
@@ -274,7 +274,7 @@ aerospace:
 ### 8.1 WebSocket Connection
 
 ```typescript
-import { useDigitalTwinStream } from 'api/streaming';
+import { useDigitalTwinStream } from './api/streaming';
 
 function Dashboard() {
   const { data, status, error } = useDigitalTwinStream({
@@ -292,7 +292,7 @@ function Dashboard() {
 ### 8.2 Data Buffering
 
 ```typescript
-import { DataBuffer } from 'api/streaming';
+import { DataBuffer } from './api/streaming';
 
 // Create rolling buffer for chart data
 const buffer = new DataBuffer({
@@ -318,7 +318,7 @@ const buffer = new DataBuffer({
 ### 9.2 Alert Component
 
 ```typescript
-import { AlertPanel, AlertItem } from 'dashboards/alerts';
+import { AlertPanel, AlertItem } from './dashboards/alerts';
 
 <AlertPanel
   alerts={activeAlerts}

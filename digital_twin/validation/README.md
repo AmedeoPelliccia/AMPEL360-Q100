@@ -137,7 +137,7 @@ else:
 ### 4.2 Physical-Digital Comparison
 
 ```python
-from validation.model_validation import PhysicalDigitalComparison
+from validation.model_validation.comparison_tools import PhysicalDigitalComparison
 
 # Compare digital twin with physical measurements
 comparison = PhysicalDigitalComparison(

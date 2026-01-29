@@ -125,6 +125,9 @@ Physical System → Connector → Event Bus → Handler → Sync Manager → Mod
 The central coordination component that manages synchronization:
 
 ```python
+from datetime import datetime
+from typing import Dict, Any, List
+
 class SyncManager:
     """Central synchronization manager."""
     
@@ -153,7 +156,7 @@ class SyncManager:
         # Publish state change event
         await self.event_bus.publish(f"state.{component_id}", model.state)
         
-        return SyncResult(success=True, timestamp=utc_now())
+        return SyncResult(success=True, timestamp=datetime.utcnow())
 ```
 
 ### 4.2 Event Bus

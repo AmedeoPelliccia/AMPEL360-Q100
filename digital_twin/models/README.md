@@ -236,10 +236,10 @@ print(f"Boil-off rate: {boil_off:.3f} kg/h")
 Models receive updates through the sync engine:
 
 ```python
-from sync_engine import SyncEngine
+from sync_engine.core import SyncManager
 from models.electrical import BatteryModel
 
-sync = SyncEngine()
+sync = SyncManager()
 battery = BatteryModel("BAT-001")
 
 # Register model with sync engine
