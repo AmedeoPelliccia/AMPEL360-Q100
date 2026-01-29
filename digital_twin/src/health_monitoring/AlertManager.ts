@@ -107,6 +107,20 @@ export class AlertManager {
       data?: Record<string, unknown>;
     }
   ): Promise<Alert> {
+    // Validate inputs
+    if (!sourceId || sourceId.trim() === '') {
+      throw new Error('sourceId is required and cannot be empty');
+    }
+    if (!title || title.trim() === '') {
+      throw new Error('title is required and cannot be empty');
+    }
+    if (!message || message.trim() === '') {
+      throw new Error('message is required and cannot be empty');
+    }
+    if (!Object.values(AlertSeverity).includes(severity)) {
+      throw new Error(`Invalid severity: ${severity}`);
+    }
+    
     // Check if source is suppressed
     if (this._suppressedSources.has(sourceId)) {
       const alert: Alert = {

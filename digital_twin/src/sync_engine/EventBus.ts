@@ -174,12 +174,13 @@ export class EventBus {
     if (pattern === '*' || pattern === '#') return true;
     
     // Convert MQTT-style wildcards to regex
-    const regex = pattern
-      .replace(/\./g, '\\.')
-      .replace(/\*/g, '[^.]+')
-      .replace(/#/g, '.*');
+    // First escape all regex special characters except our wildcards
+    const escaped = pattern
+      .replace(/[.+?^${}()|[\]\\]/g, '\\$&')  // Escape regex special chars
+      .replace(/\\\*/g, '[^.]+')               // Convert * wildcard
+      .replace(/#/g, '.*');                    // Convert # wildcard
     
-    return new RegExp(`^${regex}$`).test(topic);
+    return new RegExp(`^${escaped}$`).test(topic);
   }
 
   /**

@@ -171,7 +171,28 @@ export class StateStore {
    * Import data from backup
    */
   async import(data: Record<string, StateEntry[]>): Promise<void> {
+    if (!data || typeof data !== 'object') {
+      throw new Error('Import data must be a valid object');
+    }
+    
     for (const [key, entries] of Object.entries(data)) {
+      // Validate key
+      if (typeof key !== 'string' || key.trim() === '') {
+        throw new Error(`Invalid state key: ${key}`);
+      }
+      
+      // Validate entries array
+      if (!Array.isArray(entries)) {
+        throw new Error(`Entries for key '${key}' must be an array`);
+      }
+      
+      // Validate each entry structure
+      for (const entry of entries) {
+        if (!entry.state || !entry.timestamp || typeof entry.version !== 'number') {
+          throw new Error(`Invalid entry structure for key '${key}'`);
+        }
+      }
+      
       this._states.set(key, entries);
     }
   }

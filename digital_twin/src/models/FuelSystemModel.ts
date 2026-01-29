@@ -213,9 +213,9 @@ export class FuelSystemModel extends ComponentModel {
       errors.push('Pressure exceeds safe limits');
     }
     
-    // Temperature validation
+    // Temperature validation (LH₂ boils at ~20K at 1 atm, but stored under pressure)
     if (params.temperature < 14) {
-      errors.push('Temperature below hydrogen liquefaction point');
+      errors.push('Temperature below minimum safe operating point');
     }
     if (params.temperature > 40) {
       errors.push('Temperature exceeds safe operating range');

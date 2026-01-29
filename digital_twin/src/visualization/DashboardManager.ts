@@ -264,7 +264,28 @@ export class DashboardManager {
    * Import dashboard configuration
    */
   importDashboard(jsonConfig: string): DashboardConfig {
-    const config = JSON.parse(jsonConfig) as DashboardConfig;
+    let config: DashboardConfig;
+    
+    try {
+      config = JSON.parse(jsonConfig) as DashboardConfig;
+    } catch (error) {
+      throw new Error(`Invalid JSON: ${error instanceof Error ? error.message : 'parse error'}`);
+    }
+    
+    // Validate required fields
+    if (!config.id || typeof config.id !== 'string') {
+      throw new Error('Dashboard config must have a valid id');
+    }
+    if (!config.title || typeof config.title !== 'string') {
+      throw new Error('Dashboard config must have a valid title');
+    }
+    if (!config.layout || typeof config.layout !== 'object') {
+      throw new Error('Dashboard config must have a valid layout');
+    }
+    if (!Array.isArray(config.widgets)) {
+      throw new Error('Dashboard config must have a widgets array');
+    }
+    
     this.registerDashboard(config);
     return config;
   }
