@@ -20,7 +20,7 @@
 
 ## Table of Contents
 
-1. [Executive Summary](#1-executive-summary)
+1. [Executive Summary/mission statement](#1-executive-summary)
 2. [Conceptual Architecture](#2-conceptual-architecture)
    - [2.1 The Knowledge-Information Separation Principle](#21-the-knowledge-information-separation-principle)
    - [2.2 GENESIS → KDB → IDB Flow](#22-genesis--kdb--idb-flow)
@@ -64,13 +64,16 @@
 
 ---
 
-## 1. Executive Summary
-
 ### Mission Statement
 
-**AMPEL360 Q100** delivers a **certification-grade digital information architecture** for hydrogen-electric aviation, where *knowledge* and *information* are governed as distinct domains with explicit transformation contracts.
+**AMPEL360 Q100** delivers a **Full Digital Information Twin Architecture (FIDITA)** for certification-grade hydrogen-electric aviation, where *knowledge* and *information* are governed as distinct domains with explicit transformation contracts.
 
-This repository contains synthetic but structurally realistic program data demonstrating the **Knowledge and Information Data Model (KI-DM)** applied to a next-generation ~100 passenger regional aircraft concept.
+The platform implements a **Digital Twin (DT)-native documentation management** paradigm:
+- **Product DT** — Real-time synchronization between physical aircraft systems and their digital representations
+- **Documentation DT** — Living technical publications that evolve with the product lifecycle
+- **Knowledge DT** — Uncertainty-aware knowledge artifacts with full traceability to engineering truth
+
+This repository contains synthetic but structurally realistic program data demonstrating the **Knowledge and Information Data Model (KI-DM)** applied to a next-generation ~100 passenger regional aircraft concept, supporting **EU Clean Aviation** and **Net-Zero objectives** through end-to-end lifecycle management with governed GENESIS transitions from exploration to execution.
 
 ### The Aircraft Concept
 
