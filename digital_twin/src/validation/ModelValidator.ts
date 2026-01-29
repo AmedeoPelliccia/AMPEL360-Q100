@@ -214,7 +214,6 @@ export class ModelValidator {
     // Calculate error metrics if we have matches
     if (comparison.matches.length > 0) {
       const diffs = comparison.matches.map(m => m.diff);
-      const refValues = comparison.matches.map(m => m.refValue);
       
       // MAE
       metrics.mae = diffs.reduce((a, b) => a + b, 0) / diffs.length;

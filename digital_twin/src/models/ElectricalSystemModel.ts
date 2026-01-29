@@ -7,7 +7,7 @@
  * @module digital_twin/models
  */
 
-import { ComponentModel, ComponentState, ComponentHealth, ComponentUpdate } from './ComponentModel';
+import { ComponentModel, ComponentState, ComponentHealth } from './ComponentModel';
 
 /**
  * Electrical system parameters

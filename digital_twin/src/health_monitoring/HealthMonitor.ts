@@ -7,7 +7,7 @@
  * @module digital_twin/health_monitoring
  */
 
-import { ComponentModel, ComponentHealth, ComponentState } from '../models/ComponentModel';
+import { ComponentModel, ComponentHealth } from '../models/ComponentModel';
 
 /**
  * Health status enumeration
@@ -151,7 +151,7 @@ export class HealthMonitor {
     let criticalCount = 0;
     let warningCount = 0;
     
-    for (const [id, model] of this._models) {
+    for (const model of this._models.values()) {
       const entry = this._evaluateComponent(model);
       components.push(entry);
       totalScore += entry.score;

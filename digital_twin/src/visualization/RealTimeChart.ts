@@ -127,9 +127,21 @@ export class RealTimeChart {
    * Add multiple data points
    */
   addDataPoints(seriesId: string, points: ChartDataPoint[]): void {
-    for (const point of points) {
-      this.addDataPoint(seriesId, point);
+    const series = this._series.get(seriesId);
+    if (!series || points.length === 0) return;
+
+    // Append all points at once
+    series.data.push(...points);
+
+    // Trim data if needed (keep only the most recent _maxDataPoints entries)
+    if (series.data.length > this._maxDataPoints) {
+      series.data = series.data.slice(-this._maxDataPoints);
     }
+
+    // Sort by timestamp once after bulk insertion
+    series.data.sort((a, b) =>
+      new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime()
+    );
   }
 
   /**
@@ -168,7 +180,7 @@ export class RealTimeChart {
     
     const result: Record<string, ChartDataPoint[]> = {};
     
-    for (const [id, series] of this._series) {
+    for (const id of this._series.keys()) {
       result[id] = this.getDataInRange(id, startTime, endTime);
     }
     

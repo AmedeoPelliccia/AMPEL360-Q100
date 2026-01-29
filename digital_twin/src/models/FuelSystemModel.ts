@@ -139,7 +139,6 @@ export class FuelSystemModel extends ComponentModel {
     const newState = super.update(update);
     
     // Update boil-off rate
-    const params = this._state.parameters as unknown as FuelSystemParameters;
     (this._state.parameters as Record<string, unknown>).boilOffRate = this.calculateBoilOff();
     
     return newState;

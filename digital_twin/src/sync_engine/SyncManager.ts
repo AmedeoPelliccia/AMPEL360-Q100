@@ -10,7 +10,7 @@
 import { ComponentModel, ComponentState, ComponentUpdate } from '../models/ComponentModel';
 import { BaseConnector, DataMessage } from '../connectors/BaseConnector';
 import { StateStore } from './StateStore';
-import { EventBus, EventHandler } from './EventBus';
+import { EventBus } from './EventBus';
 
 /**
  * Sync configuration

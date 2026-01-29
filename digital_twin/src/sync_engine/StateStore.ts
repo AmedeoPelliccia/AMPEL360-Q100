@@ -28,7 +28,7 @@ export interface StateEntry {
  */
 export class StateStore {
   private _states: Map<string, StateEntry[]> = new Map();
-  private _maxVersions: number = 100;
+  private _maxVersions: number;
 
   constructor(maxVersions: number = 100) {
     this._maxVersions = maxVersions;

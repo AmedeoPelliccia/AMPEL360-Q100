@@ -175,7 +175,6 @@ export class MQTTConnector extends BaseConnector {
    */
   private _generateSimulatedMessage(topic: string): DataMessage {
     // Parse topic to determine message type
-    const parts = topic.split('/');
     let payload: Record<string, unknown> = {};
     
     if (topic.includes('sensors')) {
