@@ -1,0 +1,93 @@
+{
+  "name": "@ampel360/digital-twin",
+  "version": "1.0.0",
+  "description": "AMPEL360 Q100 Digital Twin System - Real-time system health monitoring, diagnostics, reporting, and model synchronization",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "lint": "eslint src/**/*.ts",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "digital-twin",
+    "aerospace",
+    "aircraft",
+    "AMPEL360",
+    "real-time",
+    "monitoring",
+    "diagnostics",
+    "ASIT",
+    "ASIGT"
+  ],
+  "author": "AMPEL360 Q100 Program",
+  "license": "CC0-1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AmedeoPelliccia/AMPEL360-Q100.git",
+    "directory": "digital_twin"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@typescript-eslint/eslint-plugin": "^6.13.0",
+    "@typescript-eslint/parser": "^6.13.0",
+    "eslint": "^8.55.0",
+    "jest": "^29.7.0",
+    "@types/jest": "^29.5.11",
+    "ts-jest": "^29.1.1",
+    "typescript": "^5.3.0"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    },
+    "./models": {
+      "types": "./dist/models/index.d.ts",
+      "import": "./dist/models/index.js"
+    },
+    "./connectors": {
+      "types": "./dist/connectors/index.d.ts",
+      "import": "./dist/connectors/index.js"
+    },
+    "./sync_engine": {
+      "types": "./dist/sync_engine/index.d.ts",
+      "import": "./dist/sync_engine/index.js"
+    },
+    "./health_monitoring": {
+      "types": "./dist/health_monitoring/index.d.ts",
+      "import": "./dist/health_monitoring/index.js"
+    },
+    "./validation": {
+      "types": "./dist/validation/index.d.ts",
+      "import": "./dist/validation/index.js"
+    },
+    "./visualization": {
+      "types": "./dist/visualization/index.d.ts",
+      "import": "./dist/visualization/index.js"
+    }
+  }
+}
