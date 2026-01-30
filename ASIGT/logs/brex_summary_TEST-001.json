@@ -1,0 +1,21 @@
+{
+  "session_id": "TEST-001",
+  "started_at": "2026-01-30T11:09:42.402141+00:00",
+  "ended_at": "2026-01-30T11:09:42.402548+00:00",
+  "total_decisions": 2,
+  "outcomes": {
+    "ACCEPT": 1,
+    "REJECT": 0,
+    "ESCALATE_HITL": 1,
+    "WARN": 0,
+    "PENDING": 0
+  },
+  "by_severity": {
+    "CRITICAL": 0,
+    "HIGH": 2,
+    "MEDIUM": 0,
+    "LOW": 0,
+    "INFO": 0
+  },
+  "final_hash": "82cbe4f00789e1690568b570243faac22e766a076fff3cf0ff2b1098d86bca0b"
+}

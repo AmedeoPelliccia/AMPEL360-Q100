@@ -1,0 +1,569 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# Master BREX Authority File
+# AMPEL360 Q100 Program - Business Rules EXchange
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# This file defines the authoritative business rules for guided reasoning
+# in the ASIT (Aircraft Standard Information Treatment) system.
+#
+# Version: 1.0.0
+# Effective Date: 2026-01-30
+# Classification: INTERNAL
+# ═══════════════════════════════════════════════════════════════════════════════
+
+metadata:
+  name: "AMPEL360 Q100 Master BREX Authority"
+  version: "1.0.0"
+  effective_date: "2026-01-30"
+  last_updated: "2026-01-30"
+  classification: "INTERNAL"
+  program: "AMPEL360 Q100"
+  description: |
+    Master authority file defining business rules for the BREX Decision Engine.
+    All rules are deterministic and provide auditable decision paths.
+  authorities:
+    - "ATA iSpec 2200"
+    - "S1000D Issue 5.0"
+    - "SAE Aerospace Standards"
+    - "EASA CS-25"
+    - "FAA 14 CFR Part 25"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SECTION 1: CONFIDENCE THRESHOLD RULES
+# ═══════════════════════════════════════════════════════════════════════════════
+rules:
+  # --- Confidence Rules ---
+  
+  - rule_id: "BREX-CONF-001"
+    name: "Standard Confidence Threshold"
+    description: "Verify extraction confidence meets standard minimum threshold"
+    severity: "HIGH"
+    conditions:
+      - field: "confidence"
+        operator: "gte"
+        value: 0.85
+        description: "Confidence must be at least 0.85 for auto-acceptance"
+    outcome_on_pass: "ACCEPT"
+    outcome_on_fail: "ESCALATE_HITL"
+    tags: ["confidence", "quality"]
+    rationale: "Standard threshold ensures data quality while allowing automation"
+    remediation: "Review source data quality or escalate to subject matter expert"
+
+  - rule_id: "BREX-CONF-002"
+    name: "Safety-Critical Confidence Threshold"
+    description: "Verify confidence meets elevated threshold for safety-critical content"
+    severity: "CRITICAL"
+    ata_chapters: ["28", "71", "72", "27", "32"]
+    conditions:
+      - field: "confidence"
+        operator: "gte"
+        value: 0.90
+        description: "Safety-critical content requires confidence >= 0.90"
+      - field: "safety_critical"
+        operator: "eq"
+        value: true
+        description: "Content must be flagged as safety-critical"
+    outcome_on_pass: "ACCEPT"
+    outcome_on_fail: "ESCALATE_HITL"
+    tags: ["confidence", "safety", "critical"]
+    rationale: "Safety-critical systems require higher confidence to protect life and equipment"
+    remediation: "Mandatory SME review before acceptance"
+
+  - rule_id: "BREX-CONF-003"
+    name: "Minimum Confidence Floor"
+    description: "Reject content with confidence below minimum threshold"
+    severity: "HIGH"
+    conditions:
+      - field: "confidence"
+        operator: "gte"
+        value: 0.60
+        description: "Confidence must be at least 0.60"
+    outcome_on_pass: "WARN"
+    outcome_on_fail: "REJECT"
+    tags: ["confidence", "quality", "minimum"]
+    rationale: "Content below 60% confidence is unreliable for any use"
+    remediation: "Return to source extraction with improved methods"
+
+  # --- Source Traceability Rules ---
+  
+  - rule_id: "BREX-SRC-001"
+    name: "Source Document Reference Required"
+    description: "Verify all content has traceable source documentation"
+    severity: "CRITICAL"
+    conditions:
+      - field: "source.doc_id"
+        operator: "is_not_null"
+        description: "Source document ID must be provided"
+    outcome_on_pass: "ACCEPT"
+    outcome_on_fail: "REJECT"
+    tags: ["traceability", "source", "audit"]
+    rationale: "Certification requires complete traceability to source documents"
+    remediation: "Add source document reference with docId and spans"
+
+  - rule_id: "BREX-SRC-002"
+    name: "Source Span Reference Required"
+    description: "Verify source reference includes character span for precise tracing"
+    severity: "HIGH"
+    conditions:
+      - field: "source.spans"
+        operator: "is_not_null"
+        description: "Character spans must be provided for source content"
+    outcome_on_pass: "ACCEPT"
+    outcome_on_fail: "WARN"
+    tags: ["traceability", "source", "spans"]
+    rationale: "Span references enable precise audit verification"
+    remediation: "Add span references in format 'span:start-end'"
+
+  # --- Data Fabrication Prevention Rules ---
+  
+  - rule_id: "BREX-FAB-001"
+    name: "Part Number Fabrication Prevention"
+    description: "Ensure part numbers are extracted, never invented"
+    severity: "CRITICAL"
+    conditions:
+      - field: "part_number"
+        operator: "is_not_null"
+        description: "Part number must be provided if referenced"
+      - field: "extraction_method"
+        operator: "in"
+        value: ["direct", "ocr", "hitl-verified"]
+        description: "Extraction method must be from valid source"
+    outcome_on_pass: "ACCEPT"
+    outcome_on_fail: "REJECT"
+    tags: ["fabrication", "parts", "safety"]
+    rationale: "Fabricated part numbers pose severe safety and certification risks"
+    remediation: "Extract part numbers only from authoritative sources"
+
+  - rule_id: "BREX-FAB-002"
+    name: "Torque Specification Fabrication Prevention"
+    description: "Ensure torque values are extracted with mandatory HITL"
+    severity: "CRITICAL"
+    ata_chapters: ["28", "71", "72", "27", "32", "53", "55"]
+    conditions:
+      - field: "torque_spec"
+        operator: "is_not_null"
+        description: "Torque specification must be provided"
+      - field: "extraction_method"
+        operator: "eq"
+        value: "hitl-verified"
+        description: "Torque values require HITL verification"
+    outcome_on_pass: "ACCEPT"
+    outcome_on_fail: "ESCALATE_HITL"
+    tags: ["fabrication", "torque", "safety", "critical"]
+    rationale: "Incorrect torque specifications can cause structural failures"
+    remediation: "All torque values must be HITL verified before acceptance"
+
+  - rule_id: "BREX-FAB-003"
+    name: "Pressure Limit Fabrication Prevention"
+    description: "Ensure pressure limits are extracted, never invented"
+    severity: "CRITICAL"
+    ata_chapters: ["28", "29", "36"]
+    conditions:
+      - field: "pressure_limit"
+        operator: "is_not_null"
+        description: "Pressure limit must be provided if referenced"
+      - field: "source.doc_id"
+        operator: "is_not_null"
+        description: "Source document must be traceable"
+    outcome_on_pass: "ACCEPT"
+    outcome_on_fail: "REJECT"
+    tags: ["fabrication", "pressure", "safety"]
+    rationale: "Incorrect pressure limits can cause system failures"
+    remediation: "Extract pressure values only from engineering specifications"
+
+  # --- ATA Chapter Compliance Rules ---
+  
+  - rule_id: "BREX-ATA-001"
+    name: "ATA Code Format Validation"
+    description: "Verify ATA reference follows standard format"
+    severity: "MEDIUM"
+    conditions:
+      - field: "ata_reference"
+        operator: "regex"
+        value: "^[0-9]{2}(-[0-9]{2}){0,4}$"
+        description: "ATA reference must follow CC-SS-SU-SB-SX format"
+    outcome_on_pass: "ACCEPT"
+    outcome_on_fail: "WARN"
+    tags: ["ata", "format", "compliance"]
+    rationale: "Standard ATA formatting ensures interoperability"
+    remediation: "Format ATA reference as CC-SS-SU-SB or similar"
+
+  - rule_id: "BREX-ATA-002"
+    name: "ATA Chapter Range Validation"
+    description: "Verify ATA chapter is within valid range"
+    severity: "MEDIUM"
+    conditions:
+      - field: "ata_chapter"
+        operator: "gte"
+        value: "00"
+        description: "ATA chapter must be >= 00"
+      - field: "ata_chapter"
+        operator: "lte"
+        value: "99"
+        description: "ATA chapter must be <= 99"
+    outcome_on_pass: "ACCEPT"
+    outcome_on_fail: "REJECT"
+    tags: ["ata", "range", "validation"]
+    rationale: "ATA chapters are defined from 00 to 99"
+    remediation: "Use valid ATA chapter codes per ATA iSpec 2200"
+
+  # --- LH2 System Specific Rules (ATA 28) ---
+  
+  - rule_id: "BREX-LH2-001"
+    name: "Cryogenic Temperature Unit Validation"
+    description: "Verify cryogenic temperatures use Kelvin notation"
+    severity: "HIGH"
+    ata_chapters: ["28"]
+    conditions:
+      - field: "temperature.unit"
+        operator: "eq"
+        value: "K"
+        description: "Cryogenic temperatures must be in Kelvin"
+    outcome_on_pass: "ACCEPT"
+    outcome_on_fail: "WARN"
+    tags: ["lh2", "cryogenic", "units"]
+    rationale: "Kelvin is standard for cryogenic systems to avoid conversion errors"
+    remediation: "Convert temperature to Kelvin (K = °C + 273.15)"
+
+  - rule_id: "BREX-LH2-002"
+    name: "Hydrogen Safety Warning Required"
+    description: "Verify H2 procedures include safety warnings"
+    severity: "CRITICAL"
+    ata_chapters: ["28"]
+    conditions:
+      - field: "content_type"
+        operator: "eq"
+        value: "procedure"
+        description: "Content is a procedure"
+      - field: "warnings"
+        operator: "is_not_null"
+        description: "Warnings must be present for H2 procedures"
+    outcome_on_pass: "ACCEPT"
+    outcome_on_fail: "ESCALATE_HITL"
+    tags: ["lh2", "safety", "warnings"]
+    rationale: "Hydrogen is highly flammable; procedures require safety warnings"
+    remediation: "Add appropriate hydrogen safety warnings"
+
+  # --- AI/ML System Rules (ATA 95) ---
+  
+  - rule_id: "BREX-AI-001"
+    name: "AI Model Version Traceability"
+    description: "Verify AI model content includes version information"
+    severity: "HIGH"
+    ata_chapters: ["95"]
+    conditions:
+      - field: "model_version"
+        operator: "is_not_null"
+        description: "AI model version must be traceable"
+    outcome_on_pass: "ACCEPT"
+    outcome_on_fail: "ESCALATE_HITL"
+    tags: ["ai", "ml", "version", "traceability"]
+    rationale: "AI model versions must be traceable for certification"
+    remediation: "Add model version and training data provenance"
+
+  - rule_id: "BREX-AI-002"
+    name: "AI Decision Explainability Required"
+    description: "Verify AI decisions include explainability documentation"
+    severity: "CRITICAL"
+    ata_chapters: ["95"]
+    conditions:
+      - field: "explainability_score"
+        operator: "gte"
+        value: 0.70
+        description: "Explainability score must meet threshold"
+    outcome_on_pass: "ACCEPT"
+    outcome_on_fail: "ESCALATE_HITL"
+    tags: ["ai", "ml", "explainability", "certification"]
+    rationale: "Safety-critical AI requires explainable decisions"
+    remediation: "Document decision rationale and contributing factors"
+
+  # --- Effectivity Rules ---
+  
+  - rule_id: "BREX-EFF-001"
+    name: "Effectivity Definition Required"
+    description: "Verify content has defined applicability/effectivity"
+    severity: "MEDIUM"
+    conditions:
+      - field: "effectivity"
+        operator: "is_not_null"
+        description: "Effectivity rules must be defined"
+    outcome_on_pass: "ACCEPT"
+    outcome_on_fail: "ESCALATE_HITL"
+    tags: ["effectivity", "applicability"]
+    rationale: "Undefined effectivity can cause maintenance errors"
+    remediation: "Define serial number ranges, configurations, or ALL"
+
+  - rule_id: "BREX-EFF-002"
+    name: "Serial Number Range Validation"
+    description: "Verify serial number effectivity is within Q100 range"
+    severity: "MEDIUM"
+    conditions:
+      - field: "effectivity.serial_from"
+        operator: "regex"
+        value: "^Q100-[0-9]{3}$"
+        description: "Serial number must match Q100-XXX format"
+    outcome_on_pass: "ACCEPT"
+    outcome_on_fail: "WARN"
+    tags: ["effectivity", "serial", "format"]
+    rationale: "Serial numbers must follow program convention"
+    remediation: "Use format Q100-001 through Q100-999"
+
+  # --- CSDB/S1000D Compliance Rules ---
+  
+  - rule_id: "BREX-CSDB-001"
+    name: "DMC Format Validation"
+    description: "Verify Data Module Code follows S1000D format"
+    severity: "HIGH"
+    conditions:
+      - field: "dmc"
+        operator: "regex"
+        value: "^DMC-AMPEL360-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}[A-Z]-[0-9]{3}[A-Z]-[A-Z]$"
+        description: "DMC must follow AMPEL360 naming convention"
+    outcome_on_pass: "ACCEPT"
+    outcome_on_fail: "REJECT"
+    tags: ["csdb", "s1000d", "dmc"]
+    rationale: "DMC format is required for S1000D compliance"
+    remediation: "Format DMC as DMC-AMPEL360-CC-SS-SU-SBA-DISV-V"
+
+  - rule_id: "BREX-CSDB-002"
+    name: "BREX Reference Required"
+    description: "Verify Data Module references AMPEL360 BREX"
+    severity: "MEDIUM"
+    conditions:
+      - field: "brex_ref"
+        operator: "is_not_null"
+        description: "BREX reference must be included"
+    outcome_on_pass: "ACCEPT"
+    outcome_on_fail: "WARN"
+    tags: ["csdb", "s1000d", "brex"]
+    rationale: "BREX reference ensures business rule compliance"
+    remediation: "Add brexDmRef to dmStatus section"
+
+  # --- Digital Product Passport Rules (ATA 96) ---
+  
+  - rule_id: "BREX-DPP-001"
+    name: "Traceability ID Required"
+    description: "Verify DPP content includes unique traceability identifier"
+    severity: "HIGH"
+    ata_chapters: ["96"]
+    conditions:
+      - field: "traceability_id"
+        operator: "is_not_null"
+        description: "Unique traceability ID must be assigned"
+    outcome_on_pass: "ACCEPT"
+    outcome_on_fail: "REJECT"
+    tags: ["dpp", "traceability", "eu"]
+    rationale: "EU DPP regulations require unique component identification"
+    remediation: "Assign unique traceability ID following AMPEL360 convention"
+
+  - rule_id: "BREX-DPP-002"
+    name: "Lifecycle Event Timestamp Required"
+    description: "Verify DPP events include timestamp and actor"
+    severity: "MEDIUM"
+    ata_chapters: ["96"]
+    conditions:
+      - field: "event.timestamp"
+        operator: "is_not_null"
+        description: "Event timestamp must be recorded"
+      - field: "event.actor"
+        operator: "is_not_null"
+        description: "Event actor must be identified"
+    outcome_on_pass: "ACCEPT"
+    outcome_on_fail: "WARN"
+    tags: ["dpp", "lifecycle", "audit"]
+    rationale: "Complete event logging enables regulatory compliance"
+    remediation: "Add ISO 8601 timestamp and actor identification"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SECTION 2: RULE GROUPS
+# ═══════════════════════════════════════════════════════════════════════════════
+rule_groups:
+  
+  # Standard validation for all content
+  standard_validation:
+    - "BREX-CONF-001"
+    - "BREX-CONF-003"
+    - "BREX-SRC-001"
+    - "BREX-ATA-001"
+  
+  # Enhanced validation for safety-critical content
+  safety_critical_validation:
+    - "BREX-CONF-002"
+    - "BREX-FAB-001"
+    - "BREX-FAB-002"
+    - "BREX-FAB-003"
+    - "BREX-SRC-001"
+    - "BREX-SRC-002"
+  
+  # ATA 28 (Fuel/LH2) specific rules
+  ata_28_lh2_validation:
+    - "BREX-CONF-002"
+    - "BREX-LH2-001"
+    - "BREX-LH2-002"
+    - "BREX-FAB-003"
+  
+  # ATA 71 (Power Plant) specific rules
+  ata_71_powerplant_validation:
+    - "BREX-CONF-002"
+    - "BREX-FAB-001"
+    - "BREX-FAB-002"
+  
+  # ATA 95 (AI/ML) specific rules
+  ata_95_ai_validation:
+    - "BREX-CONF-002"
+    - "BREX-AI-001"
+    - "BREX-AI-002"
+  
+  # ATA 96 (DPP/Traceability) specific rules
+  ata_96_dpp_validation:
+    - "BREX-DPP-001"
+    - "BREX-DPP-002"
+    - "BREX-EFF-001"
+  
+  # CSDB/S1000D compliance rules
+  csdb_validation:
+    - "BREX-CSDB-001"
+    - "BREX-CSDB-002"
+    - "BREX-EFF-001"
+  
+  # Full validation suite
+  full_validation:
+    - "BREX-CONF-001"
+    - "BREX-CONF-002"
+    - "BREX-CONF-003"
+    - "BREX-SRC-001"
+    - "BREX-SRC-002"
+    - "BREX-FAB-001"
+    - "BREX-FAB-002"
+    - "BREX-FAB-003"
+    - "BREX-ATA-001"
+    - "BREX-ATA-002"
+    - "BREX-EFF-001"
+    - "BREX-EFF-002"
+    - "BREX-CSDB-001"
+    - "BREX-CSDB-002"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SECTION 3: CONFIDENCE THRESHOLDS BY ATA CHAPTER
+# ═══════════════════════════════════════════════════════════════════════════════
+confidence_thresholds:
+  
+  # Default thresholds
+  default:
+    auto_accept: 0.85
+    optional_review_min: 0.60
+    optional_review_max: 0.84
+    mandatory_hitl: 0.60
+  
+  # Safety-critical chapters
+  safety_critical:
+    chapters: ["27", "28", "29", "32", "71", "72"]
+    auto_accept: 0.90
+    mandatory_hitl: 0.70
+  
+  # Novel technology chapters
+  novel_technology:
+    chapters: ["95", "96"]
+    auto_accept: 0.88
+    mandatory_hitl: 0.65
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SECTION 4: DECISION FLOWCHART SPECIFICATION
+# ═══════════════════════════════════════════════════════════════════════════════
+decision_flowchart:
+  
+  name: "BREX Deterministic Reasoning Flowchart"
+  version: "1.0.0"
+  
+  nodes:
+    START:
+      type: "entry"
+      next: "CHECK_CONFIDENCE"
+    
+    CHECK_CONFIDENCE:
+      type: "decision"
+      condition: "confidence >= auto_accept_threshold"
+      true_next: "CHECK_SAFETY_CRITICAL"
+      false_next: "CHECK_MINIMUM_THRESHOLD"
+    
+    CHECK_MINIMUM_THRESHOLD:
+      type: "decision"
+      condition: "confidence >= mandatory_hitl_threshold"
+      true_next: "ESCALATE_HITL"
+      false_next: "REJECT_LOW_CONFIDENCE"
+    
+    CHECK_SAFETY_CRITICAL:
+      type: "decision"
+      condition: "is_safety_critical == true"
+      true_next: "CHECK_SAFETY_THRESHOLD"
+      false_next: "CHECK_SOURCE_TRACEABILITY"
+    
+    CHECK_SAFETY_THRESHOLD:
+      type: "decision"
+      condition: "confidence >= safety_critical_threshold"
+      true_next: "CHECK_SOURCE_TRACEABILITY"
+      false_next: "ESCALATE_HITL"
+    
+    CHECK_SOURCE_TRACEABILITY:
+      type: "decision"
+      condition: "has_source_reference == true"
+      true_next: "CHECK_FABRICATION"
+      false_next: "REJECT_NO_SOURCE"
+    
+    CHECK_FABRICATION:
+      type: "decision"
+      condition: "extraction_method in ['direct', 'ocr', 'hitl-verified']"
+      true_next: "ACCEPT"
+      false_next: "REJECT_FABRICATION"
+    
+    ACCEPT:
+      type: "terminal"
+      outcome: "ACCEPT"
+      actions:
+        - "Log acceptance with full context"
+        - "Record decision hash for audit"
+    
+    REJECT_LOW_CONFIDENCE:
+      type: "terminal"
+      outcome: "REJECT"
+      reason: "Confidence below minimum threshold"
+      actions:
+        - "Log rejection reason"
+        - "Return to source extraction"
+    
+    REJECT_NO_SOURCE:
+      type: "terminal"
+      outcome: "REJECT"
+      reason: "Missing source traceability"
+      actions:
+        - "Log rejection reason"
+        - "Require source documentation"
+    
+    REJECT_FABRICATION:
+      type: "terminal"
+      outcome: "REJECT"
+      reason: "Data fabrication detected"
+      actions:
+        - "Log critical violation"
+        - "Alert compliance team"
+    
+    ESCALATE_HITL:
+      type: "terminal"
+      outcome: "ESCALATE_HITL"
+      actions:
+        - "Create HITL review task"
+        - "Assign to appropriate SME"
+        - "Log escalation reason"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# REVISION HISTORY
+# ═══════════════════════════════════════════════════════════════════════════════
+revision_history:
+  - version: "1.0.0"
+    date: "2026-01-30"
+    author: "ASIT System"
+    changes:
+      - "Initial release of Master BREX Authority"
+      - "Defined 20 core business rules"
+      - "Established 8 rule groups"
+      - "Added deterministic reasoning flowchart"
