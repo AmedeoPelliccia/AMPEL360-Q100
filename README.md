@@ -324,8 +324,26 @@ AMPEL360-AIR-T/
 │   ├── ONTOLOGY_GENESIS_KNOWLEDGE_MODEL.md
 │   ├── OPT-IN_FRAMEWORK_STANDARD.md
 │   ├── AMPEL360_DOCUMENTATION_STANDARD.md
+│   ├── BREX_INSTRUCTION_SYSTEM_SPEC.md   # BREX decision engine specification
+│   ├── CSDB_COMPLIANCE_VALIDATION.md     # S1000D BREX validation
 │   ├── AI-ASI-TP.md
 │   └── DIGITAL_TWIN_CONTROL_LOOP.md
+│
+├── ASIGT/                             # Aircraft Standard Information Guided Treatment
+│   ├── brex/                          # BREX Decision Engine
+│   │   ├── brex_decision_engine.py    # Core deterministic reasoning engine
+│   │   └── __init__.py
+│   ├── instructions/                  # BREX-based instruction schemas
+│   │   ├── extract.instructions.md
+│   │   ├── hitl.instructions.md
+│   │   └── safety.instructions.md
+│   ├── logs/                          # Audit logs (hash-chained)
+│   ├── brex_integration.py            # Validator integration wrapper
+│   └── BREX_REASONING_FLOWCHART.md    # Decision flowchart documentation
+│
+├── ASIT/                              # Aircraft Standard Information Treatment
+│   └── GOVERNANCE/
+│       └── master_brex_authority.yaml # Master BREX business rules authority
 │
 └── .github/                           # GitHub configuration
     ├── hooks/
@@ -1606,6 +1624,8 @@ jobs:
 | **Ontology & Knowledge Model** | Foundational methodology | [`docs/ONTOLOGY_GENESIS_KNOWLEDGE_MODEL.md`](./docs/ONTOLOGY_GENESIS_KNOWLEDGE_MODEL.md) |
 | **OPT-IN Framework Standard** | Complete framework specification | [`docs/OPT-IN_FRAMEWORK_STANDARD.md`](./docs/OPT-IN_FRAMEWORK_STANDARD.md) |
 | **Documentation Standard** | Formatting and structure guidelines | [`docs/AMPEL360_DOCUMENTATION_STANDARD.md`](./docs/AMPEL360_DOCUMENTATION_STANDARD.md) |
+| **BREX Instruction System** | BREX-driven decision engine specification | [`docs/BREX_INSTRUCTION_SYSTEM_SPEC.md`](./docs/BREX_INSTRUCTION_SYSTEM_SPEC.md) |
+| **CSDB Compliance Validation** | S1000D BREX validation strategy | [`docs/CSDB_COMPLIANCE_VALIDATION.md`](./docs/CSDB_COMPLIANCE_VALIDATION.md) |
 | **AI→ASI Transition Proposal** | AI governance roadmap | [`docs/AI-ASI-TP.md`](./docs/AI-ASI-TP.md) |
 | **Digital Twin Control Loop** | Digital twin architecture | [`docs/DIGITAL_TWIN_CONTROL_LOOP.md`](./docs/DIGITAL_TWIN_CONTROL_LOOP.md) |
 | **CAOS Index** | Airworthiness framework entry | [`CAOS/CAOS_INDEX.md`](./CAOS/CAOS_INDEX.md) |
