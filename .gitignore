@@ -1,6 +1,20 @@
 *.bak
 *.log
 
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.pytest_cache/
+.mypy_cache/
+*.egg-info/
+
+# BREX Decision Engine test logs (keep production logs)
+ASIGT/logs/brex_*_TEST-*.jsonl
+ASIGT/logs/brex_*_TEST-*.json
+
 # IETP Runtime build artifacts
 IETP_RUNTIME/node_modules/
 IETP_RUNTIME/dist/
