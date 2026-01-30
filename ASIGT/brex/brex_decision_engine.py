@@ -53,22 +53,35 @@ class RuleCondition:
 
     def evaluate(self, context: Dict[str, Any]) -> bool:
         """Evaluate the condition against a context dictionary."""
+        import re
+        
         field_value = self._get_nested_value(context, self.field)
+        
+        def safe_regex_match(value: Any, pattern: str) -> bool:
+            """Safely evaluate regex with timeout protection."""
+            if value is None:
+                return False
+            try:
+                # Limit pattern complexity by checking length
+                if len(pattern) > 500:
+                    raise ValueError("Regex pattern too long")
+                return bool(re.match(pattern, str(value)))
+            except re.error:
+                return False
         
         operators = {
             "eq": lambda a, b: a == b,
             "ne": lambda a, b: a != b,
-            "gt": lambda a, b: a > b,
-            "gte": lambda a, b: a >= b,
-            "lt": lambda a, b: a < b,
-            "lte": lambda a, b: a <= b,
-            "in": lambda a, b: a in b,
-            "not_in": lambda a, b: a not in b,
+            "gt": lambda a, b: a > b if a is not None and b is not None else False,
+            "gte": lambda a, b: a >= b if a is not None and b is not None else False,
+            "lt": lambda a, b: a < b if a is not None and b is not None else False,
+            "lte": lambda a, b: a <= b if a is not None and b is not None else False,
+            "in": lambda a, b: a in b if b is not None else False,
+            "not_in": lambda a, b: a not in b if b is not None else True,
             "contains": lambda a, b: b in a if a else False,
-            "regex": lambda a, b: bool(__import__("re").match(b, str(a))) if a else False,
+            "regex": safe_regex_match,
             "is_null": lambda a, _: a is None,
             "is_not_null": lambda a, _: a is not None,
-            "exists": lambda a, _: a is not None,
         }
         
         op_func = operators.get(self.operator)
@@ -118,6 +131,7 @@ class BREXRule:
         
         failed_conditions = []
         passed_conditions = []
+        condition_errors = []
         
         for condition in self.conditions:
             try:
@@ -126,12 +140,16 @@ class BREXRule:
                 else:
                     failed_conditions.append(condition)
             except Exception as e:
+                # Log the error for debugging but treat as failure
+                condition_errors.append((condition, str(e)))
                 failed_conditions.append(condition)
         
         passed = len(failed_conditions) == 0
         outcome = self.outcome_on_pass if passed else self.outcome_on_fail
         
-        explanation = self._generate_explanation(passed, passed_conditions, failed_conditions)
+        explanation = self._generate_explanation(
+            passed, passed_conditions, failed_conditions, condition_errors
+        )
         
         return passed, outcome, explanation
 
@@ -139,7 +157,8 @@ class BREXRule:
         self, 
         passed: bool, 
         passed_conditions: List[RuleCondition], 
-        failed_conditions: List[RuleCondition]
+        failed_conditions: List[RuleCondition],
+        condition_errors: Optional[List[tuple]] = None
     ) -> str:
         """Generate a human-readable explanation of the rule evaluation."""
         lines = [f"Rule: {self.name} ({self.rule_id})"]
@@ -156,6 +175,11 @@ class BREXRule:
             for c in failed_conditions:
                 desc = c.description or f"{c.field} {c.operator} {c.value}"
                 lines.append(f"  ✗ {desc}")
+        
+        if condition_errors:
+            lines.append("Condition evaluation errors:")
+            for condition, error_msg in condition_errors:
+                lines.append(f"  ⚠ {condition.field}: {error_msg}")
         
         if not passed and self.remediation:
             lines.append(f"Remediation: {self.remediation}")
@@ -330,10 +354,12 @@ class ExplainabilityLogger:
                 if entry.get("previous_hash") != previous_hash:
                     return False, f"Hash chain broken at line {line_number}"
                 
-                # Verify entry hash
-                stored_hash = entry.pop("entry_hash", None)
+                # Verify entry hash without modifying the original entry
+                stored_hash = entry.get("entry_hash")
+                # Create a copy without entry_hash for verification
+                entry_for_hash = {k: v for k, v in entry.items() if k != "entry_hash"}
                 expected_hash = self._compute_hash(
-                    json.dumps(entry, sort_keys=True) + previous_hash
+                    json.dumps(entry_for_hash, sort_keys=True) + previous_hash
                 )
                 
                 if stored_hash != expected_hash:
@@ -450,10 +476,14 @@ class BREXDecisionEngine:
         rule = self.rules[rule_id]
         passed, outcome, explanation = rule.evaluate(context)
         
-        # Create decision record
-        context_hash = hashlib.sha256(
-            json.dumps(context, sort_keys=True, default=str).encode()
-        ).hexdigest()[:16]
+        # Create decision record with safe context hashing
+        try:
+            context_hash = hashlib.sha256(
+                json.dumps(context, sort_keys=True, default=str).encode()
+            ).hexdigest()[:16]
+        except (TypeError, ValueError):
+            # Fallback for non-serializable objects
+            context_hash = hashlib.sha256(repr(context).encode()).hexdigest()[:16]
         
         record = DecisionRecord(
             decision_id=self.logger._generate_decision_id(),

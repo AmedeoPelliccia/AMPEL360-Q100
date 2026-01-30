@@ -87,16 +87,19 @@ class BREXValidator:
         # Evaluate rules
         records = self.engine.evaluate_group(group, context, ata_chapter)
         
-        # Determine overall result
+        # Determine overall result using explicit status values
         rejected = [r for r in records if r.outcome == DecisionOutcome.REJECT]
         escalated = [r for r in records if r.outcome == DecisionOutcome.ESCALATE_HITL]
         
         if rejected:
             message = f"Validation failed: {rejected[0].explanation}"
+            # Return (False, message, records) - explicitly failed
             return False, message, records
         elif escalated:
             message = f"HITL required: {escalated[0].explanation}"
-            return None, message, records  # None indicates HITL needed
+            # Return ("HITL", message, records) - indicates HITL needed
+            # Using string "HITL" instead of None for clearer semantics
+            return "HITL", message, records
         else:
             return True, "Validation passed", records
 
@@ -117,10 +120,16 @@ class BREXValidator:
         Returns:
             Tuple of (is_valid, message)
         """
+        # Safe extraction of doc_id from req_id
+        if source is None:
+            parts = req_id.split("-")
+            doc_id = parts[1] if len(parts) > 1 else req_id
+            source = {"doc_id": doc_id}
+        
         context = {
             "req_id": req_id,
             "confidence": confidence,
-            "source": source or {"doc_id": req_id.split("-")[1] if "-" in req_id else req_id},
+            "source": source,
         }
         
         # Use standard validation
@@ -260,9 +269,14 @@ class BREXValidator:
     def _extract_ata_from_dmc(self, dmc: str) -> Optional[str]:
         """Extract ATA chapter from DMC code."""
         # DMC format: DMC-AMPEL360-CC-SS-SU-SB...
+        if not dmc:
+            return None
         parts = dmc.split("-")
         if len(parts) >= 3:
-            return parts[2]  # CC is the chapter
+            chapter = parts[2]
+            # Validate chapter is a 2-digit number
+            if chapter.isdigit() and len(chapter) == 2:
+                return chapter
         return None
 
 
@@ -281,12 +295,15 @@ def validate_with_brex(
         session_id: Optional session identifier.
         
     Returns:
-        Tuple of (is_valid, message)
+        Tuple of (is_valid: bool, message: str)
+        Note: Returns False for both validation failures and HITL-required cases.
+        Use BREXValidator directly for distinguishing these cases.
     """
     validator = BREXValidator(session_id=session_id)
-    is_valid, message, _ = validator.validate_content(content, ata_chapter)
+    result, message, _ = validator.validate_content(content, ata_chapter)
     validator.finalize()
-    return is_valid if is_valid is not None else False, message
+    # Convert "HITL" or any non-True to False for simple boolean interface
+    return result is True, message
 
 
 if __name__ == "__main__":
@@ -302,8 +319,8 @@ if __name__ == "__main__":
         "confidence": 0.88,
         "source": {"doc_id": "DOC-001", "spans": ["span:100-200"]},
     }
-    is_valid, message, _ = validator.validate_content(content)
-    print(f"  Valid: {is_valid}")
+    result, message, _ = validator.validate_content(content)
+    print(f"  Result: {result}")
     print(f"  Message: {message}")
     
     # Test safety-critical validation
@@ -314,8 +331,8 @@ if __name__ == "__main__":
         "safety_critical": True,
         "extraction_method": "direct",
     }
-    is_valid, message, _ = validator.validate_content(content, ata_chapter="28")
-    print(f"  Valid: {is_valid}")
+    result, message, _ = validator.validate_content(content, ata_chapter="28")
+    print(f"  Result: {result}")
     print(f"  Message: {message}")
     
     # Test low confidence triggering HITL
@@ -324,8 +341,8 @@ if __name__ == "__main__":
         "confidence": 0.72,
         "source": {"doc_id": "DOC-002"},
     }
-    is_valid, message, _ = validator.validate_content(content)
-    print(f"  Valid: {is_valid}")  # None = HITL required
+    result, message, _ = validator.validate_content(content)
+    print(f"  Result: {result}")  # "HITL" = HITL required
     print(f"  Message: {message}")
     
     # Get summary
