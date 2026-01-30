@@ -1,6 +1,6 @@
 # ASIGT - Aircraft Standard Information Guided Treatment
 
-**Version:** 1.0.0  
+**Version:** 1.1.0  
 **Effective Date:** 2026-01-30  
 **Classification:** INTERNAL
 
@@ -8,7 +8,7 @@
 
 ## Overview
 
-ASIGT (Aircraft Standard Information Guided Treatment) provides the guided reasoning framework for the AMPEL360 Q100 program. It implements BREX-driven decision making with full audit traceability.
+ASIGT (Aircraft Standard Information Guided Treatment) provides the guided reasoning framework for the AMPEL360 Q100 program. It implements BREX-driven decision making with full audit traceability, including HPC+Quantum orchestration and multi-agent design exploration.
 
 ## Directory Structure
 
@@ -19,6 +19,13 @@ ASIGT/
 ├── brex/                               # BREX Decision Engine
 │   ├── __init__.py                     # Package initialization
 │   └── brex_decision_engine.py         # Core engine implementation
+├── brex_integration.py                 # Validator integration wrapper
+├── hpc_quantum/                        # HPC+Quantum Orchestration
+│   ├── __init__.py                     # Package initialization
+│   └── orchestrator.py                 # Workload orchestration engine
+├── agents/                             # Multi-Agent Design Exploration
+│   ├── __init__.py                     # Package initialization
+│   └── design_explorer.py              # Design space exploration
 ├── instructions/                       # BREX-based instruction schemas
 │   ├── extract.instructions.md         # Data extraction instructions
 │   ├── hitl.instructions.md            # HITL escalation instructions
@@ -65,7 +72,70 @@ records = engine.evaluate_group("safety_critical_validation", context)
 summary = engine.finalize_session()
 ```
 
-### 2. Master BREX Authority
+### 2. HPC+Quantum Orchestrator
+
+The HPC+Quantum orchestration engine (`hpc_quantum/orchestrator.py`) provides:
+
+- **Workload Scheduling**: Submit and execute HPC/Quantum workloads
+- **BREX Validation**: Pre/post execution validation
+- **Resource Management**: CPU, GPU, QPU allocation
+- **Audit Logging**: Hash-chained workload logs
+
+**Quick Start:**
+
+```python
+from ASIGT.hpc_quantum import (
+    HPCQuantumOrchestrator,
+    create_cfd_workload,
+    create_quantum_optimization_workload,
+    create_mdo_workload,
+)
+
+# Create orchestrator
+orchestrator = HPCQuantumOrchestrator()
+
+# Create and submit CFD workload
+cfd = create_cfd_workload("Wing Analysis", mesh_cells=1000000)
+accepted, msg = orchestrator.submit_workload(cfd)
+if accepted:
+    result = orchestrator.execute_workload(cfd.workload_id)
+    print(f"Status: {result.status.value}")
+
+# Create quantum optimization
+quantum = create_quantum_optimization_workload("Route Opt", qubits=20)
+orchestrator.submit_workload(quantum)
+```
+
+### 3. Multi-Agent Design Explorer
+
+The multi-agent explorer (`agents/design_explorer.py`) provides:
+
+- **Swarm Exploration**: Parallel design space exploration
+- **Domain Agents**: Specialized agents for each engineering domain
+- **Pareto Optimization**: Multi-objective design selection
+- **BREX Compliance**: Deterministic decision paths
+
+**Quick Start:**
+
+```python
+from ASIGT.agents import (
+    MultiAgentDesignExplorer,
+    create_ampel360_design_space,
+)
+
+# Create AMPEL360 design space
+design_space = create_ampel360_design_space()
+
+# Create explorer with default agents
+explorer = MultiAgentDesignExplorer(design_space)
+explorer.create_default_agents()  # Creates 18 agents
+
+# Run exploration
+results = explorer.run(iterations=100)
+print(f"Best design: {results['best_design']}")
+```
+
+### 4. Master BREX Authority
 
 The authority file (`../ASIT/GOVERNANCE/master_brex_authority.yaml`) defines:
 
@@ -74,7 +144,7 @@ The authority file (`../ASIT/GOVERNANCE/master_brex_authority.yaml`) defines:
 - **Confidence Thresholds**: Per ATA chapter and content type
 - **Decision Flowchart**: Formal specification of reasoning paths
 
-### 3. Instruction Schemas
+### 5. Instruction Schemas
 
 BREX-driven instruction files in `instructions/`:
 
@@ -84,7 +154,7 @@ BREX-driven instruction files in `instructions/`:
 | `hitl.instructions.md` | Human-in-the-loop escalation |
 | `safety.instructions.md` | Safety-critical content handling |
 
-### 4. Reasoning Flowchart
+### 6. Reasoning Flowchart
 
 `BREX_REASONING_FLOWCHART.md` documents:
 
@@ -167,6 +237,8 @@ Audit logs are stored in `ASIGT/logs/`:
 
 - `brex_decisions_{session_id}.jsonl` - Decision log (append-only)
 - `brex_summary_{session_id}.json` - Session summary
+- `hpc_audit_{session_id}.jsonl` - HPC workload audit log
+- `exploration_{session_id}.json` - Design exploration results
 
 ### Log Verification
 
@@ -207,6 +279,8 @@ pip install pyyaml
 - [ASIT Copilot Instructions](../.github/copilot-instructions.txt)
 - [CSDB Compliance Documentation](../docs/CSDB_COMPLIANCE_VALIDATION.md)
 - [Master BREX Authority](../ASIT/GOVERNANCE/master_brex_authority.yaml)
+- [HPC+Quantum Architecture](../docs/HPC_QUANTUM_AGENTIC_ARCHITECTURE.md)
+- [BREX Instruction System Spec](../docs/BREX_INSTRUCTION_SYSTEM_SPEC.md)
 
 ---
 
@@ -215,6 +289,7 @@ pip install pyyaml
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|
 | 1.0.0 | 2026-01-30 | ASIT System | Initial release |
+| 1.1.0 | 2026-01-30 | ASIT System | Added HPC+Quantum and Multi-Agent components |
 
 ---
 

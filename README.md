@@ -1625,6 +1625,7 @@ jobs:
 | **OPT-IN Framework Standard** | Complete framework specification | [`docs/OPT-IN_FRAMEWORK_STANDARD.md`](./docs/OPT-IN_FRAMEWORK_STANDARD.md) |
 | **Documentation Standard** | Formatting and structure guidelines | [`docs/AMPEL360_DOCUMENTATION_STANDARD.md`](./docs/AMPEL360_DOCUMENTATION_STANDARD.md) |
 | **BREX Instruction System** | BREX-driven decision engine specification | [`docs/BREX_INSTRUCTION_SYSTEM_SPEC.md`](./docs/BREX_INSTRUCTION_SYSTEM_SPEC.md) |
+| **HPC+Quantum Architecture** | Agentic compute architecture for MDO | [`docs/HPC_QUANTUM_AGENTIC_ARCHITECTURE.md`](./docs/HPC_QUANTUM_AGENTIC_ARCHITECTURE.md) |
 | **CSDB Compliance Validation** | S1000D BREX validation strategy | [`docs/CSDB_COMPLIANCE_VALIDATION.md`](./docs/CSDB_COMPLIANCE_VALIDATION.md) |
 | **AI→ASI Transition Proposal** | AI governance roadmap | [`docs/AI-ASI-TP.md`](./docs/AI-ASI-TP.md) |
 | **Digital Twin Control Loop** | Digital twin architecture | [`docs/DIGITAL_TWIN_CONTROL_LOOP.md`](./docs/DIGITAL_TWIN_CONTROL_LOOP.md) |
