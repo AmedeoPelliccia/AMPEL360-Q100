@@ -348,17 +348,18 @@ class BREXWorkloadValidator:
                     "message": record.explanation,
                 }
             except Exception as e:
+                # Fail-safe: if BREX cannot evaluate the rule, do not auto-approve
                 return {
                     "check": f"brex_rule_{rule_id}",
-                    "passed": True,  # Fail-open for missing rules
-                    "message": f"Rule not found or error: {str(e)}",
+                    "passed": False,
+                    "message": f"BREX rule evaluation failed; manual review or rejection required: {str(e)}",
                 }
         
-        # Without BREX engine, pass by default
+        # Without BREX engine, fail-safe: do not auto-approve workloads
         return {
             "check": f"brex_rule_{rule_id}",
-            "passed": True,
-            "message": "BREX engine not available, rule skipped",
+            "passed": False,
+            "message": "BREX engine not available; validation cannot be completed safely (manual review or rejection required)",
         }
 
     def _check_brex_result_rule(
