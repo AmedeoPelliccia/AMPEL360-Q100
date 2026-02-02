@@ -332,20 +332,33 @@ class ExplorerAgent(DesignAgent):
         design: DesignPoint,
         objectives: List[DesignObjective],
     ) -> DesignPoint:
-        """Evaluate design for exploration objectives."""
-        # Simulate evaluation for domain-specific objectives
+        """Evaluate design for exploration objectives.
+
+        NOTE:
+            This implementation uses a deterministic, hash-based mock metric for
+            scoring designs. It is intended *only* for testing, demonstration, and
+            non-production prototyping. The resulting values are arbitrary and do
+            not correspond to any physically meaningful performance measure.
+
+            For actual design exploration and certifiable workflows, this method
+            MUST be replaced with calls to validated analysis/simulation tools
+            (e.g. CFD, FEM, performance models, cost models, etc.) that compute
+            domain-appropriate objective values.
+        """
+        # Simulate evaluation for domain-specific objectives using a deterministic
+        # but arbitrary hash-based metric. This does NOT represent real physics or
+        # engineering behavior and MUST be replaced before production use.
         for obj in objectives:
             if obj.domain == self.domain:
-                # Simplified evaluation - in real implementation would call simulations
+                # Simplified mock evaluation - placeholder for real simulations
                 base_value = sum(
                     hash(str(v)) % 100 / 100.0 for v in design.variables.values()
                 ) / len(design.variables)
-                
+
                 if obj.direction == "minimize":
                     design.objectives[obj.name] = base_value * 100
                 else:
                     design.objectives[obj.name] = (1 - base_value) * 100
-        
         return design
 
 
