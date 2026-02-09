@@ -844,23 +844,25 @@ Example subject slug you gave:
 
 ## 5. Baseline Zone Register
 
-> This is the minimum register needed to start design + publications. Expand as geometry freezes.
+The authoritative zone register for AMPEL360 Q100 is maintained in
+[`.../ZONES_REGISTER.csv`](.../ZONES_REGISTER.csv).
 
-| Zone | Name | Boundaries (plain language) | Primary Access | Dominant ATA links | Notes / Hazards |
-|------|------|-----------------------------|----------------|--------------------|-----------------|
-| 110 | Flight Deck | nose/forward centerbody, cockpit volume | FD door, panels | 22, 23, 27, 31, 34 | avionics + controls |
-| 120 | Avionics/E&E Bay (FWD) | below/behind flight deck | bay hatch | 24, 34, 45 | cooling + EWIS density |
-| 130 | Forward Systems Bay | forward centerbody lower | service panels | 21, 29, 32, 36 | bleed/air, hyd/pneu as applicable |
-| 210 | Cabin Left | left side cabin envelope | cabin doors | 25, 33, 35 | interior, oxygen, lighting |
-| 220 | Cabin Center | center cabin envelope | cabin doors | 25, 33 | monuments + evac flow |
-| 230 | Cabin Right | right side cabin envelope | cabin doors | 25, 33, 35 | interior, oxygen, lighting |
-| 240 | Cabin Underfloor (Centerbody) | below cabin floor, center | floor panels | 21, 24, 27, 28 | wiring, ducts, ECS |
-| 310 | Left LE Systems | left leading edge | LE panels | 27, 30, 32 | anti-ice, slats |
-| 320 | Left Centerbox (Wing-Body) | left primary structure | access bays | 51, 57, 27 | structural + system routing |
-| 330 | Left TE Systems | left trailing edge | TE panels | 27, 32 | flaps, actuators |
-| 410 | Right LE Systems | right leading edge | LE panels | 27, 30, 32 | anti-ice, slats |
-| 420 | Right Centerbox (Wing-Body) | right primary structure | access bays | 51, 57, 27 | structural + system routing |
-| 430 | Right TE Systems | right trailing edge | TE panels | 27, 32 | flaps, actuators |
+That CSV is the single source of truth for:
+
+- Zone identifiers and names  
+- Plain-language boundary descriptions  
+- Primary access points  
+- Dominant ATA linkages  
+- Notes and key hazards
+
+To avoid divergence between documentation and configuration data, do **not**
+manually duplicate the zone list here. Instead:
+
+- Consume `ZONES_REGISTER.csv` directly in engineering and publications tooling, or  
+- Generate any human-readable tables (for reports, HTML, PDFs, etc.) from that CSV.
+
+When geometry or zoning changes, update `ZONES_REGISTER.csv`; derived artifacts,
+including tables in downstream docs, should be regenerated from it.
 | 510 | Propulsion Module — Left | left propulsor/fan unit volume | nacelle doors | 71/72/73, 49, 76 | rotating machinery |
 | 520 | Propulsion Module — Right | right propulsor/fan unit volume | nacelle doors | 71/72/73, 49, 76 | rotating machinery |
 | 530 | Power Electronics Bay | inboard power conversion/inverters | bay panels | 24, 73, 77 | HV + thermal mgmt |
