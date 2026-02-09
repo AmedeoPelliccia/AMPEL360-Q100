@@ -1,0 +1,102 @@
+ssot_requirements:
+  meta:
+    ata:
+      chapter: "06"
+      section: "10"
+      subject: "00"
+      title: "TLAR Dimensions — Normalized"
+    domain: "SSOT"
+    lifecycle_owner: "LC02_SYSTEM_REQUIREMENTS"
+    parent_knu_id: "KNU-ATA06-10-00-001-REQ-001"
+    parent_knot_id: "KNOT-ATA06-10-00-001"
+    downstream_knus:
+      - "KNU-ATA06-10-00-001-DES-002"
+      - "KNU-ATA06-10-00-001-DES-001"
+
+  requirements:
+    - req_id: "TLAR-DIM-001"
+      title: "Overall length limit (LOA)"
+      normative_statement: "The aircraft overall length shall be ≤ TBD."
+      limit: "TBD"
+      unit: "m"
+      verification: ["Analysis", "Inspection"]
+      datum_definition:
+        description: "Measured along aircraft longitudinal reference axis from forward-most external point to aft-most external point."
+        reference_axis: "Aircraft Reference Axis (X-axis)"
+        measurement_points: ["FWD-most external point", "AFT-most external point"]
+      config_state:
+        ground_condition: "Static ground"
+        gear: "Extended"
+        doors_panels: "Closed"
+        high_lift: "TBD (define flaps/slats state)"
+        notes: "No temporary ground equipment attached."
+      tolerance:
+        value: "TBD"
+        unit: "m"
+        method: "TBD (metrology/DMU measurement rule)"
+      source_ref: "TLAR-DIM-001"
+      allocated_to: ["KNU-ATA06-10-00-001-DES-002", "KNU-ATA06-10-00-001-DES-001"]
+
+    - req_id: "TLAR-DIM-002"
+      title: "Effective BWB span limit (aerodrome compatibility)"
+      normative_statement: "The effective BWB span shall be ≤ TBD to meet the target aerodrome code."
+      limit: "TBD"
+      unit: "m"
+      verification: ["Analysis"]
+      datum_definition:
+        description: "Measured tip-to-tip (or outermost aerodynamic surface) at reference configuration."
+        measurement_points: ["Left-most point", "Right-most point"]
+      config_state:
+        ground_condition: "Static ground"
+        wingtip_devices: "TBD (define if present/deployed)"
+        folding: "TBD (if applicable)"
+      tolerance:
+        value: "TBD"
+        unit: "m"
+        method: "TBD"
+      aerodrome_code_target:
+        standard: "TBD (ICAO/FAA)"
+        code: "TBD"
+      source_ref: "TLAR-DIM-002"
+      allocated_to: ["KNU-ATA06-10-00-001-DES-002", "KNU-ATA06-10-00-001-DES-001"]
+
+    - req_id: "TLAR-DIM-003"
+      title: "Maximum height limit"
+      normative_statement: "The aircraft maximum height shall be ≤ TBD."
+      limit: "TBD"
+      unit: "m"
+      verification: ["Inspection"]
+      datum_definition:
+        description: "Measured from ground plane to highest external point in reference configuration."
+        reference_plane: "Ground plane"
+        measurement_points: ["Ground plane", "Highest external point"]
+      config_state:
+        ground_condition: "Static ground"
+        gear: "Extended"
+        antennas_probes: "TBD (include/exclude list)"
+      tolerance:
+        value: "TBD"
+        unit: "m"
+        method: "TBD"
+      source_ref: "TLAR-DIM-003"
+      allocated_to: ["KNU-ATA06-10-00-001-DES-002"]
+
+    - req_id: "TLAR-DIM-004"
+      title: "Centerbody cabin width minimum"
+      normative_statement: "The centerbody cabin width shall be ≥ TBD to satisfy minimum abreast objective."
+      limit: "TBD"
+      unit: "m"
+      verification: ["Analysis", "Inspection"]
+      datum_definition:
+        description: "Define cabin width measurement rule at specified height/plane and reference surfaces."
+        measurement_plane: "TBD (e.g., at seat reference height / cabin datum plane)"
+        reference_surfaces: ["TBD (liner-to-liner / armrest-to-armrest / structural)"]
+      config_state:
+        cabin_configuration: "TBD (abreast objective baseline)"
+        interior_installed: "TBD (liners/monuments installed or bare shell)"
+      tolerance:
+        value: "TBD"
+        unit: "m"
+        method: "TBD"
+      source_ref: "TLAR-DIM-004"
+      allocated_to: ["KNU-ATA06-10-00-001-DES-002", "KNU-ATA06-10-00-001-DES-001"]
