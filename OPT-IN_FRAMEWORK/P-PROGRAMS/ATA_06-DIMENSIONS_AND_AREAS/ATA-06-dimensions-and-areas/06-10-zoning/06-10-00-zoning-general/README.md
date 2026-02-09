@@ -102,7 +102,7 @@ This subject folder contains the complete knowledge and information architecture
 ## Related Documents
 
 - [ATA-06 Chapter README](../../README.md)
-- [ATA Chapter Scaling Framework](../../../../../docs/ATA_CHAPTER_SCALING_FRAMEWORK.md)
+- [ATA Chapter Scaling Framework](/docs/ATA_CHAPTER_SCALING_FRAMEWORK.md)
 
 ---
 
