@@ -1,0 +1,6 @@
+Source_KNU,Source_Title,Source_Type,Source_LC,Target_KNU,Target_Title,Target_Type,Target_LC,Relationship,Criticality,Governance_Note
+KNU-ATA06-10-00-001-REQ-001,"TLAR dimensional & functional constraints",REQ,LC02,KNU-ATA06-10-00-001-DES-002,"BWB Geometry Definition",DES,LC04,derives_from,HIGH,"Change to TLAR ⇒ new KNU-DES-002 rev"
+KNU-ATA06-10-00-001-DES-002,"BWB Geometry Definition",DES,LC04,KNU-ATA06-10-00-001-DES-001,"Zoning scheme document approved + IDs stable",DES,LC04,derives_from,HIGH,"Change to geometry ⇒ new KNU-DES-001 rev"
+KNU-ATA06-10-00-001-DES-001,"Zoning scheme document approved + IDs stable",DES,LC04,KNU-ATA06-10-00-001-DATA-001,"100% aircraft volume assigned to a ZoneID",DATA,LC04,satisfies,HIGH,"Zoning scheme drives zone register completion"
+KNU-ATA06-10-00-001-DES-001,"Zoning scheme document approved + IDs stable",DES,LC04,KNU-ATA06-10-00-001-SAF-001,"Hazard overlay tags complete for LH₂/HV zones",SAF,LC04,satisfies,HIGH,"Zoning scheme drives hazard overlay tagging"
+KNU-ATA06-10-00-001-DES-001,"Zoning scheme document approved + IDs stable",DES,LC04,KNU-ATA06-10-00-001-PUB-001,"Generated DM set passes BREX + trace matrix resolves",PUB,LC08,satisfies,MEDIUM,"Zoning scheme drives publication generation"

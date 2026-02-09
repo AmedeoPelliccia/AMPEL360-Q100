@@ -1,4 +1,6 @@
 KNU_ID,Parent_KNOT,Title,Artifact_Type,LC_Phase,Status,Priority,Target_Date,Owner
+KNU-ATA06-10-00-001-REQ-001,KNOT-ATA06-10-00-001,"TLAR dimensional & functional constraints accepted",REQ,LC02,PLANNED,HIGH,"2026-03-15",STK_SE
+KNU-ATA06-10-00-001-DES-002,KNOT-ATA06-10-00-001,"BWB Geometry Definition frozen for stable Zone IDs",DES,LC04,PLANNED,HIGH,"2026-04-15",STK_SE
 KNU-ATA06-10-00-001-DES-001,KNOT-ATA06-10-00-001,"Zoning scheme document approved + IDs stable",DES,LC04,PLANNED,HIGH,"2026-04-30",STK_SE
 KNU-ATA06-10-00-001-DATA-001,KNOT-ATA06-10-00-001,"100% aircraft volume assigned to a ZoneID",DATA,LC04,PLANNED,HIGH,"2026-05-15",STK_DATA
 KNU-ATA06-10-00-001-SAF-001,KNOT-ATA06-10-00-001,"Hazard overlay tags complete for LH₂/HV zones",SAF,LC04,PLANNED,HIGH,"2026-05-30",STK_SAF
