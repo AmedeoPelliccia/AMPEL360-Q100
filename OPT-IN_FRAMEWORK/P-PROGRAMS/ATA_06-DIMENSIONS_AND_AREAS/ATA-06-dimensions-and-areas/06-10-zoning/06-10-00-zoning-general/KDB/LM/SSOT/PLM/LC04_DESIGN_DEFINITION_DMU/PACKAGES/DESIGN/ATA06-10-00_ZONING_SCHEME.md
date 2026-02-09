@@ -54,10 +54,10 @@ The zoning scheme is implemented via these SSOT registers:
 - `ZONES_ACCESS_POINTS.csv` (panels/hatches/doors mapped to zones)
 - `ZONES_HAZARD_TAGS.yaml` (hazard overlay tags and definitions)
 
-## 6. Trace rules
-- Every zone must map to at least one access point OR have "NO_DIRECT_ACCESS" justification.
-- Every LH₂ and HV-relevant zone must carry hazard tags (see hazard tag registry).
-- Publications (PUB) must be generated from these registers only (no hand-edits).
+## 6. Trace target rules (baseline intent)
+- Target: Every zone maps to at least one access point OR has an explicit "NO_DIRECT_ACCESS" justification.
+- Target: Every LH₂ and HV-relevant zone carries hazard tags (see hazard tag registry). Known gaps in demo/baseline registers shall be tracked and closed before validation use.
+- Target: Publications (PUB) for validated configurations are generated from these registers only (no hand-edits).
 
 ## 7. Change control
 Changes to zone IDs or boundaries require:
