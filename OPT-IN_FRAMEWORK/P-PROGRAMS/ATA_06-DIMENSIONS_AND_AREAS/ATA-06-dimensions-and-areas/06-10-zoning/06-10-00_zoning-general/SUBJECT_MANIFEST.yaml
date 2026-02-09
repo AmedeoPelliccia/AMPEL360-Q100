@@ -57,7 +57,7 @@ lifecycle_status:
 
   LC02_SYSTEM_REQUIREMENTS:
     status: "IN_PROGRESS"
-    artifacts: 1
+    artifacts: 3
     approved: 0
 
   LC04_DESIGN_DEFINITION:
@@ -95,10 +95,10 @@ metrics:
 
   artifact_completion:
     total_planned: 10
-    complete: 7
+    complete: 9
     in_progress: 0
-    planned: 3
-    completion_percentage: 70
+    planned: 1
+    completion_percentage: 90
 
   token_allocation:
     total_tt: 16
