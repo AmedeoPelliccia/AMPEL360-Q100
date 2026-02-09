@@ -1,24 +1,22 @@
-# 06-10-reserved-as-required
+# 06-10 — Zoning
 
-**Parent:** ATA-06-dimensions-and-areas  
-**Section Type:** Reserved  
-**Status:** Scaffold Ready
+**Parent:** ATA-06-dimensions-and-areas
+**Section Type:** Active
+**Status:** In Development
 
 ---
 
 ## Overview
 
-Reserved section for future use
+This section defines the **AMPEL360 Q100 BWB zoning scheme** — the canonical zone numbering, baseline zone register, access point mapping, and hazard overlay tags.
 
 ---
 
 ## Contents
 
-This section will contain:
-- GENESIS uncertainty discovery artifacts
-- KDB/IDB structure
-- ASIT transformation contracts
-- Publication deliverables
+| Subject | Path | Description |
+|---------|------|-------------|
+| **06-10-00 Zoning General** | [06-10-00-zoning-general/](06-10-00-zoning-general/) | SSOT zoning scheme, registers, and hazard tags |
 
 ---
 

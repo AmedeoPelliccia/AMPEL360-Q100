@@ -1,0 +1,2 @@
+KNOT_ID,Title,Problem_Statement,Scope_In,Scope_Out,Status,Residual,Target_Residual,Owner,Created_Date,Target_Closure
+KNOT-ATA06-10-00-001,"Zone scheme/register completeness","ATA06-10 zoning boundaries, access mapping, and hazard overlays not yet complete for full-aircraft coverage","Zone numbering scheme; Baseline zone register; Access point mapping; Hazard overlay tags","Zonal inspection tasks (ATA 05); EWIS separation rules (ATA 20)","OPEN",100,10,"STK_SE","2026-02-09","2026-06-30"

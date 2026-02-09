@@ -1,0 +1,22 @@
+hazard_tags:
+  HZ-H2:
+    meaning: "Hydrogen flammable atmosphere potential"
+    requires_controls: ["Leak detection coverage", "Ignition source control", "Vent path defined"]
+  HZ-CRYO:
+    meaning: "Cryogenic hazard (frostbite/embrittlement/overpressure)"
+    requires_controls: ["PPE requirement", "Material compatibility note", "PRD/venting identified"]
+  HZ-HV:
+    meaning: "High-voltage electrical hazard"
+    requires_controls: ["LOTO procedure reference", "Arc flash warning", "Insulation monitoring"]
+  HZ-HOT:
+    meaning: "Hot surface hazard"
+    requires_controls: ["Cooling time note", "Thermal shielding verification"]
+  HZ-ROT:
+    meaning: "Rotating machinery hazard"
+    requires_controls: ["Spool-down time", "Guards/clearance"]
+zone_overlays:
+  "530": ["HZ-HV", "HZ-HOT"]
+  "510": ["HZ-ROT", "HZ-HOT"]
+  "520": ["HZ-ROT", "HZ-HOT"]
+  "610": ["HZ-H2", "HZ-CRYO"]
+  "630": ["HZ-H2", "HZ-CRYO"]

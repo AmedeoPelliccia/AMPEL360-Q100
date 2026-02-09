@@ -1,0 +1,6 @@
+AccessID,AccessType,ZoneID,LocationHint,Notes
+AP-06-10-0001,HATCH,120,"FWD belly avionics bay","Tool-controlled access"
+AP-06-10-0002,PANEL,240,"Cabin floor panel group A","Remove seat track covers as applicable"
+AP-06-10-0003,DOOR,510,"Left nacelle access door","Lockout/tagout required"
+AP-06-10-0004,DOOR,520,"Right nacelle access door","Lockout/tagout required"
+AP-06-10-0005,HATCH,610,"LH2 bay service hatch A","Purge/vent procedure prerequisite"
