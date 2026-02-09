@@ -34,7 +34,7 @@ inventory:
 
   kdb:
     dev_artifacts: 0
-    lm_artifacts: 7
+    lm_artifacts: 10
     baseline_status: "INITIAL"
 
   idb:
@@ -53,16 +53,16 @@ lifecycle_status:
     knots_open: 1
     knots_closed: 0
     knu_complete: 0
-    knu_in_progress: 0
+    knu_in_progress: 2
 
   LC02_SYSTEM_REQUIREMENTS:
-    status: "PLANNED"
-    artifacts: 0
+    status: "IN_PROGRESS"
+    artifacts: 1
     approved: 0
 
   LC04_DESIGN_DEFINITION:
     status: "IN_PROGRESS"
-    artifacts: 4
+    artifacts: 6
     approved: 0
 
   LC06_INTEGRATION_TEST:
@@ -73,8 +73,8 @@ lifecycle_status:
 # Dependencies
 dependencies:
   upstream:
-    - "TLAR (Top-Level Aircraft Requirements)"
-    - "BWB geometry definition"
+    - "KNU-ATA06-10-00-001-REQ-001 — TLAR (Top-Level Aircraft Requirements)"
+    - "KNU-ATA06-10-00-001-DES-002 — BWB Geometry Definition"
   downstream:
     - "ATA 05 Scheduled Inspections"
     - "ATA 20 EWIS"
@@ -94,11 +94,11 @@ metrics:
     reduction_percentage: 0
 
   artifact_completion:
-    total_planned: 7
-    complete: 4
+    total_planned: 10
+    complete: 7
     in_progress: 0
     planned: 3
-    completion_percentage: 57
+    completion_percentage: 70
 
   token_allocation:
     total_tt: 16

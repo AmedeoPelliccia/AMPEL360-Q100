@@ -12,6 +12,10 @@ ssot:
   sources:
     - type: "Requirements"
       location: "KDB/LM/SSOT/PLM/LC02_SYSTEM_REQUIREMENTS"
+      knu: "KNU-ATA06-10-00-001-REQ-001"
+    - type: "BWB Geometry"
+      location: "KDB/LM/SSOT/PLM/LC04_DESIGN_DEFINITION_DMU/PACKAGES/DESIGN"
+      knu: "KNU-ATA06-10-00-001-DES-002"
   knots:
     - "KNOT-ATA06-10-00-001"
 ---
