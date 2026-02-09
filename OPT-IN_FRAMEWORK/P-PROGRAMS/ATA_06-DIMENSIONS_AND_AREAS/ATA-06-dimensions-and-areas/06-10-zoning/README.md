@@ -16,7 +16,7 @@ This section defines the **AMPEL360 Q100 BWB zoning scheme** — the canonical z
 
 | Subject | Path | Description |
 |---------|------|-------------|
-| **06-10-00 Zoning General** | [06-10-00-zoning-general/](06-10-00-zoning-general/) | SSOT zoning scheme, registers, and hazard tags |
+| **06-10-00 Zoning General** | [06-10-00_zoning-general/](06-10-00_zoning-general/) | SSOT zoning scheme, registers, and hazard tags |
 
 ---
 
