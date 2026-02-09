@@ -19,4 +19,6 @@ zone_overlays:
   "510": ["HZ-ROT", "HZ-HOT"]
   "520": ["HZ-ROT", "HZ-HOT"]
   "610": ["HZ-H2", "HZ-CRYO"]
+  "620": ["HZ-H2", "HZ-CRYO"]
   "630": ["HZ-H2", "HZ-CRYO"]
+  "640": ["HZ-H2", "HZ-CRYO"]
