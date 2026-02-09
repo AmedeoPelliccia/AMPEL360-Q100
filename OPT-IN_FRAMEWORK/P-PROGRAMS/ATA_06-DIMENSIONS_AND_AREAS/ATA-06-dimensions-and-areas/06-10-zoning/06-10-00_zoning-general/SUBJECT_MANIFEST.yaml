@@ -1,0 +1,124 @@
+# Subject Manifest — ATA-06-10-00 Zoning General
+
+manifest_version: "1.0.0"
+subject_id: "ATA06-10-00"
+subject_title: "Zoning General"
+ata_chapter: 6
+ata_section: "06-10"
+ata_subject: "06-10-00"
+created_date: "2026-02-09"
+last_updated: "2026-02-09"
+owner: "STK_SE"
+
+# Subject Scope
+scope:
+  description: "Canonical zoning scheme for the AMPEL360 Q100 BWB aircraft"
+  in_scope:
+    - "Zone numbering scheme (BWB-adapted macro ranges)"
+    - "Baseline zone register (boundaries, access, ATA links)"
+    - "Left/right and vertical subzone conventions"
+    - "Hazard overlay tagging (LH₂ / HV / hot / rotating)"
+    - "Zone-to-access-point mapping"
+    - "Zonal safety analysis inputs"
+  out_of_scope:
+    - "Zonal inspection task definition (ATA 05)"
+    - "Structural repair zone references (ATA 51/53)"
+    - "EWIS installation zone assignments (ATA 20)"
+
+# Artifact Inventory
+inventory:
+  genesis:
+    o_knots: 0
+    y_knots: 0
+    status: "NOT_STARTED"
+
+  kdb:
+    dev_artifacts: 0
+    lm_artifacts: 7
+    baseline_status: "INITIAL"
+
+  idb:
+    ops_artifacts: 0
+    pub_data_modules: 0
+    publication_status: "NOT_STARTED"
+
+  contracts:
+    active_contracts: 0
+    execution_status: "NOT_STARTED"
+
+# Lifecycle Status
+lifecycle_status:
+  LC01_PROBLEM_STATEMENT:
+    status: "ACTIVE"
+    knots_open: 1
+    knots_closed: 0
+    knu_complete: 0
+    knu_in_progress: 0
+
+  LC02_SYSTEM_REQUIREMENTS:
+    status: "PLANNED"
+    artifacts: 0
+    approved: 0
+
+  LC04_DESIGN_DEFINITION:
+    status: "IN_PROGRESS"
+    artifacts: 4
+    approved: 0
+
+  LC06_INTEGRATION_TEST:
+    status: "PLANNED"
+    artifacts: 0
+    approved: 0
+
+# Dependencies
+dependencies:
+  upstream:
+    - "TLAR (Top-Level Aircraft Requirements)"
+    - "BWB geometry definition"
+  downstream:
+    - "ATA 05 Scheduled Inspections"
+    - "ATA 20 EWIS"
+    - "ATA 28 Fuel (zone safety references)"
+    - "ATA 51/53 Structures (zone-structural mapping)"
+  interfaces:
+    - { ata: "05", system: "Inspections", interface: "Zonal inspection tasks" }
+    - { ata: "20", system: "EWIS", interface: "Separation zone rules" }
+    - { ata: "28", system: "Fuel", interface: "LH₂ hazard zone overlay" }
+
+# Key Metrics
+metrics:
+  uncertainty_reduction:
+    initial_residual: 100
+    current_residual: 100
+    target_residual: 10
+    reduction_percentage: 0
+
+  artifact_completion:
+    total_planned: 7
+    complete: 4
+    in_progress: 0
+    planned: 3
+    completion_percentage: 57
+
+  token_allocation:
+    total_tt: 16
+    distributed_tt: 0
+    remaining_tt: 16
+
+# Quality Status
+quality:
+  schema_validation: "PENDING"
+  traceability_audit: "PENDING"
+  brex_compliance: "N/A"
+  review_status: "INITIAL"
+
+# Milestones
+milestones:
+  - { id: "MS-06-10-PDR", name: "Zoning Scheme PDR", target: "2026-Q2", status: "PLANNED" }
+  - { id: "MS-06-10-FRZ", name: "Zone Register Freeze", target: "2026-Q3", status: "PLANNED" }
+
+# Contacts
+contacts:
+  - { role: "Subject Owner", stakeholder: "STK_SE", email: "systems@ampel360.eu" }
+  - { role: "Safety Lead", stakeholder: "STK_SAF", email: "safety@ampel360.eu" }
+  - { role: "Data Lead", stakeholder: "STK_DATA", email: "data@ampel360.eu" }
