@@ -30,37 +30,39 @@
    - [3.1 Top-Level Structure](#31-top-level-structure)
    - [3.2 Canonical ATA Pattern](#32-canonical-ata-pattern)
    - [3.3 File Naming Conventions](#33-file-naming-conventions)
-4. [OPT-IN Framework](#4-opt-in-framework)
-   - [4.1 Five-Axis Topology](#41-five-axis-topology)
-   - [4.2 Complete Directory Structure](#42-complete-directory-structure)
-5. [Governance & Workflows](#5-governance--workflows)
-   - [5.1 KNOT Lifecycle](#51-knot-lifecycle)
-   - [5.2 Contract-Based Transformation](#52-contract-based-transformation)
-   - [5.3 Tokenomics & Incentive Alignment](#53-tokenomics--incentive-alignment)
-   - [5.4 Change Control & Baselines](#54-change-control--baselines)
-6. [Standards & Compliance](#6-standards--compliance)
-7. [Getting Started](#7-getting-started)
-   - [7.1 Prerequisites & Setup](#71-prerequisites--setup)
-   - [7.2 First Contribution Walkthrough](#72-first-contribution-walkthrough)
-   - [7.3 Role-Based Entry Points](#73-role-based-entry-points)
-   - [7.4 Validation & CI Checks](#74-validation--ci-checks)
-8. [CAOS Framework](#8-caos-framework)
-9. [Publishing Model](#9-publishing-model)
-   - [9.1 CSDB (S1000D)](#91-csdb-s1000d)
-   - [9.2 IETP Runtime](#92-ietp-runtime)
-10. [Tooling & Automation](#10-tooling--automation)
-    - [10.1 CLI Tools Reference](#101-cli-tools-reference)
-    - [10.2 ASIT Pipeline Configuration](#102-asit-pipeline-configuration)
-    - [10.3 CI/CD Integration](#103-cicd-integration)
-11. [Security & Access Control](#11-security--access-control)
-    - [11.1 Data Classification](#111-data-classification)
-    - [11.2 Export Control Considerations](#112-export-control-considerations)
-    - [11.3 Role-Based Access Model](#113-role-based-access-model)
-12. [Key Documentation](#12-key-documentation)
-13. [Contributing](#13-contributing)
-14. [Glossary](#14-glossary)
-15. [Changelog](#15-changelog)
-16. [License & Acknowledgments](#16-license--acknowledgments)
+4. [Zone Numbering Scheme (SSOT Rule)](#4-zone-numbering-scheme-ssot-rule)
+5. [Baseline Zone Register](#5-baseline-zone-register)
+6. [OPT-IN Framework](#6-opt-in-framework)
+   - [6.1 Five-Axis Topology](#61-five-axis-topology)
+   - [6.2 Complete Directory Structure](#62-complete-directory-structure)
+7. [Governance & Workflows](#7-governance--workflows)
+   - [7.1 KNOT Lifecycle](#71-knot-lifecycle)
+   - [7.2 Contract-Based Transformation](#72-contract-based-transformation)
+   - [7.3 Tokenomics & Incentive Alignment](#73-tokenomics--incentive-alignment)
+   - [7.4 Change Control & Baselines](#74-change-control--baselines)
+8. [Standards & Compliance](#8-standards--compliance)
+9. [Getting Started](#9-getting-started)
+   - [9.1 Prerequisites & Setup](#91-prerequisites--setup)
+   - [9.2 First Contribution Walkthrough](#92-first-contribution-walkthrough)
+   - [9.3 Role-Based Entry Points](#93-role-based-entry-points)
+   - [9.4 Validation & CI Checks](#94-validation--ci-checks)
+10. [CAOS Framework](#10-caos-framework)
+11. [Publishing Model](#11-publishing-model)
+    - [11.1 CSDB (S1000D)](#111-csdb-s1000d)
+    - [11.2 IETP Runtime](#112-ietp-runtime)
+12. [Tooling & Automation](#12-tooling--automation)
+    - [12.1 CLI Tools Reference](#121-cli-tools-reference)
+    - [12.2 ASIT Pipeline Configuration](#122-asit-pipeline-configuration)
+    - [12.3 CI/CD Integration](#123-cicd-integration)
+13. [Security & Access Control](#13-security--access-control)
+    - [13.1 Data Classification](#131-data-classification)
+    - [13.2 Export Control Considerations](#132-export-control-considerations)
+    - [13.3 Role-Based Access Model](#133-role-based-access-model)
+14. [Key Documentation](#14-key-documentation)
+15. [Contributing](#15-contributing)
+16. [Glossary](#16-glossary)
+17. [Changelog](#17-changelog)
+18. [License & Acknowledgments](#18-license--acknowledgments)
 
 ---
 
@@ -817,9 +819,69 @@ Example subject slug you gave:
 
 ---
 
-## 4. OPT-IN Framework
+## 4. Zone Numbering Scheme (SSOT Rule)
 
-### 4.1 Five-Axis Topology
+**Zone ID format:** `ZNNN` (macro) + optional `-SS` (subzone)
+
+| Range | Description |
+|-------|-------------|
+| 100–199 | Forward centerbody / flight deck / avionics |
+| 200–299 | Passenger cabin / interior / galleys / lavs (centerbody) |
+| 300–399 | Left integrated wing-body (structure + systems) |
+| 400–499 | Right integrated wing-body (structure + systems) |
+| 500–599 | Propulsion & electric power modules (distributed or podded) |
+| 600–699 | LH₂ cryogenic storage + distribution + venting (hazard zones) |
+| 700–799 | Landing gear / wheel wells / brakes |
+| 800–899 | Doors, hatches, access panels, service points |
+| 900–999 | External surfaces, anti-ice, lightning, general zonal items |
+
+**Left/Right convention:**
+
+- 3xx = Left, 4xx = Right
+- Vertical split (BWB-specific): subzones use `-01` upper, `-02` mid, `-03` lower where relevant.
+
+---
+
+## 5. Baseline Zone Register
+
+> This is the minimum register needed to start design + publications. Expand as geometry freezes.
+
+| Zone | Name | Boundaries (plain language) | Primary Access | Dominant ATA links | Notes / Hazards |
+|------|------|-----------------------------|----------------|--------------------|-----------------|
+| 110 | Flight Deck | nose/forward centerbody, cockpit volume | FD door, panels | 22, 23, 27, 31, 34 | avionics + controls |
+| 120 | Avionics/E&E Bay (FWD) | below/behind flight deck | bay hatch | 24, 34, 45 | cooling + EWIS density |
+| 130 | Forward Systems Bay | forward centerbody lower | service panels | 21, 29, 32, 36 | bleed/air, hyd/pneu as applicable |
+| 210 | Cabin Left | left side cabin envelope | cabin doors | 25, 33, 35 | interior, oxygen, lighting |
+| 220 | Cabin Center | center cabin envelope | cabin doors | 25, 33 | monuments + evac flow |
+| 230 | Cabin Right | right side cabin envelope | cabin doors | 25, 33, 35 | interior, oxygen, lighting |
+| 240 | Cabin Underfloor (Centerbody) | below cabin floor, center | floor panels | 21, 24, 27, 28 | wiring, ducts, ECS |
+| 310 | Left LE Systems | left leading edge | LE panels | 27, 30, 32 | anti-ice, slats |
+| 320 | Left Centerbox (Wing-Body) | left primary structure | access bays | 51, 57, 27 | structural + system routing |
+| 330 | Left TE Systems | left trailing edge | TE panels | 27, 32 | flaps, actuators |
+| 410 | Right LE Systems | right leading edge | LE panels | 27, 30, 32 | anti-ice, slats |
+| 420 | Right Centerbox (Wing-Body) | right primary structure | access bays | 51, 57, 27 | structural + system routing |
+| 430 | Right TE Systems | right trailing edge | TE panels | 27, 32 | flaps, actuators |
+| 510 | Propulsion Module — Left | left propulsor/fan unit volume | nacelle doors | 71/72/73, 49, 76 | rotating machinery |
+| 520 | Propulsion Module — Right | right propulsor/fan unit volume | nacelle doors | 71/72/73, 49, 76 | rotating machinery |
+| 530 | Power Electronics Bay | inboard power conversion/inverters | bay panels | 24, 73, 77 | HV + thermal mgmt |
+| 540 | Electric Motors/Drives | distributed drive units area | module access | 24, 73 | HV + EMC constraints |
+| 610 | LH₂ Tank Bay 1 | cryogenic tank compartment A | service hatch | 28, 29, 47, 49, 85 | flammable + cryogenic |
+| 620 | LH₂ Tank Bay 2 | cryogenic tank compartment B | service hatch | 28, 29, 47, 49, 85 | segregation / venting |
+| 630 | LH₂ Feed & Isolation Manifold | valves, isolation, PRDs | panel access | 28, 29, 36, 49, 85 | leak detection zoning |
+| 640 | Boil-off / Vent Mast System | vent routing to mast | external access | 28, 29, 85 | ignition source control |
+| 710 | Main Gear Bay — Left | left MLG bay | gear doors | 32, 52, 53 | brake dust / heat |
+| 720 | Main Gear Bay — Right | right MLG bay | gear doors | 32, 52, 53 | brake dust / heat |
+| 730 | Nose/Center Gear Bay | forward gear volume (if applicable) | gear doors | 32, 52 | hydraulics/electrics separation |
+| 810 | Passenger Doors | all pax door surrounds | doors | 52, 25 | seals, sensors |
+| 820 | Service Panels (Ground) | refuel/service interfaces | panels | 12, 28/29/85, 24 | H₂ servicing, GPU, data |
+| 910 | Upper External Surface | upper skin & access | external | 51, 57 | lightning/paint/erosion |
+| 920 | Lower External Surface | lower skin & access | external | 51, 57 | drainage, impact |
+
+---
+
+## 6. OPT-IN Framework
+
+### 6.1 Five-Axis Topology
 
 The OPT-IN Framework organizes all 79 ATA chapters across five axes:
 
@@ -833,7 +895,7 @@ The OPT-IN Framework organizes all 79 ATA chapters across five axes:
 
 *Note: Some chapters appear in multiple axes with different sub-scopes (e.g., ATA 08 PROGRAMS vs ATA 08 INFRA)*
 
-### 4.2 Complete Directory Structure
+### 6.2 Complete Directory Structure
 
 <details>
 <summary><strong>Click to expand full OPT-IN directory tree</strong></summary>
@@ -969,9 +1031,9 @@ OPT-IN_FRAMEWORK/
 
 ---
 
-## 5. Governance & Workflows
+## 7. Governance & Workflows
 
-### 5.1 KNOT Lifecycle
+### 7.1 KNOT Lifecycle
 
 Work in this repository is managed through **KNOTs** (uncertainties) and **KNUs** (artifacts):
 
@@ -1064,7 +1126,7 @@ Work in this repository is managed through **KNOTs** (uncertainties) and **KNUs*
 | `STK_MRO` | Maintenance, Repair, Overhaul |
 | `STK_DATA` | Data Management |
 
-### 5.2 Contract-Based Transformation
+### 7.2 Contract-Based Transformation
 
 Every KDB → IDB transformation is governed by an explicit contract:
 
@@ -1119,7 +1181,7 @@ audit:
   hash_algorithm: "SHA-256"
 ```
 
-### 5.3 Tokenomics & Incentive Alignment
+### 7.3 Tokenomics & Incentive Alignment
 
 #### Teknia Token (TT) System
 
@@ -1200,7 +1262,7 @@ Where:
 - Contributors who reduce uncertainty most are rewarded more (impact)
 - Cross-KNOT contributions are recognized (spillover)
 
-### 5.4 Change Control & Baselines
+### 7.4 Change Control & Baselines
 
 | Baseline Type | Trigger | Authority | Artifacts |
 |---------------|---------|-----------|-----------|
@@ -1212,7 +1274,7 @@ Where:
 
 ---
 
-## 6. Standards & Compliance
+## 8. Standards & Compliance
 
 | Standard | Application |
 |----------|-------------|
@@ -1231,9 +1293,9 @@ Where:
 
 ---
 
-## 7. Getting Started
+## 9. Getting Started
 
-### 7.1 Prerequisites & Setup
+### 9.1 Prerequisites & Setup
 
 **Requirements:**
 
@@ -1258,7 +1320,7 @@ bash .github/hooks/setup-hooks.sh
 python tools/ci/optin_structure_validator.py --check
 ```
 
-### 7.2 First Contribution Walkthrough
+### 9.2 First Contribution Walkthrough
 
 **Step 1: Identify or Create a KNOT**
 
@@ -1305,7 +1367,7 @@ git commit -m "feat(ATA28): Add LH2 tank insulation requirement
 git push origin feature/ata28-lh2-insulation
 ```
 
-### 7.3 Role-Based Entry Points
+### 9.3 Role-Based Entry Points
 
 | Role | Start Here | Primary Focus |
 |------|------------|---------------|
@@ -1319,7 +1381,7 @@ git push origin feature/ata28-lh2-insulation
 | **AI/ML Engineer** | `ATA_95-AI_ML_MODELS/` | Model lifecycle |
 | **Tokenomics Analyst** | `KDB/GENESIS/TOKENOMICS_TT.yaml` | Incentive allocation |
 
-### 7.4 Validation & CI Checks
+### 9.4 Validation & CI Checks
 
 **Local Validation:**
 
@@ -1358,7 +1420,7 @@ jobs:
 
 ---
 
-## 8. CAOS Framework
+## 10. CAOS Framework
 
 **CAOS (Continuous Airworthiness for Operational Sustainment)** maintains airworthiness throughout the operational lifecycle:
 
@@ -1384,9 +1446,9 @@ jobs:
 
 ---
 
-## 9. Publishing Model
+## 11. Publishing Model
 
-### 9.1 CSDB (S1000D)
+### 11.1 CSDB (S1000D)
 
 The Common Source Database is the single source for modular publications:
 
@@ -1414,7 +1476,7 @@ The Common Source Database is the single source for modular publications:
 | `7XX` | Illustrated | Parts data (IPD) |
 | `9XX` | Wiring | Wiring data |
 
-### 9.2 IETP Runtime
+### 11.2 IETP Runtime
 
 The Interactive Electronic Technical Publication runtime:
 
@@ -1437,9 +1499,9 @@ IETP/
 
 ---
 
-## 10. Tooling & Automation
+## 12. Tooling & Automation
 
-### 10.1 CLI Tools Reference
+### 12.1 CLI Tools Reference
 
 | Tool | Command | Description |
 |------|---------|-------------|
@@ -1465,7 +1527,7 @@ python tools/tek_tokens.py verify
 python tools/ci/trace_checker.py --contracts CONTRACTS/ --output trace_matrix.csv
 ```
 
-### 10.2 ASIT Pipeline Configuration
+### 12.2 ASIT Pipeline Configuration
 
 ASIT pipelines are defined in `ASIT/pipelines/`:
 
@@ -1515,7 +1577,7 @@ triggers:
     events: ["kdb_update"]
 ```
 
-### 10.3 CI/CD Integration
+### 12.3 CI/CD Integration
 
 **GitHub Actions Workflow:**
 
@@ -1563,9 +1625,9 @@ jobs:
 
 ---
 
-## 11. Security & Access Control
+## 13. Security & Access Control
 
-### 11.1 Data Classification
+### 13.1 Data Classification
 
 | Level | Label | Description | Examples |
 |-------|-------|-------------|----------|
@@ -1582,7 +1644,7 @@ jobs:
 <!-- EXPORT_CONTROL: NONE -->
 ```
 
-### 11.2 Export Control Considerations
+### 13.2 Export Control Considerations
 
 | Jurisdiction | Regulation | Applicability |
 |--------------|------------|---------------|
@@ -1598,7 +1660,7 @@ jobs:
 - Contributors must not add controlled technical data
 - Real program data requires separate controlled repository
 
-### 11.3 Role-Based Access Model
+### 13.3 Role-Based Access Model
 
 | Role | KDB/GENESIS | KDB/SSOT | CONTRACTS | IDB/SSOT | IDB/PUB |
 |------|-------------|----------|-----------|----------|---------|
@@ -1617,7 +1679,7 @@ jobs:
 
 ---
 
-## 12. Key Documentation
+## 14. Key Documentation
 
 | Document | Description | Location |
 |----------|-------------|----------|
@@ -1635,7 +1697,7 @@ jobs:
 
 ---
 
-## 13. Contributing
+## 15. Contributing
 
 ### Contribution Workflow
 
@@ -1696,7 +1758,7 @@ Closes #142
 
 ---
 
-## 14. Glossary
+## 16. Glossary
 
 | Acronym | Full Term | Definition |
 |---------|-----------|------------|
@@ -1746,7 +1808,7 @@ Closes #142
 
 ---
 
-## 15. Changelog
+## 17. Changelog
 
 ### [Unreleased]
 
@@ -1775,7 +1837,7 @@ Closes #142
 
 ---
 
-## 16. License & Acknowledgments
+## 18. License & Acknowledgments
 
 ### License
 
