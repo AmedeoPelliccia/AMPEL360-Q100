@@ -23,4 +23,4 @@ This section defines the **AMPEL360 Q100 BWB zoning scheme** — the canonical z
 ## Related Documentation
 
 - [Parent Chapter](../README.md)
-- [ATA Chapter Scaling Framework](../../../../docs/ATA_CHAPTER_SCALING_FRAMEWORK.md)
+- [ATA Chapter Scaling Framework](/docs/ATA_CHAPTER_SCALING_FRAMEWORK.md)
