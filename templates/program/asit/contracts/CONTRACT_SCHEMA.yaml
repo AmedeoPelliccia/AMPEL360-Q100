@@ -1,0 +1,47 @@
+# =============================================================================
+# Transformation Contract Schema
+# =============================================================================
+# Defines the schema for ASIT transformation contracts
+# =============================================================================
+
+contract_schema:
+  version: "1.0.0"
+  
+  required_fields:
+    - name: "contract_id"
+      type: "string"
+      pattern: "^KITDM-CTR-[A-Z]+-[A-Z]+$"
+      
+    - name: "name"
+      type: "string"
+      
+    - name: "version"
+      type: "string"
+      pattern: "^\\d+\\.\\d+\\.\\d+$"
+      
+    - name: "source"
+      type: "object"
+      properties:
+        - "type"
+        - "path"
+        - "format"
+        
+    - name: "target"
+      type: "object"
+      properties:
+        - "type"
+        - "path"
+        - "format"
+        
+    - name: "transformation"
+      type: "object"
+      properties:
+        - "engine"
+        - "rules"
+        
+  optional_fields:
+    - name: "validation"
+      type: "object"
+      
+    - name: "schedule"
+      type: "object"

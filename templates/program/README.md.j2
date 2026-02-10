@@ -1,0 +1,44 @@
+# {{ program_name }}
+
+**Model Code:** {{ model_code }}
+**Organization:** {{ organization }}
+**Created:** {{ created_date }}
+**AEROSPACEMODEL Version:** {{ aerospacemodel_version }}
+
+---
+
+## Overview
+
+{{ program_description }}
+
+## Program Structure
+
+```
+{{ program_name }}/
+├── ASIT/                  # Aircraft Standard Information Treatment
+│   ├── GOVERNANCE/        # Baselines, change control, approvals, releases
+│   ├── STRUCTURE/         # ATA mapping, lifecycle phases, naming conventions
+│   ├── CONTRACTS/         # Transformation contracts (CSDB, export)
+│   └── INDEX/             # SSOT index, traceability, artifact catalog
+├── ASIGT/                 # Aircraft Standard Information Guided Treatment
+│   ├── brex/              # BREX business rules
+│   └── runs/              # Execution runs
+├── KDB/                   # Knowledge Database
+├── IDB/                   # Instance Database
+├── output/                # Generated outputs
+├── logs/                  # Audit and processing logs
+└── program_config.yaml    # Program configuration
+```
+
+## Getting Started
+
+1. Review and customize `program_config.yaml`
+2. Configure governance settings in `ASIT/asit_config.yaml`
+3. Set up BREX rules in `ASIGT/brex/{{ model_code }}_brex.yaml`
+4. Create your first baseline: `aerospacemodel baseline create`
+5. Define transformation contracts in `ASIT/CONTRACTS/active/`
+
+## References
+
+- [AEROSPACEMODEL Documentation](https://docs.aerospacemodel.io)
+- [S1000D Issue {{ s1000d_issue }}](https://www.s1000d.org)

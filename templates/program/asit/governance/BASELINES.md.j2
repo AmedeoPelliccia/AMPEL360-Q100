@@ -1,0 +1,26 @@
+# Baselines — {{ program_name }}
+
+**Program:** {{ program_name }} ({{ model_code }})
+**Organization:** {{ organization }}
+
+---
+
+## Baseline Types
+
+| Code | Type | Description |
+|------|------|-------------|
+| DBL  | Design Baseline | Captures approved design state |
+| FBL  | Functional Baseline | Captures functional requirements |
+| ABL  | Allocated Baseline | Captures allocated configuration |
+| PBL  | Product Baseline | Captures verified product state |
+
+## Baseline Register
+
+See [BASELINE_REGISTER.csv](BASELINE_REGISTER.csv) for the complete register.
+
+## Baseline Policy
+
+- Baselines follow naming convention: `{{ model_code }}-{TYPE}-{NNN}`
+- All baselines require CCB approval before establishment
+- Design baselines (DBL) require gate review sign-off
+- Baseline changes require an Engineering Change Request (ECR)

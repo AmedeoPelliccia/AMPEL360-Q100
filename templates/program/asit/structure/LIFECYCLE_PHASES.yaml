@@ -1,0 +1,34 @@
+# =============================================================================
+# Lifecycle Phases
+# =============================================================================
+# Standard lifecycle phases for program artifacts
+# =============================================================================
+
+lifecycle_phases:
+  - id: "LC01"
+    name: "Problem Statement"
+    description: "Problem definition and initial requirements"
+    
+  - id: "LC02"
+    name: "System Requirements"
+    description: "System-level requirements definition"
+    
+  - id: "LC03"
+    name: "Functional Analysis"
+    description: "Functional decomposition and analysis"
+    
+  - id: "LC04"
+    name: "Design Definition / DMU"
+    description: "Design definition and digital mock-up"
+    
+  - id: "LC05"
+    name: "Verification & Validation"
+    description: "Testing and verification activities"
+    
+  - id: "LC06"
+    name: "Publication"
+    description: "Technical publication generation"
+    
+  - id: "LC07"
+    name: "In-Service Support"
+    description: "Maintenance and support activities"

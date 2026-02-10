@@ -1,0 +1,235 @@
+# =============================================================================
+# Template Manifest — Program Initialization
+# =============================================================================
+# Defines all templates and directory structure for program scaffolding.
+# Used by `aerospacemodel init` to create new program instances.
+# =============================================================================
+
+metadata:
+  template_name: "program"
+  template_version: "2.0.0"
+  description: "Full ASIT-ASIGT program structure"
+  aerospacemodel_version: "2.0.0"
+
+# -----------------------------------------------------------------------------
+# Required Variables
+# -----------------------------------------------------------------------------
+variables:
+  required:
+    - name: "program_name"
+      description: "Full program name"
+      example: "HydrogenJet-100"
+      
+    - name: "model_code"
+      description: "Short model identifier (2-5 characters)"
+      example: "HJ1"
+      pattern: "^[A-Z0-9]{2,5}$"
+      
+    - name: "organization"
+      description: "Organization name"
+      example: "Green Aviation Inc."
+      
+  optional:
+    - name: "cage_code"
+      description: "CAGE/NCAGE code"
+      default: "XXXXX"
+      
+    - name: "country_code"
+      description: "ISO 3166-1 alpha-2 country code"
+      default: "US"
+      
+    - name: "language_code"
+      description: "ISO 639-1 language code"
+      default: "en"
+      
+    - name: "s1000d_issue"
+      description: "S1000D issue number"
+      default: "5.0"
+      allowed: ["4.1", "4.2", "5.0"]
+      
+    - name: "program_description"
+      description: "Program description"
+      default: "Aircraft program managed by AEROSPACEMODEL"
+
+# -----------------------------------------------------------------------------
+# Generated Variables
+# -----------------------------------------------------------------------------
+generated:
+  - name: "created_date"
+    source: "current_date"
+    format: "YYYY-MM-DD"
+    
+  - name: "created_by"
+    source: "current_user"
+    default: "system"
+    
+  - name: "aerospacemodel_version"
+    source: "package_version"
+    
+  - name: "program_id"
+    template: "{{ model_code }}-PROG-001"
+
+# -----------------------------------------------------------------------------
+# Directory Structure
+# -----------------------------------------------------------------------------
+directories:
+  # Root directories
+  - path: "."
+    files:
+      - source: "README.md.j2"
+        target: "README.md"
+      - source: "program_config.yaml.j2"
+        target: "program_config.yaml"
+        
+  # ASIT Layer
+  - path: "ASIT"
+    files:
+      - source: "asit/asit_config.yaml.j2"
+        target: "asit_config.yaml"
+        
+  - path: "ASIT/GOVERNANCE"
+    files:
+      - source: "asit/governance/BASELINES.md.j2"
+        target: "BASELINES.md"
+      - source: "asit/governance/BASELINE_REGISTER.csv.j2"
+        target: "BASELINE_REGISTER.csv"
+        
+  - path: "ASIT/GOVERNANCE/CHANGE_CONTROL"
+    files:
+      - source: "asit/governance/change_control/ECR_TEMPLATE.md"
+        target: "ECR_TEMPLATE.md"
+        copy: true
+      - source: "asit/governance/change_control/ECO_TEMPLATE.md"
+        target: "ECO_TEMPLATE.md"
+        copy: true
+        
+  - path: "ASIT/GOVERNANCE/CHANGE_CONTROL/ECR"
+    create_only: true
+    gitkeep: true
+    
+  - path: "ASIT/GOVERNANCE/CHANGE_CONTROL/ECO"
+    create_only: true
+    gitkeep: true
+    
+  - path: "ASIT/GOVERNANCE/CHANGE_CONTROL/CCB_MINUTES"
+    create_only: true
+    gitkeep: true
+    
+  - path: "ASIT/GOVERNANCE/APPROVALS"
+    files:
+      - source: "asit/governance/approvals/APPROVAL_MATRIX.csv.j2"
+        target: "APPROVAL_MATRIX.csv"
+        
+  - path: "ASIT/GOVERNANCE/APPROVALS/GATE_REVIEWS"
+    create_only: true
+    gitkeep: true
+    
+  - path: "ASIT/GOVERNANCE/RELEASES"
+    files:
+      - source: "asit/governance/releases/RELEASE_POLICY.md.j2"
+        target: "RELEASE_POLICY.md"
+      - source: "asit/governance/releases/RELEASE_REGISTER.csv.j2"
+        target: "RELEASE_REGISTER.csv"
+        
+  - path: "ASIT/STRUCTURE"
+    files:
+      - source: "asit/structure/ATA_MAPPING.yaml.j2"
+        target: "ATA_MAPPING.yaml"
+      - source: "asit/structure/LIFECYCLE_PHASES.yaml"
+        target: "LIFECYCLE_PHASES.yaml"
+        copy: true
+      - source: "asit/structure/KDB_IDB_PARTITION.md"
+        target: "KDB_IDB_PARTITION.md"
+        copy: true
+      - source: "asit/structure/NAMING_CONVENTIONS.md.j2"
+        target: "NAMING_CONVENTIONS.md"
+        
+  - path: "ASIT/CONTRACTS"
+    files:
+      - source: "asit/contracts/CONTRACT_SCHEMA.yaml"
+        target: "CONTRACT_SCHEMA.yaml"
+        copy: true
+        
+  - path: "ASIT/CONTRACTS/templates"
+    files:
+      - source: "asit/contracts/templates/KITDM-CTR-LM-CSDB.template.yaml.j2"
+        target: "KITDM-CTR-LM-CSDB.template.yaml"
+      - source: "asit/contracts/templates/KITDM-CTR-LM-EXPORT.template.yaml.j2"
+        target: "KITDM-CTR-LM-EXPORT.template.yaml"
+        
+  - path: "ASIT/CONTRACTS/active"
+    create_only: true
+    gitkeep: true
+    
+  - path: "ASIT/INDEX"
+    files:
+      - source: "asit/index/SSOT_INDEX.yaml.j2"
+        target: "SSOT_INDEX.yaml"
+      - source: "asit/index/TRACE_MASTER.csv.j2"
+        target: "TRACE_MASTER.csv"
+      - source: "asit/index/ID_REGISTRY.csv.j2"
+        target: "ID_REGISTRY.csv"
+      - source: "asit/index/ARTIFACT_CATALOG.yaml.j2"
+        target: "ARTIFACT_CATALOG.yaml"
+        
+  # ASIGT Layer
+  - path: "ASIGT"
+    files:
+      - source: "asigt/asigt_config.yaml.j2"
+        target: "asigt_config.yaml"
+        
+  - path: "ASIGT/brex"
+    files:
+      - source: "asigt/brex/project_brex.yaml.j2"
+        target: "{{ model_code }}_brex.yaml"
+        
+  - path: "ASIGT/runs"
+    create_only: true
+    gitkeep: true
+    readme: "asigt/runs/README.md"
+    
+  # Data directories
+  - path: "KDB"
+    create_only: true
+    gitkeep: true
+    readme: "data/KDB_README.md.j2"
+    
+  - path: "IDB"
+    create_only: true
+    gitkeep: true
+    readme: "data/IDB_README.md.j2"
+    
+  - path: "output"
+    create_only: true
+    gitkeep: true
+    
+  - path: "logs"
+    create_only: true
+    gitkeep: true
+
+# -----------------------------------------------------------------------------
+# Post-Initialization Actions
+# -----------------------------------------------------------------------------
+post_init:
+  - action: "validate_config"
+    file: "program_config.yaml"
+    
+  - action: "create_initial_baseline"
+    type: "DBL"
+    name: "{{ model_code }}-DBL-INIT"
+    description: "Initial design baseline"
+    enabled: false  # User must explicitly enable
+    
+  - action: "display_message"
+    message: |
+      
+      ✓ Program {{ program_name }} initialized successfully!
+      
+      Next steps:
+      1. Review and customize program_config.yaml
+      2. Configure ASIT/asit_config.yaml governance settings
+      3. Set up your BREX rules in ASIGT/brex/{{ model_code }}_brex.yaml
+      4. Create your first baseline with: aerospacemodel baseline create
+      5. Define transformation contracts in ASIT/CONTRACTS/active/
+      
+      Documentation: https://docs.aerospacemodel.io/getting-started

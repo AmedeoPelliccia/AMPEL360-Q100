@@ -1,0 +1,50 @@
+# Naming Conventions — {{ program_name }}
+
+**Program:** {{ program_name }} ({{ model_code }})
+**Organization:** {{ organization }}
+
+---
+
+## Identifiers
+
+### KNOT IDs
+
+```
+KNOT-ATA<chapter>-<section>-<subsection>-<sequence>
+```
+
+Example: `KNOT-ATA28-10-00-001`
+
+### KNU IDs
+
+```
+KNU-ATA<chapter>-<section>-<subsection>-<KNOT_sequence>-<type>-<sequence>
+```
+
+Example: `KNU-ATA28-10-00-001-REQ-001`
+
+### Types
+
+| Code | Type |
+|------|------|
+| REQ  | Requirement |
+| DES  | Design |
+| DATA | Data |
+| SAF  | Safety |
+| PUB  | Publication |
+
+## Folder Naming
+
+```
+<YY>-<ZZ>-<SS>_<descriptive-slug>/
+```
+
+Example: `28-10-00_fuel-storage-general/`
+
+## File Naming
+
+```
+ATA<chapter>-<section>-<subsection>_<DESCRIPTOR>.<ext>
+```
+
+Example: `ATA28-10-00_TLAR_FUEL_STORAGE.yaml`

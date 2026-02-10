@@ -1,0 +1,24 @@
+# Instance Database (IDB) — {{ program_name }}
+
+**Program:** {{ program_name }} ({{ model_code }})
+
+## Purpose
+
+The Instance Database contains **working, in-progress** artifacts that are being
+developed or modified before promotion to the KDB.
+
+## Structure
+
+```
+IDB/
+├── drafts/          # Work-in-progress artifacts
+├── reviews/         # Artifacts under review
+└── staging/         # Artifacts ready for KDB promotion
+```
+
+## Rules
+
+- Artifacts in IDB are not authoritative
+- Draft artifacts may be incomplete or unvalidated
+- Promotion to KDB requires BREX validation and approval
+- Superseded copies should be cleaned up regularly

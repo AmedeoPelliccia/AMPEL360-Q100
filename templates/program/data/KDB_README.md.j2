@@ -1,0 +1,30 @@
+# Knowledge Database (KDB) — {{ program_name }}
+
+**Program:** {{ program_name }} ({{ model_code }})
+
+## Purpose
+
+The Knowledge Database contains **verified, baselined** artifacts that represent
+the authoritative state of program data.
+
+## Structure
+
+```
+KDB/
+└── LM/
+    └── SSOT/
+        └── PLM/
+            ├── LC01_PROBLEM_STATEMENT/
+            ├── LC02_SYSTEM_REQUIREMENTS/
+            ├── LC03_FUNCTIONAL_ANALYSIS/
+            ├── LC04_DESIGN_DEFINITION_DMU/
+            ├── LC05_VERIFICATION_VALIDATION/
+            ├── LC06_PUBLICATION/
+            └── LC07_IN_SERVICE_SUPPORT/
+```
+
+## Rules
+
+- All artifacts must pass BREX validation before inclusion
+- Changes require formal ECR/ECO process
+- Artifacts are organized by lifecycle phase

@@ -1,0 +1,35 @@
+# Release Policy — {{ program_name }}
+
+**Program:** {{ program_name }} ({{ model_code }})
+**Organization:** {{ organization }}
+
+---
+
+## Release Types
+
+| Type | Description | Approval Required |
+|------|-------------|-------------------|
+| Major | New baseline release | CCB + Gate Review |
+| Minor | Incremental update | CCB |
+| Patch | Corrections only | Configuration Manager |
+
+## Release Naming
+
+Releases follow the pattern: `{{ model_code }}-REL-{MAJOR}.{MINOR}.{PATCH}`
+
+## Release Process
+
+1. **Prepare** — Verify all items are baselined
+2. **Review** — Gate review (for major releases)
+3. **Approve** — CCB approval
+4. **Package** — Create release package
+5. **Distribute** — Publish to authorized recipients
+6. **Archive** — Store release record
+
+## Release Checklist
+
+- [ ] All ECOs implemented and verified
+- [ ] Baseline established and approved
+- [ ] Traceability matrix updated
+- [ ] Quality review completed
+- [ ] Release notes prepared
