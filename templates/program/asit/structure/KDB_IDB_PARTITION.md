@@ -2,7 +2,7 @@
 
 ## Overview
 
-The data partition separates verified knowledge (KDB) from working instances (IDB).
+The data partition separates verified knowledge (KDB) from information (IDB).
 
 ## Knowledge Database (KDB)
 
@@ -11,7 +11,7 @@ The data partition separates verified knowledge (KDB) from working instances (ID
 - Changes require formal change control (ECR/ECO)
 - Organized by lifecycle phase
 
-## Instance Database (IDB)
+## Information Database (IDB)
 
 - Contains **working, in-progress** artifacts
 - Writable during development
